@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { fishImage, withBase } from "../lib/paths.js";
+
+const { fish } = Astro.props;
+const details = [
+  ["Species", fish.species],
+  ["Age", fish.age],
+  ["Tank", fish.tank],
+  ["Favorite food", fish.favoriteFood],
+].filter(([, value]) => value);
+---
+
+<BaseLayout title={fish.name} description={fish.summary}>
+  <main class="page-wrap fish-detail">
+    <p class="crumb"><a href={withBase()}>All fish</a></p>
+    <section class="fish-profile">
+      <div class="fish-photo-panel">
+        <img src={fishImage(fish.image)} alt={fish.imageAlt} />
+      </div>
+
+      <article class="fish-copy">
+        <p class="eyebrow">Fish profile</p>
+        <h1>{fish.name}</h1>
+        <p class="lede">{fish.summary}</p>
+
+        {
+          details.length > 0 && (
+            <dl class="fish-facts">
+              {details.map(([label, value]) => (
+                <div>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
+
+        {
+          fish.notes && fish.notes.length > 0 && (
+            <div class="notes">
+              <h2>Notes</h2>
+              <ul>
+                {fish.notes.map((note) => (
+                  <li>{note}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </article>
+    </section>
+  </main>
+</BaseLayout>

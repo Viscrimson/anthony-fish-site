@@ -1,0 +1,29 @@
+---
+import { withBase } from "../lib/paths.js";
+import "../styles/site.css";
+
+const {
+  title = "Anthony Fish Site",
+  description = "A simple static fish catalog.",
+} = Astro.props;
+
+const pageTitle =
+  title === "Anthony Fish Site" ? title : `${title} | Anthony Fish Site`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href={withBase("favicon.svg")} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-brand" href={withBase()}>Anthony Fish Site</a>
+    </header>
+    <slot />
+  </body>
+</html>

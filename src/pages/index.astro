@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { fishImage, withBase } from "../lib/paths.js";
+
+const fishPages = Object.entries(
+  import.meta.glob("./fish/*.astro", { eager: true }),
+)
+  .map(([path, page]) => {
+    if (!page.fish) {
+      throw new Error(
+        `${path} must export a fish object. Copy src/pages/fish/fish-page-template.astro.txt to add a fish.`,
+      );
+    }
+
+    const slug = path.replace("./fish/", "").replace(".astro", "");
+    return {
+      ...page.fish,
+      url: withBase(`fish/${slug}/`),
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout
+  title="Anthony Fish Site"
+  description="A simple static catalog of Anthony's fish."
+>
+  <main class="page-wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Anthony Fish Site</p>
+        <h1>Meet the fish.</h1>
+        <p class="lede">
+          A small place for photos, notes, and favorite details from Anthony's
+          aquarium.
+        </p>
+      </div>
+    </section>
+
+    <section class="fish-grid" aria-label="Fish profiles">
+      {
+        fishPages.map((fish) => (
+          <a class="fish-card" href={fish.url}>
+            <img src={fishImage(fish.image)} alt={fish.imageAlt} />
+            <div class="fish-card-copy">
+              <h2>{fish.name}</h2>
+              <p>{fish.summary}</p>
+            </div>
+          </a>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

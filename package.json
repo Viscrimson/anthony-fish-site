@@ -1,0 +1,14 @@
+{
+  "name": "anthony-fish-site",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node ./scripts/build.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.0.3"
+  }
+}

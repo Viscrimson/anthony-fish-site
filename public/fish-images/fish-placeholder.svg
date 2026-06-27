@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Fish placeholder illustration">
+  <rect width="900" height="675" fill="#e8f3f4" />
+  <path d="M180 346c109-132 287-164 452-80 46 23 84 56 116 97-34 39-75 70-123 91-162 70-334 34-445-108z" fill="#0f766e" />
+  <path d="M221 346 75 458V232z" fill="#e76f51" />
+  <path d="M475 236c23-62 69-105 138-130 20 69 1 126-57 172z" fill="#f2b84b" />
+  <path d="M477 451c22 66 67 112 135 139 23-70 5-129-54-178z" fill="#6bbfca" />
+  <circle cx="592" cy="314" r="18" fill="#14213d" />
+  <circle cx="598" cy="308" r="5" fill="#ffffff" />
+  <path d="M333 350c82-32 168-32 258 0" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity=".55" />
+</svg>

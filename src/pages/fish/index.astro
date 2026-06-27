@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { fishImage, withBase } from "../../lib/paths.js";
+
+const fishPages = Object.entries(
+  import.meta.glob("./*.astro", { eager: true }),
+)
+  .filter(([path]) => path !== "./index.astro")
+  .map(([path, page]) => {
+    if (!page.fish) {
+      throw new Error(
+        `${path} must export a fish object. Copy src/pages/fish/fish-page-template.astro.txt to add a fish.`,
+      );
+    }
+
+    const slug = path.replace("./", "").replace(".astro", "");
+    return {
+      ...page.fish,
+      url: withBase(`fish/${slug}/`),
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout
+  title="Fish Care Sheets"
+  description="Fish care sheets from Anthony Fish Site."
+>
+  <main class="page-wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Care Sheets</p>
+        <h1>Fish Care Sheets.</h1>
+        <p class="lede">
+          Practical fish care pages for species, varieties, and individual care
+          notes. These pages are meant to be easy to share from QR codes on fish
+          bags.
+        </p>
+      </div>
+    </section>
+
+    <section class="fish-grid" aria-label="Fish care sheets">
+      {
+        fishPages.map((fish) => (
+          <a class="fish-card" href={fish.url}>
+            <img src={fishImage(fish.image)} alt={fish.imageAlt} />
+            <div class="fish-card-copy">
+              <h2>{fish.name}</h2>
+              <p>{fish.summary}</p>
+            </div>
+          </a>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

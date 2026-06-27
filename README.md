@@ -6,6 +6,16 @@ Temporary Pages URL:
 
 `https://viscrimson.github.io/anthony-fish-site/`
 
+## Site Structure
+
+- `/` is the About Anthony landing page.
+- `/fish/` lists fish care sheets.
+- `/fish/[slug]/` shows an individual fish care sheet.
+- `/notes/` lists fishkeeping notes.
+- `/notes/[slug]/` shows an individual note or article.
+
+This is a hobby fish-care resource, not a store.
+
 ## Add a Fish
 
 1. Copy `src/pages/fish/fish-page-template.astro.txt`.

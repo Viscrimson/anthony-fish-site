@@ -13,7 +13,7 @@ const details = [
 
 <BaseLayout title={fish.name} description={fish.summary}>
   <main class="page-wrap fish-detail">
-    <p class="crumb"><a href={withBase()}>All fish</a></p>
+    <p class="crumb"><a href={withBase("fish/")}>All fish care sheets</a></p>
     <section class="fish-profile">
       <div class="fish-photo-panel">
         <img src={fishImage(fish.image)} alt={fish.imageAlt} />

@@ -1,54 +1,76 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { fishImage, withBase } from "../lib/paths.js";
+import { withBase } from "../lib/paths.js";
 
-const fishPages = Object.entries(
-  import.meta.glob("./fish/*.astro", { eager: true }),
-)
-  .map(([path, page]) => {
-    if (!page.fish) {
-      throw new Error(
-        `${path} must export a fish object. Copy src/pages/fish/fish-page-template.astro.txt to add a fish.`,
-      );
-    }
-
-    const slug = path.replace("./fish/", "").replace(".astro", "");
-    return {
-      ...page.fish,
-      url: withBase(`fish/${slug}/`),
-    };
-  })
-  .sort((a, b) => a.name.localeCompare(b.name));
+const profileFields = [
+  ["Name", "TODO: Anthony preferred display name"],
+  ["Degrees", "TODO: degrees or certifications to list"],
+  ["Experience", "TODO: years and types of fishkeeping experience"],
+  ["Societies / groups", "TODO: aquarium societies, clubs, or groups"],
+  ["Fishkeeping focus", "TODO: fish species, habitats, or care topics"],
+  ["Short biography", "TODO: short public biography for this site"],
+  ["Contact info", "TODO: public contact method Anthony wants to share"],
+];
 ---
 
 <BaseLayout
   title="Anthony Fish Site"
-  description="A simple static catalog of Anthony's fish."
+  description="About Anthony and the hobby fish-care resources on Anthony Fish Site."
 >
   <main class="page-wrap">
-    <section class="hero">
+    <section class="hero home-hero">
       <div>
         <p class="eyebrow">Anthony Fish Site</p>
-        <h1>Meet the fish.</h1>
+        <h1>About Anthony.</h1>
         <p class="lede">
-          A small place for photos, notes, and favorite details from Anthony's
-          aquarium.
+          A hobby fish-care resource for sharing practical care sheets,
+          fishkeeping notes, and QR-linked care information for fish people
+          receive from Anthony.
+        </p>
+      </div>
+      <div class="notice-panel">
+        <p class="notice-title">Not a store</p>
+        <p>
+          This site is for care information only. It does not include a shop,
+          cart, payments, accounts, or online ordering.
         </p>
       </div>
     </section>
 
-    <section class="fish-grid" aria-label="Fish profiles">
-      {
-        fishPages.map((fish) => (
-          <a class="fish-card" href={fish.url}>
-            <img src={fishImage(fish.image)} alt={fish.imageAlt} />
-            <div class="fish-card-copy">
-              <h2>{fish.name}</h2>
-              <p>{fish.summary}</p>
+    <section class="content-section" aria-labelledby="who-i-am">
+      <div>
+        <p class="eyebrow">Who I Am</p>
+        <h2 id="who-i-am">About Anthony</h2>
+      </div>
+      <dl class="profile-list">
+        {
+          profileFields.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
             </div>
-          </a>
-        ))
-      }
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="link-grid" aria-label="Site sections">
+      <a class="feature-link" href={withBase("fish/")}>
+        <p class="eyebrow">Care Sheets</p>
+        <h2>Fish Care Sheets</h2>
+        <p>
+          Species and variety care pages that can be shared directly. QR codes
+          on fish bags can link to the care sheet for the fish someone received.
+        </p>
+      </a>
+      <a class="feature-link" href={withBase("notes/")}>
+        <p class="eyebrow">Articles</p>
+        <h2>Fishkeeping Notes</h2>
+        <p>
+          Short fishkeeping articles, setup notes, and care observations that do
+          not need to be tied to one fish care sheet.
+        </p>
+      </a>
     </section>
   </main>
 </BaseLayout>

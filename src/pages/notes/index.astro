@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../lib/paths.js";
+
+const notePages = Object.entries(
+  import.meta.glob("./*.astro", { eager: true }),
+)
+  .filter(([path]) => path !== "./index.astro")
+  .map(([path, page]) => {
+    if (!page.note) {
+      throw new Error(`${path} must export a note object.`);
+    }
+
+    const slug = path.replace("./", "").replace(".astro", "");
+    return {
+      ...page.note,
+      url: withBase(`notes/${slug}/`),
+    };
+  })
+  .sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<BaseLayout
+  title="Fishkeeping Notes"
+  description="Fishkeeping notes and short articles from Anthony Fish Site."
+>
+  <main class="page-wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Articles</p>
+        <h1>Fishkeeping Notes.</h1>
+        <p class="lede">
+          Short notes about care routines, aquarium setup, and how to use this
+          hobby resource.
+        </p>
+      </div>
+    </section>
+
+    <section class="article-list" aria-label="Fishkeeping notes">
+      {
+        notePages.map((note) => (
+          <a class="article-card" href={note.url}>
+            <p class="eyebrow">{note.category}</p>
+            <h2>{note.title}</h2>
+            <p>{note.summary}</p>
+          </a>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

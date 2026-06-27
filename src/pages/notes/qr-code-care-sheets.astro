@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../lib/paths.js";
+
+export const note = {
+  title: "QR Codes for Care Sheets",
+  category: "Site note",
+  summary:
+    "How QR codes on fish bags can point people to the right care sheet.",
+};
+---
+
+<BaseLayout title={note.title} description={note.summary}>
+  <main class="page-wrap article-page">
+    <p class="crumb"><a href={withBase("notes/")}>All fishkeeping notes</a></p>
+    <article class="article-body">
+      <p class="eyebrow">{note.category}</p>
+      <h1>{note.title}</h1>
+      <p class="lede">{note.summary}</p>
+
+      <h2>How this helps</h2>
+      <p>
+        A QR code on a fish bag can link directly to the care sheet for the fish
+        someone received. That makes basic care information easy to find after
+        the fish leaves Anthony.
+      </p>
+
+      <h2>What to add later</h2>
+      <p>
+        TODO: Add Anthony's preferred QR code process, label format, and which
+        care sheet should be linked for each fish.
+      </p>
+    </article>
+  </main>
+</BaseLayout>

@@ -23,7 +23,25 @@ const pageTitle =
   <body>
     <header class="site-header">
       <a class="site-brand" href={withBase()}>Anthony Fish Site</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href={withBase()}>Home</a>
+        <a href={withBase("fish/")}>Fish Care Sheets</a>
+        <a href={withBase("notes/")}>Fishkeeping Notes</a>
+      </nav>
     </header>
     <slot />
+    <footer class="site-footer">
+      <div>
+        <p class="footer-title">Anthony Fish Site</p>
+        <p>
+          A hobby fish-care resource for sharing care sheets, fishkeeping notes,
+          and QR-linked care information. This is not a store.
+        </p>
+      </div>
+      <div>
+        <p class="footer-title">Contact</p>
+        <p>TODO: Anthony contact info.</p>
+      </div>
+    </footer>
   </body>
 </html>

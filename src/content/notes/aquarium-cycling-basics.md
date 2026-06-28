@@ -18,5 +18,5 @@ The exact method can change, but the core idea is the same: establish the tank
 before stocking it heavily, keep the water stable, and test it regularly while
 it matures.
 
-When Anthony adds more notes later, this page can link to the specific care
-sheets that match the fish in the system.
+Later articles can link to the specific care sheets that match the fish in the
+system.

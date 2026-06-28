@@ -58,16 +58,18 @@ img {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
   justify-content: flex-end;
   padding: 8px clamp(16px, 4vw, 40px) 8px 0;
 }
 
 .site-nav a {
-  border-radius: 6px;
-  padding: 8px 10px;
-  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: var(--surface);
+  color: var(--accent-strong);
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
@@ -76,7 +78,7 @@ img {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   background: var(--surface-soft);
-  color: var(--accent-strong);
+  border-color: var(--accent);
   outline: none;
 }
 
@@ -114,16 +116,16 @@ p {
 }
 
 h1 {
-  max-width: 13ch;
+  max-width: 14ch;
   margin-bottom: 18px;
-  font-size: clamp(2.75rem, 12vw, 6rem);
-  line-height: 0.94;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1;
 }
 
 h2 {
   margin-bottom: 14px;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  line-height: 1.1;
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  line-height: 1.08;
 }
 
 .lede {
@@ -134,11 +136,9 @@ h2 {
 }
 
 .home-hero {
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-  align-items: start;
+  max-width: 74ch;
 }
 
-.notice-panel,
 .feature-link,
 .article-card,
 .profile-list div {
@@ -147,18 +147,12 @@ h2 {
   background: var(--surface);
 }
 
-.notice-panel {
-  padding: 20px;
-}
-
-.notice-title,
 .footer-title {
   margin-bottom: 8px;
   color: var(--accent-strong);
   font-weight: 800;
 }
 
-.notice-panel p:last-child,
 .feature-link p:last-child,
 .article-card p:last-child,
 .site-footer p:last-child {
@@ -221,7 +215,7 @@ h2 {
 
 .fish-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 18px;
 }
 
@@ -241,17 +235,24 @@ h2 {
 
 .fish-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   background: var(--surface-soft);
 }
 
 .fish-card-copy {
   padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.fish-card .eyebrow {
+  margin-bottom: 0;
 }
 
 .fish-card h2 {
-  margin-bottom: 8px;
+  font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 .fish-card p {
@@ -461,7 +462,6 @@ h2 {
 
 @media (max-width: 760px) {
   .site-header,
-  .home-hero,
   .content-section,
   .site-footer {
     grid-template-columns: 1fr;
@@ -473,7 +473,22 @@ h2 {
 
   .site-nav {
     justify-content: flex-start;
-    padding: 0 12px 12px;
+    margin: 0 12px 12px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .page-wrap {

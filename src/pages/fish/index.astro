@@ -39,6 +39,7 @@ const fishPages = (await getCollection("fish"))
           <a class="fish-card" href={fish.url}>
             <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} care sheet image`} />
             <div class="fish-card-copy">
+              <p class="eyebrow">Care sheet</p>
               <h2>{fish.commonName}</h2>
               <p><em>{fish.scientificName}</em></p>
               <p>{fish.summary}</p>

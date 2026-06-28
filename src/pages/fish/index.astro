@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { fishImage, withBase } from "../../lib/paths.js";
+import { fishImage, normalizeContentSlug, withBase } from "../../lib/paths.js";
 
 const fishPages = (await getCollection("fish"))
   .map((entry) => {
-    const slug = entry.id.replace(/\.md$/, "");
+    const slug = normalizeContentSlug(entry.id);
 
     return {
       ...entry.data,

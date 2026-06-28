@@ -1,14 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { withBase } from "../../lib/paths.js";
+import { normalizeContentSlug, withBase } from "../../lib/paths.js";
 
 const notePages = (await getCollection("notes"))
-  .map((entry) => ({
-    ...entry.data,
-    slug: entry.id,
-    url: withBase(`notes/${entry.id}/`),
-  }))
+  .map((entry) => {
+    const slug = normalizeContentSlug(entry.id);
+
+    return {
+      ...entry.data,
+      slug,
+      url: withBase(`notes/${slug}/`),
+    };
+  })
   .sort((a, b) => b.date.getTime() - a.date.getTime());
 
 const formatDate = (date) =>

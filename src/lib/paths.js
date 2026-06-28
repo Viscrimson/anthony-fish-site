@@ -5,6 +5,10 @@ export function withBase(path = "") {
   return `${base}${path.replace(/^\/+/, "")}`;
 }
 
+export function normalizeContentSlug(value = "") {
+  return value.replace(/\.(md|mdx)$/i, "");
+}
+
 export function fishImage(filename) {
   return withBase(`fish-images/${filename || "fish-placeholder.svg"}`);
 }

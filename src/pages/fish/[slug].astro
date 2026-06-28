@@ -1,12 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import FishPage from "../../components/FishPage.astro";
+import { normalizeContentSlug } from "../../lib/paths.js";
 
 export async function getStaticPaths() {
   const fishEntries = await getCollection("fish");
 
   return fishEntries.map((entry) => ({
-    params: { slug: entry.id.replace(/\.md$/, "") },
+    params: { slug: normalizeContentSlug(entry.id) },
     props: { fish: entry.data },
   }));
 }

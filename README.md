@@ -12,6 +12,8 @@ This repo uses Pages CMS as the browser editor for content.
 3. Open this repository.
 4. Add or edit fish and notes through the form UI.
 5. Upload fish images in the CMS instead of editing Astro files.
+6. Keep a fish entry in draft until every required field is filled in.
+7. Save the entry to create a Git commit, then wait for GitHub Pages to rebuild.
 
 Anthony does not need to edit layouts or components to manage content.
 The CMS handles the forms and uploads; the site still controls the final image
@@ -44,17 +46,20 @@ npm run build
 Preferred workflow:
 
 1. Create the entry in Pages CMS.
-2. Fill out the fish fields.
+2. Fill out every required fish field while the entry is still marked draft.
 3. Upload the main image, juvenile image, male image, female image, and any gallery images.
+4. Save the draft and confirm the Git commit appears on `main`.
+5. Turn off the draft toggle only after the entry is complete.
 
 Manual fallback:
 
 1. Copy `src/content/fish/_fish-template-copy-me.md.txt`.
 2. Paste the copy in `src/content/fish/`.
 3. Rename the copy with lowercase dashes, for example `orange-guppy.md`.
-4. Fill out the frontmatter fields.
-5. Add images to `public/fish-images/`.
-6. Use either a bare image name or a `/fish-images/...` path in the fish file.
+4. Fill out every frontmatter field.
+5. Leave `draft: true` in place until the entry is complete.
+6. Add images to `public/fish-images/`.
+7. Use either a bare image name or a `/fish-images/...` path in the fish file.
 
 The fish care sheet index and individual fish pages update automatically from
 Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or
@@ -107,7 +112,8 @@ them into a consistent 4:3 frame.
 ## Deployment
 
 GitHub Pages deployment is temporary during setup. Connect the final custom
-domain before printing QR codes.
+domain before printing QR codes. A CMS save creates a Git commit first, then
+GitHub Pages publishes that commit after the Actions workflow finishes.
 
 ## GitHub Pages Setup
 

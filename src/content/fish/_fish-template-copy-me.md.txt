@@ -25,4 +25,5 @@ femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
 summary: "TODO: One short summary sentence."
+draft: true
 ---

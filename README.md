@@ -3,6 +3,20 @@
 Static Astro site for hobby fish-care information, fish care sheets, and short
 fishkeeping notes.
 
+## CMS Editing
+
+This repo uses Pages CMS as the browser editor for content.
+
+1. Open [Pages CMS](https://app.pagescms.org/).
+2. Sign in with GitHub.
+3. Open this repository.
+4. Add or edit fish and notes through the form UI.
+5. Upload fish images in the CMS instead of editing Astro files.
+
+Anthony does not need to edit layouts or components to manage content.
+The CMS handles the forms and uploads; the site still controls the final image
+framing in the browser.
+
 ## What This Site Is
 
 - A public hobby fish-care resource
@@ -27,12 +41,20 @@ npm run build
 
 ## Add a Fish
 
+Preferred workflow:
+
+1. Create the entry in Pages CMS.
+2. Fill out the fish fields.
+3. Upload the main image, juvenile image, male image, female image, and any gallery images.
+
+Manual fallback:
+
 1. Copy `src/content/fish/_fish-template-copy-me.md.txt`.
 2. Paste the copy in `src/content/fish/`.
 3. Rename the copy with lowercase dashes, for example `orange-guppy.md`.
 4. Fill out the frontmatter fields.
 5. Add images to `public/fish-images/`.
-6. Use only the image file name in the fish file, for example `orange-guppy.jpg`.
+6. Use either a bare image name or a `/fish-images/...` path in the fish file.
 
 The fish care sheet index and individual fish pages update automatically from
 Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or
@@ -53,10 +75,18 @@ femaleImage: fish-placeholder.svg
 - Use dashes instead of spaces
 - Avoid personal names in filenames unless Anthony wants them public
 
-Write only the file name in the content file. The site adds the GitHub Pages
-base path automatically.
+The site accepts bare file names, `fish-images/...` paths, and `/fish-images/...`
+paths. It adds the GitHub Pages base path automatically.
 
 ## Add a Note or Article
+
+Preferred workflow:
+
+1. Create the entry in Pages CMS.
+2. Fill out `title`, `date`, `lastUpdated`, `summary`, optional
+   `pictorialSteps`, optional `illustrationsDataTechnique`, and the body text.
+
+Manual fallback:
 
 1. Copy `src/content/notes/_article-template-copy-me.md.txt`.
 2. Paste the copy in `src/content/notes/`.

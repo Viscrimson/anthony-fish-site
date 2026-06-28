@@ -10,5 +10,10 @@ export function normalizeContentSlug(value = "") {
 }
 
 export function fishImage(filename) {
-  return withBase(`fish-images/${filename || "fish-placeholder.svg"}`);
+  const value = (filename || "fish-placeholder.svg")
+    .replace(/^\/+/, "")
+    .replace(/^public\//i, "");
+  const imagePath = value.startsWith("fish-images/") ? value : `fish-images/${value}`;
+
+  return withBase(imagePath);
 }

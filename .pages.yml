@@ -1,0 +1,165 @@
+media:
+  - name: images
+    label: Fish images
+    input: public/fish-images
+    output: /fish-images
+    rename: safe
+    categories: [image]
+    extensions: [svg, png, jpg, jpeg, webp]
+
+content:
+  - name: fish
+    label: Fish Care Sheets
+    type: collection
+    path: src/content/fish
+    filename: "{slug}.md"
+    view:
+      fields: [commonName, scientificName, summary]
+      primary: commonName
+      sort: [commonName]
+      search: [commonName, scientificName, summary]
+      default:
+        sort: commonName
+        order: asc
+    fields:
+      - name: commonName
+        label: Common Name
+        type: string
+      - name: scientificName
+        label: Scientific Name
+        type: string
+      - name: origin
+        label: Origin
+        type: text
+      - name: temperatureRange
+        label: Temperature Range
+        type: string
+      - name: adultSize
+        label: Adult Size
+        type: string
+      - name: tankSize
+        label: Tank Size
+        type: string
+      - name: foodRecommendation
+        label: Food Recommendation
+        type: string
+      - name: difficulty
+        label: Difficulty
+        type: string
+      - name: temperament
+        label: Temperament
+        type: text
+      - name: plantSafe
+        label: Plant Safe
+        type: boolean
+      - name: invertebrateSafe
+        label: Invertebrate Safe
+        type: boolean
+      - name: juvenileAppearance
+        label: Juvenile Appearance
+        type: text
+      - name: adultMaleAppearance
+        label: Adult Male Appearance
+        type: text
+      - name: adultFemaleAppearance
+        label: Adult Female Appearance
+        type: text
+      - name: maleFemaleDifferences
+        label: Male / Female Differences
+        type: text
+      - name: husbandryNotes
+        label: Husbandry Notes
+        type: text
+      - name: anthonyNotes
+        label: Anthony's Notes
+        type: text
+      - name: mainImage
+        label: Main Image
+        type: image
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: juvenileImage
+        label: Juvenile Image
+        type: image
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: maleImage
+        label: Male Image
+        type: image
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: femaleImage
+        label: Female Image
+        type: image
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: galleryImages
+        label: Gallery Images
+        type: image
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          multiple:
+            max: 12
+          unique: true
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: summary
+        label: Summary
+        type: string
+
+  - name: notes
+    label: Fishkeeping Notes
+    type: collection
+    path: src/content/notes
+    filename: "{slug}.md"
+    view:
+      fields: [title, date, summary]
+      primary: title
+      sort: [date, title]
+      search: [title, summary]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: lastUpdated
+        label: Last Updated
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: Summary
+        type: text
+      - name: pictorialSteps
+        label: Pictorial Steps
+        type: string
+        list: true
+      - name: illustrationsDataTechnique
+        label: Illustrations and Data Technique
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          media: false
+          format: markdown

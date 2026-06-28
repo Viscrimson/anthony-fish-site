@@ -12,5 +12,9 @@ plantSafe: true
 invertebrateSafe: true
 mainImage: /fish-images/oip.jpg
 juvenileImage: /fish-images/just-some-good-aska-map-seed-v0-mi3l27n6rrug1.webp
-draft: true
+maleImage: /fish-images/fish-placeholder.svg
+femaleImage: /fish-images/fish-placeholder.svg
+galleryImages:
+  - /fish-images/fish-placeholder.svg
+draft: false
 ---

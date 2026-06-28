@@ -9,9 +9,9 @@ pictorialSteps:
   - Wait for the tank to stabilize before adding fish.
 illustrationsDataTechnique: Use a simple time series or progress chart to show water parameters over time.
 galleryImages:
-  - note-placeholder.svg
+  - /note-images/note-placeholder.svg
+  - /note-images/note-placeholder.svg
 ---
-
 Cycling a new tank is the step that makes the rest of the setup work. It gives
 the filter bacteria time to grow so the aquarium can handle waste more
 reliably.

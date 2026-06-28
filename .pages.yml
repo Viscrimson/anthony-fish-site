@@ -6,6 +6,13 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
+  - name: noteImages
+    label: Note images
+    input: public/note-images
+    output: /note-images
+    rename: safe
+    categories: [image]
+    extensions: [svg, png, jpg, jpeg, webp]
 
 content:
   - name: fish
@@ -151,12 +158,21 @@ content:
         label: Summary
         type: text
       - name: pictorialSteps
-        label: Pictorial Steps
+        label: Steps
         type: string
         list: true
       - name: illustrationsDataTechnique
         label: Illustrations and Data Technique
         type: text
+      - name: galleryImages
+        label: Images
+        type: image
+        list: true
+        options:
+          media: noteImages
+          path: public/note-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
       - name: body
         label: Body
         type: rich-text

@@ -84,7 +84,9 @@ Preferred workflow:
 
 1. Create the entry in Pages CMS.
 2. Fill out `title`, `date`, `lastUpdated`, `summary`, optional
-   `pictorialSteps`, optional `illustrationsDataTechnique`, and the body text.
+   `pictorialSteps` for a step list, optional `illustrationsDataTechnique`,
+   optional `galleryImages`, and the body text.
+3. Upload note images to the `Note images` media area.
 
 Manual fallback:
 
@@ -92,12 +94,15 @@ Manual fallback:
 2. Paste the copy in `src/content/notes/`.
 3. Rename the copy with lowercase dashes, for example `water-change-basics.md`.
 4. Fill out `title`, `date`, `lastUpdated`, `summary`, optional
-   `pictorialSteps`, optional `illustrationsDataTechnique`, and the body text.
+   `pictorialSteps` for a step list, optional `illustrationsDataTechnique`,
+   optional `galleryImages`, and the body text.
 5. Save the file in `src/content/notes/`.
 
 The notes index and article pages update automatically from Markdown files in
 `src/content/notes/`. This content structure is suitable for a future
 Git-based editor because Anthony can add entries by editing files only.
+Note images stay separate from the fish sheet images, and the note page crops
+them into a consistent 4:3 frame.
 
 ## Deployment
 

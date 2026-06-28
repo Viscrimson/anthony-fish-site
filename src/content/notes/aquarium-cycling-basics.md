@@ -8,6 +8,8 @@ pictorialSteps:
   - Test ammonia, nitrite, and nitrate during the cycle.
   - Wait for the tank to stabilize before adding fish.
 illustrationsDataTechnique: Use a simple time series or progress chart to show water parameters over time.
+galleryImages:
+  - note-placeholder.svg
 ---
 
 Cycling a new tank is the step that makes the rest of the setup work. It gives
@@ -20,3 +22,6 @@ it matures.
 
 Later articles can link to the specific care sheets that match the fish in the
 system.
+
+The image block above is separate from the written article so the photo layout
+stays consistent while the body text stays easy to read.

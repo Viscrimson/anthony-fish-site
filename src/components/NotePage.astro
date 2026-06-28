@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { withBase } from "../lib/paths.js";
+import { noteImage, withBase } from "../lib/paths.js";
 
 const { note, Content } = Astro.props;
 const published = new Intl.DateTimeFormat("en-US", {
@@ -35,7 +35,7 @@ const updated = new Intl.DateTimeFormat("en-US", {
       {
         note.data.pictorialSteps?.length ? (
           <section class="note-section">
-            <h2>Pictorial steps</h2>
+            <h2>Steps</h2>
             <ol class="step-list">
               {note.data.pictorialSteps.map((step) => <li>{step}</li>)}
             </ol>
@@ -48,6 +48,23 @@ const updated = new Intl.DateTimeFormat("en-US", {
           <section class="note-section">
             <h2>Illustrations and data technique</h2>
             <p>{note.data.illustrationsDataTechnique}</p>
+          </section>
+        ) : null
+      }
+
+      {
+        note.data.galleryImages?.length ? (
+          <section class="note-section">
+            <h2>Images</h2>
+            <div class="note-gallery" aria-label={`${note.data.title} images`}>
+              {note.data.galleryImages.map((image, index) => (
+                <img
+                  src={noteImage(image)}
+                  alt={`${note.data.title} image ${index + 1}`}
+                  loading="lazy"
+                />
+              ))}
+            </div>
           </section>
         ) : null
       }

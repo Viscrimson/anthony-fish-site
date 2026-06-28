@@ -9,11 +9,19 @@ export function normalizeContentSlug(value = "") {
   return value.replace(/\.(md|mdx)$/i, "");
 }
 
-export function fishImage(filename) {
-  const value = (filename || "fish-placeholder.svg")
+function publicImage(folder, filename, fallback) {
+  const value = (filename || fallback)
     .replace(/^\/+/, "")
     .replace(/^public\//i, "");
-  const imagePath = value.startsWith("fish-images/") ? value : `fish-images/${value}`;
+  const imagePath = value.startsWith(`${folder}/`) ? value : `${folder}/${value}`;
 
   return withBase(imagePath);
+}
+
+export function fishImage(filename) {
+  return publicImage("fish-images", filename, "fish-placeholder.svg");
+}
+
+export function noteImage(filename) {
+  return publicImage("note-images", filename, "note-placeholder.svg");
 }

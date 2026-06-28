@@ -39,6 +39,7 @@ const notes = defineCollection({
     summary: z.string(),
     pictorialSteps: z.array(z.string()).optional(),
     illustrationsDataTechnique: z.string().optional(),
+    galleryImages: z.array(z.string()).optional(),
   }),
 });
 

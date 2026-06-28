@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { trimText } from "../../lib/content-display.js";
 import { buildFishPages } from "../../lib/content-pages.js";
 import { fishImage, withBase } from "../../lib/paths.js";
 
@@ -33,7 +34,7 @@ const fishPages = buildFishPages(await getCollection("fish"));
               <p class="eyebrow">Care sheet</p>
               <h2>{fish.commonName}</h2>
               <p><em>{fish.scientificName}</em></p>
-              <p>{fish.summary}</p>
+              {trimText(fish.summary) ? <p>{fish.summary}</p> : null}
             </div>
           </a>
         ))

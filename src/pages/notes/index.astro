@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { trimText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
 import { withBase } from "../../lib/paths.js";
 
@@ -35,7 +36,7 @@ const formatDate = (date) =>
           <a class="article-card" href={note.url}>
             <p class="eyebrow">{formatDate(note.date)}</p>
             <h2>{note.title}</h2>
-            <p>{note.summary}</p>
+            {trimText(note.summary) ? <p>{note.summary}</p> : null}
           </a>
         ))
       }

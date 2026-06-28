@@ -1,9 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentPager from "./ContentPager.astro";
+import { compactStrings, hasText, trimText } from "../lib/content-display.js";
 import { noteImage, withBase } from "../lib/paths.js";
 
 const { note, Content, previousNote = null, nextNote = null } = Astro.props;
+const summary = trimText(note.data.summary);
+const pictorialSteps = compactStrings(note.data.pictorialSteps);
+const galleryImages = compactStrings(note.data.galleryImages);
+const illustrationsDataTechnique = trimText(note.data.illustrationsDataTechnique);
 const published = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
   timeZone: "UTC",
@@ -14,13 +19,13 @@ const updated = new Intl.DateTimeFormat("en-US", {
 }).format(note.data.lastUpdated);
 ---
 
-<BaseLayout title={note.data.title} description={note.data.summary}>
+<BaseLayout title={note.data.title} description={summary || note.data.title}>
   <main class="page-wrap article-page note-page">
     <p class="crumb"><a href={withBase("notes/")}>All fishkeeping notes</a></p>
     <article class="article-shell">
       <p class="eyebrow">Fishkeeping note</p>
       <h1>{note.data.title}</h1>
-      <p class="lede">{note.data.summary}</p>
+      {summary ? <p class="lede">{summary}</p> : null}
 
       <dl class="note-meta">
         <div>
@@ -34,31 +39,31 @@ const updated = new Intl.DateTimeFormat("en-US", {
       </dl>
 
       {
-        note.data.pictorialSteps?.length ? (
+        pictorialSteps.length ? (
           <section class="note-section">
             <h2>Step captions</h2>
             <ol class="step-list">
-              {note.data.pictorialSteps.map((step) => <li>{step}</li>)}
+              {pictorialSteps.map((step) => <li>{step}</li>)}
             </ol>
           </section>
         ) : null
       }
 
       {
-        note.data.illustrationsDataTechnique ? (
+        hasText(illustrationsDataTechnique) ? (
           <section class="note-section">
             <h2>Illustrations and data technique</h2>
-            <p>{note.data.illustrationsDataTechnique}</p>
+            <p>{illustrationsDataTechnique}</p>
           </section>
         ) : null
       }
 
       {
-        note.data.galleryImages?.length ? (
+        galleryImages.length ? (
           <section class="note-section">
             <h2>Photos</h2>
             <div class="note-gallery" aria-label={`${note.data.title} photos`}>
-              {note.data.galleryImages.map((image, index) => (
+              {galleryImages.map((image, index) => (
                 <img
                   src={noteImage(image)}
                   alt={`${note.data.title} image ${index + 1}`}

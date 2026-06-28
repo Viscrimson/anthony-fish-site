@@ -17,7 +17,8 @@ This repo uses Pages CMS as the browser editor for content.
 
 Anthony does not need to edit layouts or components to manage content.
 The CMS handles the forms and uploads; the site still controls the final image
-framing in the browser.
+framing in the browser. If a fish field is left blank, the matching section
+simply stays hidden on the public page.
 
 ## What This Site Is
 
@@ -50,6 +51,7 @@ Preferred workflow:
 3. Upload the main image, juvenile image, male image, female image, and any gallery images.
 4. Save the draft and confirm the Git commit appears on `main`.
 5. Turn off the draft toggle only after the entry is complete.
+6. Leave any optional text box blank if you do not want that section to appear.
 
 Manual fallback:
 
@@ -60,6 +62,8 @@ Manual fallback:
 5. Leave `draft: true` in place until the entry is complete.
 6. Add images to `public/fish-images/`.
 7. Use either a bare image name or a `/fish-images/...` path in the fish file.
+8. Leave optional fields blank when you do not need them; the page will hide
+   empty sections.
 
 The fish care sheet index and individual fish pages update automatically from
 Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or

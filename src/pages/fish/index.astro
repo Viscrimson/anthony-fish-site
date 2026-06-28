@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { fishImage, normalizeContentSlug, withBase } from "../../lib/paths.js";
 
 const fishPages = (await getCollection("fish"))
+  .filter((entry) => !entry.data.draft)
   .map((entry) => {
     const slug = normalizeContentSlug(entry.id);
 

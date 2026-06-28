@@ -6,10 +6,12 @@ import { normalizeContentSlug } from "../../lib/paths.js";
 export async function getStaticPaths() {
   const fishEntries = await getCollection("fish");
 
-  return fishEntries.map((entry) => ({
-    params: { slug: normalizeContentSlug(entry.id) },
-    props: { fish: entry.data },
-  }));
+  return fishEntries
+    .filter((entry) => !entry.data.draft)
+    .map((entry) => ({
+      params: { slug: normalizeContentSlug(entry.id) },
+      props: { fish: entry.data },
+    }));
 }
 
 const { fish } = Astro.props;

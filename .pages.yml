@@ -126,6 +126,9 @@ content:
       - name: summary
         label: Summary
         type: string
+      - name: draft
+        label: Draft
+        type: boolean
 
   - name: notes
     label: Fishkeeping Notes

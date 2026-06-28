@@ -1,20 +1,23 @@
 ---
 import { getCollection } from "astro:content";
 import FishPage from "../../components/FishPage.astro";
+import { buildFishPages, getCollectionNeighbors } from "../../lib/content-pages.js";
 import { normalizeContentSlug } from "../../lib/paths.js";
 
 export async function getStaticPaths() {
-  const fishEntries = await getCollection("fish");
+  const fishEntries = buildFishPages(await getCollection("fish"));
 
   return fishEntries
-    .filter((entry) => !entry.data.draft)
     .map((entry) => ({
-      params: { slug: normalizeContentSlug(entry.id) },
-      props: { fish: entry.data },
+      params: { slug: entry.slug },
+      props: { fish: entry },
     }));
 }
 
+const slug = normalizeContentSlug(Astro.params.slug ?? "");
 const { fish } = Astro.props;
+const fishEntries = buildFishPages(await getCollection("fish"));
+const { previous, next } = getCollectionNeighbors(fishEntries, slug);
 ---
 
-<FishPage fish={fish} />
+<FishPage fish={fish} previousFish={previous} nextFish={next} />

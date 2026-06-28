@@ -113,7 +113,7 @@ content:
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: galleryImages
-        label: Gallery Images
+        label: Additional Photos
         type: image
         options:
           media: images
@@ -161,14 +161,14 @@ content:
         label: Summary
         type: text
       - name: pictorialSteps
-        label: Steps
+        label: Step Captions
         type: string
         list: true
       - name: illustrationsDataTechnique
         label: Illustrations and Data Technique
         type: text
       - name: galleryImages
-        label: Images
+        label: Photos
         type: image
         list: true
         options:

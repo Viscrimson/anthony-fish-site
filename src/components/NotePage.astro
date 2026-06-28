@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentPager from "./ContentPager.astro";
 import { noteImage, withBase } from "../lib/paths.js";
 
-const { note, Content } = Astro.props;
+const { note, Content, previousNote = null, nextNote = null } = Astro.props;
 const published = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
   timeZone: "UTC",
@@ -35,7 +36,7 @@ const updated = new Intl.DateTimeFormat("en-US", {
       {
         note.data.pictorialSteps?.length ? (
           <section class="note-section">
-            <h2>Steps</h2>
+            <h2>Step captions</h2>
             <ol class="step-list">
               {note.data.pictorialSteps.map((step) => <li>{step}</li>)}
             </ol>
@@ -55,8 +56,8 @@ const updated = new Intl.DateTimeFormat("en-US", {
       {
         note.data.galleryImages?.length ? (
           <section class="note-section">
-            <h2>Images</h2>
-            <div class="note-gallery" aria-label={`${note.data.title} images`}>
+            <h2>Photos</h2>
+            <div class="note-gallery" aria-label={`${note.data.title} photos`}>
               {note.data.galleryImages.map((image, index) => (
                 <img
                   src={noteImage(image)}
@@ -72,6 +73,14 @@ const updated = new Intl.DateTimeFormat("en-US", {
       <div class="note-body">
         <Content />
       </div>
+
+      <ContentPager
+        ariaLabel="Fishkeeping note navigation"
+        previous={previousNote && { label: previousNote.label, url: previousNote.url }}
+        next={nextNote && { label: nextNote.label, url: nextNote.url }}
+        previousLabel="Previous note"
+        nextLabel="Next note"
+      />
     </article>
   </main>
 </BaseLayout>

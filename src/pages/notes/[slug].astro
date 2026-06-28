@@ -1,18 +1,21 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import NotePage from "../../components/NotePage.astro";
+import { buildNotePages, getCollectionNeighbors } from "../../lib/content-pages.js";
 import { normalizeContentSlug } from "../../lib/paths.js";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("notes");
+  const notes = buildNotePages(await getCollection("notes"));
 
   return notes.map((entry) => ({
-    params: { slug: normalizeContentSlug(entry.id) },
+    params: { slug: entry.slug },
   }));
 }
 
 const slug = normalizeContentSlug(Astro.params.slug ?? "");
 const note = await getEntry("notes", slug);
+const noteEntries = buildNotePages(await getCollection("notes"));
+const { previous, next } = getCollectionNeighbors(noteEntries, slug);
 
 if (!note) {
   throw new Error(`Missing note entry for slug: ${slug}`);
@@ -21,4 +24,4 @@ if (!note) {
 const { Content } = await render(note);
 ---
 
-<NotePage note={note} Content={Content} />
+<NotePage note={note} Content={Content} previousNote={previous} nextNote={next} />

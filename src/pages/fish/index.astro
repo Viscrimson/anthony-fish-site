@@ -1,20 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { fishImage, normalizeContentSlug, withBase } from "../../lib/paths.js";
+import { buildFishPages } from "../../lib/content-pages.js";
+import { fishImage, withBase } from "../../lib/paths.js";
 
-const fishPages = (await getCollection("fish"))
-  .filter((entry) => !entry.data.draft)
-  .map((entry) => {
-    const slug = normalizeContentSlug(entry.id);
-
-    return {
-      ...entry.data,
-      slug,
-      url: withBase(`fish/${slug}/`),
-    };
-  })
-  .sort((a, b) => a.commonName.localeCompare(b.commonName));
+const fishPages = buildFishPages(await getCollection("fish"));
 ---
 
 <BaseLayout

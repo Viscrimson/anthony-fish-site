@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentPager from "./ContentPager.astro";
 import { fishImage, withBase } from "../lib/paths.js";
 
-const { fish } = Astro.props;
+const { fish, previousFish = null, nextFish = null } = Astro.props;
 const yesNo = (value) => (value ? "Yes" : "No");
 const quickCare = [
   ["Scientific name", fish.scientificName],
@@ -77,6 +78,26 @@ const appearanceImages = [
       </div>
     </section>
 
+    {
+      fish.galleryImages?.length ? (
+        <section class="content-section" aria-labelledby="fish-gallery">
+          <div>
+            <p class="eyebrow">Photos</p>
+            <h2 id="fish-gallery">Additional fish photos</h2>
+          </div>
+          <div class="fish-gallery" aria-label={`${fish.commonName} photos`}>
+            {fish.galleryImages.map((image, index) => (
+              <img
+                src={fishImage(image)}
+                alt={`${fish.commonName} photo ${index + 1}`}
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </section>
+      ) : null
+    }
+
     <section class="care-notes-grid">
       <article>
         <p class="eyebrow">Care notes</p>
@@ -94,5 +115,13 @@ const appearanceImages = [
         <p>{fish.anthonyNotes}</p>
       </article>
     </section>
+
+    <ContentPager
+      ariaLabel="Fish care sheet navigation"
+      previous={previousFish && { label: previousFish.label, url: previousFish.url }}
+      next={nextFish && { label: nextFish.label, url: nextFish.url }}
+      previousLabel="Previous fish"
+      nextLabel="Next fish"
+    />
   </main>
 </BaseLayout>

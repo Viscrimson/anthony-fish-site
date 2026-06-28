@@ -1,0 +1,51 @@
+---
+const {
+  previous = null,
+  next = null,
+  previousLabel = "Previous",
+  nextLabel = "Next",
+  ariaLabel = "Content navigation",
+} = Astro.props;
+---
+
+<nav class="content-pager" aria-label={ariaLabel}>
+  {
+    previous ? (
+      <a class="content-pager-link content-pager-prev" href={previous.url}>
+        <span class="content-pager-arrow" aria-hidden="true">&larr;</span>
+        <span class="content-pager-copy">
+          <span class="content-pager-label">{previousLabel}</span>
+          <span class="content-pager-title">{previous.label}</span>
+        </span>
+      </a>
+    ) : (
+      <span class="content-pager-link content-pager-prev is-disabled" aria-disabled="true">
+        <span class="content-pager-arrow" aria-hidden="true">&larr;</span>
+        <span class="content-pager-copy">
+          <span class="content-pager-label">{previousLabel}</span>
+          <span class="content-pager-title">Beginning of list</span>
+        </span>
+      </span>
+    )
+  }
+
+  {
+    next ? (
+      <a class="content-pager-link content-pager-next" href={next.url}>
+        <span class="content-pager-copy">
+          <span class="content-pager-label">{nextLabel}</span>
+          <span class="content-pager-title">{next.label}</span>
+        </span>
+        <span class="content-pager-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    ) : (
+      <span class="content-pager-link content-pager-next is-disabled" aria-disabled="true">
+        <span class="content-pager-copy">
+          <span class="content-pager-label">{nextLabel}</span>
+          <span class="content-pager-title">End of list</span>
+        </span>
+        <span class="content-pager-arrow" aria-hidden="true">&rarr;</span>
+      </span>
+    )
+  }
+</nav>

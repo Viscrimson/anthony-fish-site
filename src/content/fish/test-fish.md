@@ -16,5 +16,5 @@ maleImage: /fish-images/fish-placeholder.svg
 femaleImage: /fish-images/fish-placeholder.svg
 galleryImages:
   - /fish-images/fish-placeholder.svg
-draft: false
+draft: true
 ---

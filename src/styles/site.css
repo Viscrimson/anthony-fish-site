@@ -284,21 +284,128 @@ h2 {
   min-width: 0;
 }
 
-.fish-facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin: 28px 0;
+.scientific-name {
+  margin-bottom: 16px;
+  color: var(--accent-strong);
+  font-size: 1.1rem;
 }
 
-.fish-facts div {
+.care-table {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
+  overflow: hidden;
+}
+
+.care-table div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.45fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.care-table div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.care-table div:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.care-table dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.care-table dd {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.appearance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.appearance-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.appearance-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--surface-soft);
+}
+
+.appearance-card div {
   padding: 14px;
 }
 
-.fish-facts dt {
+.appearance-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.appearance-card p,
+.care-notes-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.care-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.care-notes-grid article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 20px;
+}
+
+.article-page {
+  max-width: 820px;
+}
+
+.article-shell {
+  display: grid;
+  gap: 24px;
+}
+
+.note-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.note-meta div,
+.note-section {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.note-meta div {
+  padding: 14px;
+}
+
+.note-meta dt {
   margin-bottom: 4px;
   color: var(--muted);
   font-size: 0.78rem;
@@ -307,35 +414,31 @@ h2 {
   text-transform: uppercase;
 }
 
-.fish-facts dd {
+.note-meta dd {
   margin: 0;
-  font-weight: 700;
+  line-height: 1.45;
 }
 
-.notes {
-  margin-top: 30px;
+.note-section {
+  padding: 20px;
 }
 
-.notes ul {
+.step-list {
   margin: 0;
   padding-left: 1.2rem;
   color: var(--muted);
+  line-height: 1.65;
+}
+
+.note-body {
   line-height: 1.7;
 }
 
-.article-page {
-  max-width: 820px;
-}
-
-.article-body {
-  line-height: 1.7;
-}
-
-.article-body h2 {
+.note-body h2 {
   margin-top: 32px;
 }
 
-.article-body p {
+.note-body p {
   color: var(--muted);
 }
 
@@ -380,7 +483,24 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .fish-facts {
+  .care-table,
+  .appearance-grid,
+  .care-notes-grid,
+  .note-meta {
     grid-template-columns: 1fr;
+  }
+
+  .care-table div,
+  .care-table div:nth-child(odd) {
+    grid-template-columns: 1fr;
+    border-right: 0;
+  }
+
+  .care-table div:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .care-table div:last-child {
+    border-bottom: 0;
   }
 }

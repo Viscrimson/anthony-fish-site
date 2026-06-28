@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/paths.js";
+
+const { note, Content } = Astro.props;
+const published = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeZone: "UTC",
+}).format(note.data.date);
+const updated = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeZone: "UTC",
+}).format(note.data.lastUpdated);
+---
+
+<BaseLayout title={note.data.title} description={note.data.summary}>
+  <main class="page-wrap article-page note-page">
+    <p class="crumb"><a href={withBase("notes/")}>All fishkeeping notes</a></p>
+    <article class="article-shell">
+      <p class="eyebrow">Fishkeeping note</p>
+      <h1>{note.data.title}</h1>
+      <p class="lede">{note.data.summary}</p>
+
+      <dl class="note-meta">
+        <div>
+          <dt>Published</dt>
+          <dd>{published}</dd>
+        </div>
+        <div>
+          <dt>Updated</dt>
+          <dd>{updated}</dd>
+        </div>
+      </dl>
+
+      {
+        note.data.pictorialSteps?.length ? (
+          <section class="note-section">
+            <h2>Pictorial steps</h2>
+            <ol class="step-list">
+              {note.data.pictorialSteps.map((step) => <li>{step}</li>)}
+            </ol>
+          </section>
+        ) : null
+      }
+
+      {
+        note.data.illustrationsDataTechnique ? (
+          <section class="note-section">
+            <h2>Illustrations and data technique</h2>
+            <p>{note.data.illustrationsDataTechnique}</p>
+          </section>
+        ) : null
+      }
+
+      <div class="note-body">
+        <Content />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

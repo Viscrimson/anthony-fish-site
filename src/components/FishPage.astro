@@ -3,52 +3,95 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { fishImage, withBase } from "../lib/paths.js";
 
 const { fish } = Astro.props;
-const details = [
-  ["Species", fish.species],
-  ["Age", fish.age],
-  ["Tank", fish.tank],
-  ["Favorite food", fish.favoriteFood],
-].filter(([, value]) => value);
+const yesNo = (value) => (value ? "Yes" : "No");
+const quickCare = [
+  ["Scientific name", fish.scientificName],
+  ["Origin", fish.origin],
+  ["Temperature", fish.temperatureRange],
+  ["Adult size", fish.adultSize],
+  ["Tank size", fish.tankSize],
+  ["Food", fish.foodRecommendation],
+  ["Difficulty", fish.difficulty],
+  ["Temperament", fish.temperament],
+  ["Plant safe", yesNo(fish.plantSafe)],
+  ["Invertebrate safe", yesNo(fish.invertebrateSafe)],
+];
+
+const appearanceImages = [
+  ["Juvenile", fish.juvenileImage, fish.juvenileAppearance],
+  ["Adult male", fish.maleImage, fish.adultMaleAppearance],
+  ["Adult female", fish.femaleImage, fish.adultFemaleAppearance],
+];
 ---
 
-<BaseLayout title={fish.name} description={fish.summary}>
+<BaseLayout title={fish.commonName} description={fish.summary}>
   <main class="page-wrap fish-detail">
     <p class="crumb"><a href={withBase("fish/")}>All fish care sheets</a></p>
-    <section class="fish-profile">
+    <section class="fish-profile fish-profile-expanded">
       <div class="fish-photo-panel">
-        <img src={fishImage(fish.image)} alt={fish.imageAlt} />
+        <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} main image`} />
       </div>
 
       <article class="fish-copy">
-        <p class="eyebrow">Fish profile</p>
-        <h1>{fish.name}</h1>
+        <p class="eyebrow">Fish care sheet</p>
+        <h1>{fish.commonName}</h1>
+        <p class="scientific-name"><em>{fish.scientificName}</em></p>
         <p class="lede">{fish.summary}</p>
+      </article>
+    </section>
 
+    <section class="content-section" aria-labelledby="quick-care">
+      <div>
+        <p class="eyebrow">Quick care</p>
+        <h2 id="quick-care">Care table</h2>
+      </div>
+      <dl class="care-table">
         {
-          details.length > 0 && (
-            <dl class="fish-facts">
-              {details.map(([label, value]) => (
-                <div>
-                  <dt>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
-          )
-        }
-
-        {
-          fish.notes && fish.notes.length > 0 && (
-            <div class="notes">
-              <h2>Notes</h2>
-              <ul>
-                {fish.notes.map((note) => (
-                  <li>{note}</li>
-                ))}
-              </ul>
+          quickCare.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
             </div>
-          )
+          ))
         }
+      </dl>
+    </section>
+
+    <section class="content-section" aria-labelledby="appearance">
+      <div>
+        <p class="eyebrow">Appearance</p>
+        <h2 id="appearance">Juvenile, male, and female</h2>
+      </div>
+      <div class="appearance-grid">
+        {
+          appearanceImages.map(([label, image, notes]) => (
+            <article class="appearance-card">
+              <img src={fishImage(image)} alt={`${fish.commonName} ${label.toLowerCase()} image`} />
+              <div>
+                <h3>{label}</h3>
+                <p>{notes}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="care-notes-grid">
+      <article>
+        <p class="eyebrow">Care notes</p>
+        <h2>Husbandry notes</h2>
+        <p>{fish.husbandryNotes}</p>
+      </article>
+      <article>
+        <p class="eyebrow">Male vs female</p>
+        <h2>Differences</h2>
+        <p>{fish.maleFemaleDifferences}</p>
+      </article>
+      <article>
+        <p class="eyebrow">Anthony's notes</p>
+        <h2>Observations</h2>
+        <p>{fish.anthonyNotes}</p>
       </article>
     </section>
   </main>

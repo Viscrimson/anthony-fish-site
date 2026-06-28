@@ -1,0 +1,28 @@
+---
+commonName: "TODO: Common fish name"
+scientificName: "TODO: Scientific name"
+origin: "TODO: Native range, source, or strain origin"
+temperatureRange: "TODO: Temperature range"
+adultSize: "TODO: Adult size"
+tankSize: "TODO: Recommended tank size"
+foodRecommendation: "TODO: Food recommendation"
+difficulty: "TODO: Beginner, intermediate, or advanced"
+temperament: "TODO: Temperament notes"
+plantSafe: true
+invertebrateSafe: false
+juvenileAppearance: "TODO: What juveniles look like"
+adultMaleAppearance: "TODO: What adult males look like"
+adultFemaleAppearance: "TODO: What adult females look like"
+maleFemaleDifferences: "TODO: How to tell males and females apart"
+husbandryNotes: |
+  TODO: Care notes, water parameters, behavior, and setup tips.
+anthonyNotes: |
+  TODO: Anthony's personal fishkeeping observations for this fish.
+mainImage: fish-placeholder.svg
+juvenileImage: fish-placeholder.svg
+maleImage: fish-placeholder.svg
+femaleImage: fish-placeholder.svg
+galleryImages:
+  - fish-placeholder.svg
+summary: "TODO: One short summary sentence."
+---

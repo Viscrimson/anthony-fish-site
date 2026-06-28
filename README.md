@@ -1,64 +1,81 @@
 # Anthony Fish Site
 
-A simple static Astro fish catalog for GitHub Pages.
+Static Astro site for hobby fish-care information, fish care sheets, and short
+fishkeeping notes.
 
-Temporary Pages URL:
+## What This Site Is
 
-`https://viscrimson.github.io/anthony-fish-site/`
+- A public hobby fish-care resource
+- A place to share fish care sheets
+- A place to share fishkeeping notes and articles
+- A site where QR codes on fish bags can open the matching care sheet
 
-## Site Structure
+## What This Site Is Not
 
-- `/` is the About Anthony landing page.
-- `/fish/` lists fish care sheets.
-- `/fish/[slug]/` shows an individual fish care sheet.
-- `/notes/` lists fishkeeping notes.
-- `/notes/[slug]/` shows an individual note or article.
+- Not a store
+- No shopping cart
+- No payments
+- No backend
 
-This is a hobby fish-care resource, not a store.
+## Run Locally
+
+```powershell
+npm install
+npm run dev
+npm run build
+```
 
 ## Add a Fish
 
-1. Copy `src/pages/fish/fish-page-template.astro.txt`.
-2. Paste the copy in the same folder.
-3. Rename the copy with lowercase dashes and remove `.txt`, for example `orange-guppy.astro`.
-4. Edit the fish details at the top of the file.
-5. Put the fish image in `public/fish-images/`.
-6. Set `image` to only the image file name, for example `orange-guppy.jpg`.
+1. Copy `src/content/fish/_fish-template-copy-me.md.txt`.
+2. Paste the copy in `src/content/fish/`.
+3. Rename the copy with lowercase dashes, for example `orange-guppy.md`.
+4. Fill out the frontmatter fields.
+5. Add images to `public/fish-images/`.
+6. Use only the image file name in the fish file, for example `orange-guppy.jpg`.
 
-The home page updates automatically from files in `src/pages/fish/`.
+The fish care sheet index and individual fish pages update automatically from
+Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or
+components to add a new fish.
 
 If a fish does not have a photo yet, use:
 
-```js
-image: "fish-placeholder.svg"
+```yaml
+mainImage: fish-placeholder.svg
+juvenileImage: fish-placeholder.svg
+maleImage: fish-placeholder.svg
+femaleImage: fish-placeholder.svg
 ```
 
-## Image Paths
+## Image Naming Rules
 
-Use this folder for fish images:
+- Use lowercase file names
+- Use dashes instead of spaces
+- Avoid personal names in filenames unless Anthony wants them public
 
-`public/fish-images/`
+Write only the file name in the content file. The site adds the GitHub Pages
+base path automatically.
 
-In a fish page, write only the file name:
+## Add a Note or Article
 
-```js
-image: "blue-betta.svg"
-```
+1. Copy `src/content/notes/_article-template-copy-me.md.txt`.
+2. Paste the copy in `src/content/notes/`.
+3. Rename the copy with lowercase dashes, for example `water-change-basics.md`.
+4. Fill out `title`, `date`, `lastUpdated`, `summary`, optional
+   `pictorialSteps`, optional `illustrationsDataTechnique`, and the body text.
+5. Save the file in `src/content/notes/`.
 
-Do not include `/anthony-fish-site/`, `/public/`, or `fish-images/` in the
-fish page. The site adds the GitHub Pages base path automatically.
-
-## Scripts
-
-PowerShell:
-
-```powershell
-npm.cmd run dev
-npm.cmd run build
-npm.cmd run preview
-```
+The notes index and article pages update automatically from Markdown files in
+`src/content/notes/`. This content structure is suitable for a future
+Git-based editor because Anthony can add entries by editing files only.
 
 ## Deployment
 
-Push to `main`, then set GitHub Pages to use GitHub Actions as the source in
-repository settings. Do not add a custom domain until the final domain is ready.
+GitHub Pages deployment is temporary during setup. Connect the final custom
+domain before printing QR codes.
+
+## GitHub Pages Setup
+
+The repository is already configured to deploy with GitHub Actions. After
+publishing the branch, set GitHub Pages source to GitHub Actions in repository
+settings.

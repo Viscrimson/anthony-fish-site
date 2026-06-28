@@ -1,25 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { fishImage, withBase } from "../../lib/paths.js";
 
-const fishPages = Object.entries(
-  import.meta.glob("./*.astro", { eager: true }),
-)
-  .filter(([path]) => path !== "./index.astro")
-  .map(([path, page]) => {
-    if (!page.fish) {
-      throw new Error(
-        `${path} must export a fish object. Copy src/pages/fish/fish-page-template.astro.txt to add a fish.`,
-      );
-    }
+const fishPages = (await getCollection("fish"))
+  .map((entry) => {
+    const slug = entry.id.replace(/\.md$/, "");
 
-    const slug = path.replace("./", "").replace(".astro", "");
     return {
-      ...page.fish,
+      ...entry.data,
+      slug,
       url: withBase(`fish/${slug}/`),
     };
   })
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .sort((a, b) => a.commonName.localeCompare(b.commonName));
 ---
 
 <BaseLayout
@@ -43,9 +37,10 @@ const fishPages = Object.entries(
       {
         fishPages.map((fish) => (
           <a class="fish-card" href={fish.url}>
-            <img src={fishImage(fish.image)} alt={fish.imageAlt} />
+            <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} care sheet image`} />
             <div class="fish-card-copy">
-              <h2>{fish.name}</h2>
+              <h2>{fish.commonName}</h2>
+              <p><em>{fish.scientificName}</em></p>
               <p>{fish.summary}</p>
             </div>
           </a>

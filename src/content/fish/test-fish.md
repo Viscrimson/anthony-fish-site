@@ -11,9 +11,10 @@ temperament: so mean, so very mean.
 plantSafe: true
 invertebrateSafe: true
 mainImage: /fish-images/oip.jpg
+juvenileImage: /fish-images/fish-placeholder.svg
 maleImage: /fish-images/fish-placeholder.svg
 femaleImage: /fish-images/fish-placeholder.svg
 galleryImages:
   - /fish-images/fish-placeholder.svg
-draft: false
+draft: true
 ---

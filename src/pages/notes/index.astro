@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { trimText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
-import { withBase } from "../../lib/paths.js";
 
 const notePages = buildNotePages(await getCollection("notes"));
 
@@ -24,8 +23,8 @@ const formatDate = (date) =>
         <p class="eyebrow">Articles</p>
         <h1>Fishkeeping Notes.</h1>
         <p class="lede">
-          Short notes about care routines, aquarium setup, and how to use this
-          hobby resource.
+          Short notes about care routines, aquarium setup, and practical
+          observations.
         </p>
       </div>
     </section>

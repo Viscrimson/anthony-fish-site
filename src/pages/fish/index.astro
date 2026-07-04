@@ -3,9 +3,33 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { trimText } from "../../lib/content-display.js";
 import { buildFishPages } from "../../lib/content-pages.js";
-import { fishImage, withBase } from "../../lib/paths.js";
+import { fishImage } from "../../lib/paths.js";
 
 const fishPages = buildFishPages(await getCollection("fish"));
+const fishCards = fishPages.map((fish) => {
+  const chips = [];
+  const seen = new Set();
+  const addChip = (value) => {
+    const text = trimText(value);
+
+    if (!text || seen.has(text)) {
+      return;
+    }
+
+    seen.add(text);
+    chips.push(text);
+  };
+
+  addChip(fish.difficulty);
+  addChip(fish.temperatureRange);
+  addChip(fish.tankSize);
+  addChip(fish.temperament);
+
+  return {
+    ...fish,
+    chips,
+  };
+});
 ---
 
 <BaseLayout
@@ -27,7 +51,7 @@ const fishPages = buildFishPages(await getCollection("fish"));
 
     <section class="fish-grid" aria-label="Fish care sheets">
       {
-        fishPages.map((fish) => (
+        fishCards.map((fish) => (
           <a class="fish-card" href={fish.url}>
             <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} care sheet image`} />
             <div class="fish-card-copy">
@@ -35,6 +59,13 @@ const fishPages = buildFishPages(await getCollection("fish"));
               <h2>{fish.commonName}</h2>
               <p><em>{fish.scientificName}</em></p>
               {trimText(fish.summary) ? <p>{fish.summary}</p> : null}
+              {
+                fish.chips.length ? (
+                  <ul class="fish-chip-list" aria-label={`${fish.commonName} quick care facts`}>
+                    {fish.chips.map((chip) => <li class="fish-chip">{chip}</li>)}
+                  </ul>
+                ) : null
+              }
             </div>
           </a>
         ))

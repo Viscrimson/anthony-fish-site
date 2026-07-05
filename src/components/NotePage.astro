@@ -1,22 +1,61 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentPager from "./ContentPager.astro";
-import { compactStrings, hasText, trimText } from "../lib/content-display.js";
+import { compactSources, compactStrings, hasText, trimText } from "../lib/content-display.js";
 import { noteImage, withBase } from "../lib/paths.js";
 
-const { note, Content, previousNote = null, nextNote = null } = Astro.props;
+const {
+  note,
+  Content,
+  previousNote = null,
+  nextNote = null,
+  relatedFish = [],
+  relatedNotes = [],
+} = Astro.props;
 const summary = trimText(note.data.summary);
-const pictorialSteps = compactStrings(note.data.pictorialSteps);
+const category = trimText(note.data.category);
+const quickAnswer = trimText(note.data.quickAnswer);
+const practicalSteps = compactStrings(
+  note.data.practicalSteps ?? note.data.pictorialSteps,
+);
+const visualNote = trimText(
+  note.data.visualNote ?? note.data.illustrationsDataTechnique,
+);
 const galleryImages = compactStrings(note.data.galleryImages);
-const illustrationsDataTechnique = trimText(note.data.illustrationsDataTechnique);
 const published = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
   timeZone: "UTC",
 }).format(note.data.date);
-const updated = new Intl.DateTimeFormat("en-US", {
-  dateStyle: "medium",
-  timeZone: "UTC",
-}).format(note.data.lastUpdated);
+const hasUpdatedDate =
+  note.data.lastUpdated instanceof Date &&
+  note.data.lastUpdated.getTime() !== note.data.date.getTime();
+const updated = hasUpdatedDate
+  ? new Intl.DateTimeFormat("en-US", {
+      dateStyle: "medium",
+      timeZone: "UTC",
+    }).format(note.data.lastUpdated)
+  : "";
+const hasReviewedDate =
+  note.data.lastReviewed instanceof Date &&
+  note.data.lastReviewed.getTime() !==
+    (hasUpdatedDate ? note.data.lastUpdated.getTime() : note.data.date.getTime());
+const reviewed = hasReviewedDate
+  ? new Intl.DateTimeFormat("en-US", {
+      dateStyle: "medium",
+      timeZone: "UTC",
+    }).format(note.data.lastReviewed)
+  : "";
+
+const metaItems = [
+  ...(hasText(category) ? [{ label: "Category", value: category }] : []),
+  {
+    label: "Published",
+    value: published,
+  },
+  ...(hasUpdatedDate ? [{ label: "Updated", value: updated }] : []),
+  ...(hasReviewedDate ? [{ label: "Reviewed", value: reviewed }] : []),
+];
+const sourceEntries = compactSources(note.data.sources);
 ---
 
 <BaseLayout title={note.data.title} description={summary || note.data.title}>
@@ -28,32 +67,39 @@ const updated = new Intl.DateTimeFormat("en-US", {
       {summary ? <p class="lede">{summary}</p> : null}
 
       <dl class="note-meta">
-        <div>
-          <dt>Published</dt>
-          <dd>{published}</dd>
-        </div>
-        <div>
-          <dt>Updated</dt>
-          <dd>{updated}</dd>
-        </div>
+        {metaItems.map(({ label, value }) => (
+          <div>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
       </dl>
 
       {
-        pictorialSteps.length ? (
+        quickAnswer ? (
+          <section class="note-section note-callout" aria-labelledby="quick-answer">
+            <h2 id="quick-answer">Quick answer</h2>
+            <p>{quickAnswer}</p>
+          </section>
+        ) : null
+      }
+
+      {
+        practicalSteps.length ? (
           <section class="note-section">
-            <h2>Pictorial steps</h2>
+            <h2>Practical steps</h2>
             <ol class="step-list">
-              {pictorialSteps.map((step) => <li>{step}</li>)}
+              {practicalSteps.map((step) => <li>{step}</li>)}
             </ol>
           </section>
         ) : null
       }
 
       {
-        hasText(illustrationsDataTechnique) ? (
+        hasText(visualNote) ? (
           <section class="note-section">
-            <h2>Illustrations and data technique</h2>
-            <p>{illustrationsDataTechnique}</p>
+            <h2>Visual note</h2>
+            <p>{visualNote}</p>
           </section>
         ) : null
       }
@@ -78,6 +124,90 @@ const updated = new Intl.DateTimeFormat("en-US", {
       <div class="note-body">
         <Content />
       </div>
+
+      {
+        sourceEntries.length || hasReviewedDate ? (
+          <section class="note-section" aria-labelledby="sources-and-review">
+            <h2 id="sources-and-review">Sources and review</h2>
+            {sourceEntries.length ? (
+              <ul class="source-list">
+                {sourceEntries.map((source) => (
+                  <li class="source-item">
+                    {source.href ? (
+                      <a
+                        class="source-link"
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span class="source-link-label">{source.label}</span>
+                        {source.detail ? (
+                          <span class="source-link-detail">{source.detail}</span>
+                        ) : null}
+                      </a>
+                    ) : (
+                      <div class="source-link">
+                        <span class="source-link-label">{source.label}</span>
+                        {source.detail ? (
+                          <span class="source-link-detail">{source.detail}</span>
+                        ) : null}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {hasReviewedDate ? <p>Last reviewed: {reviewed}</p> : null}
+          </section>
+        ) : null
+      }
+
+      {
+        relatedFish.length ? (
+          <section class="content-section" aria-labelledby="related-care-sheets">
+            <div>
+              <p class="eyebrow">Related content</p>
+              <h2 id="related-care-sheets">Related care sheets</h2>
+            </div>
+            <div class="article-list related-content-list">
+              {relatedFish.map((fish) => (
+                <a class="article-card related-card" href={fish.url}>
+                  <p class="eyebrow">Care sheet</p>
+                  <h2>{fish.commonName}</h2>
+                  {hasText(fish.scientificName) ? (
+                    <p class="scientific-name">
+                      <em>{fish.scientificName}</em>
+                    </p>
+                  ) : null}
+                  {hasText(fish.summary) ? <p>{fish.summary}</p> : null}
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null
+      }
+
+      {
+        relatedNotes.length ? (
+          <section class="content-section" aria-labelledby="related-notes">
+            <div>
+              <p class="eyebrow">Related content</p>
+              <h2 id="related-notes">Related notes</h2>
+            </div>
+            <div class="article-list related-content-list">
+              {relatedNotes.map((relatedNote) => (
+                <a class="article-card related-card" href={relatedNote.url}>
+                  {hasText(relatedNote.category) ? (
+                    <p class="eyebrow">{relatedNote.category}</p>
+                  ) : null}
+                  <h2>{relatedNote.title}</h2>
+                  {hasText(relatedNote.summary) ? <p>{relatedNote.summary}</p> : null}
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null
+      }
 
       <ContentPager
         ariaLabel="Fishkeeping note navigation"

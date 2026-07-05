@@ -1,6 +1,32 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+const site = defineCollection({
+  loader: glob({ pattern: "site.md", base: "./src/content/site" }),
+  schema: z.object({
+    siteName: z.string().optional(),
+    tagline: z.string().optional(),
+    homepageEyebrow: z.string().optional(),
+    homepageTitle: z.string().optional(),
+    homepageIntro: z.string().optional(),
+    careSheetsIntro: z.string().optional(),
+    notesIntro: z.string().optional(),
+    qrHelperHeading: z.string().optional(),
+    qrHelperText: z.string().optional(),
+    aboutHeading: z.string().optional(),
+    aboutSummary: z.string().optional(),
+    experienceText: z.string().optional(),
+    focusText: z.string().optional(),
+    credentialsText: z.string().optional(),
+    groupsText: z.string().optional(),
+    contactHeading: z.string().optional(),
+    contactText: z.string().optional(),
+    showContact: z.boolean().optional(),
+    showCredentials: z.boolean().optional(),
+    showGroups: z.boolean().optional(),
+  }),
+});
+
 const fish = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/fish" }),
   schema: z.union([
@@ -22,6 +48,9 @@ const fish = defineCollection({
       maleFemaleDifferences: z.string(),
       husbandryNotes: z.string(),
       anthonyNotes: z.string(),
+      relatedNoteSlugs: z.array(z.string()).optional(),
+      qrSummary: z.string().optional(),
+      quickWarnings: z.array(z.string()).optional(),
       mainImage: z.string(),
       juvenileImage: z.string(),
       maleImage: z.string(),
@@ -48,6 +77,9 @@ const fish = defineCollection({
       maleFemaleDifferences: z.string().optional(),
       husbandryNotes: z.string().optional(),
       anthonyNotes: z.string().optional(),
+      relatedNoteSlugs: z.array(z.string()).optional(),
+      qrSummary: z.string().optional(),
+      quickWarnings: z.array(z.string()).optional(),
       mainImage: z.string(),
       juvenileImage: z.string(),
       maleImage: z.string().optional(),
@@ -63,13 +95,23 @@ const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
   schema: z.object({
     title: z.string(),
+    draft: z.boolean().optional(),
+    category: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    relatedFishSlugs: z.array(z.string()).optional(),
+    relatedNoteSlugs: z.array(z.string()).optional(),
     date: z.coerce.date(),
     lastUpdated: z.coerce.date(),
     summary: z.string(),
+    quickAnswer: z.string().optional(),
+    practicalSteps: z.array(z.string()).optional(),
     pictorialSteps: z.array(z.string()).optional(),
+    sources: z.array(z.string()).optional(),
+    lastReviewed: z.coerce.date().optional(),
+    visualNote: z.string().optional(),
     illustrationsDataTechnique: z.string().optional(),
     galleryImages: z.array(z.string()).optional(),
   }),
 });
 
-export const collections = { fish, notes };
+export const collections = { site, fish, notes };

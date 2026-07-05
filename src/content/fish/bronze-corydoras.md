@@ -1,7 +1,7 @@
 ---
 commonName: Bronze Corydoras
 scientificName: Corydoras aeneus
-origin: Sample placeholder entry for a small bottom-dweller.
+origin: Origin details are pending confirmation.
 temperatureRange: 72-79 F
 adultSize: About 2.5 inches
 tankSize: 20 gallons or larger
@@ -10,21 +10,27 @@ difficulty: Beginner to intermediate
 temperament: Peaceful schooling fish
 plantSafe: true
 invertebrateSafe: false
-juvenileAppearance: "Sample placeholder notes: small armored catfish with a simple mottled look."
-adultMaleAppearance: "Sample placeholder notes: streamlined body with subtle metallic bronze color."
-adultFemaleAppearance: "Sample placeholder notes: broader body with a fuller belly when mature."
-maleFemaleDifferences: "Sample placeholder notes: females are often larger and rounder than males."
+juvenileAppearance: ""
+adultMaleAppearance: ""
+adultFemaleAppearance: ""
+maleFemaleDifferences: ""
 husbandryNotes: |
-  Keep the substrate soft and provide open floor space with shaded resting
-  areas. Feed sinking foods so the group can eat comfortably.
-anthonyNotes: |
-  Placeholder note for Anthony: replace this text with any real observations if
-  this fish is added to the collection.
+  Keep a school together and feed sinking foods so the group can eat comfortably.
+anthonyNotes: ""
+qrSummary: A peaceful schooling catfish quick-care sheet with tank, food, and group-keeping reminders.
+quickWarnings:
+  - Keep them in a school.
+  - Feed sinking foods so the group can eat comfortably.
+relatedNoteSlugs:
+  - first-24-hours-with-a-new-fish
+  - acclimating-a-new-fish
+  - basic-water-testing
+  - aquarium-cycling-basics
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: Sample placeholder care sheet for a small schooling catfish.
+summary: A peaceful schooling catfish care sheet with a 20-gallon-or-larger tank, sinking foods, and beginner-friendly care.
 ---

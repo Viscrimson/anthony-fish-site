@@ -20,6 +20,15 @@ husbandryNotes: |
 anthonyNotes: |
   Fast-moving and always visible during feeding. A good public example of a
   complete published fish entry.
+qrSummary: A hardy schooling fish care sheet with tank, temperature, feeding, and group-keeping notes.
+quickWarnings:
+  - Keep zebra danios in a group.
+  - Give them open swimming space and a covered tank.
+relatedNoteSlugs:
+  - first-24-hours-with-a-new-fish
+  - acclimating-a-new-fish
+  - basic-water-testing
+  - aquarium-cycling-basics
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg

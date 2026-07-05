@@ -4,21 +4,21 @@ import ContentPager from "./ContentPager.astro";
 import { compactStrings, hasText, trimText } from "../lib/content-display.js";
 import { fishImage, withBase } from "../lib/paths.js";
 
-const { fish, previousFish = null, nextFish = null } = Astro.props;
+const { fish, previousFish = null, nextFish = null, relatedNotes = [] } = Astro.props;
 const summary = trimText(fish.summary);
-const yesNo = (value) => (value ? "Yes" : "No");
-const quickCare = [
-  ["Scientific name", fish.scientificName],
-  ["Origin", fish.origin],
+const quickSummary = trimText(fish.qrSummary);
+const booleanFact = (label, value) =>
+  typeof value === "boolean" ? [label, value ? "Yes" : "No"] : null;
+const quickCareFacts = [
+  ["Minimum tank", fish.tankSize],
   ["Temperature", fish.temperatureRange],
-  ["Adult size", fish.adultSize],
-  ["Tank size", fish.tankSize],
   ["Food", fish.foodRecommendation],
   ["Difficulty", fish.difficulty],
   ["Temperament", fish.temperament],
-  ["Plant safe", yesNo(fish.plantSafe)],
-  ["Invertebrate safe", yesNo(fish.invertebrateSafe)],
-].filter(([, value]) => hasText(value) || typeof value === "boolean");
+  booleanFact("Plant safe", fish.plantSafe),
+  booleanFact("Invertebrate safe", fish.invertebrateSafe),
+]
+  .filter((entry) => Array.isArray(entry) && hasText(entry[1]));
 
 const appearanceCards = [
   {
@@ -39,24 +39,22 @@ const appearanceCards = [
 ].filter(({ image, notes }) => hasText(image) || hasText(notes));
 
 const galleryImages = compactStrings(fish.galleryImages);
-const careNotes = [
-  {
-    eyebrow: "Care notes",
-    title: "Husbandry notes",
-    body: fish.husbandryNotes,
-  },
-  {
-    eyebrow: "Male vs female",
-    title: "Differences",
-    body: fish.maleFemaleDifferences,
-  },
-  {
-    eyebrow: "Anthony's notes",
-    title: "Observations",
-    body: fish.anthonyNotes,
-    featured: true,
-  },
-].filter((section) => hasText(section.body));
+const quickWarnings = compactStrings(fish.quickWarnings);
+const husbandryNotes = trimText(fish.husbandryNotes);
+const maleFemaleDifferences = trimText(fish.maleFemaleDifferences);
+const anthonyNotes = trimText(fish.anthonyNotes);
+const fullCareDetails = [
+  ["Scientific name", fish.scientificName],
+  ["Origin", fish.origin],
+  ["Adult size", fish.adultSize],
+  ["Tank size", fish.tankSize],
+  ["Food", fish.foodRecommendation],
+  ["Difficulty", fish.difficulty],
+  ["Temperament", fish.temperament],
+  booleanFact("Plant safe", fish.plantSafe),
+  booleanFact("Invertebrate safe", fish.invertebrateSafe),
+]
+  .filter((entry) => Array.isArray(entry) && hasText(entry[1]));
 ---
 
 <BaseLayout title={fish.commonName} description={summary || fish.commonName}>
@@ -76,21 +74,60 @@ const careNotes = [
     </section>
 
     {
-      quickCare.length ? (
-        <section class="content-section" aria-labelledby="quick-care">
-          <div>
+      quickCareFacts.length || quickSummary ? (
+        <section class="quick-care-section" aria-labelledby="quick-care">
+          <div class="quick-care-intro">
             <p class="eyebrow">Quick care</p>
-            <h2 id="quick-care">Care table</h2>
+            <h2 id="quick-care">The essentials to check first after scanning this page.</h2>
+            {quickSummary ? <p class="quick-care-summary">{quickSummary}</p> : null}
+          </div>
+
+          <div class="quick-care-layout">
+            {
+              quickWarnings.length ? (
+                <aside class="quick-warning-panel" aria-labelledby="important-notes">
+                  <p class="eyebrow">Important notes</p>
+                  <h3 id="important-notes">Before you take it home</h3>
+                  <ul class="quick-warning-list">
+                    {quickWarnings.map((warning) => <li>{warning}</li>)}
+                  </ul>
+                </aside>
+              ) : null
+            }
+
+            {
+              quickCareFacts.length ? (
+                <dl class="quick-care-grid" aria-label={`${fish.commonName} quick care facts`}>
+                  {
+                    quickCareFacts.map(([label, value]) => (
+                      <div class="quick-care-item">
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))
+                  }
+                </dl>
+              ) : null
+            }
+          </div>
+        </section>
+      ) : null
+    }
+
+    {
+      fullCareDetails.length ? (
+        <section class="content-section" aria-labelledby="full-care">
+          <div>
+            <p class="eyebrow">Full care</p>
+            <h2 id="full-care">Care table</h2>
           </div>
           <dl class="care-table">
-            {
-              quickCare.map(([label, value]) => (
-                <div>
-                  <dt>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))
-            }
+            {fullCareDetails.map(([label, value]) => (
+              <div>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
           </dl>
         </section>
       ) : null
@@ -124,6 +161,18 @@ const careNotes = [
     }
 
     {
+      maleFemaleDifferences ? (
+        <section class="fish-note-section" aria-labelledby="sex-differences">
+          <div>
+            <p class="eyebrow">Sex differences</p>
+            <h2 id="sex-differences">How to tell males and females apart</h2>
+          </div>
+          <p>{maleFemaleDifferences}</p>
+        </section>
+      ) : null
+    }
+
+    {
       galleryImages.length ? (
         <section class="content-section" aria-labelledby="fish-gallery">
           <div>
@@ -144,17 +193,45 @@ const careNotes = [
     }
 
     {
-      careNotes.length ? (
-        <section class="care-notes-grid">
-          {
-            careNotes.map((section) => (
-              <article class:list={{ "personal-notes": section.featured }}>
-                <p class="eyebrow">{section.eyebrow}</p>
-                <h2>{section.title}</h2>
-                <p>{section.body}</p>
-              </article>
-            ))
-          }
+      husbandryNotes ? (
+        <section class="fish-note-section" aria-labelledby="husbandry-notes">
+          <div>
+            <p class="eyebrow">Care notes</p>
+            <h2 id="husbandry-notes">Husbandry notes</h2>
+          </div>
+          <p>{husbandryNotes}</p>
+        </section>
+      ) : null
+    }
+
+    {
+      anthonyNotes ? (
+        <section class="fish-note-section anthony-notes-section" aria-labelledby="anthony-notes">
+          <div>
+            <p class="eyebrow">Anthony&apos;s notes</p>
+            <h2 id="anthony-notes">Anthony&apos;s notes</h2>
+          </div>
+          <p>{anthonyNotes}</p>
+        </section>
+      ) : null
+    }
+
+    {
+      relatedNotes.length ? (
+        <section class="content-section" aria-labelledby="related-notes">
+          <div>
+            <p class="eyebrow">Related content</p>
+            <h2 id="related-notes">Related fishkeeping notes</h2>
+          </div>
+          <div class="article-list related-content-list">
+            {relatedNotes.map((note) => (
+              <a class="article-card related-card" href={note.url}>
+                {hasText(note.category) ? <p class="eyebrow">{note.category}</p> : null}
+                <h2>{note.title}</h2>
+                {hasText(note.summary) ? <p>{note.summary}</p> : null}
+              </a>
+            ))}
+          </div>
         </section>
       ) : null
     }

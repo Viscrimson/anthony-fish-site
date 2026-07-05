@@ -15,6 +15,75 @@ media:
     extensions: [svg, png, jpg, jpeg, webp]
 
 content:
+  - name: site
+    label: Site Settings
+    type: collection
+    path: src/content/site
+    filename: site.md
+    view:
+      fields: [siteName, homepageTitle, tagline]
+      primary: siteName
+    fields:
+      - name: siteName
+        label: Site name
+        type: string
+      - name: tagline
+        label: Short tagline
+        type: string
+      - name: homepageEyebrow
+        label: Homepage eyebrow
+        type: string
+      - name: homepageTitle
+        label: Homepage title
+        type: string
+      - name: homepageIntro
+        label: Homepage intro
+        type: text
+      - name: careSheetsIntro
+        label: Care sheets intro
+        type: text
+      - name: notesIntro
+        label: Notes intro
+        type: text
+      - name: qrHelperHeading
+        label: QR helper heading
+        type: string
+      - name: qrHelperText
+        label: QR helper text
+        type: text
+      - name: aboutHeading
+        label: About heading
+        type: string
+      - name: aboutSummary
+        label: About summary
+        type: text
+      - name: experienceText
+        label: Experience text
+        type: text
+      - name: focusText
+        label: Focus text
+        type: text
+      - name: credentialsText
+        label: Credentials text
+        type: text
+      - name: groupsText
+        label: Groups text
+        type: text
+      - name: contactHeading
+        label: Contact section heading
+        type: string
+      - name: contactText
+        label: Contact section text
+        type: text
+      - name: showContact
+        label: Show contact section
+        type: boolean
+      - name: showCredentials
+        label: Show credentials
+        type: boolean
+      - name: showGroups
+        label: Show groups
+        type: boolean
   - name: fish
     label: Fish Care Sheets
     type: collection
@@ -80,6 +149,18 @@ content:
       - name: anthonyNotes
         label: Anthony's Notes
         type: text
+      - name: qrSummary
+        label: QR quick summary
+        type: text
+      - name: quickWarnings
+        label: Quick warnings / take-home notes
+        type: string
+        list: true
+      - name: relatedNoteSlugs
+        label: Related note slugs
+        type: string
+        list: true
+        description: Use note slugs such as first-24-hours-with-a-new-fish.
       - name: mainImage
         label: Main Image
         type: image
@@ -136,7 +217,7 @@ content:
     path: src/content/notes
     filename: "{slug}.md"
     view:
-      fields: [title, date, summary]
+      fields: [title, category, date]
       primary: title
       sort: [date, title]
       search: [title, summary]
@@ -147,6 +228,40 @@ content:
       - name: title
         label: Title
         type: string
+      - name: category
+        label: Category
+        type: string
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: relatedFishSlugs
+        label: Related fish slugs
+        type: string
+        list: true
+        description: Use fish slugs such as blue-betta or zebra-danio.
+      - name: relatedNoteSlugs
+        label: Related note slugs
+        type: string
+        list: true
+        description: Use note slugs such as basic-water-testing.
+      - name: draft
+        label: Draft
+        type: boolean
+      - name: summary
+        label: Summary
+        type: text
+      - name: quickAnswer
+        label: Quick answer
+        type: text
+      - name: practicalSteps
+        label: Practical steps
+        type: string
+        list: true
+      - name: sources
+        label: Sources
+        type: string
+        list: true
       - name: date
         label: Date
         type: date
@@ -157,15 +272,13 @@ content:
         type: date
         options:
           format: yyyy-MM-dd
-      - name: summary
-        label: Summary
-        type: text
-      - name: pictorialSteps
-        label: Step Captions
-        type: string
-        list: true
-      - name: illustrationsDataTechnique
-        label: Illustrations and Data Technique
+      - name: lastReviewed
+        label: Last reviewed
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: visualNote
+        label: Visual note
         type: text
       - name: galleryImages
         label: Photos

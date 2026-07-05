@@ -1,29 +1,35 @@
 ---
-commonName: "TODO: Common fish name"
-scientificName: "TODO: Scientific name"
-origin: "TODO: Native range, source, or strain origin"
-temperatureRange: "TODO: Temperature range"
-adultSize: "TODO: Adult size"
-tankSize: "TODO: Recommended tank size"
-foodRecommendation: "TODO: Food recommendation"
-difficulty: "TODO: Beginner, intermediate, or advanced"
-temperament: "TODO: Temperament notes"
+commonName: "Common fish name"
+scientificName: "Scientific name"
+origin: "Native range, source, or strain origin"
+temperatureRange: "Example: 72-78 F"
+adultSize: "Adult size"
+tankSize: "Recommended tank size"
+foodRecommendation: "Primary food recommendation"
+difficulty: "Beginner, intermediate, or advanced"
+temperament: "Temperament notes"
 plantSafe: true
 invertebrateSafe: false
-juvenileAppearance: "TODO: What juveniles look like"
-adultMaleAppearance: "TODO: What adult males look like"
-adultFemaleAppearance: "TODO: What adult females look like"
-maleFemaleDifferences: "TODO: How to tell males and females apart"
+qrSummary: "Short QR-first summary with the most important care facts."
+quickWarnings:
+  - "Add the first warning that should be visible on a bag scan."
+  - "Add the second warning only if it helps someone take the fish home safely."
+relatedNoteSlugs:
+  - aquarium-cycling-basics
+juvenileAppearance: "What juveniles look like"
+adultMaleAppearance: "What adult males look like"
+adultFemaleAppearance: "What adult females look like"
+maleFemaleDifferences: "How to tell males and females apart"
 husbandryNotes: |
-  TODO: Care notes, water parameters, behavior, and setup tips.
+  Replace this with care notes, water parameters, behavior, and setup tips.
 anthonyNotes: |
-  TODO: Anthony's personal fishkeeping observations for this fish.
+  Replace this with Anthony's personal fishkeeping observations for this fish.
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: "TODO: One short summary sentence."
+summary: "One short summary sentence."
 draft: true
 ---

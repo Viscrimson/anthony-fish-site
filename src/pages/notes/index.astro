@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { trimText } from "../../lib/content-display.js";
+import { compactStrings, hasText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
 
 const notePages = buildNotePages(await getCollection("notes"));
@@ -11,33 +11,65 @@ const formatDate = (date) =>
     dateStyle: "medium",
     timeZone: "UTC",
   }).format(date);
+
+const getDateMeta = (note) => {
+  const hasUpdatedDate =
+    note.lastUpdated instanceof Date &&
+    note.lastUpdated.getTime() !== note.date.getTime();
+  const date = hasUpdatedDate ? note.lastUpdated : note.date;
+
+  return {
+    label: hasUpdatedDate ? "Updated" : "Published",
+    text: formatDate(date),
+  };
+};
 ---
 
 <BaseLayout
   title="Fishkeeping Notes"
-  description="Fishkeeping notes and short articles from Anthony Fish Site."
+  description="Practical fishkeeping notes and short articles from Anthony Fish Care."
 >
   <main class="page-wrap">
     <section class="hero">
       <div>
-        <p class="eyebrow">Articles</p>
+        <p class="eyebrow">Care library</p>
         <h1>Fishkeeping Notes.</h1>
         <p class="lede">
-          Short notes about care routines, aquarium setup, and practical
-          observations.
+          Practical guidance for tank setup, water quality, feeding, and the
+          questions that come up when a fish goes home.
         </p>
       </div>
     </section>
 
     <section class="article-list" aria-label="Fishkeeping notes">
       {
-        notePages.map((note) => (
-          <a class="article-card" href={note.url}>
-            <p class="eyebrow">{formatDate(note.date)}</p>
-            <h2>{note.title}</h2>
-            {trimText(note.summary) ? <p>{note.summary}</p> : null}
-          </a>
-        ))
+        notePages.map((note) => {
+          const dateMeta = getDateMeta(note);
+          const tags = compactStrings(note.tags);
+
+          return (
+            <a class="article-card" href={note.url}>
+              {hasText(note.category) ? <p class="eyebrow">{note.category}</p> : null}
+              <h2>{note.title}</h2>
+              {hasText(note.summary) ? <p>{note.summary}</p> : null}
+              <div class="article-card-meta">
+                <span>
+                  {dateMeta.label} {dateMeta.text}
+                </span>
+              </div>
+              {tags.length ? (
+                <ul
+                  class="fish-chip-list article-tag-list"
+                  aria-label={`${note.title} tags`}
+                >
+                  {tags.map((tag) => (
+                    <li class="fish-chip">{tag}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </a>
+          );
+        })
       }
     </section>
   </main>

@@ -1,3 +1,4 @@
+import { compactStrings } from "./content-display.js";
 import { normalizeContentSlug, withBase } from "./paths.js";
 
 const collator = new Intl.Collator("en", {
@@ -26,6 +27,7 @@ export function buildFishPages(entries) {
 
 export function buildNotePages(entries) {
   return entries
+    .filter((entry) => entry.data.draft !== true)
     .map((entry) => {
       const slug = normalizeContentSlug(entry.id);
 
@@ -57,4 +59,33 @@ export function getCollectionNeighbors(entries, slug) {
     previous: entries[index - 1] ?? null,
     next: entries[index + 1] ?? null,
   };
+}
+
+export function resolveRelatedPages(entries, slugs, excludeSlug = "") {
+  const wanted = compactStrings(slugs).map((slug) => normalizeContentSlug(slug));
+
+  if (!wanted.length) {
+    return [];
+  }
+
+  const relatedBySlug = new Map(entries.map((entry) => [entry.slug, entry]));
+  const seen = new Set();
+  const related = [];
+
+  for (const slug of wanted) {
+    if (!slug || slug === excludeSlug || seen.has(slug)) {
+      continue;
+    }
+
+    const entry = relatedBySlug.get(slug);
+
+    if (!entry) {
+      continue;
+    }
+
+    related.push(entry);
+    seen.add(slug);
+  }
+
+  return related;
 }

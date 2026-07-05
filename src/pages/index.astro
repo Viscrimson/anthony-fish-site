@@ -1,70 +1,148 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { withBase } from "../lib/paths.js";
+import { hasText, trimText } from "../lib/content-display.js";
 
-const profileFields = [
-  ["Name", "TODO: Anthony preferred display name"],
-  ["Degrees", "TODO: degrees or certifications to list"],
-  ["Experience", "TODO: years and types of fishkeeping experience"],
-  ["Societies / groups", "TODO: aquarium societies, clubs, or groups"],
-  ["Fishkeeping focus", "TODO: fish species, habitats, or care topics"],
-  ["Short biography", "TODO: short public biography for this site"],
-  ["Contact info", "TODO: public contact method Anthony wants to share"],
-];
+const fallbackSite = {
+  siteName: "Anthony Fish Care",
+  tagline:
+    "Practical care sheets, fishkeeping notes, and QR-linked information for fish sent home from Anthony.",
+  homepageEyebrow: "About Anthony Fish Care",
+  homepageTitle: "About Anthony.",
+  homepageIntro:
+    "A calm fish-care reference for practical care sheets, fishkeeping notes, and QR-linked care information. This site is not an online store. If someone receives a fish from Anthony, the QR code on the bag can open that fish's care sheet.",
+  careSheetsIntro:
+    "Species and variety care pages that can be shared directly. QR codes on fish bags can point to the matching care sheet.",
+  notesIntro:
+    "Short hobby articles, setup notes, and care observations that do not need to be tied to one fish care sheet.",
+  qrHelperHeading: "Using a QR code?",
+  qrHelperText:
+    "Scanning a fish bag should bring up the most useful care facts first, then the fuller notes below.",
+  aboutHeading: "Public profile",
+  aboutSummary: "Anthony's public profile details are being finalized.",
+  experienceText:
+    "This section can include fishkeeping experience, focus species, credentials, aquarium groups, and preferred contact options once Anthony confirms them.",
+  focusText:
+    "Focus text can describe the fish, setups, and care topics Anthony wants to share publicly.",
+  contactHeading: "Contact",
+  contactText:
+    "Contact options will be added after Anthony chooses what he wants public.",
+  showContact: true,
+  showCredentials: false,
+  showGroups: false,
+};
+
+const siteEntry = (await getCollection("site"))[0] ?? null;
+const site = siteEntry?.data ?? fallbackSite;
+const siteName = trimText(site.siteName) || fallbackSite.siteName;
+const tagline = trimText(site.tagline) || fallbackSite.tagline;
+const homepageEyebrow =
+  trimText(site.homepageEyebrow) || fallbackSite.homepageEyebrow;
+const homepageTitle = trimText(site.homepageTitle) || fallbackSite.homepageTitle;
+const homepageIntro = trimText(site.homepageIntro) || fallbackSite.homepageIntro;
+const careSheetsIntro =
+  trimText(site.careSheetsIntro) || fallbackSite.careSheetsIntro;
+const notesIntro = trimText(site.notesIntro) || fallbackSite.notesIntro;
+const qrHelperHeading =
+  trimText(site.qrHelperHeading) || fallbackSite.qrHelperHeading;
+const qrHelperText = trimText(site.qrHelperText) || fallbackSite.qrHelperText;
+const aboutHeading = trimText(site.aboutHeading) || fallbackSite.aboutHeading;
+const aboutSummary = trimText(site.aboutSummary) || fallbackSite.aboutSummary;
+const experienceText = trimText(site.experienceText);
+const focusText = trimText(site.focusText);
+const credentialsText =
+  site.showCredentials === true ? trimText(site.credentialsText) : "";
+const groupsText = site.showGroups === true ? trimText(site.groupsText) : "";
+const contactVisible =
+  siteEntry ? site.showContact === true : fallbackSite.showContact === true;
+const contactHeading =
+  trimText(site.contactHeading) || fallbackSite.contactHeading;
+const contactText = trimText(site.contactText) || fallbackSite.contactText;
+
+const aboutFields = [
+  ["Experience", experienceText],
+  ["Focus", focusText],
+  ["Credentials", credentialsText],
+  ["Groups", groupsText],
+].filter(([, value]) => hasText(value));
+const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 ---
 
 <BaseLayout
-  title="Anthony Fish Site"
-  description="About Anthony and the hobby fish-care resources on Anthony Fish Site."
+  title={siteName}
+  description={tagline}
 >
   <main class="page-wrap">
     <section class="hero home-hero">
       <div>
-        <p class="eyebrow">Anthony Fish Site</p>
-        <h1>About Anthony.</h1>
-        <p class="lede">
-          A calm fish-care reference for practical care sheets, fishkeeping
-          notes, and QR-linked care information. This site is not an online
-          store. If someone receives a fish from Anthony, the QR code on the
-          bag can open that fish's care sheet.
-        </p>
+        <p class="eyebrow">{homepageEyebrow}</p>
+        <h1>{homepageTitle}</h1>
+        <p class="lede">{homepageIntro}</p>
       </div>
-    </section>
-
-    <section class="content-section" aria-labelledby="about-anthony">
-      <div>
-        <p class="eyebrow">About Anthony</p>
-        <h2 id="about-anthony">Public profile</h2>
-      </div>
-      <dl class="profile-list">
-        {
-          profileFields.map(([label, value]) => (
-            <div>
-              <dt>{label}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))
-        }
-      </dl>
     </section>
 
     <section class="link-grid" aria-label="Site sections">
       <a class="feature-link" href={withBase("fish/")}>
         <p class="eyebrow">Care Sheets</p>
         <h2>Fish Care Sheets</h2>
-        <p>
-          Species and variety care pages that can be shared directly. QR codes
-          on fish bags can point to the matching care sheet.
-        </p>
+        <p>{careSheetsIntro}</p>
       </a>
       <a class="feature-link" href={withBase("notes/")}>
         <p class="eyebrow">Articles</p>
         <h2>Fishkeeping Notes</h2>
-        <p>
-          Short hobby articles, setup notes, and care observations that do not
-          need to be tied to one fish care sheet.
-        </p>
+        <p>{notesIntro}</p>
       </a>
     </section>
+
+    {
+      hasText(qrHelperText) ? (
+        <section class="content-section" aria-labelledby="qr-helper">
+          <div>
+            <p class="eyebrow">{qrHelperHeading}</p>
+            <h2 id="qr-helper">Quick help for bag scans</h2>
+          </div>
+          <div class="site-helper">
+            <p>{qrHelperText}</p>
+          </div>
+        </section>
+      ) : null
+    }
+
+    {
+      aboutVisible ? (
+        <section class="content-section" aria-labelledby="about-anthony">
+          <div>
+            <p class="eyebrow">About Anthony</p>
+            <h2 id="about-anthony">{aboutHeading}</h2>
+          </div>
+          <div>
+            {hasText(aboutSummary) ? <p class="lede">{aboutSummary}</p> : null}
+            <dl class="profile-list">
+              {aboutFields.map(([label, value]) => (
+                <div>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      ) : null
+    }
+
+    {
+      contactVisible && hasText(contactText) ? (
+        <section class="content-section" aria-labelledby="contact-anthony">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-anthony">{contactHeading}</h2>
+          </div>
+          <div class="site-helper">
+            <p>{contactText}</p>
+          </div>
+        </section>
+      ) : null
+    }
   </main>
 </BaseLayout>

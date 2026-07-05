@@ -1,14 +1,29 @@
 ---
+import { getCollection } from "astro:content";
 import { withBase } from "../lib/paths.js";
+import { hasText, trimText } from "../lib/content-display.js";
 import "../styles/site.css";
 
+const siteName = "Anthony Fish Care";
+const siteEntry = (await getCollection("site"))[0] ?? null;
+const siteContent = siteEntry?.data ?? {};
+
+const fallbackFooterText =
+  "A hobby fish-care reference for sharing care sheets, fishkeeping notes, and QR-linked care information. Not an online store.";
+const fallbackContactText =
+  "Contact details will be added after Anthony chooses a public contact method.";
+
 const {
-  title = "Anthony Fish Site",
-  description = "A simple static fish catalog.",
+  title = siteName,
+  description = "A calm fish-care reference for sharing care sheets and notes.",
 } = Astro.props;
 
-const pageTitle =
-  title === "Anthony Fish Site" ? title : `${title} | Anthony Fish Site`;
+const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
+const brandName = trimText(siteContent.siteName) || siteName;
+const footerText = trimText(siteContent.tagline) || fallbackFooterText;
+const showContact = siteContent.showContact !== false;
+const contactHeading = trimText(siteContent.contactHeading) || "Contact";
+const contactText = trimText(siteContent.contactText) || fallbackContactText;
 ---
 
 <!doctype html>
@@ -22,7 +37,7 @@ const pageTitle =
   </head>
   <body>
     <header class="site-header">
-      <a class="site-brand" href={withBase()}>Anthony Fish Site</a>
+      <a class="site-brand" href={withBase()}>{brandName}</a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href={withBase("fish/")}>Fish Care Sheets</a>
         <a href={withBase("notes/")}>Fishkeeping Notes</a>
@@ -31,16 +46,15 @@ const pageTitle =
     <slot />
     <footer class="site-footer">
       <div>
-        <p class="footer-title">Anthony Fish Site</p>
-        <p>
-          A hobby fish-care reference for sharing care sheets, fishkeeping
-          notes, and QR-linked care information. Not an online store.
-        </p>
+        <p class="footer-title">{brandName}</p>
+        <p>{footerText}</p>
       </div>
-      <div>
-        <p class="footer-title">Contact</p>
-        <p>TODO: Anthony contact info.</p>
-      </div>
+      {showContact && hasText(contactText) ? (
+        <div>
+          <p class="footer-title">{contactHeading}</p>
+          <p>{contactText}</p>
+        </div>
+      ) : null}
     </footer>
   </body>
 </html>

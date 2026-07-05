@@ -1,7 +1,7 @@
 ---
 commonName: Fancy Guppy
 scientificName: Poecilia reticulata
-origin: Sample placeholder entry for a common livebearer.
+origin: Origin details are pending confirmation.
 temperatureRange: 72-82 F
 adultSize: About 1.5-2 inches
 tankSize: 10 gallons or larger
@@ -10,21 +10,27 @@ difficulty: Beginner
 temperament: Peaceful in appropriate community settings
 plantSafe: true
 invertebrateSafe: false
-juvenileAppearance: "Sample placeholder notes: small, pale body with developing color."
-adultMaleAppearance: "Sample placeholder notes: bright colors and decorative tail variation."
-adultFemaleAppearance: "Sample placeholder notes: fuller body shape and subtler patterning."
-maleFemaleDifferences: "Sample placeholder notes: males are often smaller and more colorful."
+juvenileAppearance: ""
+adultMaleAppearance: ""
+adultFemaleAppearance: ""
+maleFemaleDifferences: ""
 husbandryNotes: |
-  Keep the water clean and stable. Provide cover with plants or decor and avoid
-  crowding the tank.
-anthonyNotes: |
-  Placeholder note for Anthony: replace this text with any real observations if
-  this fish is added to the collection.
+  Keep the tank uncrowded and choose peaceful community tankmates.
+anthonyNotes: ""
+qrSummary: A peaceful livebearer quick-care sheet with tank, food, and crowding reminders.
+quickWarnings:
+  - Avoid crowding the tank.
+  - Keep it in a peaceful community setup.
+relatedNoteSlugs:
+  - first-24-hours-with-a-new-fish
+  - acclimating-a-new-fish
+  - basic-water-testing
+  - aquarium-cycling-basics
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: Sample placeholder care sheet for a colorful livebearer.
+summary: A peaceful livebearer care sheet with a 10-gallon-or-larger tank, small foods, and calm community care.
 ---

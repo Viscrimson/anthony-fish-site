@@ -1,7 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import FishPage from "../../components/FishPage.astro";
-import { buildFishPages, getCollectionNeighbors } from "../../lib/content-pages.js";
+import {
+  buildFishPages,
+  buildNotePages,
+  getCollectionNeighbors,
+  resolveRelatedPages,
+} from "../../lib/content-pages.js";
 import { normalizeContentSlug } from "../../lib/paths.js";
 
 export async function getStaticPaths() {
@@ -17,7 +22,14 @@ export async function getStaticPaths() {
 const slug = normalizeContentSlug(Astro.params.slug ?? "");
 const { fish } = Astro.props;
 const fishEntries = buildFishPages(await getCollection("fish"));
+const noteEntries = buildNotePages(await getCollection("notes"));
 const { previous, next } = getCollectionNeighbors(fishEntries, slug);
+const relatedNotes = resolveRelatedPages(noteEntries, fish.relatedNoteSlugs);
 ---
 
-<FishPage fish={fish} previousFish={previous} nextFish={next} />
+<FishPage
+  fish={fish}
+  previousFish={previous}
+  nextFish={next}
+  relatedNotes={relatedNotes}
+/>

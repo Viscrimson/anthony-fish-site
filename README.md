@@ -1,4 +1,4 @@
-# Anthony Fish Site
+# Anthony Fish Care
 
 Static Astro site for hobby fish-care information, fish care sheets, and short
 fishkeeping notes.

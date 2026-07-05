@@ -1,19 +1,34 @@
 ---
-title: "TODO: Article title"
+title: "Article title"
+category: "Optional topic label"
 date: 2026-01-01
 lastUpdated: 2026-01-01
-summary: "TODO: One-sentence summary"
+lastReviewed: 2026-01-01
+summary: "One-sentence summary"
+tags:
+  - setup
+  - water quality
+relatedFishSlugs:
+  - blue-betta
+relatedNoteSlugs:
+  - basic-water-testing
+quickAnswer: "Short answer visitors should see first."
+practicalSteps:
+  - "First practical step."
+  - "Second practical step."
 pictorialSteps:
-  - "TODO: Optional step 1"
-  - "TODO: Optional step 2"
-illustrationsDataTechnique: "TODO: Optional note about diagrams or data visualization"
+  - "Legacy fallback if the note needs visual steps."
+visualNote: "Optional note about diagrams or charts."
+sources:
+  - https://example.com/source
 galleryImages:
   - note-placeholder.svg
+draft: true
 ---
 
-# TODO: Article body
+# Article title
 
-TODO: Write the article here.
+Write the public article body here.
 
-Use the `galleryImages` field for photos and keep the body text focused on the
-article itself. The page will crop gallery images into a consistent frame.
+Use `quickAnswer` for the scan-first summary, `practicalSteps` for action steps,
+`sources` for references, and `lastReviewed` for review dates.

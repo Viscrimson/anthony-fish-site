@@ -27,9 +27,11 @@ content:
       - name: siteName
         label: Site name
         type: string
+        description: Shown in the header, footer, and browser title.
       - name: tagline
         label: Short tagline
         type: string
+        description: Shown in the footer and browser metadata.
       - name: homepageEyebrow
         label: Homepage eyebrow
         type: string
@@ -52,22 +54,22 @@ content:
         label: QR helper text
         type: text
       - name: aboutHeading
-        label: About heading
+        label: About section heading
         type: string
       - name: aboutSummary
         label: About summary
         type: text
       - name: experienceText
-        label: Experience text
+        label: Experience / background
         type: text
       - name: focusText
-        label: Focus text
+        label: Fish focus
         type: text
       - name: credentialsText
-        label: Credentials text
+        label: Credentials
         type: text
       - name: groupsText
-        label: Groups text
+        label: Groups or clubs
         type: text
       - name: contactHeading
         label: Contact section heading
@@ -79,10 +81,10 @@ content:
         label: Show contact section
         type: boolean
       - name: showCredentials
-        label: Show credentials
+        label: Show credentials line
         type: boolean
       - name: showGroups
-        label: Show groups
+        label: Show group memberships
         type: boolean
   - name: fish
     label: Fish Care Sheets
@@ -99,58 +101,58 @@ content:
         order: asc
     fields:
       - name: commonName
-        label: Common Name
+        label: Common name
         type: string
       - name: scientificName
-        label: Scientific Name
+        label: Scientific name
         type: string
       - name: origin
-        label: Origin
+        label: Origin / native range
         type: text
       - name: temperatureRange
-        label: Temperature Range
+        label: Temperature range
         type: string
       - name: adultSize
-        label: Adult Size
+        label: Adult size
         type: string
       - name: tankSize
-        label: Tank Size
+        label: Tank size
         type: string
       - name: foodRecommendation
-        label: Food Recommendation
+        label: Food recommendation
         type: string
       - name: difficulty
         label: Difficulty
         type: string
       - name: temperament
-        label: Temperament
+        label: Temperament / social note
         type: text
       - name: plantSafe
-        label: Plant Safe
+        label: Plant safe
         type: boolean
       - name: invertebrateSafe
-        label: Invertebrate Safe
+        label: Invertebrate safe
         type: boolean
       - name: juvenileAppearance
-        label: Juvenile Appearance
+        label: Juvenile appearance
         type: text
       - name: adultMaleAppearance
-        label: Adult Male Appearance
+        label: Adult male appearance
         type: text
       - name: adultFemaleAppearance
-        label: Adult Female Appearance
+        label: Adult female appearance
         type: text
       - name: maleFemaleDifferences
-        label: Male / Female Differences
+        label: Male / female differences
         type: text
       - name: husbandryNotes
-        label: Husbandry Notes
+        label: Husbandry notes
         type: text
       - name: anthonyNotes
-        label: Anthony's Notes
+        label: Anthony notes
         type: text
       - name: qrSummary
-        label: QR quick summary
+        label: QR summary
         type: text
       - name: quickWarnings
         label: Quick warnings / take-home notes
@@ -160,42 +162,47 @@ content:
         label: Related note slugs
         type: string
         list: true
-        description: Use note slugs such as first-24-hours-with-a-new-fish.
+        description: Use note slugs such as first-24-hours-with-a-new-fish. A slug is the file name without .md.
       - name: mainImage
-        label: Main Image
+        label: Main photo / illustration
         type: image
+        description: The primary image used on the fish detail page and card.
         options:
           media: images
           path: public/fish-images
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: juvenileImage
-        label: Juvenile Image
+        label: Juvenile photo / illustration
         type: image
+        description: Optional image for the juvenile appearance section.
         options:
           media: images
           path: public/fish-images
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: maleImage
-        label: Male Image
+        label: Adult male photo / illustration
         type: image
+        description: Optional image for the adult male appearance section.
         options:
           media: images
           path: public/fish-images
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: femaleImage
-        label: Female Image
+        label: Adult female photo / illustration
         type: image
+        description: Optional image for the adult female appearance section.
         options:
           media: images
           path: public/fish-images
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: galleryImages
-        label: Additional Photos
+        label: Additional photos / illustrations
         type: image
+        description: Extra images shown lower on the fish detail page.
         options:
           media: images
           path: public/fish-images
@@ -205,14 +212,14 @@ content:
           unique: true
           extensions: [svg, png, jpg, jpeg, webp]
       - name: summary
-        label: Summary
+        label: Short summary
         type: string
       - name: draft
-        label: Draft
+        label: Keep as draft
         type: boolean
 
   - name: notes
-    label: Fishkeeping Notes
+    label: Resources
     type: collection
     path: src/content/notes
     filename: "{slug}.md"
@@ -239,17 +246,17 @@ content:
         label: Related fish slugs
         type: string
         list: true
-        description: Use fish slugs such as blue-betta or zebra-danio.
+        description: Use fish slugs such as blue-betta or zebra-danio. A slug is the file name without .md.
       - name: relatedNoteSlugs
         label: Related note slugs
         type: string
         list: true
-        description: Use note slugs such as basic-water-testing.
+        description: Use note slugs such as basic-water-testing. A slug is the file name without .md.
       - name: draft
-        label: Draft
+        label: Keep as draft
         type: boolean
       - name: summary
-        label: Summary
+        label: Short summary
         type: text
       - name: quickAnswer
         label: Quick answer
@@ -259,7 +266,7 @@ content:
         type: string
         list: true
       - name: sources
-        label: Sources
+        label: Sources / references
         type: string
         list: true
       - name: date
@@ -280,10 +287,15 @@ content:
       - name: visualNote
         label: Visual note
         type: text
+      - name: illustrationsDataTechnique
+        label: Illustration / diagram note
+        type: text
+        description: Optional note about diagrams, illustrations, or the visual layout of the article.
       - name: galleryImages
         label: Photos
         type: image
         list: true
+        description: Optional note images shown on the article page.
         options:
           media: noteImages
           path: public/note-images

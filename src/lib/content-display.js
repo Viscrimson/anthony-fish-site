@@ -77,6 +77,70 @@ export function compactStrings(values) {
   return Array.isArray(values) ? values.map(trimText).filter(Boolean) : [];
 }
 
+export function buildSearchIndex(values) {
+  return compactStrings(values).join(" ").toLowerCase();
+}
+
+export function deriveTankBand(value) {
+  const text = trimText(value);
+
+  if (!text) {
+    return null;
+  }
+
+  const match = text.match(/(\d+(?:\.\d+)?)/);
+
+  if (!match) {
+    return {
+      value: text.toLowerCase(),
+      label: text,
+      sort: Number.POSITIVE_INFINITY,
+    };
+  }
+
+  const gallons = Number(match[1]);
+
+  if (!Number.isFinite(gallons)) {
+    return null;
+  }
+
+  return {
+    value: `${gallons}`,
+    label: `${match[1]}+ gallons`,
+    sort: gallons,
+  };
+}
+
+export function deriveTemperamentStyle(value) {
+  const text = trimText(value);
+
+  if (!text) {
+    return null;
+  }
+
+  const lower = text.toLowerCase();
+  const styles = [
+    { token: "territorial", label: "Territorial" },
+    { token: "schooling", label: "Schooling" },
+    { token: "school", label: "Schooling" },
+    { token: "group", label: "Schooling" },
+    { token: "community", label: "Community" },
+    { token: "peaceful", label: "Peaceful" },
+    { token: "active", label: "Active" },
+  ];
+
+  for (const style of styles) {
+    if (lower.includes(style.token)) {
+      return {
+        value: style.label.toLowerCase(),
+        label: style.label,
+      };
+    }
+  }
+
+  return null;
+}
+
 export function compactSources(values) {
   if (!Array.isArray(values)) {
     return [];

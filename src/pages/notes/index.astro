@@ -26,22 +26,19 @@ const getDateMeta = (note) => {
 ---
 
 <BaseLayout
-  title="Fishkeeping Notes"
-  description="Practical fishkeeping notes and short articles from Anthony Fish Care."
+  title="Resources"
+  description="Practical freshwater resources and short articles from Anthony Fish Care."
 >
   <main class="page-wrap">
     <section class="hero">
       <div>
-        <p class="eyebrow">Care library</p>
-        <h1>Fishkeeping Notes.</h1>
-        <p class="lede">
-          Practical guidance for tank setup, water quality, feeding, and the
-          questions that come up when a fish goes home.
-        </p>
+        <p class="eyebrow">Resources</p>
+        <h1>Resources</h1>
+        <p class="lede">Short resources for setup, acclimation, water quality, feeding, and the questions that come up when a fish goes home.</p>
       </div>
     </section>
 
-    <section class="article-list" aria-label="Fishkeeping notes">
+    <section class="article-list" aria-label="Resources">
       {
         notePages.map((note) => {
           const dateMeta = getDateMeta(note);

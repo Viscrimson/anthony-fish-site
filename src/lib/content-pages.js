@@ -1,13 +1,34 @@
-import { compactStrings } from "./content-display.js";
+import { compactStrings, hasText } from "./content-display.js";
 import { normalizeContentSlug, withBase } from "./paths.js";
 
 const collator = new Intl.Collator("en", {
   sensitivity: "base",
 });
 
+const fishPublishFields = [
+  "commonName",
+  "scientificName",
+  "origin",
+  "temperatureRange",
+  "adultSize",
+  "tankSize",
+  "foodRecommendation",
+  "difficulty",
+  "temperament",
+  "mainImage",
+  "juvenileImage",
+  "maleImage",
+  "femaleImage",
+  "summary",
+];
+
+function isRenderableFish(entry) {
+  return fishPublishFields.every((field) => hasText(entry.data[field]));
+}
+
 export function buildFishPages(entries) {
   return entries
-    .filter((entry) => !entry.data.draft)
+    .filter((entry) => !entry.data.draft && isRenderableFish(entry))
     .map((entry) => {
       const slug = normalizeContentSlug(entry.id);
 

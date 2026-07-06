@@ -1,8 +1,8 @@
 ---
 commonName: Fancy Guppy
 scientificName: Poecilia reticulata
-origin: Origin details are pending confirmation.
-temperatureRange: 72-82 F
+origin: Northeast South America
+temperatureRange: 68-78 F
 adultSize: About 1.5-2 inches
 tankSize: 10 gallons or larger
 foodRecommendation: Small pellets, flakes, and frozen foods

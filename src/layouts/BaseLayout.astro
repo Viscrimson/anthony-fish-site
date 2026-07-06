@@ -1,29 +1,45 @@
 ---
 import { getCollection } from "astro:content";
 import { withBase } from "../lib/paths.js";
-import { hasText, trimText } from "../lib/content-display.js";
+import { trimText } from "../lib/content-display.js";
 import "../styles/site.css";
 
 const siteName = "Anthony Fish Care";
 const siteEntry = (await getCollection("site"))[0] ?? null;
 const siteContent = siteEntry?.data ?? {};
 
-const fallbackFooterText =
-  "A hobby fish-care reference for sharing care sheets, fishkeeping notes, and QR-linked care information. Not an online store.";
-const fallbackContactText =
-  "Contact details will be added after Anthony chooses a public contact method.";
-
 const {
   title = siteName,
-  description = "A calm fish-care reference for sharing care sheets and notes.",
+  description = "Fish care sheets and resources from Anthony Fish Care.",
 } = Astro.props;
 
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 const brandName = trimText(siteContent.siteName) || siteName;
-const footerText = trimText(siteContent.tagline) || fallbackFooterText;
-const showContact = siteContent.showContact !== false;
-const contactHeading = trimText(siteContent.contactHeading) || "Contact";
-const contactText = trimText(siteContent.contactText) || fallbackContactText;
+const currentYear = new Date().getFullYear();
+const currentPath = Astro.url.pathname;
+const homePath = withBase();
+const fishPath = withBase("fish/");
+const notesPath = withBase("notes/");
+const isHomePath = currentPath === homePath;
+const isFishPath = currentPath === fishPath || currentPath.startsWith(fishPath);
+const isNotesPath = currentPath === notesPath || currentPath.startsWith(notesPath);
+const navItems = [
+  {
+    href: withBase("fish/"),
+    label: "Care Sheet Library",
+    current: isFishPath ? "page" : undefined,
+  },
+  {
+    href: withBase("notes/"),
+    label: "Resources",
+    current: isNotesPath ? "page" : undefined,
+  },
+  {
+    href: withBase("#about"),
+    label: "About",
+    current: isHomePath ? "location" : undefined,
+  },
+];
 ---
 
 <!doctype html>
@@ -37,24 +53,40 @@ const contactText = trimText(siteContent.contactText) || fallbackContactText;
   </head>
   <body>
     <header class="site-header">
-      <a class="site-brand" href={withBase()}>{brandName}</a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href={withBase("fish/")}>Fish Care Sheets</a>
-        <a href={withBase("notes/")}>Fishkeeping Notes</a>
+      <a class="site-brand" href={withBase()}>
+        <span class="site-brand-mark" aria-hidden="true">AF</span>
+        <span class="site-brand-name">{brandName}</span>
+      </a>
+      <nav class="site-nav site-nav-desktop" aria-label="Main navigation">
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={item.current}>
+            {item.label}
+          </a>
+        ))}
       </nav>
+      <details class="site-menu">
+        <summary class="site-menu-toggle">
+          <span class="site-menu-toggle-label">Menu</span>
+          <span class="site-menu-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </summary>
+        <nav class="site-nav site-nav-mobile" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a href={item.href} aria-current={item.current}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </details>
     </header>
     <slot />
     <footer class="site-footer">
-      <div>
-        <p class="footer-title">{brandName}</p>
-        <p>{footerText}</p>
-      </div>
-      {showContact && hasText(contactText) ? (
-        <div>
-          <p class="footer-title">{contactHeading}</p>
-          <p>{contactText}</p>
-        </div>
-      ) : null}
+      <p>
+        © {currentYear} {brandName} · Designed by Juxtaposition Sound &amp; Vision
+      </p>
     </footer>
   </body>
 </html>

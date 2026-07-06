@@ -1,10 +1,10 @@
 ---
 commonName: Zebra Danio
 scientificName: Danio rerio
-origin: South Asia, especially streams and ponds with moving water
-temperatureRange: 68-78 F
+origin: Eastern India and Bangladesh
+temperatureRange: 64-75 F
 adultSize: About 2 inches
-tankSize: 20 gallons or larger
+tankSize: 10 gallons or larger
 foodRecommendation: Small flakes, micro pellets, and frozen foods
 difficulty: Beginner
 temperament: Active schooling fish that do best in groups

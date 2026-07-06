@@ -1,7 +1,7 @@
 ---
 commonName: Bronze Corydoras
 scientificName: Corydoras aeneus
-origin: Origin details are pending confirmation.
+origin: South America
 temperatureRange: 72-79 F
 adultSize: About 2.5 inches
 tankSize: 20 gallons or larger

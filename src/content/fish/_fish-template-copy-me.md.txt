@@ -1,7 +1,7 @@
 ---
 commonName: "Common fish name"
 scientificName: "Scientific name"
-origin: "Native range, source, or strain origin"
+origin: "Native range or stock origin"
 temperatureRange: "Example: 72-78 F"
 adultSize: "Adult size"
 tankSize: "Recommended tank size"
@@ -21,15 +21,15 @@ adultMaleAppearance: "What adult males look like"
 adultFemaleAppearance: "What adult females look like"
 maleFemaleDifferences: "How to tell males and females apart"
 husbandryNotes: |
-  Replace this with care notes, water parameters, behavior, and setup tips.
+  Use this for care notes, water parameters, behavior, and setup tips.
 anthonyNotes: |
-  Replace this with Anthony's personal fishkeeping observations for this fish.
+  Use this for Anthony's personal observations about this fish.
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: "One short summary sentence."
+summary: "One short public summary sentence."
 draft: true
 ---

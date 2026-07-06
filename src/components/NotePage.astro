@@ -60,9 +60,9 @@ const sourceEntries = compactSources(note.data.sources);
 
 <BaseLayout title={note.data.title} description={summary || note.data.title}>
   <main class="page-wrap article-page note-page">
-    <p class="crumb"><a href={withBase("notes/")}>All fishkeeping notes</a></p>
+    <p class="crumb"><a href={withBase("notes/")}>All resources</a></p>
     <article class="article-shell">
-      <p class="eyebrow">Fishkeeping note</p>
+      <p class="eyebrow">Resource</p>
       <h1>{note.data.title}</h1>
       {summary ? <p class="lede">{summary}</p> : null}
 
@@ -192,7 +192,7 @@ const sourceEntries = compactSources(note.data.sources);
           <section class="content-section" aria-labelledby="related-notes">
             <div>
               <p class="eyebrow">Related content</p>
-              <h2 id="related-notes">Related notes</h2>
+              <h2 id="related-notes">Related resources</h2>
             </div>
             <div class="article-list related-content-list">
               {relatedNotes.map((relatedNote) => (
@@ -210,11 +210,11 @@ const sourceEntries = compactSources(note.data.sources);
       }
 
       <ContentPager
-        ariaLabel="Fishkeeping note navigation"
+        ariaLabel="Resource navigation"
         previous={previousNote && { label: previousNote.label, url: previousNote.url }}
         next={nextNote && { label: nextNote.label, url: nextNote.url }}
-        previousLabel="Previous note"
-        nextLabel="Next note"
+        previousLabel="Previous resource"
+        nextLabel="Next resource"
       />
     </article>
   </main>

@@ -10,7 +10,7 @@ const quickSummary = trimText(fish.qrSummary);
 const booleanFact = (label, value) =>
   typeof value === "boolean" ? [label, value ? "Yes" : "No"] : null;
 const quickCareFacts = [
-  ["Minimum tank", fish.tankSize],
+  ["Tank size", fish.tankSize],
   ["Temperature", fish.temperatureRange],
   ["Food", fish.foodRecommendation],
   ["Difficulty", fish.difficulty],
@@ -43,6 +43,7 @@ const quickWarnings = compactStrings(fish.quickWarnings);
 const husbandryNotes = trimText(fish.husbandryNotes);
 const maleFemaleDifferences = trimText(fish.maleFemaleDifferences);
 const anthonyNotes = trimText(fish.anthonyNotes);
+const pageUrl = fish.url;
 const fullCareDetails = [
   ["Scientific name", fish.scientificName],
   ["Origin", fish.origin],
@@ -59,14 +60,14 @@ const fullCareDetails = [
 
 <BaseLayout title={fish.commonName} description={summary || fish.commonName}>
   <main class="page-wrap fish-detail">
-    <p class="crumb"><a href={withBase("fish/")}>All fish care sheets</a></p>
+    <p class="crumb"><a href={withBase("fish/")}>Care Sheet Library</a></p>
     <section class="fish-profile fish-profile-expanded">
       <div class="fish-photo-panel">
         <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} main image`} />
       </div>
 
       <article class="fish-copy">
-        <p class="eyebrow">Fish care sheet</p>
+        <p class="eyebrow">Care sheet</p>
         <h1>{fish.commonName}</h1>
         <p class="scientific-name"><em>{fish.scientificName}</em></p>
         {summary ? <p class="lede">{summary}</p> : null}
@@ -78,8 +79,15 @@ const fullCareDetails = [
         <section class="quick-care-section" aria-labelledby="quick-care">
           <div class="quick-care-intro">
             <p class="eyebrow">Quick care</p>
-            <h2 id="quick-care">The essentials to check first after scanning this page.</h2>
+            <h2 id="quick-care">Start here</h2>
             {quickSummary ? <p class="quick-care-summary">{quickSummary}</p> : null}
+            <div class="quick-care-actions">
+              <p class="qr-handoff-note">If this came from a QR code or bag label, check these facts first.</p>
+              <button type="button" class="print-care-sheet" data-print-care-sheet>
+                Print care sheet
+              </button>
+            </div>
+            <p class="print-page-url">Online care sheet: {pageUrl}</p>
           </div>
 
           <div class="quick-care-layout">
@@ -116,10 +124,10 @@ const fullCareDetails = [
 
     {
       fullCareDetails.length ? (
-        <section class="content-section" aria-labelledby="full-care">
+        <section class="content-section full-care-section" aria-labelledby="full-care">
           <div>
             <p class="eyebrow">Full care</p>
-            <h2 id="full-care">Care table</h2>
+            <h2 id="full-care">Care details</h2>
           </div>
           <dl class="care-table">
             {fullCareDetails.map(([label, value]) => (
@@ -135,10 +143,10 @@ const fullCareDetails = [
 
     {
       appearanceCards.length ? (
-        <section class="content-section" aria-labelledby="appearance">
+        <section class="content-section fish-appearance-section" aria-labelledby="appearance">
           <div>
             <p class="eyebrow">Appearance</p>
-            <h2 id="appearance">Juvenile, male, and female</h2>
+            <h2 id="appearance">Juvenile, adult male, and adult female</h2>
           </div>
           <div class="appearance-grid">
             {
@@ -177,7 +185,7 @@ const fullCareDetails = [
         <section class="content-section" aria-labelledby="fish-gallery">
           <div>
             <p class="eyebrow">Photos</p>
-            <h2 id="fish-gallery">Additional fish photos</h2>
+            <h2 id="fish-gallery">More photos</h2>
           </div>
           <div class="fish-gallery" aria-label={`${fish.commonName} photos`}>
             {galleryImages.map((image, index) => (
@@ -218,10 +226,10 @@ const fullCareDetails = [
 
     {
       relatedNotes.length ? (
-        <section class="content-section" aria-labelledby="related-notes">
+        <section class="content-section related-notes-section" aria-labelledby="related-notes">
           <div>
-            <p class="eyebrow">Related content</p>
-            <h2 id="related-notes">Related fishkeeping notes</h2>
+            <p class="eyebrow">Related resources</p>
+            <h2 id="related-notes">Related resources</h2>
           </div>
           <div class="article-list related-content-list">
             {relatedNotes.map((note) => (
@@ -237,11 +245,20 @@ const fullCareDetails = [
     }
 
     <ContentPager
-      ariaLabel="Fish care sheet navigation"
+      ariaLabel="Care sheet navigation"
       previous={previousFish && { label: previousFish.label, url: previousFish.url }}
       next={nextFish && { label: nextFish.label, url: nextFish.url }}
-      previousLabel="Previous fish"
-      nextLabel="Next fish"
+      previousLabel="Previous care sheet"
+      nextLabel="Next care sheet"
     />
   </main>
+  <script is:inline>
+    const printButton = document.querySelector("[data-print-care-sheet]");
+
+    if (printButton) {
+      printButton.addEventListener("click", () => {
+        window.print();
+      });
+    }
+  </script>
 </BaseLayout>

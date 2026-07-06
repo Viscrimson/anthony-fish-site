@@ -6,29 +6,26 @@ import { hasText, trimText } from "../lib/content-display.js";
 
 const fallbackSite = {
   siteName: "Anthony Fish Care",
-  tagline:
-    "Practical care sheets, fishkeeping notes, and QR-linked information for fish sent home from Anthony.",
-  homepageEyebrow: "About Anthony Fish Care",
-  homepageTitle: "About Anthony.",
+  tagline: "Freshwater care sheets and resources for fish Anthony sends home.",
+  homepageEyebrow: "Anthony Fish Care",
+  homepageTitle: "Start here for care instructions",
   homepageIntro:
-    "A calm fish-care reference for practical care sheets, fishkeeping notes, and QR-linked care information. This site is not an online store. If someone receives a fish from Anthony, the QR code on the bag can open that fish's care sheet.",
+    "If you scanned a fish bag, start with that fish's care sheet. Use the Care Sheet Library for quick species details and Resources for setup, acclimation, and water-quality help.",
   careSheetsIntro:
-    "Species and variety care pages that can be shared directly. QR codes on fish bags can point to the matching care sheet.",
+    "Care sheets with tank size, temperature, food, and warning notes kept easy to scan.",
   notesIntro:
-    "Short hobby articles, setup notes, and care observations that do not need to be tied to one fish care sheet.",
-  qrHelperHeading: "Using a QR code?",
-  qrHelperText:
-    "Scanning a fish bag should bring up the most useful care facts first, then the fuller notes below.",
-  aboutHeading: "Public profile",
-  aboutSummary: "Anthony's public profile details are being finalized.",
+    "Short resources for setup, acclimation, water quality, feeding, and other practical questions.",
+  aboutHeading: "About this site",
+  aboutSummary:
+    "Anthony Fish Care keeps the essential fish information in one place so it is easy to read on a phone.",
   experienceText:
-    "This section can include fishkeeping experience, focus species, credentials, aquarium groups, and preferred contact options once Anthony confirms them.",
+    "Open the matching care sheet first, then use Resources when you want more context.",
   focusText:
-    "Focus text can describe the fish, setups, and care topics Anthony wants to share publicly.",
+    "Freshwater fish, tank basics, acclimation, water testing, feeding, and care notes.",
   contactHeading: "Contact",
   contactText:
-    "Contact options will be added after Anthony chooses what he wants public.",
-  showContact: true,
+    "Contact details can be added later if Anthony wants them public.",
+  showContact: false,
   showCredentials: false,
   showGroups: false,
 };
@@ -44,9 +41,6 @@ const homepageIntro = trimText(site.homepageIntro) || fallbackSite.homepageIntro
 const careSheetsIntro =
   trimText(site.careSheetsIntro) || fallbackSite.careSheetsIntro;
 const notesIntro = trimText(site.notesIntro) || fallbackSite.notesIntro;
-const qrHelperHeading =
-  trimText(site.qrHelperHeading) || fallbackSite.qrHelperHeading;
-const qrHelperText = trimText(site.qrHelperText) || fallbackSite.qrHelperText;
 const aboutHeading = trimText(site.aboutHeading) || fallbackSite.aboutHeading;
 const aboutSummary = trimText(site.aboutSummary) || fallbackSite.aboutSummary;
 const experienceText = trimText(site.experienceText);
@@ -61,8 +55,8 @@ const contactHeading =
 const contactText = trimText(site.contactText) || fallbackSite.contactText;
 
 const aboutFields = [
-  ["Experience", experienceText],
-  ["Focus", focusText],
+  ["How to use it", experienceText],
+  ["What it covers", focusText],
   ["Credentials", credentialsText],
   ["Groups", groupsText],
 ].filter(([, value]) => hasText(value));
@@ -80,40 +74,44 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
         <h1>{homepageTitle}</h1>
         <p class="lede">{homepageIntro}</p>
       </div>
+
+      <p class="home-purpose-intro">Scan the bag, browse the library, or look at other resources.</p>
+      <div class="home-purpose-grid" aria-label="What visitors can do here">
+        <article class="home-purpose-card">
+          <p class="home-purpose-label">Scan a bag</p>
+          <p>The QR on the bag opens the matching care sheet with the important facts first.</p>
+        </article>
+        <article class="home-purpose-card">
+          <p class="home-purpose-label">Care Sheet Library</p>
+          <p>Browse a fish by name, scientific name, tank size, difficulty, or temperament.</p>
+        </article>
+        <article class="home-purpose-card">
+          <p class="home-purpose-label">Resources</p>
+          <p>Open short resources for setup, acclimation, water quality, feeding, and follow-up questions.</p>
+        </article>
+      </div>
     </section>
 
     <section class="link-grid" aria-label="Site sections">
       <a class="feature-link" href={withBase("fish/")}>
-        <p class="eyebrow">Care Sheets</p>
-        <h2>Fish Care Sheets</h2>
+        <p class="eyebrow">Care Sheet Library</p>
+        <h2>Care Sheet Library</h2>
         <p>{careSheetsIntro}</p>
+        <span class="feature-link-action">Open the library →</span>
       </a>
       <a class="feature-link" href={withBase("notes/")}>
-        <p class="eyebrow">Articles</p>
-        <h2>Fishkeeping Notes</h2>
+        <p class="eyebrow">Resources</p>
+        <h2>Resources</h2>
         <p>{notesIntro}</p>
+        <span class="feature-link-action">Open resources →</span>
       </a>
     </section>
 
     {
-      hasText(qrHelperText) ? (
-        <section class="content-section" aria-labelledby="qr-helper">
-          <div>
-            <p class="eyebrow">{qrHelperHeading}</p>
-            <h2 id="qr-helper">Quick help for bag scans</h2>
-          </div>
-          <div class="site-helper">
-            <p>{qrHelperText}</p>
-          </div>
-        </section>
-      ) : null
-    }
-
-    {
       aboutVisible ? (
-        <section class="content-section" aria-labelledby="about-anthony">
+        <section class="content-section home-about-section" id="about" aria-labelledby="about-anthony">
           <div>
-            <p class="eyebrow">About Anthony</p>
+            <p class="eyebrow">About the site</p>
             <h2 id="about-anthony">{aboutHeading}</h2>
           </div>
           <div>
@@ -133,7 +131,7 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 
     {
       contactVisible && hasText(contactText) ? (
-        <section class="content-section" aria-labelledby="contact-anthony">
+        <section class="content-section" id="contact" aria-labelledby="contact-anthony">
           <div>
             <p class="eyebrow">Contact</p>
             <h2 id="contact-anthony">{contactHeading}</h2>

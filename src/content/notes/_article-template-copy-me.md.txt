@@ -1,5 +1,5 @@
 ---
-title: "Article title"
+title: "Resource title"
 category: "Optional topic label"
 date: 2026-01-01
 lastUpdated: 2026-01-01
@@ -17,8 +17,9 @@ practicalSteps:
   - "First practical step."
   - "Second practical step."
 pictorialSteps:
-  - "Legacy fallback if the note needs visual steps."
+  - "Optional older step list if this note was written as a pictorial guide."
 visualNote: "Optional note about diagrams or charts."
+illustrationsDataTechnique: "Optional note about illustrations, diagrams, or the visual layout."
 sources:
   - https://example.com/source
 galleryImages:
@@ -26,9 +27,11 @@ galleryImages:
 draft: true
 ---
 
-# Article title
+# Resource title
 
-Write the public article body here.
+Write the public resource body here.
 
 Use `quickAnswer` for the scan-first summary, `practicalSteps` for action steps,
-`sources` for references, and `lastReviewed` for review dates.
+`pictorialSteps` only if you are preserving an older note format,
+`illustrationsDataTechnique` for visual notes, `sources` for references, and
+`lastReviewed` for review dates.

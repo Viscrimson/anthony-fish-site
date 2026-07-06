@@ -1,7 +1,7 @@
 ---
 commonName: Blue Betta
 scientificName: Betta splendens
-origin: "Origin details are pending confirmation."
+origin: Southeast Asia
 temperatureRange: 76-82 F
 adultSize: About 2.5 inches
 tankSize: 5 gallons or larger

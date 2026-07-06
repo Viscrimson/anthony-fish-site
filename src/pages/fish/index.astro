@@ -1,75 +1,399 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { trimText } from "../../lib/content-display.js";
+import {
+  buildSearchIndex,
+  deriveTemperamentStyle,
+  deriveTankBand,
+  hasText,
+  trimText,
+} from "../../lib/content-display.js";
 import { buildFishPages } from "../../lib/content-pages.js";
 import { fishImage } from "../../lib/paths.js";
 
+const collator = new Intl.Collator("en", {
+  sensitivity: "base",
+});
+
 const fishPages = buildFishPages(await getCollection("fish"));
 const fishCards = fishPages.map((fish) => {
-  const chips = [];
-  const seen = new Set();
-  const addChip = (value) => {
-    const text = trimText(value);
-
-    if (!text || seen.has(text)) {
-      return;
-    }
-
-    seen.add(text);
-    chips.push(text);
-  };
-
-  addChip(fish.difficulty);
-  addChip(fish.temperatureRange);
-  addChip(fish.tankSize);
-  addChip(fish.temperament);
+  const tankBand = deriveTankBand(fish.tankSize);
+  const temperamentStyle = deriveTemperamentStyle(fish.temperament);
+  const difficultyLabel = trimText(fish.difficulty).toLowerCase();
+  const difficultyRank = new Map([
+    ["beginner", 0],
+    ["beginner to intermediate", 1],
+    ["intermediate", 2],
+    ["advanced", 3],
+  ]).get(difficultyLabel) ?? Number.POSITIVE_INFINITY;
 
   return {
     ...fish,
-    chips,
+    searchIndex: buildSearchIndex([
+      fish.commonName,
+      fish.scientificName,
+      fish.summary,
+      fish.temperament,
+      fish.difficulty,
+      fish.tankSize,
+      fish.temperatureRange,
+    ]),
+    nameSort: trimText(fish.commonName),
+    difficultyFilter: trimText(fish.difficulty).toLowerCase(),
+    difficultySort: difficultyRank,
+    tankFilter: tankBand?.value ?? "",
+    tankFilterLabel: tankBand?.label ?? "",
+    tankFilterSort: tankBand?.sort ?? Number.POSITIVE_INFINITY,
+    temperamentFilter: temperamentStyle?.value ?? "",
+    temperamentFilterLabel: temperamentStyle?.label ?? "",
   };
 });
+
+const dedupeOptions = (options) => {
+  const seen = new Set();
+
+  return options.filter((option) => {
+    if (!option.value || seen.has(option.value)) {
+      return false;
+    }
+
+    seen.add(option.value);
+    return true;
+  });
+};
+
+const difficultyOptions = dedupeOptions(
+  fishCards
+    .map((fish) => {
+      const label = trimText(fish.difficulty);
+
+      return label ? { value: label.toLowerCase(), label } : null;
+    })
+    .filter(Boolean),
+).sort((left, right) => collator.compare(left.label, right.label));
+
+const tankOptions = dedupeOptions(
+  fishCards
+    .map((fish) =>
+      fish.tankFilter
+        ? {
+            value: fish.tankFilter,
+            label: fish.tankFilterLabel,
+            sort: fish.tankFilterSort,
+          }
+        : null,
+    )
+    .filter(Boolean),
+).sort((left, right) => left.sort - right.sort || collator.compare(left.label, right.label));
+
+const temperamentOptions = dedupeOptions(
+  fishCards
+    .map((fish) =>
+      fish.temperamentFilter
+        ? {
+            value: fish.temperamentFilter,
+            label: fish.temperamentFilterLabel,
+          }
+        : null,
+    )
+    .filter(Boolean),
+).sort((left, right) => collator.compare(left.label, right.label));
+
+const totalFishCount = fishCards.length;
+const totalFishLabel = totalFishCount === 1 ? "care sheet" : "care sheets";
+const sortOptions = [
+  { value: "name-asc", label: "Name A-Z" },
+  { value: "name-desc", label: "Name Z-A" },
+  { value: "tank-asc", label: "Tank size, smallest first" },
+  { value: "tank-desc", label: "Tank size, largest first" },
+  { value: "difficulty-asc", label: "Difficulty, easiest first" },
+  { value: "difficulty-desc", label: "Difficulty, hardest first" },
+];
 ---
 
 <BaseLayout
-  title="Fish Care Sheets"
-  description="Fish care sheets from Anthony Fish Care."
+  title="Care Sheet Library"
+  description="Search the Care Sheet Library by name, tank size, temperature, difficulty, or temperament."
 >
   <main class="page-wrap">
     <section class="hero">
       <div>
-        <p class="eyebrow">Care Sheets</p>
-        <h1>Fish Care Sheets.</h1>
-        <p class="lede">
-          Practical fish care pages for species, varieties, and individual care
-          notes. These pages are meant to be easy to share from QR codes on fish
-          bags.
-        </p>
+        <p class="eyebrow">Care Sheet Library</p>
+        <h1>Care Sheet Library</h1>
+        <p class="lede">Search by name or filter by tank size, temperature, difficulty, and temperament.</p>
       </div>
     </section>
 
-    <section class="fish-grid" aria-label="Fish care sheets">
+    <section class="fish-tools" aria-labelledby="fish-tools-heading">
+      <div class="fish-tools-copy">
+        <p class="eyebrow">Search and filter</p>
+        <h2 id="fish-tools-heading">Browse the Care Sheet Library</h2>
+        <p class="fish-tools-lede">
+          Use search for names and summaries, sort the list, then narrow it with a few simple
+          filters.
+        </p>
+      </div>
+
+      <form class="fish-tools-panel" data-fish-controls>
+        <div class="fish-search-row">
+          <label class="fish-search-field" for="fish-search">
+            <span class="fish-control-label">Search care sheets</span>
+            <input
+              id="fish-search"
+              name="search"
+              type="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Search by name, scientific name, summary, or care details"
+              data-fish-search
+            />
+          </label>
+
+          <label class="fish-search-field fish-sort-field" for="fish-sort">
+            <span class="fish-control-label">Sort care sheets</span>
+            <select id="fish-sort" name="sort" data-fish-sort>
+              {sortOptions.map((option) => (
+                <option value={option.value} selected={option.value === "name-asc"}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <button type="reset" class="fish-reset">Clear search and filters</button>
+        </div>
+
+        <div class="fish-filter-grid">
+          {
+            difficultyOptions.length ? (
+              <fieldset class="fish-filter-group">
+                <legend>Difficulty</legend>
+                <div class="fish-filter-options">
+                  {difficultyOptions.map((option) => (
+                    <label class="fish-filter-option">
+                      <input type="checkbox" name="difficulty" value={option.value} />
+                      <span>{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ) : null
+          }
+
+          {
+            tankOptions.length ? (
+              <fieldset class="fish-filter-group">
+                <legend>Tank size</legend>
+                <div class="fish-filter-options">
+                  {tankOptions.map((option) => (
+                    <label class="fish-filter-option">
+                      <input type="checkbox" name="tankSize" value={option.value} />
+                      <span>{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ) : null
+          }
+
+          {
+            temperamentOptions.length ? (
+              <fieldset class="fish-filter-group">
+                <legend>Temperament</legend>
+                <div class="fish-filter-options">
+                  {temperamentOptions.map((option) => (
+                    <label class="fish-filter-option">
+                      <input type="checkbox" name="temperament" value={option.value} />
+                      <span>{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ) : null
+          }
+        </div>
+      </form>
+
+      <p
+        class="fish-results"
+        data-fish-results
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        Showing {totalFishCount} {totalFishLabel}
+      </p>
+
+      <p class="fish-empty-state" data-fish-empty hidden>
+        No care sheets match those search terms or filters.
+      </p>
+    </section>
+
+    <section class="fish-grid" aria-label="Care Sheet Library">
       {
         fishCards.map((fish) => (
-          <a class="fish-card" href={fish.url}>
+          <a
+            class="fish-card"
+            href={fish.url}
+            data-fish-card
+            data-sort-name={fish.nameSort}
+            data-sort-difficulty={fish.difficultySort}
+            data-sort-tank={fish.tankFilterSort}
+            data-search={fish.searchIndex}
+            data-difficulty={fish.difficultyFilter}
+            data-tank-size={fish.tankFilter}
+            data-temperament={fish.temperamentFilter}
+          >
             <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} care sheet image`} />
             <div class="fish-card-copy">
-              <p class="eyebrow">Care sheet</p>
               <h2>{fish.commonName}</h2>
-              <p><em>{fish.scientificName}</em></p>
-              {trimText(fish.summary) ? <p>{fish.summary}</p> : null}
-              {
-                fish.chips.length ? (
-                  <ul class="fish-chip-list" aria-label={`${fish.commonName} quick care facts`}>
-                    {fish.chips.map((chip) => <li class="fish-chip">{chip}</li>)}
-                  </ul>
-                ) : null
-              }
+              {hasText(fish.scientificName) ? (
+                <p class="scientific-name">
+                  <em>{fish.scientificName}</em>
+                </p>
+              ) : null}
+              {hasText(fish.summary) ? <p class="fish-card-summary">{fish.summary}</p> : null}
             </div>
           </a>
         ))
       }
     </section>
   </main>
+
+  <script is:inline>
+    const controls = document.querySelector("[data-fish-controls]");
+
+    if (controls) {
+      const cards = Array.from(document.querySelectorAll("[data-fish-card]"));
+      const grid = document.querySelector("[data-fish-grid]");
+      const searchInput = controls.querySelector("[data-fish-search]");
+      const sortInput = controls.querySelector("[data-fish-sort]");
+      const status = document.querySelector("[data-fish-results]");
+      const emptyState = document.querySelector("[data-fish-empty]");
+
+      if (grid && searchInput && sortInput && status && emptyState) {
+        const filterInputs = Array.from(
+          controls.querySelectorAll('input[type="checkbox"]'),
+        );
+
+        const getSelectedValues = (name) =>
+          new Set(
+            Array.from(controls.querySelectorAll(`input[name="${name}"]:checked`)).map(
+              (input) => input.value,
+            ),
+          );
+
+        const compareText = (left, right, direction = 1) =>
+          direction * left.localeCompare(right, "en", { sensitivity: "base" });
+
+        const compareNumeric = (left, right, direction = 1) => {
+          const leftMissing = !Number.isFinite(left);
+          const rightMissing = !Number.isFinite(right);
+
+          if (leftMissing && rightMissing) {
+            return 0;
+          }
+
+          if (leftMissing) {
+            return 1;
+          }
+
+          if (rightMissing) {
+            return -1;
+          }
+
+          return direction * (left - right);
+        };
+
+        const compareCards = (left, right) => {
+          switch (sortInput.value) {
+            case "name-desc":
+              return compareText(right.dataset.sortName || "", left.dataset.sortName || "");
+            case "tank-asc":
+              return compareNumeric(
+                Number(left.dataset.sortTank || "NaN"),
+                Number(right.dataset.sortTank || "NaN"),
+              );
+            case "tank-desc":
+              return compareNumeric(
+                Number(right.dataset.sortTank || "NaN"),
+                Number(left.dataset.sortTank || "NaN"),
+              );
+            case "difficulty-asc":
+              return compareNumeric(
+                Number(left.dataset.sortDifficulty || "NaN"),
+                Number(right.dataset.sortDifficulty || "NaN"),
+              );
+            case "difficulty-desc":
+              return compareNumeric(
+                Number(right.dataset.sortDifficulty || "NaN"),
+                Number(left.dataset.sortDifficulty || "NaN"),
+              );
+            case "name-asc":
+            default:
+              return compareText(left.dataset.sortName || "", right.dataset.sortName || "");
+          }
+        };
+
+        const updateResults = () => {
+          const query = searchInput.value.trim().toLowerCase();
+          const difficultyValues = getSelectedValues("difficulty");
+          const tankValues = getSelectedValues("tankSize");
+          const temperamentValues = getSelectedValues("temperament");
+          const tankThresholds = Array.from(tankValues)
+            .map((value) => Number(value))
+            .filter((value) => Number.isFinite(value));
+          let visibleCount = 0;
+          const orderedCards = cards.slice().sort(compareCards);
+
+          for (const card of orderedCards) {
+            const searchText = card.dataset.search || "";
+            const matchesSearch = !query || searchText.includes(query);
+            const matchesDifficulty =
+              !difficultyValues.size || difficultyValues.has(card.dataset.difficulty || "");
+            const matchesTank =
+              !tankThresholds.length ||
+              tankThresholds.some(
+                (threshold) => Number(card.dataset.tankSize || "0") >= threshold,
+              );
+            const matchesTemperament =
+              !temperamentValues.size || temperamentValues.has(card.dataset.temperament || "");
+            const isVisible =
+              matchesSearch && matchesDifficulty && matchesTank && matchesTemperament;
+
+            card.hidden = !isVisible;
+
+            if (isVisible) {
+              visibleCount += 1;
+            }
+          }
+
+          grid.append(...orderedCards);
+
+          const visibleLabel = visibleCount === 1 ? "care sheet" : "care sheets";
+          const totalLabel = cards.length === 1 ? "care sheet" : "care sheets";
+
+          status.textContent =
+            visibleCount === cards.length
+              ? `Showing ${visibleCount} ${visibleLabel}`
+              : `Showing ${visibleCount} of ${cards.length} ${totalLabel}`;
+
+          emptyState.hidden = visibleCount !== 0;
+        };
+
+        searchInput.addEventListener("input", updateResults);
+        searchInput.addEventListener("change", updateResults);
+        sortInput.addEventListener("change", updateResults);
+        filterInputs.forEach((input) => input.addEventListener("change", updateResults));
+        controls.addEventListener("reset", () => {
+          window.requestAnimationFrame(updateResults);
+        });
+        controls.addEventListener("submit", (event) => {
+          event.preventDefault();
+        });
+
+        updateResults();
+      }
+    }
+  </script>
 </BaseLayout>

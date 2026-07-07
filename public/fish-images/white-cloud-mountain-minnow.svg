@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="White cloud mountain minnow illustration">
+  <defs>
+    <linearGradient id="cloudBody" x1="230" y1="285" x2="650" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5f7f0" />
+      <stop offset="1" stop-color="#cdd9d2" />
+    </linearGradient>
+    <linearGradient id="cloudTail" x1="150" y1="250" x2="310" y2="410" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e85c5d" />
+      <stop offset="1" stop-color="#c93c4d" />
+    </linearGradient>
+    <linearGradient id="cloudFin" x1="455" y1="245" x2="610" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f3c24c" />
+      <stop offset="1" stop-color="#73c9d6" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf5f5" />
+  <circle cx="146" cy="116" r="38" fill="#fff" opacity=".8" />
+  <circle cx="750" cy="124" r="26" fill="#fff" opacity=".62" />
+  <circle cx="724" cy="510" r="58" fill="#fff" opacity=".34" />
+  <path d="M202 352c72-96 197-139 364-126 52 4 99 17 145 41-29 60-79 108-147 144-146 77-302 67-362-59z" fill="url(#cloudBody)" />
+  <path d="M184 352c-58-46-118-60-184-43 39 64 90 106 152 124 24-23 34-49 32-81z" fill="url(#cloudTail)" />
+  <path d="M548 247c74-48 155-59 244-31-43 56-111 86-205 86z" fill="#f3cf74" />
+  <path d="M542 436c90 22 160 68 215 137-80 27-157 11-229-49z" fill="url(#cloudFin)" />
+  <path d="M340 258c20-61 59-105 118-134 20 61 10 115-28 163z" fill="#f4d57a" />
+  <path d="M372 428c22 72 67 127 133 165 23-73 8-135-49-185z" fill="#74c8d6" />
+  <path d="M314 343c-51-54-121-69-212-45 40 79 101 115 184 107z" fill="#f07a64" />
+  <path d="M339 318c86-24 169-22 248 8" fill="none" stroke="#fffdf4" stroke-width="10" stroke-linecap="round" opacity=".56" />
+  <path d="M332 365c81-21 156-14 227 23" fill="none" stroke="#17324f" stroke-width="8" stroke-linecap="round" opacity=".5" />
+  <circle cx="511" cy="308" r="15" fill="#17324f" />
+  <circle cx="516" cy="303" r="4" fill="#fff" />
+</svg>

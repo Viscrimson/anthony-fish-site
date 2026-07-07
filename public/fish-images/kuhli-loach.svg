@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Kuhli loach illustration">
+  <defs>
+    <linearGradient id="kuhliBody" x1="160" y1="360" x2="740" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b58f67" />
+      <stop offset="1" stop-color="#6f4a2f" />
+    </linearGradient>
+    <linearGradient id="kuhliAccent" x1="260" y1="250" x2="650" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e7d6a6" />
+      <stop offset="1" stop-color="#f0c35a" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf4f5" />
+  <circle cx="150" cy="116" r="40" fill="#fff" opacity=".78" />
+  <circle cx="760" cy="128" r="26" fill="#fff" opacity=".64" />
+  <circle cx="724" cy="514" r="58" fill="#fff" opacity=".34" />
+  <path d="M188 401c59-121 175-184 347-186 96-2 171 23 228 75-18 34-43 64-73 91-83 75-194 112-333 112-72 0-132-13-169-44z" fill="#8f6240" opacity=".85" />
+  <path d="M176 392c62-128 180-189 354-183 95 4 166 29 223 76-17 34-42 64-72 90-82 73-192 108-327 108-79 0-136-15-178-48z" fill="url(#kuhliBody)" />
+  <path d="M190 404c-63 7-116 33-158 79 48 42 98 58 150 47 24-26 26-76 8-126z" fill="#7b5235" />
+  <path d="M220 360c54-22 109-27 165-15" fill="none" stroke="#efd9a1" stroke-width="8" stroke-linecap="round" opacity=".72" />
+  <path d="M284 325c52-20 109-24 168-11" fill="none" stroke="#3f2417" stroke-width="10" stroke-linecap="round" opacity=".6" />
+  <path d="M356 292c48-19 98-22 149-10" fill="none" stroke="#efd9a1" stroke-width="8" stroke-linecap="round" opacity=".72" />
+  <path d="M439 270c45-17 91-20 139-9" fill="none" stroke="#3f2417" stroke-width="10" stroke-linecap="round" opacity=".6" />
+  <path d="M522 252c43-15 87-18 131-7" fill="none" stroke="#efd9a1" stroke-width="8" stroke-linecap="round" opacity=".72" />
+  <path d="M599 240c36-12 77-14 124-4" fill="none" stroke="#3f2417" stroke-width="10" stroke-linecap="round" opacity=".6" />
+  <path d="M676 245c36 6 72 17 104 34" fill="none" stroke="#4f2f1f" stroke-width="8" stroke-linecap="round" opacity=".8" />
+  <path d="M430 404c62 18 111 49 148 92" fill="none" stroke="#efe0b7" stroke-width="10" stroke-linecap="round" opacity=".45" />
+  <circle cx="650" cy="341" r="14" fill="#101010" />
+  <circle cx="655" cy="336" r="4" fill="#fff" />
+  <path d="M610 367c35 11 67 28 96 49" fill="none" stroke="#3f2417" stroke-width="6" stroke-linecap="round" opacity=".6" />
+</svg>

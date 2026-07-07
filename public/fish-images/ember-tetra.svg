@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Ember tetra illustration">
+  <defs>
+    <linearGradient id="emberBody" x1="250" y1="285" x2="620" y2="385" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffca6a" />
+      <stop offset="1" stop-color="#ef6d34" />
+    </linearGradient>
+    <linearGradient id="emberTail" x1="520" y1="255" x2="730" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9c5b" />
+      <stop offset="1" stop-color="#d65a2e" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf4f4" />
+  <circle cx="146" cy="120" r="40" fill="#fff" opacity=".78" />
+  <circle cx="746" cy="124" r="25" fill="#fff" opacity=".62" />
+  <circle cx="726" cy="520" r="54" fill="#fff" opacity=".34" />
+  <path d="M228 349c78-95 194-140 348-137 60 2 112 15 160 38-29 62-84 112-163 148-140 65-293 55-345-49z" fill="url(#emberBody)" />
+  <path d="M180 347c-62-42-123-52-184-31 41 64 95 105 160 123 24-22 31-50 24-92z" fill="url(#emberTail)" />
+  <path d="M548 251c75-42 154-50 238-24-42 54-108 80-200 80z" fill="#ffad67" />
+  <path d="M546 425c96 25 170 74 222 145-82 26-157 10-222-47z" fill="#b94d26" />
+  <path d="M352 263c20-60 59-104 116-132 16 58 3 112-40 158z" fill="#ffd88f" />
+  <path d="M384 413c15 68 52 118 111 149 26-65 13-120-37-162z" fill="#f1aa3d" />
+  <circle cx="525" cy="306" r="15" fill="#1b1b1b" />
+  <circle cx="530" cy="301" r="4" fill="#fff" />
+  <path d="M342 342c68-24 140-26 215-6" fill="none" stroke="#fff7d7" stroke-width="11" stroke-linecap="round" opacity=".48" />
+</svg>

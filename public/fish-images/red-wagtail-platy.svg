@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Red wagtail platy illustration">
+  <defs>
+    <linearGradient id="platyBody" x1="230" y1="285" x2="630" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7c74" />
+      <stop offset="1" stop-color="#d83f5a" />
+    </linearGradient>
+    <linearGradient id="platyTail" x1="150" y1="250" x2="310" y2="410" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22242f" />
+      <stop offset="1" stop-color="#0d1117" />
+    </linearGradient>
+    <linearGradient id="platyFin" x1="455" y1="245" x2="610" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb56c" />
+      <stop offset="1" stop-color="#ffdd86" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#eef5f4" />
+  <circle cx="146" cy="116" r="38" fill="#fff" opacity=".8" />
+  <circle cx="750" cy="124" r="26" fill="#fff" opacity=".62" />
+  <circle cx="724" cy="510" r="58" fill="#fff" opacity=".34" />
+  <path d="M206 353c72-96 199-139 367-126 54 4 103 18 148 42-28 62-78 111-146 147-146 77-304 66-369-63z" fill="url(#platyBody)" />
+  <path d="M184 353c-58-46-118-61-184-43 39 65 90 107 152 125 24-23 34-50 32-82z" fill="url(#platyTail)" />
+  <path d="M548 246c74-48 155-59 244-31-43 57-111 87-205 87z" fill="#10131c" />
+  <path d="M542 436c90 22 160 67 216 136-80 28-157 12-230-48z" fill="url(#platyFin)" />
+  <path d="M340 258c20-61 59-105 118-134 20 61 10 115-28 163z" fill="#ffbe82" />
+  <path d="M372 428c22 72 67 127 133 165 23-73 8-135-49-185z" fill="#f8d763" />
+  <path d="M314 343c-51-54-121-69-212-45 40 79 101 115 184 107z" fill="#ff8a80" />
+  <path d="M339 318c86-24 169-22 248 8" fill="none" stroke="#fff6ef" stroke-width="10" stroke-linecap="round" opacity=".5" />
+  <path d="M332 365c81-21 156-14 227 23" fill="none" stroke="#fff6ef" stroke-width="9" stroke-linecap="round" opacity=".4" />
+  <circle cx="511" cy="308" r="15" fill="#1b2330" />
+  <circle cx="516" cy="303" r="4" fill="#fff" />
+</svg>

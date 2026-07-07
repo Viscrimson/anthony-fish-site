@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Neon tetra illustration">
+  <defs>
+    <linearGradient id="neonBody" x1="220" y1="280" x2="640" y2="385" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7bd3f3" />
+      <stop offset="1" stop-color="#1d6fb8" />
+    </linearGradient>
+    <linearGradient id="neonTail" x1="520" y1="250" x2="770" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff715b" />
+      <stop offset="1" stop-color="#d94b3d" />
+    </linearGradient>
+    <linearGradient id="neonFin" x1="410" y1="238" x2="530" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#95d9ee" />
+      <stop offset="1" stop-color="#5ac2d4" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf5f7" />
+  <circle cx="150" cy="118" r="38" fill="#fff" opacity=".78" />
+  <circle cx="754" cy="126" r="24" fill="#fff" opacity=".62" />
+  <circle cx="732" cy="520" r="56" fill="#fff" opacity=".34" />
+  <path d="M214 343c82-104 208-152 378-134 64 6 120 22 170 48-35 68-96 120-180 157-138 62-297 41-368-71z" fill="url(#neonBody)" />
+  <path d="M178 344c-66-42-130-52-194-30 44 67 101 109 172 126 24-25 31-55 22-96z" fill="url(#neonTail)" />
+  <path d="M548 247c80-48 166-58 258-31-48 62-121 92-218 88z" fill="#ff8d6d" />
+  <path d="M544 430c103 25 182 77 238 154-87 27-168 9-248-54z" fill="#0f6b73" />
+  <path d="M352 258c22-65 65-112 129-142 17 63 3 122-43 171z" fill="url(#neonFin)" />
+  <path d="M380 418c18 74 58 129 121 165 28-71 14-131-40-180z" fill="#f2bb48" />
+  <path d="M350 339c70-28 142-31 215-8" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity=".55" />
+  <path d="M420 341c-18 10-32 22-44 37" fill="none" stroke="#c8f3ff" stroke-width="8" stroke-linecap="round" opacity=".6" />
+  <path d="M428 354c-12 20-19 42-23 66" fill="none" stroke="#c8f3ff" stroke-width="8" stroke-linecap="round" opacity=".55" />
+  <circle cx="520" cy="307" r="15" fill="#12283f" />
+  <circle cx="525" cy="302" r="4" fill="#fff" />
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Cherry barb illustration">
+  <defs>
+    <linearGradient id="cherryBody" x1="220" y1="290" x2="660" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef5d6a" />
+      <stop offset="1" stop-color="#9c1f43" />
+    </linearGradient>
+    <linearGradient id="cherryTail" x1="150" y1="250" x2="320" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c83c5a" />
+      <stop offset="1" stop-color="#7f1237" />
+    </linearGradient>
+    <linearGradient id="cherryFin" x1="470" y1="240" x2="610" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9a8a" />
+      <stop offset="1" stop-color="#f3d16c" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf4f6" />
+  <circle cx="146" cy="118" r="38" fill="#fff" opacity=".8" />
+  <circle cx="750" cy="126" r="26" fill="#fff" opacity=".64" />
+  <circle cx="724" cy="510" r="58" fill="#fff" opacity=".34" />
+  <path d="M200 352c82-103 216-145 390-125 55 6 104 24 151 53-32 63-84 112-157 149-151 76-315 56-384-77z" fill="url(#cherryBody)" />
+  <path d="M184 353c-60-45-119-58-183-39 42 66 96 106 157 121 24-23 34-49 26-82z" fill="url(#cherryTail)" />
+  <path d="M548 244c72-48 151-57 236-30-42 56-108 85-198 85z" fill="#b51f43" />
+  <path d="M542 436c92 24 162 69 214 136-79 27-155 11-228-49z" fill="url(#cherryFin)" />
+  <path d="M340 254c18-60 57-103 116-132 22 60 13 113-27 159z" fill="#ff8d73" />
+  <path d="M370 428c21 70 66 124 134 162 22-72 8-131-50-182z" fill="#f4d267" />
+  <path d="M318 341c-54-55-126-68-216-40 41 80 103 115 187 104z" fill="#f08b7a" />
+  <path d="M335 320c88-25 171-25 250-1" fill="none" stroke="#fff6ee" stroke-width="10" stroke-linecap="round" opacity=".5" />
+  <path d="M332 370c85-23 164-18 237 15" fill="none" stroke="#fff6ee" stroke-width="9" stroke-linecap="round" opacity=".38" />
+  <circle cx="514" cy="308" r="15" fill="#1c1f2f" />
+  <circle cx="519" cy="303" r="4" fill="#fff" />
+</svg>

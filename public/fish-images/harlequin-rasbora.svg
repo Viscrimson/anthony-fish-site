@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Harlequin rasbora illustration">
+  <defs>
+    <linearGradient id="harlequinBody" x1="230" y1="290" x2="650" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e4a35b" />
+      <stop offset="1" stop-color="#b46b31" />
+    </linearGradient>
+    <linearGradient id="harlequinTail" x1="150" y1="250" x2="310" y2="410" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c96b52" />
+      <stop offset="1" stop-color="#a93c3b" />
+    </linearGradient>
+    <linearGradient id="harlequinFin" x1="455" y1="245" x2="610" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0d27a" />
+      <stop offset="1" stop-color="#f7a551" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf4f6" />
+  <circle cx="146" cy="116" r="38" fill="#fff" opacity=".8" />
+  <circle cx="750" cy="124" r="26" fill="#fff" opacity=".62" />
+  <circle cx="724" cy="510" r="58" fill="#fff" opacity=".34" />
+  <path d="M204 352c72-97 197-140 365-126 53 4 101 17 147 42-29 61-79 109-148 145-146 76-303 66-364-61z" fill="url(#harlequinBody)" />
+  <path d="M184 352c-58-46-118-60-184-43 39 64 90 106 152 124 24-23 34-49 32-81z" fill="url(#harlequinTail)" />
+  <path d="M548 247c74-48 155-59 244-31-43 56-111 86-205 86z" fill="#7f241f" />
+  <path d="M542 436c90 22 160 68 215 137-80 27-157 11-229-49z" fill="url(#harlequinFin)" />
+  <path d="M340 258c20-61 59-105 118-134 20 61 10 115-28 163z" fill="#f3ce7d" />
+  <path d="M372 428c22 72 67 127 133 165 23-73 8-135-49-185z" fill="#7db8c8" />
+  <path d="M314 343c-51-54-121-69-212-45 40 79 101 115 184 107z" fill="#d97858" />
+  <path d="M335 318c86-24 169-22 248 8" fill="none" stroke="#fff8ef" stroke-width="10" stroke-linecap="round" opacity=".56" />
+  <path d="M332 365c81-21 156-14 227 23" fill="none" stroke="#fff8ef" stroke-width="9" stroke-linecap="round" opacity=".4" />
+  <path d="M455 330c51-13 102-12 153 2" fill="none" stroke="#1b2330" stroke-width="14" stroke-linecap="round" opacity=".95" />
+  <path d="M453 340c52 8 104 21 156 40" fill="none" stroke="#1b2330" stroke-width="14" stroke-linecap="round" opacity=".95" />
+  <circle cx="511" cy="308" r="15" fill="#1b2330" />
+  <circle cx="516" cy="303" r="4" fill="#fff" />
+</svg>

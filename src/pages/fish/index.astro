@@ -296,13 +296,23 @@ const sortOptions = [
         const filterInputs = Array.from(
           controls.querySelectorAll('input[type="checkbox"]'),
         );
-        const mobileQuery = window.matchMedia("(max-width: 760px)");
         const normalizeText = (value) =>
           String(value ?? "")
             .toLowerCase()
             .replace(/\s+/g, " ")
             .trim();
-        let pageSize = mobileQuery.matches ? 4 : 8;
+        const getPageSize = () => {
+          if (window.innerWidth <= 760) {
+            return 4;
+          }
+
+          if (window.innerWidth <= 1024) {
+            return 6;
+          }
+
+          return 8;
+        };
+        let pageSize = getPageSize();
         let currentPage = 1;
 
         const getSelectedValues = (name) =>
@@ -428,7 +438,7 @@ const sortOptions = [
         };
 
         const syncPageSize = () => {
-          const nextPageSize = mobileQuery.matches ? 4 : 8;
+          const nextPageSize = getPageSize();
 
           if (nextPageSize !== pageSize) {
             pageSize = nextPageSize;
@@ -464,11 +474,7 @@ const sortOptions = [
         controls.addEventListener("submit", (event) => {
           event.preventDefault();
         });
-        if (typeof mobileQuery.addEventListener === "function") {
-          mobileQuery.addEventListener("change", syncPageSize);
-        } else {
-          mobileQuery.addListener(syncPageSize);
-        }
+        window.addEventListener("resize", syncPageSize);
 
         updateResults();
       }

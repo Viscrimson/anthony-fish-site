@@ -101,6 +101,7 @@ const temperamentOptions = dedupeOptions(
 
 const totalFishCount = fishCards.length;
 const totalFishLabel = totalFishCount === 1 ? "care sheet" : "care sheets";
+const pageSize = 12;
 const sortOptions = [
   { value: "name-asc", label: "Name A-Z" },
   { value: "name-desc", label: "Name Z-A" },
@@ -229,7 +230,7 @@ const sortOptions = [
       </p>
     </section>
 
-    <section class="fish-grid" aria-label="Care Sheet Library">
+    <section class="fish-grid" aria-label="Care Sheet Library" data-fish-grid>
       {
         fishCards.map((fish) => (
           <a
@@ -255,9 +256,25 @@ const sortOptions = [
               {hasText(fish.summary) ? <p class="fish-card-summary">{fish.summary}</p> : null}
             </div>
           </a>
-        ))
+          ))
       }
     </section>
+
+    <nav class="list-pagination" data-fish-pagination aria-label="Care Sheet pagination">
+      <button type="button" class="list-pagination-button" data-fish-page-prev>
+        <span aria-hidden="true">&larr;</span>
+        <span>Previous</span>
+      </button>
+
+      <p class="list-pagination-status" data-fish-page-status aria-live="polite" aria-atomic="true">
+        Page 1 of 1
+      </p>
+
+      <button type="button" class="list-pagination-button" data-fish-page-next>
+        <span>Next</span>
+        <span aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
   </main>
 
   <script is:inline>
@@ -270,11 +287,26 @@ const sortOptions = [
       const sortInput = controls.querySelector("[data-fish-sort]");
       const status = document.querySelector("[data-fish-results]");
       const emptyState = document.querySelector("[data-fish-empty]");
+      const pagination = document.querySelector("[data-fish-pagination]");
+      const pageStatus = document.querySelector("[data-fish-page-status]");
+      const prevButton = document.querySelector("[data-fish-page-prev]");
+      const nextButton = document.querySelector("[data-fish-page-next]");
 
-      if (grid && searchInput && sortInput && status && emptyState) {
+      if (
+        grid &&
+        searchInput &&
+        sortInput &&
+        status &&
+        emptyState &&
+        pagination &&
+        pageStatus &&
+        prevButton &&
+        nextButton
+      ) {
         const filterInputs = Array.from(
           controls.querySelectorAll('input[type="checkbox"]'),
         );
+        let currentPage = 1;
 
         const getSelectedValues = (name) =>
           new Set(
@@ -345,6 +377,7 @@ const sortOptions = [
             .filter((value) => Number.isFinite(value));
           let visibleCount = 0;
           const orderedCards = cards.slice().sort(compareCards);
+          const matchedCards = [];
 
           for (const card of orderedCards) {
             const searchText = card.dataset.search || "";
@@ -361,11 +394,23 @@ const sortOptions = [
             const isVisible =
               matchesSearch && matchesDifficulty && matchesTank && matchesTemperament;
 
-            card.hidden = !isVisible;
+            card.hidden = true;
 
             if (isVisible) {
               visibleCount += 1;
+              matchedCards.push(card);
             }
+          }
+
+          const totalPages = visibleCount > 0 ? Math.ceil(visibleCount / pageSize) : 0;
+
+          currentPage = totalPages ? Math.min(currentPage, totalPages) : 1;
+
+          const startIndex = (currentPage - 1) * pageSize;
+          const pageCards = matchedCards.slice(startIndex, startIndex + pageSize);
+
+          for (const card of pageCards) {
+            card.hidden = false;
           }
 
           grid.append(...orderedCards);
@@ -379,14 +424,34 @@ const sortOptions = [
               : `Showing ${visibleCount} of ${cards.length} ${totalLabel}`;
 
           emptyState.hidden = visibleCount !== 0;
+          pagination.hidden = visibleCount === 0;
+          pageStatus.textContent = totalPages > 0 ? `Page ${currentPage} of ${totalPages}` : "";
+          prevButton.disabled = currentPage <= 1 || totalPages <= 1;
+          nextButton.disabled = currentPage >= totalPages || totalPages <= 1;
         };
 
-        searchInput.addEventListener("input", updateResults);
-        searchInput.addEventListener("change", updateResults);
-        sortInput.addEventListener("change", updateResults);
-        filterInputs.forEach((input) => input.addEventListener("change", updateResults));
+        const resetToFirstPage = () => {
+          currentPage = 1;
+          updateResults();
+        };
+
+        searchInput.addEventListener("input", resetToFirstPage);
+        searchInput.addEventListener("change", resetToFirstPage);
+        sortInput.addEventListener("change", resetToFirstPage);
+        filterInputs.forEach((input) => input.addEventListener("change", resetToFirstPage));
+        prevButton.addEventListener("click", () => {
+          currentPage = Math.max(1, currentPage - 1);
+          updateResults();
+        });
+        nextButton.addEventListener("click", () => {
+          currentPage += 1;
+          updateResults();
+        });
         controls.addEventListener("reset", () => {
-          window.requestAnimationFrame(updateResults);
+          window.requestAnimationFrame(() => {
+            currentPage = 1;
+            updateResults();
+          });
         });
         controls.addEventListener("submit", (event) => {
           event.preventDefault();

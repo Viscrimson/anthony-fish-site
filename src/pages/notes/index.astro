@@ -1,10 +1,21 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { compactStrings, hasText } from "../../lib/content-display.js";
+import { buildSearchIndex, compactStrings, hasText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
 
 const notePages = buildNotePages(await getCollection("notes"));
+const pageSize = 12;
+
+const noteCards = notePages.map((note) => ({
+  ...note,
+  searchIndex: buildSearchIndex([
+    note.title,
+    note.summary,
+    note.category,
+    ...compactStrings(note.tags),
+  ]),
+}));
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en-US", {
@@ -34,18 +45,64 @@ const getDateMeta = (note) => {
       <div>
         <p class="eyebrow">Resources</p>
         <h1>Resources</h1>
-        <p class="lede">Short resources for setup, acclimation, water quality, feeding, and the questions that come up when a fish goes home.</p>
+        <p class="lede">
+          Short resources for setup, acclimation, water quality, feeding, and the questions that
+          come up when a fish goes home.
+        </p>
       </div>
     </section>
 
-    <section class="article-list" aria-label="Resources">
+    <section class="fish-tools" aria-labelledby="resources-search-heading">
+      <div class="fish-tools-copy">
+        <p class="eyebrow">Search resources</p>
+        <h2 id="resources-search-heading">Browse the resource library</h2>
+        <p class="fish-tools-lede">
+          Search by title, summary, category, or tag.
+        </p>
+      </div>
+
+      <form class="fish-tools-panel" data-notes-controls>
+        <div class="fish-search-row">
+          <label class="fish-search-field" for="notes-search">
+            <span class="fish-control-label">Search resources</span>
+            <input
+              id="notes-search"
+              name="search"
+              type="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Search by title, summary, category, or tag"
+              data-notes-search
+            />
+          </label>
+
+          <button type="reset" class="fish-reset">Clear search</button>
+        </div>
+      </form>
+
+      <p
+        class="fish-results"
+        data-notes-results
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        Showing {noteCards.length} resources
+      </p>
+
+      <p class="fish-empty-state" data-notes-empty hidden>
+        No resources match those search terms.
+      </p>
+    </section>
+
+    <section class="article-list" aria-label="Resources" data-notes-grid>
       {
-        notePages.map((note) => {
+        noteCards.map((note) => {
           const dateMeta = getDateMeta(note);
           const tags = compactStrings(note.tags);
 
           return (
-            <a class="article-card" href={note.url}>
+            <a class="article-card" href={note.url} data-note-card data-search={note.searchIndex}>
               {hasText(note.category) ? <p class="eyebrow">{note.category}</p> : null}
               <h2>{note.title}</h2>
               {hasText(note.summary) ? <p>{note.summary}</p> : null}
@@ -69,5 +126,122 @@ const getDateMeta = (note) => {
         })
       }
     </section>
+
+    <nav class="list-pagination" data-notes-pagination aria-label="Resources pagination">
+      <button type="button" class="list-pagination-button" data-notes-page-prev>
+        <span aria-hidden="true">&larr;</span>
+        <span>Previous</span>
+      </button>
+
+      <p class="list-pagination-status" data-notes-page-status aria-live="polite" aria-atomic="true">
+        Page 1 of 1
+      </p>
+
+      <button type="button" class="list-pagination-button" data-notes-page-next>
+        <span>Next</span>
+        <span aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
   </main>
+
+  <script is:inline>
+    const controls = document.querySelector("[data-notes-controls]");
+
+    if (controls) {
+      const cards = Array.from(document.querySelectorAll("[data-note-card]"));
+      const grid = document.querySelector("[data-notes-grid]");
+      const searchInput = controls.querySelector("[data-notes-search]");
+      const status = document.querySelector("[data-notes-results]");
+      const emptyState = document.querySelector("[data-notes-empty]");
+      const pagination = document.querySelector("[data-notes-pagination]");
+      const pageStatus = document.querySelector("[data-notes-page-status]");
+      const prevButton = document.querySelector("[data-notes-page-prev]");
+      const nextButton = document.querySelector("[data-notes-page-next]");
+
+      if (
+        grid &&
+        searchInput &&
+        status &&
+        emptyState &&
+        pagination &&
+        pageStatus &&
+        prevButton &&
+        nextButton
+      ) {
+        let currentPage = 1;
+
+        const updateResults = () => {
+          const query = searchInput.value.trim().toLowerCase();
+          const orderedCards = cards.slice();
+          const matchedCards = [];
+
+          for (const card of orderedCards) {
+            const searchText = card.dataset.search || "";
+            const matchesSearch = !query || searchText.includes(query);
+
+            card.hidden = true;
+
+            if (matchesSearch) {
+              matchedCards.push(card);
+            }
+          }
+
+          const visibleCount = matchedCards.length;
+          const totalPages = visibleCount > 0 ? Math.ceil(visibleCount / pageSize) : 0;
+
+          currentPage = totalPages ? Math.min(currentPage, totalPages) : 1;
+
+          const startIndex = (currentPage - 1) * pageSize;
+          const pageCards = matchedCards.slice(startIndex, startIndex + pageSize);
+
+          for (const card of pageCards) {
+            card.hidden = false;
+          }
+
+          grid.append(...orderedCards);
+
+          const visibleLabel = visibleCount === 1 ? "resource" : "resources";
+          const totalLabel = cards.length === 1 ? "resource" : "resources";
+
+          status.textContent =
+            visibleCount === cards.length
+              ? `Showing ${visibleCount} ${visibleLabel}`
+              : `Showing ${visibleCount} of ${cards.length} ${totalLabel}`;
+
+          emptyState.hidden = visibleCount !== 0;
+          pagination.hidden = visibleCount === 0;
+          pageStatus.textContent = totalPages > 0 ? `Page ${currentPage} of ${totalPages}` : "";
+          prevButton.disabled = currentPage <= 1 || totalPages <= 1;
+          nextButton.disabled = currentPage >= totalPages || totalPages <= 1;
+        };
+
+        const resetToFirstPage = () => {
+          currentPage = 1;
+          updateResults();
+        };
+
+        searchInput.addEventListener("input", resetToFirstPage);
+        searchInput.addEventListener("change", resetToFirstPage);
+        prevButton.addEventListener("click", () => {
+          currentPage = Math.max(1, currentPage - 1);
+          updateResults();
+        });
+        nextButton.addEventListener("click", () => {
+          currentPage += 1;
+          updateResults();
+        });
+        controls.addEventListener("reset", () => {
+          window.requestAnimationFrame(() => {
+            currentPage = 1;
+            updateResults();
+          });
+        });
+        controls.addEventListener("submit", (event) => {
+          event.preventDefault();
+        });
+
+        updateResults();
+      }
+    }
+  </script>
 </BaseLayout>

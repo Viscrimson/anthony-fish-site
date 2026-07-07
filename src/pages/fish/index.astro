@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
-  buildSearchIndex,
   deriveTemperamentStyle,
   deriveTankBand,
   hasText,
@@ -29,15 +28,7 @@ const fishCards = fishPages.map((fish) => {
 
   return {
     ...fish,
-    searchIndex: buildSearchIndex([
-      fish.commonName,
-      fish.scientificName,
-      fish.summary,
-      fish.temperament,
-      fish.difficulty,
-      fish.tankSize,
-      fish.temperatureRange,
-    ]),
+    searchIndex: fish.searchIndex,
     nameSort: trimText(fish.commonName),
     difficultyFilter: trimText(fish.difficulty).toLowerCase(),
     difficultySort: difficultyRank,
@@ -130,7 +121,7 @@ const sortOptions = [
         <p class="eyebrow">Search and filter</p>
         <h2 id="fish-tools-heading">Browse the Care Sheet Library</h2>
         <p class="fish-tools-lede">
-          Use search for names and summaries, sort the list, then narrow it with a few simple
+          Use search across the full care sheet, sort the list, then narrow it with a few simple
           filters.
         </p>
       </div>
@@ -145,7 +136,7 @@ const sortOptions = [
               type="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="Search by name, scientific name, summary, or care details"
+              placeholder="Search by name, care facts, warnings, or notes"
               data-fish-search
             />
           </label>

@@ -26,7 +26,7 @@ relatedNoteSlugs:
   - acclimating-a-new-fish
   - basic-water-testing
   - aquarium-cycling-basics
-mainImage: fish-placeholder.svg
+mainImage: bronze-corydoras.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg

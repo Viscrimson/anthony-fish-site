@@ -1,15 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Blue betta fish illustration">
-  <rect width="900" height="675" fill="#e8f3f4" />
-  <circle cx="158" cy="112" r="42" fill="#ffffff" opacity=".85" />
-  <circle cx="756" cy="124" r="26" fill="#ffffff" opacity=".75" />
-  <circle cx="732" cy="522" r="54" fill="#ffffff" opacity=".6" />
-  <path d="M235 343c94-132 287-176 433-83-29 84-92 136-188 157-91 20-172-2-245-74z" fill="#1f77b4" />
-  <path d="M596 268c94-67 174-64 240 10-65 56-144 66-239 31z" fill="#0f766e" />
-  <path d="M594 402c104 25 177 79 220 163-94 24-178-13-252-111z" fill="#115e59" />
-  <path d="M300 325c-58-62-139-72-243-29 52 82 126 110 222 81z" fill="#e76f51" />
-  <path d="M376 260c19-65 61-111 126-138 19 66 3 122-49 168z" fill="#6bbfca" />
-  <path d="M392 418c11 70 50 121 116 154 31-67 19-126-37-177z" fill="#f2b84b" />
-  <circle cx="547" cy="304" r="17" fill="#14213d" />
-  <circle cx="553" cy="298" r="5" fill="#ffffff" />
-  <path d="M355 343c74-31 151-33 230-6" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity=".55" />
+  <defs>
+    <linearGradient id="bettabody" x1="210" y1="220" x2="640" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f92de" />
+      <stop offset="1" stop-color="#1e5aa8" />
+    </linearGradient>
+    <linearGradient id="bettafin" x1="560" y1="220" x2="810" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#17a1a4" />
+      <stop offset="1" stop-color="#0d6b73" />
+    </linearGradient>
+    <linearGradient id="bettaaccent" x1="180" y1="280" x2="340" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f28c6b" />
+      <stop offset="1" stop-color="#c95b4b" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#e7f3f5" />
+  <circle cx="142" cy="116" r="40" fill="#fff" opacity=".76" />
+  <circle cx="764" cy="120" r="24" fill="#fff" opacity=".62" />
+  <circle cx="744" cy="532" r="56" fill="#fff" opacity=".35" />
+  <circle cx="602" cy="96" r="18" fill="#fff" opacity=".45" />
+  <path d="M240 347c72-110 214-162 354-134 62 13 119 45 172 95-35 64-95 116-176 156-143 71-306 40-350-117z" fill="url(#bettabody)" />
+  <path d="M180 336c-69-48-136-54-202-17 51 74 117 111 199 113 24-27 24-58 3-96z" fill="url(#bettaaccent)" />
+  <path d="M548 250c82-57 173-67 274-31-44 64-116 94-214 91z" fill="url(#bettafin)" />
+  <path d="M551 430c106 21 187 72 242 153-87 31-171 13-247-55z" fill="#0f5d66" />
+  <path d="M378 257c26-69 72-119 140-150 15 73 2 134-40 184z" fill="#70d0de" />
+  <path d="M410 419c23 79 70 137 141 173 23-79 1-142-59-190z" fill="#f2bd4b" />
+  <path d="M324 333c-55-58-133-71-235-39 44 85 114 117 214 98z" fill="#f27d59" />
+  <path d="M478 311c64-34 129-40 197-18" fill="none" stroke="#eaf7fb" stroke-width="14" stroke-linecap="round" opacity=".55" />
+  <circle cx="536" cy="306" r="16" fill="#10324d" />
+  <circle cx="541" cy="301" r="5" fill="#fff" />
+  <path d="M353 351c80-35 163-39 249-12" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity=".45" />
 </svg>

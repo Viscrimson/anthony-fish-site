@@ -1,21 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { buildSearchIndex, compactStrings, hasText } from "../../lib/content-display.js";
+import { compactStrings, hasText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
 
 const notePages = buildNotePages(await getCollection("notes"));
 const pageSize = 12;
-
-const noteCards = notePages.map((note) => ({
-  ...note,
-  searchIndex: buildSearchIndex([
-    note.title,
-    note.summary,
-    note.category,
-    ...compactStrings(note.tags),
-  ]),
-}));
+const noteCards = notePages;
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en-US", {
@@ -57,7 +48,7 @@ const getDateMeta = (note) => {
         <p class="eyebrow">Search resources</p>
         <h2 id="resources-search-heading">Browse the resource library</h2>
         <p class="fish-tools-lede">
-          Search by title, summary, category, or tag.
+          Search by title, tag, or article text.
         </p>
       </div>
 
@@ -71,7 +62,7 @@ const getDateMeta = (note) => {
               type="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="Search by title, summary, category, or tag"
+              placeholder="Search by title, tag, or article text"
               data-notes-search
             />
           </label>

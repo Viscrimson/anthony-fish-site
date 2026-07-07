@@ -7,6 +7,12 @@ import { fishImage, withBase } from "../lib/paths.js";
 const { fish, previousFish = null, nextFish = null, relatedNotes = [] } = Astro.props;
 const summary = trimText(fish.summary);
 const quickSummary = trimText(fish.qrSummary);
+const placeholderImage = "fish-placeholder.svg";
+const hasRenderableImage = (value) => {
+  const image = trimText(value);
+
+  return image && image !== placeholderImage;
+};
 const booleanFact = (label, value) =>
   typeof value === "boolean" ? [label, value ? "Yes" : "No"] : null;
 const quickCareFacts = [
@@ -36,9 +42,9 @@ const appearanceCards = [
     image: fish.femaleImage,
     notes: fish.adultFemaleAppearance,
   },
-].filter(({ image, notes }) => hasText(image) || hasText(notes));
+].filter(({ image, notes }) => hasRenderableImage(image) || hasText(notes));
 
-const galleryImages = compactStrings(fish.galleryImages);
+const galleryImages = compactStrings(fish.galleryImages).filter(hasRenderableImage);
 const quickWarnings = compactStrings(fish.quickWarnings);
 const husbandryNotes = trimText(fish.husbandryNotes);
 const maleFemaleDifferences = trimText(fish.maleFemaleDifferences);
@@ -152,10 +158,12 @@ const fullCareDetails = [
             {
               appearanceCards.map(({ label, image, notes }) => (
                 <article class="appearance-card">
-                  <img
-                    src={fishImage(image)}
-                    alt={`${fish.commonName} ${label.toLowerCase()} image`}
-                  />
+                  {hasRenderableImage(image) ? (
+                    <img
+                      src={fishImage(image)}
+                      alt={`${fish.commonName} ${label.toLowerCase()} image`}
+                    />
+                  ) : null}
                   <div>
                     <h3>{label}</h3>
                     {hasText(notes) ? <p>{notes}</p> : null}

@@ -29,10 +29,10 @@ relatedNoteSlugs:
   - acclimating-a-new-fish
   - basic-water-testing
   - aquarium-cycling-basics
-mainImage: fish-placeholder.svg
-juvenileImage: fish-placeholder.svg
-maleImage: fish-placeholder.svg
-femaleImage: fish-placeholder.svg
+mainImage: zebra-danio.svg
+juvenileImage: zebra-danio.svg
+maleImage: zebra-danio.svg
+femaleImage: zebra-danio.svg
 galleryImages:
   - fish-placeholder.svg
 summary: A hardy schooling fish that suits active beginner tanks.

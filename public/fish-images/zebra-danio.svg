@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Zebra danio illustration">
+  <defs>
+    <linearGradient id="danioBody" x1="210" y1="300" x2="670" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dfe7ea" />
+      <stop offset="1" stop-color="#8eb7c6" />
+    </linearGradient>
+    <linearGradient id="danioTail" x1="160" y1="240" x2="300" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f57b52" />
+      <stop offset="1" stop-color="#d55d49" />
+    </linearGradient>
+    <linearGradient id="danioFin" x1="430" y1="230" x2="560" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f1c04f" />
+      <stop offset="1" stop-color="#65bcd0" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf5f7" />
+  <circle cx="144" cy="118" r="38" fill="#fff" opacity=".78" />
+  <circle cx="756" cy="128" r="26" fill="#fff" opacity=".62" />
+  <circle cx="736" cy="510" r="58" fill="#fff" opacity=".34" />
+  <path d="M192 347c80-104 212-148 395-132 52 5 98 22 141 50-34 65-88 117-160 156-152 83-324 64-376-74z" fill="url(#danioBody)" />
+  <path d="M182 350c-60-47-119-61-181-41 42 65 93 106 154 123 25-23 35-49 27-82z" fill="url(#danioTail)" />
+  <path d="M547 244c79-50 161-61 246-33-42 58-111 87-206 86z" fill="#f1c04f" />
+  <path d="M540 436c92 19 166 64 223 134-82 28-160 13-238-46z" fill="#65bcd0" />
+  <path d="M334 259c18-63 58-109 119-139 21 62 12 117-27 166z" fill="#f3f2a5" />
+  <path d="M370 428c21 71 66 127 136 167 22-72 7-134-49-186z" fill="#5db6c9" />
+  <path d="M271 341c-58-52-129-72-215-59 45 76 108 116 190 121z" fill="#f57b52" />
+  <path d="M332 308c104-32 192-30 268 5" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity=".52" />
+  <path d="M326 355c101-28 194-26 278 8" fill="none" stroke="#17324f" stroke-width="7" stroke-linecap="round" opacity=".66" />
+  <path d="M322 398c96-23 185-16 268 22" fill="none" stroke="#17324f" stroke-width="7" stroke-linecap="round" opacity=".7" />
+  <path d="M320 445c88-16 170-3 246 39" fill="none" stroke="#17324f" stroke-width="7" stroke-linecap="round" opacity=".68" />
+  <circle cx="510" cy="311" r="15" fill="#17324f" />
+  <circle cx="515" cy="306" r="4" fill="#fff" />
+</svg>

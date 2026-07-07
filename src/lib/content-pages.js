@@ -22,6 +22,41 @@ const fishPublishFields = [
   "summary",
 ];
 
+const fishSearchFields = [
+  "commonName",
+  "scientificName",
+  "origin",
+  "temperatureRange",
+  "adultSize",
+  "tankSize",
+  "foodRecommendation",
+  "difficulty",
+  "temperament",
+  "plantSafe",
+  "invertebrateSafe",
+  "juvenileAppearance",
+  "adultMaleAppearance",
+  "adultFemaleAppearance",
+  "maleFemaleDifferences",
+  "husbandryNotes",
+  "anthonyNotes",
+  "qrSummary",
+  "summary",
+];
+
+const noteSearchFields = [
+  "title",
+  "category",
+  "summary",
+  "quickAnswer",
+  "visualNote",
+  "illustrationsDataTechnique",
+];
+
+function toSearchIndex(values) {
+  return compactStrings(values).join(" ").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
 function isRenderableFish(entry) {
   return fishPublishFields.every((field) => hasText(entry.data[field]));
 }
@@ -34,6 +69,13 @@ export function buildFishPages(entries) {
 
       return {
         ...entry.data,
+        searchIndex: toSearchIndex([
+          ...fishSearchFields.map((field) => entry.data[field]),
+          ...compactStrings(entry.data.quickWarnings),
+          entry.data.plantSafe ? "plant safe" : "",
+          entry.data.invertebrateSafe ? "invertebrate safe" : "",
+          entry.body,
+        ]),
         label: entry.data.commonName,
         slug,
         url: withBase(`fish/${slug}/`),
@@ -54,6 +96,14 @@ export function buildNotePages(entries) {
 
       return {
         ...entry.data,
+        searchIndex: toSearchIndex([
+          ...noteSearchFields.map((field) => entry.data[field]),
+          ...compactStrings(entry.data.tags),
+          ...compactStrings(entry.data.practicalSteps),
+          ...compactStrings(entry.data.pictorialSteps),
+          ...compactStrings(entry.data.sources),
+          entry.body,
+        ]),
         label: entry.data.title,
         slug,
         url: withBase(`notes/${slug}/`),

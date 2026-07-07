@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Bronze corydoras illustration">
+  <defs>
+    <linearGradient id="coryBody" x1="220" y1="260" x2="670" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c89b5b" />
+      <stop offset="1" stop-color="#8b5f33" />
+    </linearGradient>
+    <linearGradient id="coryFin" x1="150" y1="260" x2="320" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0a45b" />
+      <stop offset="1" stop-color="#d26c43" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf4f5" />
+  <circle cx="152" cy="118" r="38" fill="#fff" opacity=".78" />
+  <circle cx="744" cy="140" r="28" fill="#fff" opacity=".65" />
+  <circle cx="714" cy="506" r="58" fill="#fff" opacity=".34" />
+  <path d="M686 347c-61-65-145-98-252-98-110 0-197 35-263 106 67 79 158 126 270 126 108 0 188-38 245-114z" fill="url(#coryBody)" />
+  <path d="M186 350c-65-37-121-41-173-11 37 62 87 98 149 109 26-27 33-58 24-98z" fill="url(#coryFin)" />
+  <path d="M619 256c52-7 95 3 131 29 20 38 20 76 1 114-34 20-77 29-129 25 21-44 22-106-3-168z" fill="#5a4025" opacity=".38" />
+  <path d="M640 337c31-3 58 7 81 30" fill="none" stroke="#eed8b3" stroke-width="8" stroke-linecap="round" opacity=".65" />
+  <path d="M604 364c38 10 72 7 103-8" fill="none" stroke="#eed8b3" stroke-width="8" stroke-linecap="round" opacity=".65" />
+  <path d="M629 351c52 41 93 82 123 123" fill="none" stroke="#7a4f2b" stroke-width="6" stroke-linecap="round" opacity=".9" />
+  <path d="M627 357c-58 42-109 85-154 128" fill="none" stroke="#7a4f2b" stroke-width="6" stroke-linecap="round" opacity=".9" />
+  <path d="M320 332c-32-62-90-98-174-109 23 56 56 99 100 128z" fill="#8f6238" opacity=".95" />
+  <path d="M332 311c-23 36-21 79 5 128" fill="none" stroke="#e8d1a9" stroke-width="10" stroke-linecap="round" opacity=".5" />
+  <path d="M328 355c83-39 166-41 249-6" fill="none" stroke="#fff7e9" stroke-width="12" stroke-linecap="round" opacity=".42" />
+  <circle cx="531" cy="307" r="15" fill="#1d1b1b" />
+  <circle cx="536" cy="302" r="4" fill="#fff" />
+  <path d="M588 361c34 1 67 10 99 27" fill="none" stroke="#8b5f33" stroke-width="5" stroke-linecap="round" />
+  <path d="M584 371c39 12 75 30 107 53" fill="none" stroke="#8b5f33" stroke-width="5" stroke-linecap="round" />
+  <path d="M586 383c26 22 50 45 73 69" fill="none" stroke="#8b5f33" stroke-width="5" stroke-linecap="round" />
+  <path d="M414 277c18-26 43-44 76-55" fill="none" stroke="#fff3df" stroke-width="8" stroke-linecap="round" opacity=".45" />
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Fancy guppy illustration">
+  <defs>
+    <linearGradient id="guppyBody" x1="240" y1="270" x2="620" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#72d1df" />
+      <stop offset="1" stop-color="#0f7e8a" />
+    </linearGradient>
+    <linearGradient id="guppyTail" x1="520" y1="220" x2="770" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb347" />
+      <stop offset="0.5" stop-color="#ef6b6a" />
+      <stop offset="1" stop-color="#7d5cff" />
+    </linearGradient>
+    <linearGradient id="guppyTailAlt" x1="555" y1="270" x2="770" y2="535" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffde7a" />
+      <stop offset="1" stop-color="#0f7e8a" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="#edf5f5" />
+  <circle cx="140" cy="118" r="36" fill="#fff" opacity=".78" />
+  <circle cx="748" cy="122" r="26" fill="#fff" opacity=".64" />
+  <circle cx="716" cy="510" r="56" fill="#fff" opacity=".34" />
+  <path d="M192 355c86-109 225-149 417-118 58 10 112 31 164 63-34 66-90 119-171 157-148 69-321 40-410-102z" fill="url(#guppyBody)" />
+  <path d="M560 239c76-53 158-59 248-20-46 59-118 85-214 78z" fill="url(#guppyTail)" />
+  <path d="M568 435c106 29 183 82 230 159-84 26-161 7-230-57z" fill="url(#guppyTailAlt)" />
+  <path d="M344 255c24-63 65-108 125-136 17 64 4 121-40 170z" fill="#9de8ef" />
+  <path d="M310 419c26 74 72 129 138 163 26-76 11-138-41-187z" fill="#f4b44f" />
+  <path d="M252 341c-65-52-145-64-240-37 55 82 129 117 223 103z" fill="#ef6b6a" />
+  <path d="M444 314c58-19 119-20 182-2" fill="none" stroke="#e8fffd" stroke-width="11" stroke-linecap="round" opacity=".6" />
+  <path d="M496 347c48 17 89 46 122 87" fill="none" stroke="#f9f0c9" stroke-width="8" stroke-linecap="round" opacity=".45" />
+  <circle cx="523" cy="304" r="15" fill="#12334b" />
+  <circle cx="528" cy="299" r="4" fill="#fff" />
+  <path d="M388 348c71-28 145-30 222-6" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".5" />
+  <circle cx="610" cy="252" r="16" fill="#fff" opacity=".35" />
+  <circle cx="650" cy="470" r="14" fill="#fff" opacity=".24" />
+</svg>

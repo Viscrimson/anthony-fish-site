@@ -1246,22 +1246,24 @@ h3 {
 }
 
 .list-pagination {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  gap: 10px 12px;
   margin-top: 18px;
 }
 
 .list-pagination-button {
-  display: flex;
+  display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  min-height: 72px;
-  padding: 14px 16px;
+  gap: 10px;
+  min-height: 42px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--surface);
   color: inherit;
   font: inherit;
@@ -1288,7 +1290,7 @@ h3 {
 
 .list-pagination-status {
   margin: 0;
-  padding-inline: 4px;
+  padding-inline: 6px;
   color: var(--muted);
   font-weight: 700;
   text-align: center;

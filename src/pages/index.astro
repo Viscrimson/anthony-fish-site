@@ -10,7 +10,7 @@ const fallbackSite = {
   homepageEyebrow: "Anthony Fish Care",
   homepageTitle: "Start here for care instructions",
   homepageIntro:
-    "If you scanned a fish bag, start with that fish's care sheet. Use the Care Sheet Library for quick species details and Resources for setup, acclimation, and water-quality help.",
+    "If you scanned a fish bag, open that fish's care sheet first. It gives the quickest answer for tank size, temperature, food, and warning notes, and Resources adds the broader setup help when you need it.",
   careSheetsIntro:
     "Care sheets with tank size, temperature, food, and warning notes kept easy to scan.",
   notesIntro:
@@ -19,9 +19,9 @@ const fallbackSite = {
   aboutSummary:
     "Anthony Fish Care keeps the essential fish information in one place so it is easy to read on a phone.",
   experienceText:
-    "Open the matching care sheet first, then use Resources when you want more context.",
+    "Open the matching care sheet first so you can check the basics right away. If you need a broader explanation, move to Resources after that. The site keeps the fish-specific details and the general advice in the right order.",
   focusText:
-    "Freshwater fish, tank basics, acclimation, water testing, feeding, and care notes.",
+    "Freshwater fish care, tank setup, acclimation, water testing, feeding, and the practical notes that help a fish settle in at home. It is meant to stay short enough to read quickly on a phone while still covering the important basics.",
   contactHeading: "Contact",
   contactText:
     "Contact details can be added later if Anthony wants them public.",
@@ -75,19 +75,34 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
         <p class="lede">{homepageIntro}</p>
       </div>
 
-      <p class="home-purpose-intro">Scan the bag, browse the library, or look at other resources.</p>
+      <p class="home-purpose-intro">
+        Start with the right page for the job: scan the bag, open the Care Sheet Library, or use
+        Resources when you want broader guidance.
+      </p>
       <div class="home-purpose-grid" aria-label="What visitors can do here">
         <article class="home-purpose-card">
           <p class="home-purpose-label">Scan a bag</p>
-          <p>The QR on the bag opens the matching care sheet with the important facts first.</p>
+          <p>
+            Scan the QR on the bag to open the matching care sheet. It puts the tank, food, and
+            warning notes first so you can confirm the basics quickly. If there is follow-up advice
+            for that fish, it stays with the sheet.
+          </p>
         </article>
         <article class="home-purpose-card">
           <p class="home-purpose-label">Care Sheet Library</p>
-          <p>Browse a fish by name, scientific name, tank size, difficulty, or temperament.</p>
+          <p>
+            Browse fish by name, scientific name, tank size, difficulty, or temperament. The
+            library is built to be short enough to skim on a phone, but complete enough to answer
+            the main species questions before you go looking for broader advice.
+          </p>
         </article>
         <article class="home-purpose-card">
           <p class="home-purpose-label">Resources</p>
-          <p>Open short resources for setup, acclimation, water quality, feeding, and follow-up questions.</p>
+          <p>
+            Open Resources for broader setup, acclimation, water quality, feeding, and follow-up
+            questions. These articles support the care sheet instead of repeating it, so the two
+            parts of the site work together.
+          </p>
         </article>
       </div>
     </section>

@@ -92,7 +92,6 @@ const temperamentOptions = dedupeOptions(
 
 const totalFishCount = fishCards.length;
 const totalFishLabel = totalFishCount === 1 ? "care sheet" : "care sheets";
-const pageSize = 12;
 const sortOptions = [
   { value: "name-asc", label: "Name A-Z" },
   { value: "name-desc", label: "Name Z-A" },
@@ -105,7 +104,7 @@ const sortOptions = [
 
 <BaseLayout
   title="Care Sheet Library"
-  description="Search the Care Sheet Library by name, tank size, temperature, difficulty, or temperament."
+  description="Search the Care Sheet Library across the full care sheet text by name, tank size, temperature, difficulty, or temperament."
 >
   <main class="page-wrap">
     <section class="hero">
@@ -136,7 +135,7 @@ const sortOptions = [
               type="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="Search by name, care facts, warnings, or notes"
+              placeholder="Search by name, scientific name, care facts, warnings, or notes"
               data-fish-search
             />
           </label>
@@ -297,6 +296,13 @@ const sortOptions = [
         const filterInputs = Array.from(
           controls.querySelectorAll('input[type="checkbox"]'),
         );
+        const mobileQuery = window.matchMedia("(max-width: 760px)");
+        const normalizeText = (value) =>
+          String(value ?? "")
+            .toLowerCase()
+            .replace(/\s+/g, " ")
+            .trim();
+        let pageSize = mobileQuery.matches ? 4 : 8;
         let currentPage = 1;
 
         const getSelectedValues = (name) =>
@@ -359,7 +365,7 @@ const sortOptions = [
         };
 
         const updateResults = () => {
-          const query = searchInput.value.trim().toLowerCase();
+          const query = normalizeText(searchInput.value);
           const difficultyValues = getSelectedValues("difficulty");
           const tankValues = getSelectedValues("tankSize");
           const temperamentValues = getSelectedValues("temperament");
@@ -371,7 +377,7 @@ const sortOptions = [
           const matchedCards = [];
 
           for (const card of orderedCards) {
-            const searchText = card.dataset.search || "";
+            const searchText = normalizeText(card.dataset.search || card.textContent);
             const matchesSearch = !query || searchText.includes(query);
             const matchesDifficulty =
               !difficultyValues.size || difficultyValues.has(card.dataset.difficulty || "");
@@ -421,6 +427,16 @@ const sortOptions = [
           nextButton.disabled = currentPage >= totalPages || totalPages <= 1;
         };
 
+        const syncPageSize = () => {
+          const nextPageSize = mobileQuery.matches ? 4 : 8;
+
+          if (nextPageSize !== pageSize) {
+            pageSize = nextPageSize;
+            currentPage = 1;
+            updateResults();
+          }
+        };
+
         const resetToFirstPage = () => {
           currentPage = 1;
           updateResults();
@@ -428,6 +444,7 @@ const sortOptions = [
 
         searchInput.addEventListener("input", resetToFirstPage);
         searchInput.addEventListener("change", resetToFirstPage);
+        searchInput.addEventListener("search", resetToFirstPage);
         sortInput.addEventListener("change", resetToFirstPage);
         filterInputs.forEach((input) => input.addEventListener("change", resetToFirstPage));
         prevButton.addEventListener("click", () => {
@@ -447,6 +464,11 @@ const sortOptions = [
         controls.addEventListener("submit", (event) => {
           event.preventDefault();
         });
+        if (typeof mobileQuery.addEventListener === "function") {
+          mobileQuery.addEventListener("change", syncPageSize);
+        } else {
+          mobileQuery.addListener(syncPageSize);
+        }
 
         updateResults();
       }

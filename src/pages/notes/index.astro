@@ -5,7 +5,6 @@ import { compactStrings, hasText } from "../../lib/content-display.js";
 import { buildNotePages } from "../../lib/content-pages.js";
 
 const notePages = buildNotePages(await getCollection("notes"));
-const pageSize = 12;
 const noteCards = notePages;
 
 const formatDate = (date) =>
@@ -47,9 +46,7 @@ const getDateMeta = (note) => {
       <div class="fish-tools-copy">
         <p class="eyebrow">Search resources</p>
         <h2 id="resources-search-heading">Browse the resource library</h2>
-        <p class="fish-tools-lede">
-          Search by title, tag, or article text.
-        </p>
+        <p class="fish-tools-lede">Search by title, tag, or article text.</p>
       </div>
 
       <form class="fish-tools-panel" data-notes-controls>
@@ -159,22 +156,29 @@ const getDateMeta = (note) => {
         prevButton &&
         nextButton
       ) {
+        const mobileQuery = window.matchMedia("(max-width: 760px)");
+        const normalizeText = (value) =>
+          String(value ?? "")
+            .toLowerCase()
+            .replace(/\s+/g, " ")
+            .trim();
+        let pageSize = mobileQuery.matches ? 4 : 8;
         let currentPage = 1;
 
         const updateResults = () => {
-          const query = searchInput.value.trim().toLowerCase();
+          const query = normalizeText(searchInput.value);
           const orderedCards = cards.slice();
           const matchedCards = [];
 
           for (const card of orderedCards) {
-            const searchText = card.dataset.search || "";
+            const searchText = normalizeText(card.dataset.search || card.textContent);
             const matchesSearch = !query || searchText.includes(query);
-
-            card.hidden = true;
 
             if (matchesSearch) {
               matchedCards.push(card);
             }
+
+            card.hidden = true;
           }
 
           const visibleCount = matchedCards.length;
@@ -206,6 +210,16 @@ const getDateMeta = (note) => {
           nextButton.disabled = currentPage >= totalPages || totalPages <= 1;
         };
 
+        const syncPageSize = () => {
+          const nextPageSize = mobileQuery.matches ? 4 : 8;
+
+          if (nextPageSize !== pageSize) {
+            pageSize = nextPageSize;
+            currentPage = 1;
+            updateResults();
+          }
+        };
+
         const resetToFirstPage = () => {
           currentPage = 1;
           updateResults();
@@ -213,6 +227,7 @@ const getDateMeta = (note) => {
 
         searchInput.addEventListener("input", resetToFirstPage);
         searchInput.addEventListener("change", resetToFirstPage);
+        searchInput.addEventListener("search", resetToFirstPage);
         prevButton.addEventListener("click", () => {
           currentPage = Math.max(1, currentPage - 1);
           updateResults();
@@ -230,6 +245,11 @@ const getDateMeta = (note) => {
         controls.addEventListener("submit", (event) => {
           event.preventDefault();
         });
+        if (typeof mobileQuery.addEventListener === "function") {
+          mobileQuery.addEventListener("change", syncPageSize);
+        } else {
+          mobileQuery.addListener(syncPageSize);
+        }
 
         updateResults();
       }

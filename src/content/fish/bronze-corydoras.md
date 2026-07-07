@@ -9,15 +9,11 @@ foodRecommendation: Sinking pellets, wafers, and frozen foods
 difficulty: Beginner to intermediate
 temperament: Peaceful schooling fish
 plantSafe: true
-invertebrateSafe: false
-juvenileAppearance: ""
-adultMaleAppearance: ""
-adultFemaleAppearance: ""
-maleFemaleDifferences: ""
-husbandryNotes: |
+invertebrateSafe: true
+husbandryNotes: >
   Keep a school together and feed sinking foods so the group can eat comfortably.
-anthonyNotes: ""
-qrSummary: A peaceful schooling catfish quick-care sheet with tank, food, and group-keeping reminders.
+qrSummary: A peaceful schooling catfish quick-care sheet with tank, food, and
+  group-keeping reminders.
 quickWarnings:
   - Keep them in a school.
   - Feed sinking foods so the group can eat comfortably.
@@ -32,5 +28,7 @@ maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: A peaceful schooling catfish care sheet with a 20-gallon-or-larger tank, sinking foods, and beginner-friendly care.
+summary: A peaceful schooling catfish care sheet with a 20-gallon-or-larger
+  tank, sinking foods, and beginner-friendly care.
+draft: false
 ---

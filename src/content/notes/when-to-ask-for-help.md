@@ -1,10 +1,6 @@
 ---
 title: When to Ask for Help
 category: Troubleshooting
-date: 2026-07-12
-lastUpdated: 2026-07-12
-lastReviewed: 2026-07-12
-summary: A short checklist for deciding when a fish problem needs a second look.
 tags:
   - troubleshooting
   - help
@@ -18,16 +14,22 @@ relatedNoteSlugs:
   - watch-for-stress-signs
   - basic-water-testing
   - quarantine-a-new-fish
-quickAnswer: Ask for help when behavior changes fast, multiple fish are affected, or the water test does not explain what you see.
+draft: false
+summary: A short checklist for deciding when a fish problem needs a second look.
+quickAnswer: Ask for help when behavior changes fast, multiple fish are
+  affected, or the water test does not explain what you see.
 practicalSteps:
   - Write down what changed and when it started.
   - Test the water before changing several things at once.
   - Take a clear photo or short note about the fish's behavior.
   - Ask for help sooner if more than one fish is involved.
-visualNote: A "what changed / what I saw / what I tested" template makes requests clearer.
 sources:
   - https://www.aquariumcoop.com/blogs/aquarium/fish-illness
   - https://www.thesprucepets.com/common-freshwater-fish-diseases-1378474
+date: 2026-07-12
+lastUpdated: 2026-07-12
+lastReviewed: 2026-07-12
+visualNote: A "what changed / what I saw / what I tested" template makes requests clearer.
 ---
 Most tank problems are easier to solve when the details are still fresh. Waiting too
 long can make it harder to tell whether the issue was water, behavior, feeding, or a

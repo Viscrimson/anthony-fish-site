@@ -30,5 +30,5 @@ galleryImages:
   - fish-placeholder.svg
 summary: A peaceful schooling catfish care sheet with a 20-gallon-or-larger
   tank, sinking foods, and beginner-friendly care.
-draft: true
+draft: false
 ---

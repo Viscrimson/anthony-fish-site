@@ -59,7 +59,9 @@ const navItems = [
     <AquariumBackdrop images={backgroundImages} />
     <header class="site-header">
       <a class="site-brand" href={withBase()}>
-        <span class="site-brand-mark" aria-hidden="true">AF</span>
+        <span class="site-brand-mark" aria-hidden="true">
+          <img src={withBase("favicon.svg")} alt="" />
+        </span>
         <span class="site-brand-name">{brandName}</span>
       </a>
       <nav class="site-nav site-nav-desktop" aria-label="Main navigation">

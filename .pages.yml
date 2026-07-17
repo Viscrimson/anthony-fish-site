@@ -60,7 +60,7 @@ content:
         list: true
         description: Upload, remove, or reorder the faded aquarium scenes used randomly across the site.
         options:
-      media: aquariumBackgrounds
+          media: aquariumBackgrounds
           path: public/backgrounds
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]

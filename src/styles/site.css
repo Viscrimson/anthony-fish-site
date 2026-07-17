@@ -304,6 +304,27 @@ h3 {
   max-width: none;
 }
 
+.home-hero-primary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+}
+
+.home-hero-image {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.home-hero-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
 .home-purpose-intro {
   margin: 0;
   color: var(--accent-strong);
@@ -1367,6 +1388,11 @@ h3 {
 
   .home-purpose-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-hero-primary {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .fish-profile {

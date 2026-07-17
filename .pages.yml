@@ -48,6 +48,15 @@ content:
       - name: homepageIntro
         label: Homepage intro
         type: text
+      - name: homepageImage
+        label: Homepage image
+        type: image
+        description: Shown beside the homepage title and introduction.
+        options:
+          media: images
+          path: public/fish-images
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
       - name: careSheetsIntro
         label: Care sheets intro
         type: text

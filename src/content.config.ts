@@ -9,6 +9,7 @@ const site = defineCollection({
     homepageEyebrow: z.string().optional(),
     homepageTitle: z.string().optional(),
     homepageIntro: z.string().optional(),
+    homepageImage: z.string().optional(),
     careSheetsIntro: z.string().optional(),
     notesIntro: z.string().optional(),
     backgroundImages: z.array(z.string()).optional(),

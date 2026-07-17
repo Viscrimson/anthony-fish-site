@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { withBase } from "../lib/paths.js";
+import { fishImage, withBase } from "../lib/paths.js";
 import { hasText, trimText } from "../lib/content-display.js";
 
 const fallbackSite = {
@@ -11,6 +11,7 @@ const fallbackSite = {
   homepageTitle: "By a Hobbyist for Hobbyists.",
   homepageIntro:
     "Find your fish’s care sheet, articles on fishkeeping, and advice for a successful start. I don't want to sell you anything, come here to learn practical advice for the best overall start. Covering what you need to know as a beginning fishkeeper to advanced topics and advice from a breeder of both rare and common tropical fish.",
+  homepageImage: "/fish-images/fish-placeholder.svg",
   careSheetsIntro:
     "Find the right environment for your fish, from comfortable water temperatures and minimum tank sizes to feeding, temperament, and group needs.",
   notesIntro:
@@ -38,6 +39,7 @@ const homepageEyebrow =
   trimText(site.homepageEyebrow) || fallbackSite.homepageEyebrow;
 const homepageTitle = trimText(site.homepageTitle) || fallbackSite.homepageTitle;
 const homepageIntro = trimText(site.homepageIntro) || fallbackSite.homepageIntro;
+const homepageImage = trimText(site.homepageImage) || fallbackSite.homepageImage;
 const careSheetsIntro =
   trimText(site.careSheetsIntro) || fallbackSite.careSheetsIntro;
 const notesIntro = trimText(site.notesIntro) || fallbackSite.notesIntro;
@@ -69,10 +71,15 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 >
   <main class="page-wrap">
     <section class="hero home-hero">
-      <div>
-        <p class="eyebrow">{homepageEyebrow}</p>
-        <h1>{homepageTitle}</h1>
-        <p class="lede">{homepageIntro}</p>
+      <div class="home-hero-primary">
+        <div>
+          <p class="eyebrow">{homepageEyebrow}</p>
+          <h1>{homepageTitle}</h1>
+          <p class="lede">{homepageIntro}</p>
+        </div>
+        <div class="home-hero-image">
+          <img src={fishImage(homepageImage)} alt="Featured freshwater fish" />
+        </div>
       </div>
 
       <p class="home-purpose-intro">

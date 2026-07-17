@@ -1,7 +1,7 @@
 ---
 siteName: Aquatic Treasures of Fort Myers
 tagline: "Aquarium Hobby Fish keeping  "
-homepageEyebrow: Aquatic Treasure of Fort Myers
+homepageEyebrow: Aquatic Treasures of Fort Myers
 homepageTitle: By a Hobbyist for Hobbyists.
 homepageIntro: Find your fish’s care sheet, articles on fishkeeping, and advice
   for a successful start.  Seen a bag and wonder what the fish looks like as an

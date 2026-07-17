@@ -14,9 +14,13 @@ temperament: Peaceful as long as they are not in breeding form.  Intraspecies
   mouth.  Otherwise interspecies aggression will not be observed.
 plantSafe: false
 invertebrateSafe: false
-juvenileAppearance: See Picture 1
-adultMaleAppearance: See Picture 2
-adultFemaleAppearance: See Picture 3
+juvenileAppearance: The juvenile appearance is identical to the female in coloration.
+adultMaleAppearance: 'Males will begin to develop a sharply sloping snout, their
+  colors will intensify, and they will exhibit a behavior where they will
+  develop an "O" with their mouth held open and will display by shaking back and
+  forth in rapid movements.   Males may also develop a nuchal hump and become
+  aggressive to others during breeding. '
+adultFemaleAppearance: Females retain juvenile coloration and possess rounded faces.
 maleFemaleDifferences: Females are always more bland in coloration lacking the
   intensity of colors shown off in mature males.   Males can develop a nuchal
   hump although this feature is not always observed in all sexually mature

@@ -32,7 +32,6 @@ mainImage: harlequin-rasbora.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A peaceful shoaling rasbora for planted community tanks.
 ---
 Harlequin rasboras are one of the easiest fish to recommend for a calm
 community tank. Their color and behavior show best when they can move together

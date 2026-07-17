@@ -32,7 +32,6 @@ mainImage: ember-tetra.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A tiny orange schooling tetra for planted tanks and small foods.
 ---
 Ember tetras stay small, but they still need a calm environment and a real
 school. They color up best when the tank is planted and the lighting is not too

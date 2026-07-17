@@ -13,6 +13,13 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
+  - name: aquariumBackgrounds
+    label: Aquarium backgrounds
+    input: public/backgrounds
+    output: /backgrounds
+    rename: safe
+    categories: [image]
+    extensions: [svg, png, jpg, jpeg, webp]
 
 content:
   - name: site
@@ -47,6 +54,16 @@ content:
       - name: notesIntro
         label: Notes intro
         type: text
+      - name: backgroundImages
+        label: Aquarium background images
+        type: image
+        list: true
+        description: Upload, remove, or reorder the faded aquarium scenes used randomly across the site.
+        options:
+      media: aquariumBackgrounds
+          path: public/backgrounds
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
       - name: qrHelperHeading
         label: QR helper heading
         type: string
@@ -92,10 +109,10 @@ content:
     path: src/content/fish
     filename: "{slug}.md"
     view:
-      fields: [commonName, scientificName, summary]
+      fields: [commonName, scientificName]
       primary: commonName
       sort: [commonName]
-      search: [commonName, scientificName, summary]
+      search: [commonName, scientificName]
       default:
         sort: commonName
         order: asc
@@ -152,14 +169,15 @@ content:
         label: Anthony notes
         type: text
       - name: qrSummary
-        label: QR summary
+        label: Quick care handoff summary
         type: text
+        description: Optional short text for the quick-care area used when someone arrives from a QR code or bag label.
       - name: quickWarnings
-        label: Quick warnings / take-home notes
+        label: Take-home notes
         type: string
         list: true
       - name: relatedNoteSlugs
-        label: Related note slugs
+        label: Other recommendations
         type: string
         list: true
         description: Use note slugs such as first-24-hours-with-a-new-fish. A slug is the file name without .md.
@@ -211,9 +229,11 @@ content:
             max: 12
           unique: true
           extensions: [svg, png, jpg, jpeg, webp]
-      - name: summary
-        label: Short summary
-        type: string
+      - name: showAdditionalPhotos
+        label: Show additional photos
+        type: boolean
+        default: true
+        description: Turn off to hide the additional-photo gallery while keeping the main photo visible.
       - name: draft
         label: Keep as draft
         type: boolean

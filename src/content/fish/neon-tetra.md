@@ -31,7 +31,6 @@ mainImage: neon-tetra.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A small blue-and-red schooling tetra for planted community tanks.
 ---
 A neon tetra does best in a settled aquarium with gentle filtration and
 consistent water quality. They show their best color when they have space to

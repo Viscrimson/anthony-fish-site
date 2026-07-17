@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentPager from "./ContentPager.astro";
-import { compactStrings, hasText, trimText } from "../lib/content-display.js";
+import {
+  compactStrings,
+  displayDifficulty,
+  hasText,
+  trimText,
+} from "../lib/content-display.js";
 import { fishImage, withBase } from "../lib/paths.js";
 
 const { fish, previousFish = null, nextFish = null, relatedNotes = [] } = Astro.props;
-const summary = trimText(fish.summary);
 const quickSummary = trimText(fish.qrSummary);
 const placeholderImage = "fish-placeholder.svg";
 const hasRenderableImage = (value) => {
@@ -17,9 +21,11 @@ const booleanFact = (label, value) =>
   typeof value === "boolean" ? [label, value ? "Yes" : "No"] : null;
 const quickCareFacts = [
   ["Tank size", fish.tankSize],
+  ["Adult size", fish.adultSize],
   ["Temperature", fish.temperatureRange],
+  ["Origin", fish.origin],
   ["Food", fish.foodRecommendation],
-  ["Difficulty", fish.difficulty],
+  ["Difficulty", displayDifficulty(fish.difficulty)],
   ["Temperament", fish.temperament],
   booleanFact("Plant safe", fish.plantSafe),
   booleanFact("Invertebrate safe", fish.invertebrateSafe),
@@ -47,24 +53,10 @@ const appearanceCards = [
 const galleryImages = compactStrings(fish.galleryImages).filter(hasRenderableImage);
 const quickWarnings = compactStrings(fish.quickWarnings);
 const husbandryNotes = trimText(fish.husbandryNotes);
-const maleFemaleDifferences = trimText(fish.maleFemaleDifferences);
-const anthonyNotes = trimText(fish.anthonyNotes);
 const pageUrl = fish.url;
-const fullCareDetails = [
-  ["Scientific name", fish.scientificName],
-  ["Origin", fish.origin],
-  ["Adult size", fish.adultSize],
-  ["Tank size", fish.tankSize],
-  ["Food", fish.foodRecommendation],
-  ["Difficulty", fish.difficulty],
-  ["Temperament", fish.temperament],
-  booleanFact("Plant safe", fish.plantSafe),
-  booleanFact("Invertebrate safe", fish.invertebrateSafe),
-]
-  .filter((entry) => Array.isArray(entry) && hasText(entry[1]));
 ---
 
-<BaseLayout title={fish.commonName} description={summary || fish.commonName}>
+<BaseLayout title={fish.commonName} description={fish.commonName}>
   <main class="page-wrap fish-detail">
     <p class="crumb"><a href={withBase("fish/")}>Care Sheet Library</a></p>
     <section class="fish-profile fish-profile-expanded">
@@ -76,7 +68,6 @@ const fullCareDetails = [
         <p class="eyebrow">Care sheet</p>
         <h1>{fish.commonName}</h1>
         <p class="scientific-name"><em>{fish.scientificName}</em></p>
-        {summary ? <p class="lede">{summary}</p> : null}
       </article>
     </section>
 
@@ -99,9 +90,9 @@ const fullCareDetails = [
           <div class="quick-care-layout">
             {
               quickWarnings.length ? (
-                <aside class="quick-warning-panel" aria-labelledby="important-notes">
-                  <p class="eyebrow">Important notes</p>
-                  <h3 id="important-notes">Before you take it home</h3>
+                <aside class="quick-warning-panel" aria-labelledby="take-home-notes">
+                  <p class="eyebrow">Take-home notes</p>
+                  <h3 id="take-home-notes">Before you take it home</h3>
                   <ul class="quick-warning-list">
                     {quickWarnings.map((warning) => <li>{warning}</li>)}
                   </ul>
@@ -124,25 +115,6 @@ const fullCareDetails = [
               ) : null
             }
           </div>
-        </section>
-      ) : null
-    }
-
-    {
-      fullCareDetails.length ? (
-        <section class="content-section full-care-section" aria-labelledby="full-care">
-          <div>
-            <p class="eyebrow">Full care</p>
-            <h2 id="full-care">Care details</h2>
-          </div>
-          <dl class="care-table">
-            {fullCareDetails.map(([label, value]) => (
-              <div>
-                <dt>{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
-          </dl>
         </section>
       ) : null
     }
@@ -177,19 +149,7 @@ const fullCareDetails = [
     }
 
     {
-      maleFemaleDifferences ? (
-        <section class="fish-note-section" aria-labelledby="sex-differences">
-          <div>
-            <p class="eyebrow">Sex differences</p>
-            <h2 id="sex-differences">How to tell males and females apart</h2>
-          </div>
-          <p>{maleFemaleDifferences}</p>
-        </section>
-      ) : null
-    }
-
-    {
-      galleryImages.length ? (
+      fish.showAdditionalPhotos !== false && galleryImages.length ? (
         <section class="content-section" aria-labelledby="fish-gallery">
           <div>
             <p class="eyebrow">Photos</p>
@@ -212,7 +172,6 @@ const fullCareDetails = [
       husbandryNotes ? (
         <section class="fish-note-section" aria-labelledby="husbandry-notes">
           <div>
-            <p class="eyebrow">Care notes</p>
             <h2 id="husbandry-notes">Husbandry notes</h2>
           </div>
           <p>{husbandryNotes}</p>
@@ -221,23 +180,10 @@ const fullCareDetails = [
     }
 
     {
-      anthonyNotes ? (
-        <section class="fish-note-section anthony-notes-section" aria-labelledby="anthony-notes">
-          <div>
-            <p class="eyebrow">Anthony&apos;s notes</p>
-            <h2 id="anthony-notes">Anthony&apos;s notes</h2>
-          </div>
-          <p>{anthonyNotes}</p>
-        </section>
-      ) : null
-    }
-
-    {
       relatedNotes.length ? (
         <section class="content-section related-notes-section" aria-labelledby="related-notes">
           <div>
-            <p class="eyebrow">Related resources</p>
-            <h2 id="related-notes">Related resources</h2>
+            <h2 id="related-notes">Other recommendations</h2>
           </div>
           <div class="article-list related-content-list">
             {relatedNotes.map((note) => (

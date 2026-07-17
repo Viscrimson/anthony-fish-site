@@ -32,7 +32,6 @@ mainImage: white-cloud-mountain-minnow.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A cool-water schooling minnow for simple planted setups.
 ---
 White cloud mountain minnows are one of the easier small schoolers to keep if
 the aquarium is cool enough. They are active, hardy, and well suited to a

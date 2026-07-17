@@ -32,7 +32,6 @@ mainImage: cherry-barb.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A small red schooling barb for planted community tanks.
 ---
 Cherry barbs are calm, compact fish that fit well in a planted community tank.
 They look best when kept in a proper group and given steady water conditions

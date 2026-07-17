@@ -32,5 +32,4 @@ maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - fish-placeholder.svg
-summary: A peaceful livebearer care sheet with a 10-gallon-or-larger tank, small foods, and calm community care.
 ---

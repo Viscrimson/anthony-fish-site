@@ -31,7 +31,6 @@ mainImage: honey-gourami.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A small peaceful gourami for planted tanks and calm communities.
 ---
 Honey gouramis suit a quiet aquarium with plants, soft cover, and gentle
 movement. They are not a fish to mix into a hectic tank with nippy or overly

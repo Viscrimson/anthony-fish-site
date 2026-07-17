@@ -1,0 +1,63 @@
+---
+import { withBase } from "../lib/paths.js";
+
+const fallbackImages = Array.from(
+  { length: 10 },
+  (_, index) => withBase(`backgrounds/aquarium-${String(index + 1).padStart(2, "0")}.svg`),
+);
+const cmsImages = Array.isArray(Astro.props.images) ? Astro.props.images : [];
+const normalizeBackgroundImage = (value) => {
+  const normalized = value
+    .trim()
+    .replace(/^\/+/, "")
+    .replace(/^public\//i, "");
+  const path = normalized.startsWith("backgrounds/")
+    ? normalized
+    : `backgrounds/${normalized}`;
+
+  return withBase(path);
+};
+const backgroundImages = cmsImages.map(normalizeBackgroundImage).filter(Boolean);
+const availableImages = backgroundImages.length ? backgroundImages : fallbackImages;
+const initialBackground = availableImages[0];
+---
+
+<div
+  class="aquarium-backdrop"
+  aria-hidden="true"
+  data-aquarium-backdrop
+  style={`background-image: url("${initialBackground}")`}
+></div>
+
+<script is:inline define:vars={{ availableImages }}>
+  (() => {
+    const backdrop = document.querySelector("[data-aquarium-backdrop]");
+
+    if (!backdrop) {
+      return;
+    }
+
+    const backgroundNumber = Math.floor(Math.random() * availableImages.length);
+    backdrop.style.backgroundImage = `url("${availableImages[backgroundNumber]}")`;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    let frame = 0;
+    const updateParallax = () => {
+      frame = 0;
+      const offset = Math.round((window.scrollY || 0) * -0.08);
+      backdrop.style.transform = `translate3d(0, ${offset}px, 0)`;
+    };
+
+    const requestParallaxUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateParallax);
+      }
+    };
+
+    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+    updateParallax();
+  })();
+</script>

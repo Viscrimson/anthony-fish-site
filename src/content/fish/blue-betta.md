@@ -35,5 +35,4 @@ maleImage: blue-betta.svg
 femaleImage: fish-placeholder.svg
 galleryImages:
   - blue-betta.svg
-summary: A bright blue betta with wide fins and a calm favorite corner.
 ---

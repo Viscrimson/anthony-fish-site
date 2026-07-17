@@ -19,7 +19,6 @@ const fishPublishFields = [
   "juvenileImage",
   "maleImage",
   "femaleImage",
-  "summary",
 ];
 
 const fishSearchFields = [
@@ -37,11 +36,8 @@ const fishSearchFields = [
   "juvenileAppearance",
   "adultMaleAppearance",
   "adultFemaleAppearance",
-  "maleFemaleDifferences",
   "husbandryNotes",
-  "anthonyNotes",
   "qrSummary",
-  "summary",
 ];
 
 const noteSearchFields = [

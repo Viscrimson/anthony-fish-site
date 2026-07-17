@@ -81,6 +81,25 @@ export function buildSearchIndex(values) {
   return compactStrings(values).join(" ").toLowerCase();
 }
 
+export function displayDifficulty(value) {
+  const text = trimText(value);
+  const lower = text.toLowerCase();
+
+  if (lower === "beginner") {
+    return "Beginner";
+  }
+
+  if (lower === "beginner to intermediate" || lower === "intermediate") {
+    return "Intermediate";
+  }
+
+  if (lower === "advanced") {
+    return "Advanced";
+  }
+
+  return text;
+}
+
 export function deriveTankBand(value) {
   const text = trimText(value);
 

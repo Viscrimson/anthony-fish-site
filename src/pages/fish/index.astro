@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
   deriveTemperamentStyle,
   deriveTankBand,
+  displayDifficulty,
   hasText,
   trimText,
 } from "../../lib/content-display.js";
@@ -18,10 +19,9 @@ const fishPages = buildFishPages(await getCollection("fish"));
 const fishCards = fishPages.map((fish) => {
   const tankBand = deriveTankBand(fish.tankSize);
   const temperamentStyle = deriveTemperamentStyle(fish.temperament);
-  const difficultyLabel = trimText(fish.difficulty).toLowerCase();
+  const difficultyLabel = displayDifficulty(fish.difficulty).toLowerCase();
   const difficultyRank = new Map([
     ["beginner", 0],
-    ["beginner to intermediate", 1],
     ["intermediate", 2],
     ["advanced", 3],
   ]).get(difficultyLabel) ?? Number.POSITIVE_INFINITY;
@@ -30,7 +30,7 @@ const fishCards = fishPages.map((fish) => {
     ...fish,
     searchIndex: fish.searchIndex,
     nameSort: trimText(fish.commonName),
-    difficultyFilter: trimText(fish.difficulty).toLowerCase(),
+    difficultyFilter: difficultyLabel,
     difficultySort: difficultyRank,
     tankFilter: tankBand?.value ?? "",
     tankFilterLabel: tankBand?.label ?? "",
@@ -54,27 +54,43 @@ const dedupeOptions = (options) => {
 };
 
 const difficultyOptions = dedupeOptions(
-  fishCards
-    .map((fish) => {
-      const label = trimText(fish.difficulty);
+  [
+    ...fishCards
+      .map((fish) => {
+        const label = displayDifficulty(fish.difficulty);
 
-      return label ? { value: label.toLowerCase(), label } : null;
-    })
-    .filter(Boolean),
-).sort((left, right) => collator.compare(left.label, right.label));
+        return label ? { value: label.toLowerCase(), label } : null;
+      })
+      .filter(Boolean),
+    { value: "advanced", label: "Advanced" },
+  ],
+).sort((left, right) => {
+  const difficultyOrder = new Map([
+    ["beginner", 0],
+    ["intermediate", 2],
+    ["advanced", 3],
+  ]);
+  const leftRank = difficultyOrder.get(left.value) ?? Number.POSITIVE_INFINITY;
+  const rightRank = difficultyOrder.get(right.value) ?? Number.POSITIVE_INFINITY;
+
+  return leftRank - rightRank || collator.compare(left.label, right.label);
+});
 
 const tankOptions = dedupeOptions(
-  fishCards
-    .map((fish) =>
-      fish.tankFilter
-        ? {
-            value: fish.tankFilter,
-            label: fish.tankFilterLabel,
-            sort: fish.tankFilterSort,
-          }
-        : null,
-    )
-    .filter(Boolean),
+  [
+    ...fishCards
+      .map((fish) =>
+        fish.tankFilter
+          ? {
+              value: fish.tankFilter,
+              label: fish.tankFilterLabel,
+              sort: fish.tankFilterSort,
+            }
+          : null,
+      )
+      .filter(Boolean),
+    { value: "75", label: "75+ gallons", sort: 75 },
+  ],
 ).sort((left, right) => left.sort - right.sort || collator.compare(left.label, right.label));
 
 const temperamentOptions = dedupeOptions(
@@ -109,7 +125,6 @@ const sortOptions = [
   <main class="page-wrap">
     <section class="hero">
       <div>
-        <p class="eyebrow">Care Sheet Library</p>
         <h1>Care Sheet Library</h1>
         <p class="lede">Search by name or filter by tank size, temperature, difficulty, and temperament.</p>
       </div>
@@ -135,7 +150,7 @@ const sortOptions = [
               type="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="Search by name, scientific name, care facts, warnings, or notes"
+              placeholder="Search by name, scientific name, care facts, take-home notes, or other notes"
               data-fish-search
             />
           </label>
@@ -243,7 +258,6 @@ const sortOptions = [
                   <em>{fish.scientificName}</em>
                 </p>
               ) : null}
-              {hasText(fish.summary) ? <p class="fish-card-summary">{fish.summary}</p> : null}
             </div>
           </a>
           ))

@@ -35,5 +35,4 @@ maleImage: zebra-danio.svg
 femaleImage: zebra-danio.svg
 galleryImages:
   - fish-placeholder.svg
-summary: A hardy schooling fish that suits active beginner tanks.
 ---

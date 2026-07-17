@@ -11,6 +11,7 @@ const site = defineCollection({
     homepageIntro: z.string().optional(),
     careSheetsIntro: z.string().optional(),
     notesIntro: z.string().optional(),
+    backgroundImages: z.array(z.string()).optional(),
     qrHelperHeading: z.string().optional(),
     qrHelperText: z.string().optional(),
     aboutHeading: z.string().optional(),
@@ -48,12 +49,12 @@ const completeFish = z.object({
   relatedNoteSlugs: z.array(z.string()).optional(),
   qrSummary: z.string().optional(),
   quickWarnings: z.array(z.string()).optional(),
+  showAdditionalPhotos: z.boolean().optional(),
   mainImage: z.string(),
   juvenileImage: z.string(),
   maleImage: z.string(),
   femaleImage: z.string(),
   galleryImages: z.array(z.string()).optional(),
-  summary: z.string(),
   draft: z.boolean().optional(),
 });
 
@@ -78,12 +79,12 @@ const incompleteFish = z.object({
   relatedNoteSlugs: z.array(z.string()).optional(),
   qrSummary: z.string().optional(),
   quickWarnings: z.array(z.string()).optional(),
+  showAdditionalPhotos: z.boolean().optional(),
   mainImage: z.string().optional(),
   juvenileImage: z.string().optional(),
   maleImage: z.string().optional(),
   femaleImage: z.string().optional(),
   galleryImages: z.array(z.string()).optional(),
-  summary: z.string().optional(),
   draft: z.boolean().optional(),
 });
 

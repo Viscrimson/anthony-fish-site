@@ -32,7 +32,6 @@ mainImage: red-wagtail-platy.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A peaceful livebearer for easy community tanks and mixed diets.
 ---
 Red wagtail platies are a straightforward fish for a small community tank.
 They stay active in the open and do best when they can graze, feed, and move

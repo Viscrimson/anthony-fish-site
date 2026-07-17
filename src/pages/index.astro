@@ -6,22 +6,22 @@ import { hasText, trimText } from "../lib/content-display.js";
 
 const fallbackSite = {
   siteName: "Anthony Fish Care",
-  tagline: "Freshwater care sheets and resources for fish Anthony sends home.",
+  tagline: "Simple freshwater fish care for a healthy start at home.",
   homepageEyebrow: "Anthony Fish Care",
-  homepageTitle: "Start here for care instructions",
+  homepageTitle: "Give your new fish a healthy start",
   homepageIntro:
-    "If you scanned a fish bag, open that fish's care sheet first. It gives the quickest answer for tank size, temperature, food, and warning notes, and Resources adds the broader setup help when you need it.",
+    "Find your fish’s care sheet for tank size, temperature, food, and the first steps at home.",
   careSheetsIntro:
-    "Care sheets with tank size, temperature, food, and warning notes kept easy to scan.",
+    "Find your fish by name and check the essentials for its new home.",
   notesIntro:
-    "Short resources for setup, acclimation, water quality, feeding, and other practical questions.",
+    "Practical help for acclimation, water quality, feeding, and everyday tank care.",
   aboutHeading: "About this site",
   aboutSummary:
-    "Anthony Fish Care keeps the essential fish information in one place so it is easy to read on a phone.",
+    "Straightforward freshwater fish care for bringing a fish home and caring for it day to day.",
   experienceText:
-    "Open the matching care sheet first so you can check the basics right away. If you need a broader explanation, move to Resources after that. The site keeps the fish-specific details and the general advice in the right order.",
+    "Start with your fish’s care sheet for the essentials. Use the resources when you need help with setup, acclimation, water quality, or feeding.",
   focusText:
-    "Freshwater fish care, tank setup, acclimation, water testing, feeding, and the practical notes that help a fish settle in at home. It is meant to stay short enough to read quickly on a phone while still covering the important basics.",
+    "Freshwater fish care, tank setup, acclimation, water testing, feeding, and practical notes for helping a fish settle in at home.",
   contactHeading: "Contact",
   contactText:
     "Contact details can be added later if Anthony wants them public.",
@@ -75,33 +75,27 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
         <p class="lede">{homepageIntro}</p>
       </div>
 
-      <p class="home-purpose-intro">
-        Start with the right page for the job: scan the bag, open the Care Sheet Library, or use
-        Resources when you want broader guidance.
-      </p>
+      <p class="home-purpose-intro">Just brought home a fish? Start with its care sheet.</p>
       <div class="home-purpose-grid" aria-label="What visitors can do here">
         <article class="home-purpose-card">
           <p class="home-purpose-label">Scan a bag</p>
           <p>
-            Scan the QR on the bag to open the matching care sheet. It puts the tank, food, and
-            warning notes first so you can confirm the basics quickly. If there is follow-up advice
-            for that fish, it stays with the sheet.
+            Scan the QR code on your fish’s bag to open its care sheet. Check the tank size,
+            temperature, food, and take-home notes before you settle your fish in.
           </p>
         </article>
         <article class="home-purpose-card">
-          <p class="home-purpose-label">Care Sheet Library</p>
+          <p class="home-purpose-label">Find your fish</p>
           <p>
-            Browse fish by name, scientific name, tank size, difficulty, or temperament. The
-            library is built to be short enough to skim on a phone, but complete enough to answer
-            the main species questions before you go looking for broader advice.
+            Find your fish by name and check the care details for its new home, including tank
+            size, temperature, food, temperament, and more.
           </p>
         </article>
         <article class="home-purpose-card">
-          <p class="home-purpose-label">Resources</p>
+          <p class="home-purpose-label">Get practical help</p>
           <p>
-            Open Resources for broader setup, acclimation, water quality, feeding, and follow-up
-            questions. These articles support the care sheet instead of repeating it, so the two
-            parts of the site work together.
+            Learn how to acclimate a new fish, keep its water healthy, build a feeding routine,
+            and handle the everyday questions that come with a new aquarium.
           </p>
         </article>
       </div>
@@ -109,13 +103,11 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 
     <section class="link-grid" aria-label="Site sections">
       <a class="feature-link" href={withBase("fish/")}>
-        <p class="eyebrow">Care Sheet Library</p>
         <h2>Care Sheet Library</h2>
         <p>{careSheetsIntro}</p>
         <span class="feature-link-action">Open the library →</span>
       </a>
       <a class="feature-link" href={withBase("notes/")}>
-        <p class="eyebrow">Resources</p>
         <h2>Resources</h2>
         <p>{notesIntro}</p>
         <span class="feature-link-action">Open resources →</span>
@@ -126,7 +118,6 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
       aboutVisible ? (
         <section class="content-section home-about-section" id="about" aria-labelledby="about-anthony">
           <div>
-            <p class="eyebrow">About the site</p>
             <h2 id="about-anthony">{aboutHeading}</h2>
           </div>
           <div>

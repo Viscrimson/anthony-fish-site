@@ -28,12 +28,42 @@ html {
 }
 
 body {
+  position: relative;
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
   background-color: var(--background);
   color: var(--text);
   line-height: 1.6;
+}
+
+.aquarium-backdrop {
+  position: absolute;
+  z-index: 0;
+  top: -12vh;
+  right: 0;
+  bottom: -12vh;
+  left: 0;
+  pointer-events: none;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  opacity: 0.13;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aquarium-backdrop {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+.site-header,
+.page-wrap,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -714,16 +744,6 @@ h3 {
   font-size: 0.95rem;
 }
 
-.fish-card-summary {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
 .fish-chip-list {
   display: flex;
   flex-wrap: wrap;
@@ -921,54 +941,6 @@ h3 {
 .fish-note-section p {
   color: var(--muted);
   line-height: 1.65;
-}
-
-.anthony-notes-section {
-  border-color: var(--accent);
-  background: var(--surface-soft);
-}
-
-.anthony-notes-section p {
-  color: var(--text);
-}
-
-.care-table {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  overflow: hidden;
-}
-
-.care-table div {
-  display: grid;
-  grid-template-columns: minmax(120px, 0.45fr) minmax(0, 1fr);
-  gap: 12px;
-  padding: 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-.care-table div:nth-last-child(-n + 2) {
-  border-bottom: 0;
-}
-
-.care-table div:nth-child(odd) {
-  border-right: 1px solid var(--border);
-}
-
-.care-table dt {
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.care-table dd {
-  margin: 0;
-  line-height: 1.45;
 }
 
 .appearance-grid {
@@ -1398,7 +1370,6 @@ h3 {
     padding: 16px 0 24px;
   }
 
-  .care-table,
   .appearance-grid,
   .care-notes-grid,
   .note-meta,
@@ -1406,19 +1377,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .care-table div,
-  .care-table div:nth-child(odd) {
-    grid-template-columns: 1fr;
-    border-right: 0;
-  }
-
-  .care-table div:nth-last-child(-n + 2) {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .care-table div:last-child {
-    border-bottom: 0;
-  }
 }
 
 @media print {
@@ -1465,7 +1423,6 @@ h3 {
   .content-pager,
   .related-notes-section,
   .fish-appearance-section,
-  .full-care-section,
   .fish-gallery,
   .note-gallery,
   .print-care-sheet {
@@ -1516,7 +1473,6 @@ h3 {
   .article-card,
   .feature-link,
   .profile-list div,
-  .care-table,
   .appearance-card,
   .note-meta div {
     border-color: #b8c0c7;
@@ -1544,7 +1500,6 @@ h3 {
   .quick-warning-list,
   .quick-care-item dd,
   .fish-note-section p,
-  .care-table dd,
   .article-card p,
   .feature-link p,
   .note-section p,
@@ -1570,7 +1525,4 @@ h3 {
     display: none;
   }
 
-  .fish-card-summary {
-    color: #000;
-  }
 }

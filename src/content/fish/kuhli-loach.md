@@ -32,7 +32,6 @@ mainImage: kuhli-loach.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg
 femaleImage: fish-placeholder.svg
-summary: A peaceful striped loach for soft substrate and hiding places.
 ---
 Kuhli loaches are easy to overlook at first because they spend so much time at
 the bottom and often move more at night. Once settled, they become a useful

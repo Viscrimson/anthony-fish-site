@@ -48,5 +48,8 @@ husbandryNotes: >-
   will actively chase down and consume newly hatched brine shrimp.   This
   species tends to grow in spurts and can take a long time to reach full
   maturity.
+juvenileImage: /fish-images/altosinujuvenile.jpg
+maleImage: /fish-images/altosinuadults.jpg
+femaleImage: /fish-images/altosinuadults-1.jpg
 draft: false
 ---

@@ -1,10 +1,13 @@
 ---
-siteName: Anthony Fish Care
-tagline: Simple freshwater fish care for a healthy start at home.
-homepageEyebrow: Anthony Fish Care
-homepageTitle: Give your new fish a healthy start
-homepageIntro: Find your fish’s care sheet for tank size, temperature, food, and
-  the first steps at home.
+siteName: Aquatic Treasures of Fort Myers
+tagline: "Aquarium Hobby Fish keeping  "
+homepageEyebrow: Aquatic Treasure of Fort Myers
+homepageTitle: By a Hobbyist for Hobbyists.
+homepageIntro: Find your fish’s care sheet, articles on fishkeeping, and advice
+  for a successful start.  I don't want to sell you anything, come here to learn
+  practical advice for the best overall start.  Covering what you need to know
+  as a beginning fishkeeper to advanced topics and advice from a breeder of both
+  rare and common tropical fish.
 careSheetsIntro: Find your fish by name and check the essentials for its new home.
 notesIntro: Learn how to acclimate a new fish, keep its water healthy, build a
   feeding routine, and handle the everyday questions that come with a new

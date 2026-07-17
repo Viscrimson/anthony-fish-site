@@ -1,42 +1,39 @@
 ---
 commonName: Cherry Barb
 scientificName: Puntius titteya
-origin: Sri Lanka
-temperatureRange: 72-79 F
+origin: Sri Lanka, Kelani & Niwala River
+temperatureRange: 72 - 80 F
 adultSize: About 2 inches
-tankSize: 20 gallons or larger
-foodRecommendation: Tropical pellets, fine flakes, frozen foods, and occasional vegetable foods
+tankSize: 10 gallons or larger
+foodRecommendation: Flakes, fine pelleted food, baby brine shrimp
 difficulty: Beginner
 temperament: Peaceful schooling fish
 plantSafe: true
 invertebrateSafe: false
-juvenileAppearance: ""
-adultMaleAppearance: ""
-adultFemaleAppearance: ""
-maleFemaleDifferences: ""
+juvenileAppearance: The juvenile appearance is a thinner version of the female appearance.
+adultMaleAppearance: Adult males show dark banding begin to fade away and is
+  replaces by the bright red that is the characteristic of the species.  Their
+  profile is overall slimmer.
+adultFemaleAppearance: Adult females retain bright and distinct markings of the
+  juveniles but become rounded as they carry eggs.
+maleFemaleDifferences: The banding in males tend to fade and the overall red color intensifies.
 husbandryNotes: |
   Cherry barbs do best in a planted aquarium with room to school and soft
   cover. Keep them in a group so the fish stay confident and show stronger
   color.
-anthonyNotes: ""
 qrSummary: A small red schooling barb for planted community tanks.
 quickWarnings:
   - Keep a group together so they stay confident.
-  - Avoid large, fast, or nippy tankmates.
+  - Egg Scatterer
+  - Recommend a densly planted tank.
 relatedNoteSlugs:
   - first-24-hours-with-a-new-fish
   - acclimating-a-new-fish
   - basic-water-testing
   - aquarium-cycling-basics
-mainImage: cherry-barb.svg
-juvenileImage: fish-placeholder.svg
-maleImage: fish-placeholder.svg
-femaleImage: fish-placeholder.svg
+mainImage: /fish-images/cherrybarbfemale-1.jpg
+juvenileImage: /fish-images/cherrybarbjuvenile.jpg
+maleImage: /fish-images/cherrybarbmale.jpg
+femaleImage: /fish-images/cherrybarbfemale.jpg
+draft: false
 ---
-Cherry barbs are calm, compact fish that fit well in a planted community tank.
-They look best when kept in a proper group and given steady water conditions
-instead of a busy, crowded aquarium.
-
-The care sheet should focus on group behavior, simple feeding, and enough
-space to move through plants. That keeps the page useful without turning it
-into a breeding write-up.

@@ -5,23 +5,23 @@ import { withBase } from "../lib/paths.js";
 import { hasText, trimText } from "../lib/content-display.js";
 
 const fallbackSite = {
-  siteName: "Anthony Fish Care",
-  tagline: "Simple freshwater fish care for a healthy start at home.",
-  homepageEyebrow: "Anthony Fish Care",
-  homepageTitle: "Give your new fish a healthy start",
+  siteName: "Aquatic Treasures of Fort Myers",
+  tagline: "Aquarium Hobby Fish keeping",
+  homepageEyebrow: "Aquatic Treasure of Fort Myers",
+  homepageTitle: "By a Hobbyist for Hobbyists.",
   homepageIntro:
-    "Find your fish’s care sheet for tank size, temperature, food, and the first steps at home.",
+    "Find your fish’s care sheet, articles on fishkeeping, and advice for a successful start. I don't want to sell you anything, come here to learn practical advice for the best overall start. Covering what you need to know as a beginning fishkeeper to advanced topics and advice from a breeder of both rare and common tropical fish.",
   careSheetsIntro:
-    "Find your fish by name and check the essentials for its new home.",
+    "Find the right environment for your fish, from comfortable water temperatures and minimum tank sizes to feeding, temperament, and group needs.",
   notesIntro:
-    "Practical help for acclimation, water quality, feeding, and everyday tank care.",
+    "Turn everyday aquarium care into a simple routine. These guides explain how to prepare the water, welcome new fish, feed without overfeeding, choose compatible tankmates, and respond when something does not look right.",
   aboutHeading: "About this site",
   aboutSummary:
-    "Straightforward freshwater fish care for bringing a fish home and caring for it day to day.",
+    "Aquatic Treasures of Fort Myers makes freshwater fishkeeping easier to understand. The goal is simple: put useful care information in front of fishkeepers when it can make the greatest difference—before a fish comes home and throughout its life in the aquarium.",
   experienceText:
-    "Start with your fish’s care sheet for the essentials. Use the resources when you need help with setup, acclimation, water quality, or feeding.",
+    "Begin with your fish’s care sheet. Then use the resource library whenever you need help with setup, water quality, acclimation, feeding, compatibility, or changing behavior.",
   focusText:
-    "Freshwater fish care, tank setup, acclimation, water testing, feeding, and practical notes for helping a fish settle in at home.",
+    "Freshwater care sheets, aquarium setup guidance, water-quality fundamentals, feeding advice, and practical observations that help fish settle in and stay healthy.",
   contactHeading: "Contact",
   contactText:
     "Contact details can be added later if Anthony wants them public.",
@@ -55,8 +55,8 @@ const contactHeading =
 const contactText = trimText(site.contactText) || fallbackSite.contactText;
 
 const aboutFields = [
-  ["How to use it", experienceText],
-  ["What it covers", focusText],
+  ["How to use this site", experienceText],
+  ["What you’ll find", focusText],
   ["Credentials", credentialsText],
   ["Groups", groupsText],
 ].filter(([, value]) => hasText(value));
@@ -75,27 +75,32 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
         <p class="lede">{homepageIntro}</p>
       </div>
 
-      <p class="home-purpose-intro">Just brought home a fish? Start with its care sheet.</p>
+      <p class="home-purpose-intro">
+        A healthy aquarium begins before your new fish enters the water. Start with the care sheet,
+        prepare the tank, and give your fish a calm welcome home.
+      </p>
       <div class="home-purpose-grid" aria-label="What visitors can do here">
         <article class="home-purpose-card">
           <p class="home-purpose-label">Scan a bag</p>
           <p>
-            Scan the QR code on your fish’s bag to open its care sheet. Check the tank size,
-            temperature, food, and take-home notes before you settle your fish in.
+            Scan the QR code on your fish’s bag for an immediate look at its tank size,
+            temperature, food, temperament, and take-home precautions. The essentials are easy to
+            find when you need them most.
           </p>
         </article>
         <article class="home-purpose-card">
           <p class="home-purpose-label">Find your fish</p>
           <p>
-            Find your fish by name and check the care details for its new home, including tank
-            size, temperature, food, temperament, and more.
+            Browse freshwater fish by common or scientific name and compare the care each species
+            needs. A little research now can prevent incompatible tankmates, unsuitable water, and
+            stressful surprises later.
           </p>
         </article>
         <article class="home-purpose-card">
           <p class="home-purpose-label">Get practical help</p>
           <p>
-            Learn how to acclimate a new fish, keep its water healthy, build a feeding routine,
-            and handle the everyday questions that come with a new aquarium.
+            Build good fishkeeping habits with straightforward guidance on cycling, acclimation,
+            feeding, water testing, tank maintenance, and recognizing when a fish needs attention.
           </p>
         </article>
       </div>

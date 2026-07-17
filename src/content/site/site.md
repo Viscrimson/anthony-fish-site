@@ -8,23 +8,17 @@ homepageIntro: Find your fish’s care sheet, articles on fishkeeping, and advic
   practical advice for the best overall start.  Covering what you need to know
   as a beginning fishkeeper to advanced topics and advice from a breeder of both
   rare and common tropical fish.
-careSheetsIntro: Find your fish by name and check the essentials for its new home.
-notesIntro: Learn how to acclimate a new fish, keep its water healthy, build a
-  feeding routine, and handle the everyday questions that come with a new
-  aquarium.
+careSheetsIntro: Find the right environment for your fish, from comfortable water temperatures and minimum tank sizes to feeding, temperament, and group needs.
+notesIntro: Turn everyday aquarium care into a simple routine. These guides explain how to prepare the water, welcome new fish, feed without overfeeding, choose compatible tankmates, and respond when something does not look right.
 backgroundImages:
   - /backgrounds/aquarium-10.svg
 qrHelperHeading: Quick start
 qrHelperText: Open the matching care sheet first to get the essential facts,
   then use the fuller resources when you want more context.
 aboutHeading: About this site
-aboutSummary: Straightforward freshwater fish care for bringing a fish home and
-  caring for it day to day.
-experienceText: Start with your fish’s care sheet for the essentials. Use the
-  resources when you need help with setup, acclimation, water quality, or
-  feeding.
-focusText: Freshwater fish care, tank setup, acclimation, water testing,
-  feeding, and practical notes for helping a fish settle in at home.
+aboutSummary: "Aquatic Treasures of Fort Myers makes freshwater fishkeeping easier to understand. The goal is simple: put useful care information in front of fishkeepers when it can make the greatest difference—before a fish comes home and throughout its life in the aquarium."
+experienceText: Begin with your fish’s care sheet. Then use the resource library whenever you need help with setup, water quality, acclimation, feeding, compatibility, or changing behavior.
+focusText: Freshwater care sheets, aquarium setup guidance, water-quality fundamentals, feeding advice, and practical observations that help fish settle in and stay healthy.
 contactHeading: Contact
 contactText: Contact details can be added later if Anthony wants them public.
 showContact: false

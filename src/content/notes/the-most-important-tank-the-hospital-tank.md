@@ -24,6 +24,9 @@ practicalSteps:
 date: 2026-07-19
 lastUpdated: 2026-07-19
 lastReviewed: 2026-07-19
+galleryImages:
+  - /note-images/sandcoveredtankexample.jpg
+  - /note-images/barebottomtankexample.jpg
 ---
 One of the most fundamentally debilitating and most consequential mistakes that people make who enter the hobby is only getting one tank.  The reality is at a bare minimum every person entering the hobby needs a minimum of two tanks.  What they need is the tank they envision, the tank they will proudly show to the world and use as their own slice of nature and the second one is a hidden one but this tank is going to do all of the heavy lifting.  This tank makes the first possible and we in the hobby call it a hospital or a quarantine tank.  At first the necessity of this tank is not immediately obvious.  When people enter the hobby they think of picturesque landscapes and pristinely decorated aquascapes with a sea of movement  as fish navigate their interiors.  What they don't envision is the work that must occur in stages for this to occur.  Hospital or quarantine tanks ensure that the landscapes that you build do not have to be agonizingly torn down to retrieve sick fish and it denies pathogens the landscape of the primary tank to hide in.  As hospital tanks are by design minimalist, they are easy to clean and easy to sterilize should the need arise.  They accept the risk by being the environment that new additions to go before the fish are cleared to go to the actual show tank.  The following is a discussion of the hospital tank or the quarantine tank and the various uses for it after the main tank has been stocked.
 

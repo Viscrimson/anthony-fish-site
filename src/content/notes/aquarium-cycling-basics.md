@@ -1,33 +1,22 @@
 ---
 title: Aquarium Cycling Basics
 category: Water quality
-date: 2026-06-27
-lastUpdated: 2026-06-27
-lastReviewed: 2026-07-04
-summary: A simple note about getting a tank ready before adding fish.
 tags:
   - cycling
   - water quality
   - new tank
-relatedFishSlugs:
-  - blue-betta
-  - bronze-corydoras
-  - fancy-guppy
-  - zebra-danio
 relatedNoteSlugs:
   - basic-water-testing
+draft: false
+summary: A simple note about getting a tank ready before adding fish.
 quickAnswer: Cycle the tank until it is stable before adding fish.
 practicalSteps:
   - Set up the filter, heater, and substrate.
   - Test ammonia, nitrite, and nitrate during the cycle.
   - Wait for the tank to stabilize before adding fish.
-visualNote: Use a simple time series chart to show water parameters over time.
-sources:
-  - https://www.aqueon.com/articles/freshwater-aquarium-water-quality
-  - https://www.apifishcare.com/blog/how-to-cycle-a-new-tank
-galleryImages:
-  - /note-images/note-placeholder.svg
-  - /note-images/note-placeholder.svg
+date: 2026-07-20
+lastUpdated: 2026-07-20
+lastReviewed: 2026-07-20
 ---
 Cycling a new tank gives the filter bacteria time to grow so the aquarium can
 handle waste more reliably.

@@ -17,7 +17,8 @@ notesIntro: Turn everyday aquarium care into a simple routine. These guides
   explain how to prepare the water, welcome new fish, feed without overfeeding,
   choose compatible tankmates, and respond when something does not look right.
 backgroundImages:
-  - /backgrounds/aquarium-02-sunken-treasure-1.svg
+  - /backgrounds/aquarium-01-planted-driftwood.svg
+  - /backgrounds/aquarium-02-sunken-treasure.svg
 qrHelperHeading: Quick start
 qrHelperText: Open the matching care sheet first to get the essential facts,
   then use the fuller resources when you want more context.

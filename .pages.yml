@@ -271,6 +271,10 @@ content:
         label: Tags
         type: string
         list: true
+      - name: showRelatedFish
+        label: Show related care sheets
+        type: boolean
+        description: Show the selected care-sheet cards below this resource. Turn this off to keep the list saved but hidden.
       - name: relatedFishSlugs
         label: Related fish slugs
         type: string
@@ -313,6 +317,10 @@ content:
         type: date
         options:
           format: yyyy-MM-dd
+      - name: showVisualNote
+        label: Show visual note
+        type: boolean
+        description: Show the visual-note section. Turn this off to keep the note saved but hidden.
       - name: visualNote
         label: Visual note
         type: text

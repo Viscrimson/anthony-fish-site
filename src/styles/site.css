@@ -322,7 +322,8 @@ h3 {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .home-purpose-intro {
@@ -333,20 +334,21 @@ h3 {
 
 .home-purpose-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 14px;
 }
 
 .home-purpose-card {
   display: grid;
   gap: 8px;
-  padding: 16px;
+  padding: 18px;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: color-mix(in srgb, var(--surface-soft), white 30%);
 }
 
 .home-purpose-card p:last-child {
+  max-width: 70ch;
   margin-bottom: 0;
   color: var(--muted);
   line-height: 1.6;
@@ -1301,6 +1303,12 @@ h3 {
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .home-purpose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 760px) {
   .content-section {
     grid-template-columns: 1fr;
@@ -1383,10 +1391,6 @@ h3 {
   }
 
   .profile-list {
-    grid-template-columns: 1fr;
-  }
-
-  .home-purpose-grid {
     grid-template-columns: 1fr;
   }
 

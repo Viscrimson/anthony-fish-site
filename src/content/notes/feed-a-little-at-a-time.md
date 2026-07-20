@@ -24,6 +24,8 @@ The fish in our care originally came from wild stock.  They have evolved for the
 
 2.)     What foods best match my stocking list:
 
-3.)     How much is enough, What is too much:
+3.)     How excess food should be kept.
 
-4.)     The clean-up crew:  The janitors of our environments:
+4.)     How much is enough, What is too much:
+
+5.)     The clean-up crew:  The janitors of our environments:

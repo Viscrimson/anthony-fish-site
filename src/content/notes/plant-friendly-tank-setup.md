@@ -1,37 +1,44 @@
 ---
-title: Plant-Friendly Tank Setup
+title: Plant-Friendly Tank Setup (Beginner)
 category: Aquascaping
-date: 2026-07-09
-lastUpdated: 2026-07-09
-lastReviewed: 2026-07-10
-summary: A quick guide for setting up a tank that gives fish cover and room to swim.
 tags:
   - plants
   - aquascape
   - cover
-relatedFishSlugs:
-  - cherry-barb
-  - ember-tetra
-  - honey-gourami
-  - white-cloud-mountain-minnow
+  - Lighting
+  - Fertilizer
+  - Carbon dioxide
+  - Beginner
 relatedNoteSlugs:
   - choose-tank-mates-carefully
-  - keep-a-water-change-routine
-  - choose-filter-flow
+draft: false
+summary: A quick guide for setting up a tank that gives fish cover and room to swim.
 quickAnswer: Use plants and open water together so fish have both cover and space.
 practicalSteps:
   - Leave open areas for swimming and feeding.
   - Add plants or decor to break up lines of sight and create resting places.
   - Make sure the layout still lets you clean the tank easily.
   - Check that the plants fit the light and water conditions you actually have.
-visualNote: A top-down layout sketch helps show where open space and cover should go.
 sources:
   - https://www.aquariumcoop.com/blogs/aquarium/planted-aquarium-guide
-  - https://www.thesprucepets.com/planted-aquarium-1381287
+date: 2026-07-19
+lastUpdated: 2026-07-19
+lastReviewed: 2026-07-19
+visualNote: A top-down layout sketch helps show where open space and cover should go.
 ---
-A plant-friendly tank does not need to look crowded. The best layouts usually mix
-open swimming space with enough cover for fish that like to pause or hide.
+This is a beginning topic on plants, this compilation is what one hobbyist has discovered through the years of keeping plants in the aquarium hobby..  It should be used to understand what it is that plants need, why you want plants in your tank, are plants the right way to go in all tanks, generally speaking what types of plant cover are there, and finally if right for you what plants to select first as you begin your journey into the aquarium hobby.   
 
-Plants can make a tank feel calmer, but the layout still has to work for cleaning and
-feeding. If the fish cannot move easily or you cannot reach the tank well, the setup
-needs to be simplified.
+1.)     Why include Plants?
+
+-  Plants provide three main benefits.  First they help diffuse aggression in fish.  They accomplish this by providing line of sight breaks that can allow fish to "escape" when disagreements occur.  In addition they provide security and often times protection for fish.  An example of this is when fish are born cannibalism is a great risk, plants provide places to hide and get away from the pursuit of predatory fish.  Plants can be in this case the single best way to ensure that newly hatched/born fry can survive long enough to allow you to become aware of them and take steps to remove them from the general population of aquarium fish that might try to eat them.  The second benefit of plants is that they metabolism nitrates converting nitrogen in the water into tissues and thereby locking up (not eliminating) waste in your aquarium.   It is important to note that this excess nitrogen can then be eliminated from the tank when the plant is trimmed and the trimmed plant tissue is physically removed from the tank.   The third benefit of plants is that it can provide a surface area where egg laying can occur.  These surface areas where eggs are deposited become a focal point where parents constantly patrol in order to protect their brook.  Some fish even look for specific plant surfaces to lay their eggs and require these surfaces to successfully complete their life cycle. A good example of this is the splash tetra that looks for leaves out side of the water to lay their eggs on and then uses the slope of the leaf to distribute water down the leaf that it splashed on.
+
+2.)     Are plants good for all tanks?
+
+-  No they really aren't a one size fits all.   Some environments are barren of plants for various reasons.  The African cichlids of Lake Malawi and Tanganyika for instance commonly shred and consume plant material as a portion of their diet.  In the Lakes where currents inside of the body of water constantly circulate that water shredded plant material rots and is safely broken down.  In an aquarium shredded plant material that is not consumed goes to the bottom of the tank and rots.  This can overload filters already stressed with the fish load inside of the tank and the waste those fish produce.  Adding decaying plant material can generate life threatening ammonia.  For some fish plants really aren't a good idea.
+- Another instance where plants may not be the best idea is with pufferfish and Geophagus earth eater.   In the case of the earth eater, the fish routinely scoops up sandy soils and filters it through their gills for pieces of organic matter that it consumes.  This can destroy root systems, causing plants to float to the top and ruin carefully scaped tanks.  Pufferfish such as the Congo spotted pufferfish can be so inept at catching prey (such as shrimp) that they routinely take chunks out of the plant and miss the shrimp in their entirety.  This of course can ruin the look or even kill the plant.  In both cases the inclusion of plants must be carefully weighed against the potential damage a dying plant can do in stressing out the filtration.
+
+3.)     What do plants need?
+
+4.)     Are all plants the same?
+
+5.)     What are great plants to use.

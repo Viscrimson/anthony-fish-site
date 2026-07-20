@@ -18,7 +18,7 @@ date: 2026-07-20
 lastUpdated: 2026-07-20
 lastReviewed: 2026-07-20
 ---
-Cycling a new tank gives the filter bacteria time to grow so the aquarium can handle waste more reliably.  There are many different methods to cycle a filter.  These methods each have their strengths and each have their weaknesses.  Though the method changes, the end result is always the same, the goal is to process the waste nearly instantaneously so that any waste produced can be converted to nitrite and nitrate.  Here are some of the methods that have been traditionally used.
+Cycling a new tank gives the filter bacteria time to grow so the aquarium can handle waste more reliably.  There are many different methods to cycle a filter.  These methods each have their strengths and each have their weaknesses.  Though the method changes, the end result is always the same, the goal is to process the waste nearly instantaneously so that any waste produced can be converted to nitrite and then rapidly converted to nitrate.  Here are some of the methods that have been traditionally used.
 
 
 

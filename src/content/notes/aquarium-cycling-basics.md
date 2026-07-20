@@ -29,16 +29,9 @@ Cycling a new tank gives the filter bacteria time to grow so the aquarium can ha
 
 2.)  Slow and steady:
 
--  The slow and steady method of cycling tank starts as all tanks do by setting up the tank as normal.  The filter is selected and started.  Then you add either fishfood, organic waste, or ammonia and then you wait.  You will then wait and you will wait and you will wait.  Weeks later, the filter should be established enough to process waste and to safely support fish.   The sign that the aquarium is ready occurs when bacterial blooms end.   A bacterial bloom looks like a white or light brown haze in the tank that eventually clears up.  When it does your filter has processed the excess nutrient load.  A water change is commonly done and then fish are added.
+-  The slow and steady method of cycling tank starts as all tanks do by setting up the tank as normal.  The filter is selected and started.  Then you add either fish food, organic waste, or ammonia and then you wait.  You will then wait and you will wait and you will wait.  Weeks later, the filter should be established enough to process waste and to safely support fish.   When you add the ammonia what you will see is a bacterial bloom.  A bacterial bloom looks like a white or light brown haze in the tank that is the sign that the bacteria have recognized that nutrients are in the tank, and they are dividing rapidly.   As this happens every few days you will notice if you have a test kit that the ammonia level will drop.  As the ammonia level drops, the nitrite will start to rise.  As more ammonia is generated, the filter develops more bacteria.  Over the course of weeks the bacterial bloom will eventually clears up.  The haze will disappear, the foul smell coming from the aquarium will clear up.   This means that the filter has processed the excess nutrient load.  A water change is commonly done and then fish are then slowly added.
 
-3.)  Fish only cycle:
+3.)  Cycle with Live Plants.
 
-4.)  Cycle without fish:
+-  This is my favored method of cycling a tank.  I set up the tank as normal only the last decoration that I add will be a large amount of live plants.  To aid the process I will use very quick growing stem plants such as anacharis or bacopa and then pair these stem plants up with a top water plant such as salvinia minima and frogbit.  A used filter sponge is then squeezed into the tank and a group of sails quickly follows.   When the water clears a small amount of water 10% is removed.  If the water starts to cloud up then it is allowed to clear.  A fish is then placed in.  This fish is there to begin eating food, begin pooping, and now my job as the hobbyist is to monitor ammonia levels.   During this time you can see the proliferation of algae, this is fine as algae will also help us process the excess nutrients.  As the first two weeks go by you exchange 10% of the water per day every other day.  Then another week of water changes every three days and after that the tank is put into the same rotation as the rest of the tanks and fish are added.  Using this method is actually really rare to detect ammonia after the second week.  The ammonia  as well as the nitrite can be utilized by plants and incorporated into their tissues.
 
-The exact method can change, but the core idea is the same: establish the tank
-before stocking it heavily and test it regularly while it matures.
-
-Later articles can point to the matching care sheets once the tank is ready.
-
-The visual note and photo block stay separate from the written article so the
-layout stays consistent while the body text stays easy to read.

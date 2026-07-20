@@ -11,7 +11,7 @@ draft: false
 summary: A simple note about getting a tank ready before adding fish.
 quickAnswer: Cycle the tank until it is stable before adding fish.
 practicalSteps:
-  - Set up the filter, heater, and substrate.
+  - Set up the filter, plants (if any), and substrate.
   - Test ammonia, nitrite, and nitrate during the cycle.
   - Wait for the tank to stabilize before adding fish.
 date: 2026-07-20

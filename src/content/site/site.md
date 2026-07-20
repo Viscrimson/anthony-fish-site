@@ -9,7 +9,7 @@ homepageIntro: Find your fish’s care sheet, articles on fishkeeping, and advic
   advice for the best overall start.  Covering what you need to know as a
   beginning fishkeeper to advanced topics and advice from a breeder of both rare
   and common tropical fish.
-homepageImage: /fish-images/congo-tetra-homepage.webp
+homepageImage: /fish-images/fish-image-1.png
 careSheetsIntro: Find the right environment for your fish, from comfortable
   water temperatures and minimum tank sizes to feeding, temperament, and group
   needs.

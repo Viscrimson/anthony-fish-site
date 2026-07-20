@@ -24,3 +24,11 @@ lastReviewed: 2026-07-19
 ---
 Observation is the greatest tool that a scientist possesses, its also the greatest tool that the hobbyist possesses.  Observe your tanks frequently, note how each fish behaves while in the aquarium.  Often they will  give you key insights to how they are adjusting to their new home and they will often also give you early clues when something isn't quite right.  These are the common things to look for, take note of, and possibly act upon.
 
+1.)     Fish are Hiding, Gasping, on the Top of the Water:  
+
+2.)     Bubbles take an abnormally long time to pop:
+
+3.)      Acrid smell coming from the tank:
+
+4.)      Fish are listless on the ground:
+

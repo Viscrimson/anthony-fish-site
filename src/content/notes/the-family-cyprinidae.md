@@ -1,5 +1,5 @@
 ---
-title: The Family Cyprinidae
+title: "The Family: Cyprinidae"
 category: Fish Profiles
 showRelatedFish: false
 draft: false

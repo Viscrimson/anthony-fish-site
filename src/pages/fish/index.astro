@@ -134,95 +134,101 @@ const sortOptions = [
       </div>
     </section>
 
-    <section class="fish-tools" aria-labelledby="fish-tools-heading">
-      <div class="fish-tools-copy">
-        <p class="eyebrow">Search and filter</p>
-        <h2 id="fish-tools-heading">Browse the Care Sheet Library</h2>
-        <p class="fish-tools-lede">
-          Search the complete library, compare care requirements, and narrow the results to fish
-          that suit your experience and aquarium.
-        </p>
-      </div>
+    <section class="fish-tools" aria-label="Care Sheet Library search controls">
+      <details class="library-search">
+        <summary class="library-search-summary">
+          <span class="library-search-summary-copy">
+            <span class="library-search-kicker">Search and filter</span>
+            <span class="library-search-heading">Find the right care sheet</span>
+            <span class="library-search-lede">
+              Search by name or compare the tank size, temperament, and care level your aquarium needs.
+            </span>
+          </span>
+          <span class="library-search-toggle" aria-hidden="true"></span>
+        </summary>
 
-      <form class="fish-tools-panel" data-fish-controls>
-        <div class="fish-search-row">
-          <label class="fish-search-field" for="fish-search">
-            <span class="fish-control-label">Search care sheets</span>
-            <input
-              id="fish-search"
-              name="search"
-              type="search"
-              autocomplete="off"
-              spellcheck="false"
-              placeholder="Search by name, scientific name, care facts, take-home notes, or other notes"
-              data-fish-search
-            />
-          </label>
+        <div class="library-search-content">
+          <form class="fish-tools-panel" data-fish-controls>
+            <div class="fish-search-row">
+              <label class="fish-search-field" for="fish-search">
+                <span class="fish-control-label">Search care sheets</span>
+                <input
+                  id="fish-search"
+                  name="search"
+                  type="search"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="Search by name, scientific name, care facts, take-home notes, or other notes"
+                  data-fish-search
+                />
+              </label>
 
-          <label class="fish-search-field fish-sort-field" for="fish-sort">
-            <span class="fish-control-label">Sort care sheets</span>
-            <select id="fish-sort" name="sort" data-fish-sort>
-              {sortOptions.map((option) => (
-                <option value={option.value} selected={option.value === "name-asc"}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
+              <label class="fish-search-field fish-sort-field" for="fish-sort">
+                <span class="fish-control-label">Sort care sheets</span>
+                <select id="fish-sort" name="sort" data-fish-sort>
+                  {sortOptions.map((option) => (
+                    <option value={option.value} selected={option.value === "name-asc"}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-          <button type="reset" class="fish-reset">Clear search and filters</button>
+              <button type="reset" class="fish-reset">Clear search and filters</button>
+            </div>
+
+            <div class="fish-filter-grid">
+              {
+                difficultyOptions.length ? (
+                  <fieldset class="fish-filter-group">
+                    <legend>Difficulty</legend>
+                    <div class="fish-filter-options">
+                      {difficultyOptions.map((option) => (
+                        <label class="fish-filter-option">
+                          <input type="checkbox" name="difficulty" value={option.value} />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                ) : null
+              }
+
+              {
+                tankOptions.length ? (
+                  <fieldset class="fish-filter-group">
+                    <legend>Tank size</legend>
+                    <div class="fish-filter-options">
+                      {tankOptions.map((option) => (
+                        <label class="fish-filter-option">
+                          <input type="checkbox" name="tankSize" value={option.value} />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                ) : null
+              }
+
+              {
+                temperamentOptions.length ? (
+                  <fieldset class="fish-filter-group">
+                    <legend>Temperament</legend>
+                    <div class="fish-filter-options">
+                      {temperamentOptions.map((option) => (
+                        <label class="fish-filter-option">
+                          <input type="checkbox" name="temperament" value={option.value} />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                ) : null
+              }
+            </div>
+          </form>
         </div>
-
-        <div class="fish-filter-grid">
-          {
-            difficultyOptions.length ? (
-              <fieldset class="fish-filter-group">
-                <legend>Difficulty</legend>
-                <div class="fish-filter-options">
-                  {difficultyOptions.map((option) => (
-                    <label class="fish-filter-option">
-                      <input type="checkbox" name="difficulty" value={option.value} />
-                      <span>{option.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-            ) : null
-          }
-
-          {
-            tankOptions.length ? (
-              <fieldset class="fish-filter-group">
-                <legend>Tank size</legend>
-                <div class="fish-filter-options">
-                  {tankOptions.map((option) => (
-                    <label class="fish-filter-option">
-                      <input type="checkbox" name="tankSize" value={option.value} />
-                      <span>{option.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-            ) : null
-          }
-
-          {
-            temperamentOptions.length ? (
-              <fieldset class="fish-filter-group">
-                <legend>Temperament</legend>
-                <div class="fish-filter-options">
-                  {temperamentOptions.map((option) => (
-                    <label class="fish-filter-option">
-                      <input type="checkbox" name="temperament" value={option.value} />
-                      <span>{option.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-            ) : null
-          }
-        </div>
-      </form>
+      </details>
 
       <p
         class="fish-results"

@@ -322,7 +322,7 @@ h3 {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -569,8 +569,95 @@ h3 {
 
 .fish-tools {
   display: grid;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: clamp(28px, 6vw, 56px);
+}
+
+.library-search {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.library-search-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.library-search-summary::-webkit-details-marker {
+  display: none;
+}
+
+.library-search-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.library-search-summary-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.library-search-kicker {
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.library-search-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.library-search-lede {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.library-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.library-search-toggle::before {
+  content: "+";
+}
+
+.library-search[open] .library-search-toggle::before {
+  content: "−";
+}
+
+.library-search-content {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.library-search-content .fish-tools-panel {
+  padding: 16px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .fish-tools-copy {
@@ -1011,6 +1098,100 @@ h3 {
   background: var(--surface-soft);
 }
 
+[data-image-zoom] {
+  cursor: zoom-in;
+}
+
+[data-image-zoom]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.image-lightbox {
+  width: min(1100px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.image-lightbox::backdrop {
+  background: rgba(5, 20, 20, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.image-lightbox-shell {
+  position: relative;
+  display: grid;
+  gap: 10px;
+}
+
+.image-lightbox-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: calc(100dvh - 96px);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, white, transparent 65%);
+  border-radius: 14px;
+  background: #071715;
+  cursor: zoom-in;
+}
+
+.image-lightbox-stage.is-zooming {
+  cursor: zoom-out;
+}
+
+.image-lightbox-stage img {
+  display: block;
+  width: 100%;
+  max-height: calc(100dvh - 96px);
+  object-fit: contain;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 160ms ease-out;
+}
+
+.image-lightbox-stage.is-zooming img {
+  transform: scale(1.65);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, white, transparent 55%);
+  border-radius: 999px;
+  background: rgba(5, 20, 20, 0.78);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover,
+.image-lightbox-close:focus-visible {
+  background: rgba(5, 20, 20, 0.96);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.image-lightbox-caption {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
 .appearance-card div {
   padding: 14px;
 }
@@ -1435,6 +1616,11 @@ h3 {
 }
 
 @media print {
+  @page {
+    size: letter portrait;
+    margin: 0.35in;
+  }
+
   :root {
     color-scheme: light;
   }
@@ -1448,18 +1634,15 @@ h3 {
   }
 
   body {
+    min-height: 0;
     background: #fff;
     color: #000;
-    font-size: 11pt;
-    line-height: 1.45;
+    font-size: 8.5pt;
+    line-height: 1.3;
   }
 
   .site-header {
-    display: block;
-    padding: 0 0 10pt;
-    border: 0;
-    border-bottom: 1px solid #b8c0c7;
-    background: none;
+    display: none;
   }
 
   .site-brand {
@@ -1480,6 +1663,8 @@ h3 {
   .fish-appearance-section,
   .fish-gallery,
   .note-gallery,
+  .fish-note-section,
+  .image-lightbox,
   .print-care-sheet {
     display: none !important;
   }
@@ -1499,24 +1684,43 @@ h3 {
   }
 
   .fish-profile {
-    gap: 16pt;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 10pt;
+    grid-template-columns: 1.1in minmax(0, 1fr);
+    margin-bottom: 8pt;
   }
 
   .fish-photo-panel {
-    max-width: 3.4in;
+    max-width: none;
     break-inside: avoid;
   }
 
   .fish-photo-panel img {
-    max-height: 3.3in;
+    height: 1.1in;
+    max-height: 1.1in;
     object-fit: contain;
   }
 
-  .quick-care-section,
-  .fish-note-section {
+  .fish-copy .eyebrow {
+    margin-bottom: 2pt;
+    font-size: 6.5pt;
+  }
+
+  .fish-copy h1 {
+    margin-bottom: 2pt;
+    font-size: 18pt;
+    line-height: 1.05;
+  }
+
+  .scientific-name {
+    margin-bottom: 0;
+    font-size: 8.5pt;
+  }
+
+  .quick-care-section {
+    gap: 7pt;
     break-inside: avoid;
-    margin-bottom: 18pt;
+    margin-bottom: 0;
   }
 
   .quick-care-intro,
@@ -1535,11 +1739,26 @@ h3 {
   }
 
   .quick-care-intro {
-    padding: 14pt;
+    padding: 7pt 9pt;
+  }
+
+  .quick-care-intro .eyebrow {
+    margin-bottom: 2pt;
+    font-size: 6.5pt;
+  }
+
+  .quick-care-intro h2 {
+    margin-bottom: 3pt;
+    font-size: 12pt;
+  }
+
+  .quick-care-summary {
+    font-size: 8pt;
+    line-height: 1.3;
   }
 
   .quick-care-actions {
-    margin-top: 10pt;
+    display: none;
   }
 
   .qr-handoff-note {
@@ -1549,6 +1768,9 @@ h3 {
 
   .print-page-url {
     display: block;
+    margin-top: 3pt;
+    font-size: 6.5pt;
+    line-height: 1.2;
   }
 
   .quick-care-summary,
@@ -1563,7 +1785,52 @@ h3 {
   }
 
   .quick-care-grid {
-    gap: 10pt;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5pt;
+  }
+
+  .quick-warning-panel {
+    margin-bottom: 7pt;
+    padding: 6pt 8pt;
+  }
+
+  .quick-warning-panel .eyebrow {
+    display: none;
+  }
+
+  .quick-warning-panel h3 {
+    margin-bottom: 3pt;
+    font-size: 8.5pt;
+  }
+
+  .quick-warning-list {
+    columns: 2;
+    column-gap: 12pt;
+    font-size: 7.5pt;
+    line-height: 1.25;
+  }
+
+  .quick-warning-list li {
+    break-inside: avoid;
+  }
+
+  .quick-warning-list li + li {
+    margin-top: 2pt;
+  }
+
+  .quick-care-item {
+    gap: 1pt;
+    min-height: 0;
+    padding: 5pt 6pt;
+  }
+
+  .quick-care-item dt {
+    font-size: 6.25pt;
+  }
+
+  .quick-care-item dd {
+    font-size: 7.5pt;
+    line-height: 1.2;
   }
 
   .fish-grid {

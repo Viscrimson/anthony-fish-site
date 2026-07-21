@@ -61,7 +61,16 @@ const pageUrl = fish.url;
     <p class="crumb"><a href={withBase("fish/")}>Care Sheet Library</a></p>
     <section class="fish-profile fish-profile-expanded">
       <div class="fish-photo-panel">
-        <img src={fishImage(fish.mainImage)} alt={`${fish.commonName} main image`} />
+        <img
+          src={fishImage(fish.mainImage)}
+          alt={`${fish.commonName} main image`}
+          data-image-zoom
+          data-image-zoom-caption={fish.commonName}
+          role="button"
+          tabindex="0"
+          aria-haspopup="dialog"
+          aria-label={`Open enlarged view of ${fish.commonName}`}
+        />
       </div>
 
       <article class="fish-copy">
@@ -134,6 +143,12 @@ const pageUrl = fish.url;
                     <img
                       src={fishImage(image)}
                       alt={`${fish.commonName} ${label.toLowerCase()} image`}
+                      data-image-zoom
+                      data-image-zoom-caption={`${fish.commonName} ${label.toLowerCase()}`}
+                      role="button"
+                      tabindex="0"
+                      aria-haspopup="dialog"
+                      aria-label={`Open enlarged view of ${fish.commonName} ${label.toLowerCase()}`}
                     />
                   ) : null}
                   <div>
@@ -161,6 +176,12 @@ const pageUrl = fish.url;
                 src={fishImage(image)}
                 alt={`${fish.commonName} photo ${index + 1}`}
                 loading="lazy"
+                data-image-zoom
+                data-image-zoom-caption={`${fish.commonName} photo ${index + 1}`}
+                role="button"
+                tabindex="0"
+                aria-haspopup="dialog"
+                aria-label={`Open enlarged view of ${fish.commonName} photo ${index + 1}`}
               />
             ))}
           </div>

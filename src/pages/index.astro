@@ -78,7 +78,16 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
           <p class="lede">{homepageIntro}</p>
         </div>
         <div class="home-hero-image">
-          <img src={fishImage(homepageImage)} alt="Featured freshwater fish" />
+          <img
+            src={fishImage(homepageImage)}
+            alt="Featured freshwater fish"
+            data-image-zoom
+            data-image-zoom-caption="Featured freshwater fish"
+            role="button"
+            tabindex="0"
+            aria-haspopup="dialog"
+            aria-label="Open enlarged view of featured freshwater fish"
+          />
         </div>
       </div>
 

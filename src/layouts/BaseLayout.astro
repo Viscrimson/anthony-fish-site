@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { withBase } from "../lib/paths.js";
 import { trimText } from "../lib/content-display.js";
 import AquariumBackdrop from "../components/AquariumBackdrop.astro";
+import ImageLightbox from "../components/ImageLightbox.astro";
 import "../styles/site.css";
 
 const siteName = "Anthony Fish Care";
@@ -90,6 +91,7 @@ const navItems = [
       </details>
     </header>
     <slot />
+    <ImageLightbox />
     <footer class="site-footer">
       <p>
         © {currentYear} {brandName} · Designed by Juxtaposition Sound &amp; Vision

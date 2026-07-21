@@ -41,31 +41,38 @@ const getDateMeta = (note) => {
       </div>
     </section>
 
-    <section class="fish-tools" aria-labelledby="resources-search-heading">
-      <div class="fish-tools-copy">
-        <p class="eyebrow">Search resources</p>
-        <h2 id="resources-search-heading">Browse the resource library</h2>
-        <p class="fish-tools-lede">Search by title, tag, or article text.</p>
-      </div>
+    <section class="fish-tools" aria-label="Resource search controls">
+      <details class="library-search">
+        <summary class="library-search-summary">
+          <span class="library-search-summary-copy">
+            <span class="library-search-kicker">Search resources</span>
+            <span class="library-search-heading">Find aquarium guidance</span>
+            <span class="library-search-lede">Search by title, tag, or article text.</span>
+          </span>
+          <span class="library-search-toggle" aria-hidden="true"></span>
+        </summary>
 
-      <form class="fish-tools-panel" data-notes-controls>
-        <div class="fish-search-row">
-          <label class="fish-search-field" for="notes-search">
-            <span class="fish-control-label">Search resources</span>
-            <input
-              id="notes-search"
-              name="search"
-              type="search"
-              autocomplete="off"
-              spellcheck="false"
-              placeholder="Search by title, tag, or article text"
-              data-notes-search
-            />
-          </label>
+        <div class="library-search-content">
+          <form class="fish-tools-panel" data-notes-controls>
+            <div class="fish-search-row">
+              <label class="fish-search-field" for="notes-search">
+                <span class="fish-control-label">Search resources</span>
+                <input
+                  id="notes-search"
+                  name="search"
+                  type="search"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="Search by title, tag, or article text"
+                  data-notes-search
+                />
+              </label>
 
-          <button type="reset" class="fish-reset">Clear search</button>
+              <button type="reset" class="fish-reset">Clear search</button>
+            </div>
+          </form>
         </div>
-      </form>
+      </details>
 
       <p
         class="fish-results"

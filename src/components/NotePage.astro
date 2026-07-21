@@ -117,6 +117,12 @@ const sourceEntries = compactSources(note.data.sources);
                   src={noteImage(image)}
                   alt={`${note.data.title} image ${index + 1}`}
                   loading="lazy"
+                  data-image-zoom
+                  data-image-zoom-caption={`${note.data.title} image ${index + 1}`}
+                  role="button"
+                  tabindex="0"
+                  aria-haspopup="dialog"
+                  aria-label={`Open enlarged view of ${note.data.title} image ${index + 1}`}
                   onerror={`this.onerror = null; this.src = ${JSON.stringify(galleryFallbackImage)};`}
                 />
               ))}

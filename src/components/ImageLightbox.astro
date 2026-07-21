@@ -1,0 +1,81 @@
+---
+---
+
+<dialog class="image-lightbox" data-image-lightbox aria-label="Expanded image view">
+  <div class="image-lightbox-shell">
+    <button type="button" class="image-lightbox-close" data-image-lightbox-close>
+      <span aria-hidden="true">×</span>
+      <span>Close image</span>
+    </button>
+    <div class="image-lightbox-stage" data-image-lightbox-stage>
+      <img data-image-lightbox-image alt="" />
+    </div>
+    <p class="image-lightbox-caption" data-image-lightbox-caption></p>
+  </div>
+</dialog>
+
+<script is:inline>
+  const imageLightbox = document.querySelector("[data-image-lightbox]");
+
+  if (imageLightbox instanceof HTMLDialogElement) {
+    const closeButton = imageLightbox.querySelector("[data-image-lightbox-close]");
+    const stage = imageLightbox.querySelector("[data-image-lightbox-stage]");
+    const expandedImage = imageLightbox.querySelector("[data-image-lightbox-image]");
+    const caption = imageLightbox.querySelector("[data-image-lightbox-caption]");
+
+    const resetZoom = () => {
+      stage?.classList.remove("is-zooming");
+
+      if (expandedImage) {
+        expandedImage.style.transformOrigin = "50% 50%";
+      }
+    };
+
+    const openImage = (source) => {
+      if (!expandedImage || !caption) return;
+
+      expandedImage.src = source.currentSrc || source.src;
+      expandedImage.alt = source.alt;
+      caption.textContent = source.dataset.imageZoomCaption || source.alt;
+      resetZoom();
+
+      if (!imageLightbox.open) {
+        imageLightbox.showModal();
+      }
+
+      closeButton?.focus();
+    };
+
+    document.querySelectorAll("img[data-image-zoom]").forEach((image) => {
+      image.addEventListener("click", () => openImage(image));
+      image.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImage(image);
+        }
+      });
+    });
+
+    stage?.addEventListener("pointermove", (event) => {
+      if (event.pointerType !== "mouse" || !expandedImage) return;
+
+      const bounds = stage.getBoundingClientRect();
+      const horizontal = ((event.clientX - bounds.left) / bounds.width) * 100;
+      const vertical = ((event.clientY - bounds.top) / bounds.height) * 100;
+      const x = Math.min(100, Math.max(0, horizontal));
+      const y = Math.min(100, Math.max(0, vertical));
+
+      expandedImage.style.transformOrigin = `${x}% ${y}%`;
+      stage.classList.add("is-zooming");
+    });
+
+    stage?.addEventListener("pointerleave", resetZoom);
+    closeButton?.addEventListener("click", () => imageLightbox.close());
+    imageLightbox.addEventListener("close", resetZoom);
+    imageLightbox.addEventListener("click", (event) => {
+      if (event.target === imageLightbox) {
+        imageLightbox.close();
+      }
+    });
+  }
+</script>

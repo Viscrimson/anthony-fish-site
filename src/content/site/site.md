@@ -29,7 +29,8 @@ aboutSummary: "Aquatic Treasures of Fort Myers makes freshwater fishkeeping
   home and throughout its life in the aquarium.  "
 experienceText: Begin with your fish’s care sheet. Then use the resource library
   whenever you need help with setup, water quality, acclimation, feeding,
-  compatibility, or changing behavior.
+  compatibility, or changing behavior.  Come back as we expand the site for help
+  with specialized topics, product reviews, and guides on advanced topics.
 focusText: Freshwater care sheets, aquarium setup guidance, water-quality
   fundamentals, feeding advice, and practical observations that help fish settle
   in and stay healthy.  As an Amazon Associate I earn from qualifying purchases

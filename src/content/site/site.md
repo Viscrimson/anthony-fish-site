@@ -26,13 +26,17 @@ aboutHeading: About this site
 aboutSummary: "Aquatic Treasures of Fort Myers makes freshwater fishkeeping
   easier to understand. The goal is simple: put useful care information in front
   of fishkeepers when it can make the greatest difference—before a fish comes
-  home and throughout its life in the aquarium."
+  home and throughout its life in the aquarium.  "
 experienceText: Begin with your fish’s care sheet. Then use the resource library
   whenever you need help with setup, water quality, acclimation, feeding,
   compatibility, or changing behavior.
 focusText: Freshwater care sheets, aquarium setup guidance, water-quality
   fundamentals, feeding advice, and practical observations that help fish settle
-  in and stay healthy.
+  in and stay healthy.  As an Amazon Associate I earn from qualifying purchases
+  that are linked in the resources section.  If you feel the information is
+  helpful, using those links can be a great way of keeping this site funded for
+  future years.  I will use these funds to expand resources articles, to further
+  fund the site into the future, and to do unbiased product reviews.
 contactHeading: Contact
 contactText: Contact details can be added later if Anthony wants them public.
 showContact: false

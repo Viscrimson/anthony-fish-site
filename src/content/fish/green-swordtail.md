@@ -9,6 +9,10 @@ difficulty: Beginner
 temperament: Peaceful with fish and invertebrates not small enough to be easily swallowed.
 plantSafe: true
 invertebrateSafe: false
+juvenileAppearance: The juvenile form of the green swordtail is
+  indistinguishable from the female form in both color and morphology.  At the
+  fifth month, the first signs of a gonopodium begins forms.  Simultaneously the
+  sword begins to thicken and elongate.
 adultMaleAppearance: "Green and sometimes red striping, with intermitted black
   dots speckling the flanks.  A sword that can be a little bit over as a maximum
   of their body length can develop below the tail.  "

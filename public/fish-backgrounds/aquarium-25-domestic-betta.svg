@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 900 1600">
+  <title>Domestic betta and bubbles aquarium background</title>
+  <desc>A transparent vector aquarium layer showing one blue and crimson halfmoon domestic betta with crisp dark outlines and rising bubbles.</desc>
+  <defs>
+    <linearGradient id="betta-body" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#9be1d5"/>
+      <stop offset=".38" stop-color="#3fa9a4"/>
+      <stop offset=".72" stop-color="#316d8c"/>
+      <stop offset="1" stop-color="#293f69"/>
+    </linearGradient>
+    <linearGradient id="betta-fin" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#71c8c2"/>
+      <stop offset=".42" stop-color="#4d7fa0"/>
+      <stop offset=".7" stop-color="#a9536b"/>
+      <stop offset="1" stop-color="#d96d6b"/>
+    </linearGradient>
+    <linearGradient id="betta-light-fin" x1="0" x2="1">
+      <stop stop-color="#c8eee0"/>
+      <stop offset=".48" stop-color="#73c2b9"/>
+      <stop offset="1" stop-color="#d56d70"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#607c78"/>
+      <stop offset=".55" stop-color="#233d42"/>
+      <stop offset="1" stop-color="#13282e"/>
+    </radialGradient>
+    <radialGradient id="bubble" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".94"/>
+      <stop offset=".28" stop-color="#c7efeb" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".14"/>
+    </radialGradient>
+    <clipPath id="body-clip">
+      <path d="M180 702c23-99 124-160 257-136 91 16 153 72 179 145-20 86-99 147-211 151-116 4-208-44-238-121-8-19-3-27 13-39z"/>
+    </clipPath>
+    <g id="bubble-mark">
+      <circle cx="50" cy="50" r="38" fill="url(#bubble)" stroke="#6eaaa8" stroke-opacity=".72" stroke-width="6"/>
+      <path d="M29 43c3-10 10-17 20-20" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".82" stroke-width="7"/>
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#bubble-mark" opacity=".88" transform="matrix(.42 0 0 .42 103 1164)"/>
+    <use href="#bubble-mark" opacity=".66" transform="matrix(.24 0 0 .24 156 1032)"/>
+    <use href="#bubble-mark" opacity=".8" transform="matrix(.34 0 0 .34 112 904)"/>
+    <use href="#bubble-mark" opacity=".59" transform="matrix(.18 0 0 .18 171 776)"/>
+    <use href="#bubble-mark" opacity=".74" transform="matrix(.28 0 0 .28 133 657)"/>
+    <use href="#bubble-mark" opacity=".85" transform="matrix(.37 0 0 .37 710 819)"/>
+    <use href="#bubble-mark" opacity=".65" transform="matrix(.22 0 0 .22 758 679)"/>
+    <use href="#bubble-mark" opacity=".78" transform="matrix(.31 0 0 .31 724 549)"/>
+    <use href="#bubble-mark" opacity=".58" transform="matrix(.18 0 0 .18 778 416)"/>
+    <use href="#bubble-mark" opacity=".71" transform="matrix(.26 0 0 .26 739 295)"/>
+  </g>
+  <g aria-label="domestic betta">
+    <path d="M584 673c76-139 172-195 259-184-28 57-39 115-28 174 7 37 18 70 10 108-12 60-59 121-134 164-28-63-64-109-111-139 28-40 32-81 4-123z" fill="url(#betta-fin)" stroke="#294e59" stroke-linejoin="round" stroke-width="10"/>
+    <path d="M548 591c52-106 141-163 239-158-28 55-34 115-18 178-72-26-145-33-221-20z" fill="url(#betta-fin)" stroke="#294e59" stroke-linejoin="round" stroke-width="9"/>
+    <path d="M502 843c91 96 189 119 281 67-47-34-79-80-96-139-58 44-119 68-185 72z" fill="url(#betta-fin)" stroke="#294e59" stroke-linejoin="round" stroke-width="9"/>
+    <path d="M180 702c23-99 124-160 257-136 91 16 153 72 179 145-20 86-99 147-211 151-116 4-208-44-238-121-8-19-3-27 13-39z" fill="url(#betta-body)" stroke="#294e59" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#body-clip)" fill="none" stroke-linecap="round">
+      <path d="M251 583c-12 84-3 176 36 261m25-275c-9 93 7 190 50 286m23-292c-3 91 20 186 66 280m14-258c9 78 34 155 72 226" stroke="#d86a6d" stroke-width="17"/>
+      <path d="M216 642c67 37 130 39 188 7 66-36 128-35 188 3M190 719c72 40 143 41 211 2 70-40 133-36 191 8m-396 78c74 31 145 25 211-18 57-37 110-36 158-2" stroke="#d8eed8" stroke-width="11"/>
+      <path d="M205 676c93 15 181 4 265-32m-277 111c98 17 190 6 274-34m-237 112c72 7 141-3 206-30" stroke="#245f65" stroke-width="7"/>
+    </g>
+    <path d="M228 680c-20 19-31 45-32 79 13 2 28-1 44-8" fill="none" stroke="#d8eed8" stroke-linecap="round" stroke-width="8"/>
+    <path d="M284 685c33-42 76-47 119-12-17 61-58 93-113 82-20-21-22-45-6-70z" fill="url(#betta-light-fin)" stroke="#294e59" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M337 676c-13 20-19 44-18 72" fill="none" stroke="#f0f5db" stroke-linecap="round" stroke-width="7"/>
+    <circle cx="221" cy="680" r="23" fill="#e8d8a4" stroke="#294e59" stroke-width="7"/>
+    <circle cx="222" cy="681" r="13" fill="url(#eye)"/>
+    <circle cx="216" cy="674" r="4.5" fill="#fff"/>
+    <path d="M166 730c14 8 29 8 44 0" fill="none" stroke="#294e59" stroke-linecap="round" stroke-width="7"/>
+    <path d="M362 851c-20 101-17 183 9 246" fill="none" stroke="#294e59" stroke-linecap="round" stroke-width="8"/>
+    <path d="M391 854c-7 96 7 169 40 220" fill="none" stroke="#294e59" stroke-linecap="round" stroke-width="7"/>
+    <path d="M598 611c60 1 119 17 177 50m-181 11c67 15 127 42 180 82m-186 8c64 28 115 67 153 116" fill="none" stroke="#e3edd9" stroke-linecap="round" stroke-width="7"/>
+    <path d="M573 567c58-20 117-29 176-24m-187 298c66 14 126 34 179 61" fill="none" stroke="#f0c7a2" stroke-linecap="round" stroke-width="7"/>
+  </g>
+</svg>

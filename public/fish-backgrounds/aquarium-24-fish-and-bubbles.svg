@@ -1,0 +1,302 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-labelledby="title desc"
+  viewBox="0 0 900 1600"
+>
+  <title>
+    Dwarf gourami and platy aquarium background with crisp outlines
+  </title>
+  <desc>
+    A transparent vector aquarium layer with a turquoise dwarf gourami, a coral
+    platy, and softly rising bubbles, rendered with fully opaque fish
+    silhouettes, crisp outlines, and no glow.
+  </desc>
+  <defs>
+    <linearGradient id="d" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#a9ddd0" />
+      <stop offset=".36" stop-color="#62b8ad" />
+      <stop offset=".72" stop-color="#32847d" />
+      <stop offset="1" stop-color="#225f61" />
+    </linearGradient>
+    <linearGradient id="f" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#dcf1d7" />
+      <stop offset="1" stop-color="#62b9a9" />
+    </linearGradient>
+    <linearGradient id="c" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#9ed8c4" />
+      <stop offset=".55" stop-color="#4f9e91" />
+      <stop offset="1" stop-color="#2c6d69" />
+    </linearGradient>
+    <linearGradient id="h" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e6a07f" />
+      <stop offset="1" stop-color="#a85f64" />
+    </linearGradient>
+    <linearGradient id="i" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f2bc84" />
+      <stop offset=".38" stop-color="#df8b70" />
+      <stop offset=".76" stop-color="#bd6369" />
+      <stop offset="1" stop-color="#83555f" />
+    </linearGradient>
+    <linearGradient id="k" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f8d5a0" />
+      <stop offset="1" stop-color="#dc8670" />
+    </linearGradient>
+    <radialGradient id="g" cx="38%" cy="32%" r="65%">
+      <stop stop-color="#617b76" />
+      <stop offset=".52" stop-color="#233d3d" />
+      <stop offset="1" stop-color="#142a2d" />
+    </radialGradient>
+    <radialGradient id="a" cx="32%" cy="25%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".95" />
+      <stop offset=".25" stop-color="#c7efeb" stop-opacity=".62" />
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".16" />
+    </radialGradient>
+    <clipPath id="e">
+      <path
+        d="M248 504c31-92 129-139 244-110 88 22 143 82 151 155-13 77-84 136-188 141-103 5-186-41-217-116-15-37-11-84 10-120z"
+      />
+    </clipPath>
+    <clipPath id="j">
+      <path
+        d="M349 1078c29-62 101-94 181-77 67 14 111 59 117 111-11 57-67 97-142 99-78 3-140-31-163-83-9-20-6-35 7-50"
+      />
+    </clipPath>
+    <g id="b">
+      <circle
+        cx="50"
+        cy="50"
+        r="38"
+        fill="url(#a)"
+        stroke="#6eaaa8"
+        stroke-opacity=".72"
+        stroke-width="6"
+      />
+      <path
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-opacity=".82"
+        stroke-width="7"
+        d="M29 43c3-10 10-17 20-20"
+      />
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#b" opacity=".9" transform="matrix(.45 0 0 .45 86 1194)" />
+    <use href="#b" opacity=".68" transform="matrix(.25 0 0 .25 137 1050)" />
+    <use href="#b" opacity=".82" transform="matrix(.34 0 0 .34 99 916)" />
+    <use href="#b" opacity=".62" transform="matrix(.19 0 0 .19 157 779)" />
+    <use href="#b" opacity=".75" transform="matrix(.28 0 0 .28 112 657)" />
+    <use href="#b" opacity=".85" transform="matrix(.38 0 0 .38 710 843)" />
+    <use href="#b" opacity=".66" transform="matrix(.22 0 0 .22 760 706)" />
+    <use href="#b" opacity=".78" transform="matrix(.31 0 0 .31 722 577)" />
+    <use href="#b" opacity=".58" transform="matrix(.18 0 0 .18 776 443)" />
+    <use href="#b" opacity=".72" transform="matrix(.26 0 0 .26 738 323)" />
+    <use href="#b" opacity=".7" transform="matrix(.26 0 0 .26 603 1315)" />
+    <use href="#b" opacity=".55" transform="matrix(.17 0 0 .17 649 1217)" />
+  </g>
+  <g aria-label="turquoise dwarf gourami">
+    <path
+      fill="url(#c)"
+      stroke="#245f55"
+      stroke-linejoin="round"
+      stroke-width="9"
+      d="M636 519c72-85 143-102 211-81-42 31-67 74-72 125 8 45 32 83 69 113-66 20-137-4-207-78z"
+    />
+    <path
+      fill="url(#c)"
+      stroke="#245f55"
+      stroke-linejoin="round"
+      stroke-width="9"
+      d="M446 399c67-78 147-90 207-48-22 33-31 72-25 119-59-35-121-58-182-71z"
+    />
+    <path
+      fill="url(#c)"
+      stroke="#245f55"
+      stroke-linejoin="round"
+      stroke-width="9"
+      d="M430 680c81 53 166 54 217 10-28-26-44-62-49-107-54 49-111 80-168 97z"
+    />
+    <path
+      fill="url(#d)"
+      stroke="#245f55"
+      stroke-linejoin="round"
+      stroke-width="10"
+      d="M248 504c31-92 129-139 244-110 88 22 143 82 151 155-13 77-84 136-188 141-103 5-186-41-217-116-15-37-11-84 10-120z"
+    />
+    <g fill="none" stroke-linecap="round" clip-path="url(#e)">
+      <path
+        stroke="#d67e70"
+        stroke-width="18"
+        d="M318 411c-22 77-13 157 28 239m29-257c-20 88-8 187 32 279m26-282q-21 145.5 39 294m21-285c-10 84 4 177 42 266m15-241c-3 74 10 147 36 215"
+        opacity=".75"
+      />
+      <path
+        stroke="#d7efd6"
+        stroke-width="13"
+        d="M295 447c73 34 139 32 205-4 53-29 103-24 153 13m-383 66c78 36 151 33 220-8 58-34 110-29 158 6m-374 84c78 35 147 31 212-10 53-34 102-29 146 3"
+        opacity=".46"
+      />
+      <path
+        stroke="#235f61"
+        stroke-width="7"
+        d="M287 477c82 18 162 12 238-19m-245 98c91 20 177 13 259-23m-226 98c75 16 146 9 215-20"
+        opacity=".35"
+      />
+    </g>
+    <path
+      fill="none"
+      stroke="#d7efd6"
+      stroke-linecap="round"
+      stroke-width="8"
+      d="M267 480q-24 33-27 87c11 2 24 0 37-6"
+      opacity=".7"
+    />
+    <path
+      fill="url(#f)"
+      stroke="#245f55"
+      stroke-linejoin="round"
+      stroke-width="8"
+      d="M311 508c30-37 68-40 107-9-17 52-56 81-105 72-17-19-18-40-2-63z"
+    />
+    <path
+      fill="none"
+      stroke="#e9f5dc"
+      stroke-linecap="round"
+      stroke-width="7"
+      d="M359 495c-13 15-20 38-22 68"
+      opacity=".64"
+    />
+    <circle
+      cx="288"
+      cy="493"
+      r="22"
+      fill="#e8d8a4"
+      stroke="#245f55"
+      stroke-width="7"
+    />
+    <circle cx="289" cy="494" r="12" fill="url(#g)" />
+    <circle cx="284" cy="488" r="4.5" fill="#fff" />
+    <path
+      fill="none"
+      stroke="#245f55"
+      stroke-linecap="round"
+      stroke-width="6"
+      d="M239 547c13 7 27 7 41 0"
+    />
+    <path
+      fill="none"
+      stroke="#69aaa0"
+      stroke-linecap="round"
+      stroke-width="7"
+      d="M390 671c-10 86-4 157 19 215"
+    />
+    <path
+      fill="none"
+      stroke="#69aaa0"
+      stroke-linecap="round"
+      stroke-width="6"
+      d="M417 674c2 83 17 144 45 184"
+    />
+    <path
+      fill="none"
+      stroke="#d7efd6"
+      stroke-linecap="round"
+      stroke-width="7"
+      d="M661 488c38 12 73 37 107 74m-109-12c42 0 78 17 110 51m-116 8c36-9 70-5 102 13"
+      opacity=".56"
+    />
+    <path
+      fill="none"
+      stroke="#e5f3d9"
+      stroke-linecap="round"
+      stroke-width="7"
+      d="M490 408c40 1 80 12 121 34M489 675c45-8 85-23 119-47"
+      opacity=".46"
+    />
+  </g>
+  <g aria-label="coral platy">
+    <path
+      fill="url(#h)"
+      stroke="#604d57"
+      stroke-linejoin="round"
+      stroke-width="8"
+      d="M635 1077c61-60 119-69 174-43-34 19-58 48-69 87q18 54 69 84c-55 26-112 17-171-34z"
+    />
+    <path
+      fill="url(#h)"
+      stroke="#604d57"
+      stroke-linejoin="round"
+      stroke-width="8"
+      d="M481 1000c52-54 111-59 154-23-22 24-30 55-25 91-43-33-86-56-129-68z"
+    />
+    <path
+      fill="url(#h)"
+      stroke="#604d57"
+      stroke-linejoin="round"
+      stroke-width="8"
+      d="M474 1204c58 38 116 38 154 4-24-19-37-45-39-77-36 35-75 59-115 73z"
+    />
+    <path
+      fill="url(#i)"
+      stroke="#604d57"
+      stroke-linejoin="round"
+      stroke-width="9"
+      d="M349 1078c29-62 101-94 181-77 67 14 111 59 117 111-11 57-67 97-142 99-78 3-140-31-163-83-9-20-6-35 7-50z"
+    />
+    <g fill="none" stroke-linecap="round" clip-path="url(#j)">
+      <path
+        stroke="#f4cf96"
+        stroke-width="13"
+        d="M392 1025c15 65 12 119-8 163m54-182c18 77 16 142-4 195m52-201c20 79 20 147 1 206m48-198c18 73 18 137 1 192m46-172c14 60 12 111-5 153"
+        opacity=".47"
+      />
+      <path
+        stroke="#944f5e"
+        stroke-width="8"
+        d="M362 1082q105 49.5 192 0c34-20 68-20 103-2m-298 62c70 31 133 29 190-7 34-21 67-22 98-5"
+        opacity=".38"
+      />
+    </g>
+    <path
+      fill="url(#k)"
+      stroke="#604d57"
+      stroke-linejoin="round"
+      stroke-width="7"
+      d="M399 1072c23-26 52-27 83-3-15 40-46 59-82 50-12-15-12-31-1-47z"
+    />
+    <circle
+      cx="377"
+      cy="1070"
+      r="18"
+      fill="#f0cf91"
+      stroke="#604d57"
+      stroke-width="6"
+    />
+    <circle cx="378" cy="1071" r="10" fill="url(#g)" />
+    <circle cx="374" cy="1067" r="3.5" fill="#fff" />
+    <path
+      fill="none"
+      stroke="#604d57"
+      stroke-linecap="round"
+      stroke-width="5"
+      d="M344 1110c11 5 22 5 33-1"
+    />
+    <path
+      fill="none"
+      stroke="#f3c28d"
+      stroke-linecap="round"
+      stroke-width="6"
+      d="M651 1060c32 9 59 28 82 58m-83-8c31 0 59 12 82 34m-86 13c29-7 55-5 79 7"
+      opacity=".56"
+    />
+    <path
+      fill="none"
+      stroke="#f7d7a1"
+      stroke-linecap="round"
+      stroke-width="6"
+      d="M506 1012c34 1 66 9 95 25m-98 161c36-7 69-18 98-34"
+      opacity=".44"
+    />
+  </g>
+</svg>

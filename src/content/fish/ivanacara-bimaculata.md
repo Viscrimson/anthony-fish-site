@@ -15,7 +15,7 @@ adultMaleAppearance: Males are much longer then the female.  Their coloration is
   similar.  When free swimming males do not play the primary role in safe
   guarding young.
 adultFemaleAppearance: Females are very similar in coloration to males.   The
-  main difference is that their oviposter (breeding tube) descends and stay
+  main difference is that their ovipositor (breeding tube) descends and stay
   descended when mature.   They are also significantly smaller then the
   male.  The females are also the primary caretaker of the  brood.
 husbandryNotes: >-

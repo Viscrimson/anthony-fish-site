@@ -19,6 +19,27 @@ notesIntro: Turn everyday aquarium care into a simple routine. These guides
 backgroundImages:
   - /backgrounds/aquarium-01-planted-driftwood.svg
   - /backgrounds/aquarium-02-sunken-treasure.svg
+  - /backgrounds/aquarium-04-slate-cave.svg
+  - /backgrounds/aquarium-05-shipwreck.svg
+  - /backgrounds/aquarium-06-stone-lantern.svg
+  - /backgrounds/aquarium-07-terracotta-nursery.svg
+  - /backgrounds/aquarium-08-classical-ruins.svg
+  - /backgrounds/aquarium-09-hollow-log.svg
+  - /backgrounds/aquarium-10-diving-helmet.svg
+  - /backgrounds/aquarium-11-bubbler-submarine.svg
+  - /backgrounds/aquarium-12-planted-bridge.svg
+  - /backgrounds/aquarium-13-rooted-riverbank.svg
+  - /backgrounds/aquarium-14-vallisneria-meadow.svg
+  - /backgrounds/aquarium-15-red-stem-garden.svg
+  - /backgrounds/aquarium-16-branching-spiderwood.svg
+  - /backgrounds/aquarium-17-rounded-riverbed.svg
+  - /backgrounds/aquarium-18-amazon-sword-grove.svg
+  - /backgrounds/aquarium-19-mossy-driftwood-bank.svg
+  - /backgrounds/aquarium-20-blackwater-roots.svg
+  - /backgrounds/aquarium-21-cryptocoryne-thicket.svg
+  - /backgrounds/aquarium-22-tiger-lotus-garden.svg
+  - /backgrounds/aquarium-23-seiryu-stone-ridge.svg
+fishBackgroundImages: []
 qrHelperHeading: Quick start
 qrHelperText: Open the matching care sheet first to get the essential facts,
   then use the fuller resources when you want more context.

@@ -40,22 +40,102 @@ body {
 .aquarium-backdrop {
   position: absolute;
   z-index: 0;
-  top: -12vh;
+  top: auto;
   right: 0;
-  bottom: -12vh;
+  bottom: 0;
   left: 0;
+  height: clamp(320px, 60vh, 900px);
   pointer-events: none;
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  opacity: 0.13;
+  overflow: hidden;
   will-change: transform;
+}
+
+.aquarium-scenery-layer,
+.aquarium-fish-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-repeat: no-repeat;
+}
+
+.aquarium-scenery-layer {
+  z-index: 1;
+  background-size: var(--aquarium-art-width, 460px) auto;
+  opacity: 0.13;
+}
+
+.aquarium-backdrop-left {
+  left: 0;
+  background-position: left bottom;
+}
+
+.aquarium-backdrop-right {
+  right: 0;
+  background-position: right bottom;
+}
+
+.aquarium-fish-layer {
+  z-index: 2;
+  background-size: min(520px, var(--aquarium-art-width, 460px)) auto;
+  opacity: 0.09;
+}
+
+.aquarium-fish-left {
+  left: 0;
+  background-position: left bottom;
+}
+
+.aquarium-fish-right {
+  right: 0;
+  background-position: right bottom;
+}
+
+@media (max-width: 760px) {
+  .aquarium-backdrop-left {
+    width: 100%;
+    background-position: center bottom;
+    background-size: max(100vw, var(--aquarium-art-width, 460px)) auto;
+  }
+
+  .aquarium-backdrop-right {
+    display: none;
+  }
+
+  .aquarium-fish-left {
+    width: 100%;
+    background-position: center bottom;
+    background-size: max(520px, 100vw) auto;
+  }
+
+  .aquarium-fish-right {
+    display: none;
+  }
+
+  .aquarium-backdrop::after {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    content: "";
+    background: radial-gradient(
+      ellipse at center,
+      rgba(246, 244, 238, 0.88) 0%,
+      rgba(246, 244, 238, 0.8) 54%,
+      rgba(246, 244, 238, 0.56) 100%
+    );
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .aquarium-backdrop {
     transform: none !important;
     will-change: auto;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .aquarium-backdrop {
+    display: none;
   }
 }
 

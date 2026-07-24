@@ -1,44 +1,140 @@
 ---
 import { withBase } from "../lib/paths.js";
 
-const fallbackImages = Array.from(
-  { length: 10 },
-  (_, index) => withBase(`backgrounds/aquarium-${String(index + 1).padStart(2, "0")}.svg`),
-);
-const cmsImages = Array.isArray(Astro.props.images) ? Astro.props.images : [];
-const normalizeBackgroundImage = (value) => {
-  const normalized = value
+const fallbackImageNames = [
+  "aquarium-01-planted-driftwood.svg",
+  "aquarium-02-sunken-treasure.svg",
+  "aquarium-04-slate-cave.svg",
+  "aquarium-05-shipwreck.svg",
+  "aquarium-06-stone-lantern.svg",
+  "aquarium-07-terracotta-nursery.svg",
+  "aquarium-08-classical-ruins.svg",
+  "aquarium-09-hollow-log.svg",
+  "aquarium-10-diving-helmet.svg",
+  "aquarium-11-bubbler-submarine.svg",
+  "aquarium-12-planted-bridge.svg",
+  "aquarium-13-rooted-riverbank.svg",
+  "aquarium-14-vallisneria-meadow.svg",
+  "aquarium-15-red-stem-garden.svg",
+  "aquarium-16-branching-spiderwood.svg",
+  "aquarium-17-rounded-riverbed.svg",
+  "aquarium-18-amazon-sword-grove.svg",
+  "aquarium-19-mossy-driftwood-bank.svg",
+  "aquarium-20-blackwater-roots.svg",
+  "aquarium-21-cryptocoryne-thicket.svg",
+  "aquarium-22-tiger-lotus-garden.svg",
+  "aquarium-23-seiryu-stone-ridge.svg",
+];
+const fallbackImages = fallbackImageNames.map((filename) => withBase(`backgrounds/${filename}`));
+const sceneryCmsImages = Array.isArray(Astro.props.images) ? Astro.props.images : [];
+const fishCmsImages = Array.isArray(Astro.props.fishImages) ? Astro.props.fishImages : [];
+const normalizeBackgroundImage = (value, directory) => {
+  const normalized = String(value ?? "")
     .trim()
     .replace(/^\/+/, "")
     .replace(/^public\//i, "");
-  const path = normalized.startsWith("backgrounds/")
+  const path = normalized.startsWith(`${directory}/`)
     ? normalized
-    : `backgrounds/${normalized}`;
+    : `${directory}/${normalized}`;
 
   return withBase(path);
 };
-const backgroundImages = cmsImages.map(normalizeBackgroundImage).filter(Boolean);
-const availableImages = backgroundImages.length ? backgroundImages : fallbackImages;
-const initialBackground = availableImages[0];
+const sceneryImages = sceneryCmsImages
+  .map((value) => normalizeBackgroundImage(value, "backgrounds"))
+  .filter(Boolean);
+const fishBackgroundImages = fishCmsImages
+  .map((value) => normalizeBackgroundImage(value, "fish-backgrounds"))
+  .filter(Boolean);
+const availableSceneryImages = sceneryImages.length ? sceneryImages : fallbackImages;
+const initialLeftScenery = availableSceneryImages[0];
+const initialRightScenery = availableSceneryImages[1] ?? initialLeftScenery;
+const initialLeftFish = fishBackgroundImages[0] ?? null;
+const initialRightFish = fishBackgroundImages[1] ?? null;
 ---
 
 <div
   class="aquarium-backdrop"
   aria-hidden="true"
   data-aquarium-backdrop
-  style={`background-image: url("${initialBackground}")`}
-></div>
+>
+  <div
+    class="aquarium-scenery-layer aquarium-backdrop-left"
+    data-aquarium-backdrop-left
+    style={`background-image: url("${initialLeftScenery}")`}
+  ></div>
+  <div
+    class="aquarium-scenery-layer aquarium-backdrop-right"
+    data-aquarium-backdrop-right
+    style={`background-image: url("${initialRightScenery}")`}
+  ></div>
+  {initialLeftFish && (
+    <div
+      class="aquarium-fish-layer aquarium-fish-left"
+      data-aquarium-fish-left
+      style={`background-image: url("${initialLeftFish}")`}
+    ></div>
+  )}
+  {initialRightFish && (
+    <div
+      class="aquarium-fish-layer aquarium-fish-right"
+      data-aquarium-fish-right
+      style={`background-image: url("${initialRightFish}")`}
+    ></div>
+  )}
+</div>
 
-<script is:inline define:vars={{ availableImages }}>
+<script is:inline define:vars={{ availableSceneryImages, fishBackgroundImages }}>
   (() => {
     const backdrop = document.querySelector("[data-aquarium-backdrop]");
+    const leftBackdrop = document.querySelector("[data-aquarium-backdrop-left]");
+    const rightBackdrop = document.querySelector("[data-aquarium-backdrop-right]");
+    const leftFishBackdrop = document.querySelector("[data-aquarium-fish-left]");
+    const rightFishBackdrop = document.querySelector("[data-aquarium-fish-right]");
 
-    if (!backdrop) {
+    if (!backdrop || !leftBackdrop || !rightBackdrop) {
       return;
     }
 
-    const backgroundNumber = Math.floor(Math.random() * availableImages.length);
-    backdrop.style.backgroundImage = `url("${availableImages[backgroundNumber]}")`;
+    const selectPair = (images) => {
+      const leftIndex = Math.floor(Math.random() * images.length);
+      const rightIndex =
+        images.length > 1
+          ? (leftIndex + 1 + Math.floor(Math.random() * (images.length - 1))) % images.length
+          : leftIndex;
+
+      return [images[leftIndex], images[rightIndex]];
+    };
+
+    const [leftScenery, rightScenery] = selectPair(availableSceneryImages);
+    leftBackdrop.style.backgroundImage = `url("${leftScenery}")`;
+    rightBackdrop.style.backgroundImage = `url("${rightScenery}")`;
+
+    if (leftFishBackdrop && fishBackgroundImages.length) {
+      const [leftFish, rightFish] = selectPair(fishBackgroundImages);
+      leftFishBackdrop.style.backgroundImage = `url("${leftFish}")`;
+
+      if (rightFishBackdrop && fishBackgroundImages.length > 1) {
+        rightFishBackdrop.style.backgroundImage = `url("${rightFish}")`;
+      }
+    }
+
+    const updateArtworkSize = () => {
+      const contentFrame = document.querySelector(".page-wrap");
+      const sideSpace = Math.max(
+        0,
+        contentFrame?.getBoundingClientRect().left ?? window.innerWidth / 2,
+      );
+      const artworkWidth = Math.min(900, Math.max(460, Math.round(sideSpace)));
+      backdrop.style.setProperty("--aquarium-art-width", `${artworkWidth}px`);
+    };
+
+    window.addEventListener("resize", updateArtworkSize, { passive: true });
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", updateArtworkSize, { once: true });
+    } else {
+      updateArtworkSize();
+    }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;

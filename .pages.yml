@@ -13,10 +13,17 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
-  - name: aquariumBackgrounds
-    label: Aquarium backgrounds
+  - name: aquariumSceneryBackgrounds
+    label: Aquarium scenery backgrounds
     input: public/backgrounds
     output: /backgrounds
+    rename: safe
+    categories: [image]
+    extensions: [svg, png, jpg, jpeg, webp]
+  - name: aquariumFishBackgrounds
+    label: Aquarium fish backgrounds
+    input: public/fish-backgrounds
+    output: /fish-backgrounds
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
@@ -64,13 +71,23 @@ content:
         label: Notes intro
         type: text
       - name: backgroundImages
-        label: Aquarium background images
+        label: Aquarium scenery backgrounds
         type: image
         list: true
-        description: Upload, remove, or reorder the faded aquarium scenes used randomly across the site.
+        description: Upload, remove, or reorder the faded bottom aquarium scenes used randomly across the site.
         options:
-          media: aquariumBackgrounds
+          media: aquariumSceneryBackgrounds
           path: public/backgrounds
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: fishBackgroundImages
+        label: Aquarium fish backgrounds
+        type: image
+        list: true
+        description: Upload, remove, or reorder the faded fish and fish-school artwork layered above the scenery.
+        options:
+          media: aquariumFishBackgrounds
+          path: public/fish-backgrounds
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: qrHelperHeading

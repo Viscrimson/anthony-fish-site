@@ -3,8 +3,7 @@ title: "Ammonia Burn:  Here is What to Try"
 category: Fish Health
 showRelatedFish: false
 draft: false
-summary: Detected Ammonia too late and your fish are suffering from ammonia
-  burn, here is what to try.
+summary: What to do when your fish are dying from Ammonia poisoning or burn.
 quickAnswer: Here are some things you can do to save your fish.
 date: 2026-07-23
 lastUpdated: 2026-07-23

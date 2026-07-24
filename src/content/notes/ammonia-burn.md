@@ -1,5 +1,5 @@
 ---
-title: "Ammonia Burn:  What to Try to Save Your Fish"
+title: "Ammonia Burn:  Here is What to Try"
 category: Fish Health
 showRelatedFish: false
 draft: false

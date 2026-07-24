@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 900 1600">
+  <title>Fancy guppy and bubbles aquarium background</title>
+  <desc>A transparent vector aquarium layer showing one male fancy guppy with a slender blue-green body, oversized orange mosaic tail, crisp dark outlines, and rising bubbles.</desc>
+  <defs>
+    <linearGradient id="guppy-body" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#d6edd3"/>
+      <stop offset=".3" stop-color="#78c8b8"/>
+      <stop offset=".62" stop-color="#3e8f90"/>
+      <stop offset="1" stop-color="#315b73"/>
+    </linearGradient>
+    <linearGradient id="guppy-tail" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f5cf73"/>
+      <stop offset=".35" stop-color="#ed9a5e"/>
+      <stop offset=".7" stop-color="#cf6670"/>
+      <stop offset="1" stop-color="#73566f"/>
+    </linearGradient>
+    <linearGradient id="guppy-dorsal" x1="0" x2="1">
+      <stop stop-color="#8fd6c3"/>
+      <stop offset=".55" stop-color="#f0b36f"/>
+      <stop offset="1" stop-color="#ce6870"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#647b76"/>
+      <stop offset=".55" stop-color="#263e42"/>
+      <stop offset="1" stop-color="#13282e"/>
+    </radialGradient>
+    <radialGradient id="bubble" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".94"/>
+      <stop offset=".28" stop-color="#c7efeb" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".14"/>
+    </radialGradient>
+    <clipPath id="tail-clip">
+      <path d="M543 675c81-95 177-142 286-141-34 67-45 135-30 203 9 42 8 83-3 124-18 68-70 129-155 184-17-78-53-148-109-210 24-50 28-104 11-160z"/>
+    </clipPath>
+    <clipPath id="body-clip">
+      <path d="M166 737c22-65 98-105 190-92 77 11 142 51 190 112-39 64-106 104-194 110-90 6-164-21-199-72-12-18-8-39 13-58z"/>
+    </clipPath>
+    <g id="bubble-mark">
+      <circle cx="50" cy="50" r="38" fill="url(#bubble)" stroke="#6eaaa8" stroke-opacity=".72" stroke-width="6"/>
+      <path d="M29 43c3-10 10-17 20-20" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".82" stroke-width="7"/>
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#bubble-mark" opacity=".86" transform="matrix(.41 0 0 .41 95 1131)"/>
+    <use href="#bubble-mark" opacity=".65" transform="matrix(.23 0 0 .23 148 995)"/>
+    <use href="#bubble-mark" opacity=".8" transform="matrix(.34 0 0 .34 104 866)"/>
+    <use href="#bubble-mark" opacity=".6" transform="matrix(.18 0 0 .18 164 735)"/>
+    <use href="#bubble-mark" opacity=".73" transform="matrix(.27 0 0 .27 121 611)"/>
+    <use href="#bubble-mark" opacity=".85" transform="matrix(.38 0 0 .38 709 860)"/>
+    <use href="#bubble-mark" opacity=".65" transform="matrix(.22 0 0 .22 763 717)"/>
+    <use href="#bubble-mark" opacity=".78" transform="matrix(.31 0 0 .31 722 584)"/>
+    <use href="#bubble-mark" opacity=".58" transform="matrix(.18 0 0 .18 776 448)"/>
+    <use href="#bubble-mark" opacity=".71" transform="matrix(.26 0 0 .26 738 326)"/>
+  </g>
+  <g aria-label="male fancy guppy">
+    <path d="M543 675c81-95 177-142 286-141-34 67-45 135-30 203 9 42 8 83-3 124-18 68-70 129-155 184-17-78-53-148-109-210 24-50 28-104 11-160z" fill="url(#guppy-tail)" stroke="#4f4c62" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#tail-clip)">
+      <path d="M551 708c84-37 168-73 252-110M545 763c87-23 174-35 263-35M542 822c86-2 170 14 251 49m-236 10c66 33 124 74 174 123" fill="none" stroke="#f8dc8a" stroke-linecap="round" stroke-width="13"/>
+      <path d="M592 631c16 53 50 85 101 94 43 8 73 34 89 78m-204 1c48 6 79 32 95 77 13 37 38 64 74 82" fill="none" stroke="#604e68" stroke-linecap="round" stroke-width="16"/>
+      <g fill="#365a70" stroke="#f5bd70" stroke-width="5">
+        <circle cx="681" cy="648" r="16"/><circle cx="756" cy="600" r="13"/><circle cx="734" cy="720" r="18"/>
+        <circle cx="650" cy="795" r="14"/><circle cx="753" cy="838" r="15"/><circle cx="689" cy="927" r="17"/>
+      </g>
+    </g>
+    <path d="M389 652c47-86 108-123 183-110-24 34-32 75-24 123-54-21-107-25-159-13z" fill="url(#guppy-dorsal)" stroke="#4f4c62" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M166 737c22-65 98-105 190-92 77 11 142 51 190 112-39 64-106 104-194 110-90 6-164-21-199-72-12-18-8-39 13-58z" fill="url(#guppy-body)" stroke="#315861" stroke-linejoin="round" stroke-width="9"/>
+    <g clip-path="url(#body-clip)" fill="none" stroke-linecap="round">
+      <path d="M249 657c-8 58 1 124 31 197m36-202c-1 63 14 130 47 199m38-182c8 54 27 107 57 158" stroke="#e5c671" stroke-width="12"/>
+      <path d="M197 713c58 29 113 30 166 4 49-25 98-23 148 5m-337 62c64 29 124 29 180-2 50-27 98-23 144 8" stroke="#dff0d4" stroke-width="9"/>
+      <path d="M280 645c52 15 92 43 119 82 23 34 58 55 104 64" stroke="#286d76" stroke-width="21"/>
+    </g>
+    <path d="M255 732c25-29 56-32 89-8-12 42-43 67-81 61-16-14-18-32-8-53z" fill="#bfe7d5" stroke="#315861" stroke-linejoin="round" stroke-width="7"/>
+    <circle cx="204" cy="722" r="20" fill="#e5d49b" stroke="#315861" stroke-width="7"/>
+    <circle cx="205" cy="723" r="11" fill="url(#eye)"/>
+    <circle cx="200" cy="718" r="4" fill="#fff"/>
+    <path d="M153 770c12 6 24 6 37-1" fill="none" stroke="#315861" stroke-linecap="round" stroke-width="6"/>
+    <path d="M393 855c37 23 77 26 113 10-18-17-30-38-35-63-24 26-50 44-78 53z" fill="url(#guppy-dorsal)" stroke="#4f4c62" stroke-linejoin="round" stroke-width="7"/>
+    <path d="M382 858c22 70 48 113 79 130" fill="none" stroke="#4f4c62" stroke-linecap="round" stroke-width="8"/>
+    <path d="M557 690c68-40 137-72 207-94m-205 167c77-26 151-33 223-23m-233 84c70 3 137 23 202 61m-182 15c51 29 95 65 133 107" fill="none" stroke="#f5ce80" stroke-linecap="round" stroke-width="7"/>
+  </g>
+</svg>

@@ -4,7 +4,7 @@ category: Fish Health
 showRelatedFish: false
 draft: false
 summary: What to do when your fish are dying from Ammonia poisoning or burn.
-quickAnswer: Here are some things you can do to save your fish.
+quickAnswer: Here is what to do to save your fish.
 date: 2026-07-23
 lastUpdated: 2026-07-23
 lastReviewed: 2026-07-23

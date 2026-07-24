@@ -85,7 +85,7 @@ femaleImage: fish-placeholder.svg
 - Avoid personal names in filenames unless Anthony wants them public
 
 The site accepts bare file names, `fish-images/...` paths, and `/fish-images/...`
-paths. It adds the GitHub Pages base path automatically.
+paths. It adds the site-root path automatically.
 
 ## Add a Note or Article
 
@@ -115,9 +115,10 @@ them into a consistent 4:3 frame.
 
 ## Deployment
 
-GitHub Pages deployment is temporary during setup. Connect the final custom
-domain before printing QR codes. A CMS save creates a Git commit first, then
-GitHub Pages publishes that commit after the Actions workflow finishes.
+The site is published through GitHub Pages at
+`https://aquatictreasuresoffortmyers.com/`. A CMS save creates a Git commit
+first, then GitHub Pages publishes that commit after the Actions workflow
+finishes.
 
 ## GitHub Pages Setup
 

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 900 1600">
+  <title>Swordtail and bubbles aquarium background</title>
+  <desc>A transparent vector aquarium layer showing one male green swordtail with a streamlined body, red lateral stripe, elongated lower tail sword, crisp dark outlines, and rising bubbles.</desc>
+  <defs>
+    <linearGradient id="body" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#d8dfa5"/>
+      <stop offset=".34" stop-color="#9fc493"/>
+      <stop offset=".69" stop-color="#5e9b83"/>
+      <stop offset="1" stop-color="#3c7272"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#d9dda0"/>
+      <stop offset=".5" stop-color="#8daf80"/>
+      <stop offset="1" stop-color="#3f7272"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#647b76"/>
+      <stop offset=".55" stop-color="#263e42"/>
+      <stop offset="1" stop-color="#13282e"/>
+    </radialGradient>
+    <radialGradient id="bubble" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".94"/>
+      <stop offset=".28" stop-color="#c7efeb" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".14"/>
+    </radialGradient>
+    <clipPath id="body-clip">
+      <path d="M131 714c49-72 153-104 286-82 108 18 196 59 262 123-62 66-157 101-279 102-126 1-222-31-277-88-16-17-13-38 8-55z"/>
+    </clipPath>
+    <clipPath id="tail-clip">
+      <path d="M650 692c52-43 103-50 152-21-23 39-25 82-7 127-44 34-93 29-147-15 20-29 21-60 2-91z"/>
+    </clipPath>
+    <g id="bubble-mark">
+      <circle cx="50" cy="50" r="38" fill="url(#bubble)" stroke="#6eaaa8" stroke-opacity=".72" stroke-width="6"/>
+      <path d="M29 43c3-10 10-17 20-20" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".82" stroke-width="7"/>
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#bubble-mark" opacity=".86" transform="matrix(.41 0 0 .41 91 1168)"/>
+    <use href="#bubble-mark" opacity=".65" transform="matrix(.23 0 0 .23 147 1026)"/>
+    <use href="#bubble-mark" opacity=".8" transform="matrix(.34 0 0 .34 99 893)"/>
+    <use href="#bubble-mark" opacity=".6" transform="matrix(.18 0 0 .18 160 759)"/>
+    <use href="#bubble-mark" opacity=".73" transform="matrix(.27 0 0 .27 119 633)"/>
+    <use href="#bubble-mark" opacity=".85" transform="matrix(.38 0 0 .38 708 906)"/>
+    <use href="#bubble-mark" opacity=".64" transform="matrix(.22 0 0 .22 759 758)"/>
+    <use href="#bubble-mark" opacity=".78" transform="matrix(.31 0 0 .31 719 619)"/>
+    <use href="#bubble-mark" opacity=".58" transform="matrix(.18 0 0 .18 775 480)"/>
+    <use href="#bubble-mark" opacity=".7" transform="matrix(.26 0 0 .26 736 354)"/>
+  </g>
+  <g aria-label="male swordtail">
+    <path d="M650 692c52-43 103-50 152-21-23 39-25 82-7 127-44 34-93 29-147-15 20-29 21-60 2-91z" fill="url(#fin)" stroke="#405c59" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#tail-clip)" fill="none" stroke-linecap="round">
+      <path d="M662 708c42-19 83-24 124-16m-131 53c46-8 89-2 129 16" stroke="#e8e4aa" stroke-width="9"/>
+      <path d="M710 673c-1 42 13 76 43 102" stroke="#c95c58" stroke-width="14"/>
+    </g>
+    <path d="M652 772c89 38 168 60 237 66-77 19-161 10-252-28-15-6-21-17-17-29 4-13 15-16 32-9z" fill="#758f75" stroke="#405c59" stroke-linejoin="round" stroke-width="9"/>
+    <path d="M405 634c32-65 80-91 141-78-20 28-23 58-8 91-45-12-89-16-133-13z" fill="url(#fin)" stroke="#405c59" stroke-linejoin="round" stroke-width="9"/>
+    <path d="M131 714c49-72 153-104 286-82 108 18 196 59 262 123-62 66-157 101-279 102-126 1-222-31-277-88-16-17-13-38 8-55z" fill="url(#body)" stroke="#405c59" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#body-clip)" fill="none" stroke-linecap="round">
+      <path d="M164 754c110-2 214 2 314 13 73 8 137 5 194-8" stroke="#cf5c57" stroke-width="24"/>
+      <path d="M167 738c106-12 209-12 309 1 80 10 145 8 195-6" stroke="#f4d177" stroke-width="8"/>
+      <path d="M212 650c7 59 26 119 56 181m32-189c10 66 32 133 66 201m34-196c15 63 40 126 74 188m28-167c14 48 36 96 64 144" stroke="#dfe5aa" stroke-width="10"/>
+      <path d="M177 687c66 25 128 24 185-3 59-27 121-22 185 17m-385 97c71 24 139 20 204-12 60-30 120-25 181 15" stroke="#b8d7a1" stroke-width="8"/>
+    </g>
+    <path d="M277 718c31-31 70-32 112-2-18 50-56 75-107 64-16-18-18-39-5-62z" fill="#b9d09b" stroke="#405c59" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M324 713c-8 19-8 39 0 60" fill="none" stroke="#eff0bb" stroke-linecap="round" stroke-width="7"/>
+    <circle cx="190" cy="704" r="22" fill="#d7d89d" stroke="#405c59" stroke-width="7"/>
+    <circle cx="191" cy="705" r="12" fill="url(#eye)"/>
+    <circle cx="186" cy="699" r="4.5" fill="#fff"/>
+    <path d="M122 748c14 7 28 7 42 0" fill="none" stroke="#405c59" stroke-linecap="round" stroke-width="7"/>
+    <path d="M420 853c33 39 73 49 114 29-25-18-41-43-47-74-22 23-44 38-67 45z" fill="url(#fin)" stroke="#405c59" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M380 853c15 46 34 76 56 92" fill="none" stroke="#405c59" stroke-linecap="round" stroke-width="8"/>
+  </g>
+</svg>

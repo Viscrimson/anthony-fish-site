@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 900 1600">
+  <title>Sailfin molly and bubbles aquarium background</title>
+  <desc>A transparent vector aquarium layer showing one male sailfin molly with a very tall patterned dorsal sail, silver-blue spotted body, crisp dark outlines, and rising bubbles.</desc>
+  <defs>
+    <linearGradient id="body" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e4dfa4"/>
+      <stop offset=".28" stop-color="#a9c0a0"/>
+      <stop offset=".62" stop-color="#6b9d96"/>
+      <stop offset="1" stop-color="#436e78"/>
+    </linearGradient>
+    <linearGradient id="sail" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e9d78a"/>
+      <stop offset=".42" stop-color="#9dad86"/>
+      <stop offset=".75" stop-color="#5c8982"/>
+      <stop offset="1" stop-color="#456875"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#d9d493"/>
+      <stop offset=".55" stop-color="#7da18e"/>
+      <stop offset="1" stop-color="#456d74"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#d8ca80"/>
+      <stop offset=".45" stop-color="#596c61"/>
+      <stop offset="1" stop-color="#13282e"/>
+    </radialGradient>
+    <radialGradient id="bubble" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".94"/>
+      <stop offset=".28" stop-color="#c7efeb" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".14"/>
+    </radialGradient>
+    <clipPath id="body-clip">
+      <path d="M142 704c42-98 152-146 303-118 123 23 214 84 270 171-52 92-156 140-297 141-141 2-246-42-291-119-13-23-7-53 15-75z"/>
+    </clipPath>
+    <clipPath id="sail-clip">
+      <path d="M286 608c44-146 139-243 272-256 66-7 123 4 172 33-39 62-54 138-45 227-134-29-267-31-399-4z"/>
+    </clipPath>
+    <clipPath id="tail-clip">
+      <path d="M686 682c72-56 140-66 205-29-29 52-30 106-3 162-60 44-126 36-201-17 27-38 27-76-1-116z"/>
+    </clipPath>
+    <g id="bubble-mark">
+      <circle cx="50" cy="50" r="38" fill="url(#bubble)" stroke="#6eaaa8" stroke-opacity=".72" stroke-width="6"/>
+      <path d="M29 43c3-10 10-17 20-20" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".82" stroke-width="7"/>
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#bubble-mark" opacity=".87" transform="matrix(.42 0 0 .42 82 1191)"/>
+    <use href="#bubble-mark" opacity=".65" transform="matrix(.23 0 0 .23 142 1048)"/>
+    <use href="#bubble-mark" opacity=".8" transform="matrix(.34 0 0 .34 93 912)"/>
+    <use href="#bubble-mark" opacity=".59" transform="matrix(.18 0 0 .18 154 776)"/>
+    <use href="#bubble-mark" opacity=".73" transform="matrix(.27 0 0 .27 113 649)"/>
+    <use href="#bubble-mark" opacity=".85" transform="matrix(.38 0 0 .38 711 928)"/>
+    <use href="#bubble-mark" opacity=".64" transform="matrix(.22 0 0 .22 763 780)"/>
+    <use href="#bubble-mark" opacity=".78" transform="matrix(.31 0 0 .31 721 641)"/>
+    <use href="#bubble-mark" opacity=".58" transform="matrix(.18 0 0 .18 778 502)"/>
+    <use href="#bubble-mark" opacity=".71" transform="matrix(.26 0 0 .26 738 376)"/>
+  </g>
+  <g aria-label="male sailfin molly">
+    <path d="M686 682c72-56 140-66 205-29-29 52-30 106-3 162-60 44-126 36-201-17 27-38 27-76-1-116z" fill="url(#fin)" stroke="#405b5d" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#tail-clip)" fill="none" stroke-linecap="round">
+      <path d="M702 696c58-24 114-31 169-20m-177 67c61-8 119-2 174 20m-160 28c50 14 94 33 131 58" stroke="#dfe0a0" stroke-width="9"/>
+      <g fill="#4e7881" stroke="#e1d88f" stroke-width="4">
+        <circle cx="748" cy="699" r="10"/><circle cx="813" cy="686" r="9"/><circle cx="781" cy="751" r="11"/><circle cx="836" cy="787" r="9"/>
+      </g>
+    </g>
+    <path d="M286 608c44-146 139-243 272-256 66-7 123 4 172 33-39 62-54 138-45 227-134-29-267-31-399-4z" fill="url(#sail)" stroke="#405b5d" stroke-linejoin="round" stroke-width="11"/>
+    <g clip-path="url(#sail-clip)" fill="none">
+      <path d="M318 594l74-168m-18 172 83-203m-22 202 89-226m-23 230 92-234m-21 240 86-218" stroke="#e8df9d" stroke-linecap="round" stroke-width="9"/>
+      <path d="M313 531c108-28 221-32 339-11m-304-68c93-25 190-28 291-9" stroke="#557b78" stroke-linecap="round" stroke-width="14"/>
+      <g fill="#4b7478" stroke="#e4d894" stroke-width="4">
+        <circle cx="401" cy="482" r="11"/><circle cx="470" cy="445" r="10"/><circle cx="545" cy="419" r="11"/>
+        <circle cx="609" cy="421" r="9"/><circle cx="447" cy="542" r="10"/><circle cx="534" cy="526" r="11"/><circle cx="621" cy="523" r="10"/>
+      </g>
+    </g>
+    <path d="M142 704c42-98 152-146 303-118 123 23 214 84 270 171-52 92-156 140-297 141-141 2-246-42-291-119-13-23-7-53 15-75z" fill="url(#body)" stroke="#405b5d" stroke-linejoin="round" stroke-width="11"/>
+    <g clip-path="url(#body-clip)" fill="none" stroke-linecap="round">
+      <path d="M177 643c71 45 146 58 224 38 93-24 183 1 270 75m-509-37c81 37 163 41 246 12 90-31 174-13 252 54m-484 28c78 27 153 23 225-12 80-39 158-32 234 18" stroke="#d9d69b" stroke-width="11"/>
+      <path d="M235 603c3 84 26 174 69 268m27-269c7 90 34 184 80 281m27-278c12 87 42 176 89 267m18-241c17 70 46 139 86 205" stroke="#5f8582" stroke-width="8"/>
+      <g fill="#427682" stroke="#d9d69b" stroke-width="4">
+        <circle cx="277" cy="681" r="11"/><circle cx="346" cy="705" r="10"/><circle cx="420" cy="680" r="12"/>
+        <circle cx="491" cy="716" r="10"/><circle cx="558" cy="693" r="11"/><circle cx="620" cy="739" r="10"/>
+        <circle cx="304" cy="789" r="9"/><circle cx="386" cy="817" r="11"/><circle cx="467" cy="786" r="10"/><circle cx="545" cy="826" r="9"/>
+      </g>
+      <path d="M183 746c122 4 240 14 354 31 58 9 109 8 155-3" stroke="#efcf6e" stroke-width="9"/>
+    </g>
+    <path d="M273 721c36-40 80-42 127-4-21 62-65 92-124 76-18-21-19-46-3-72z" fill="#9fb595" stroke="#405b5d" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M325 714c-9 24-8 47 1 71" fill="none" stroke="#edf0bd" stroke-linecap="round" stroke-width="7"/>
+    <circle cx="197" cy="683" r="23" fill="#d9d294" stroke="#405b5d" stroke-width="7"/>
+    <circle cx="198" cy="684" r="13" fill="url(#eye)"/>
+    <circle cx="192" cy="678" r="4.5" fill="#fff"/>
+    <path d="M129 740c16 3 31 0 45-9" fill="none" stroke="#405b5d" stroke-linecap="round" stroke-width="8"/>
+    <path d="M430 892c40 46 87 56 134 30-28-20-47-49-55-87-26 30-52 49-79 57z" fill="url(#fin)" stroke="#405b5d" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M389 892c17 55 39 91 65 108" fill="none" stroke="#405b5d" stroke-linecap="round" stroke-width="8"/>
+  </g>
+</svg>

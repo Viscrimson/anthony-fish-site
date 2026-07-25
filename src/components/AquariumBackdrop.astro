@@ -1,4 +1,7 @@
 ---
+import { existsSync, readdirSync } from "node:fs";
+import { extname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { withBase } from "../lib/paths.js";
 
 const fallbackImageNames = [
@@ -42,18 +45,35 @@ const normalizeBackgroundImage = (value, directory) => {
 const sceneryImages = sceneryCmsImages
   .map((value) => normalizeBackgroundImage(value, "backgrounds"))
   .filter(Boolean);
-const fishBackgroundImages = fishCmsImages
+const configuredFishBackgroundImages = fishCmsImages
   .map((value) => normalizeBackgroundImage(value, "fish-backgrounds"))
   .filter(Boolean);
+const fishBackgroundDirectory = fileURLToPath(
+  new URL("../../public/fish-backgrounds/", import.meta.url),
+);
+const supportedFishBackgroundExtensions = new Set([".avif", ".jpg", ".jpeg", ".png", ".svg", ".webp"]);
+const uploadedFishBackgroundImages = existsSync(fishBackgroundDirectory)
+  ? readdirSync(fishBackgroundDirectory, { withFileTypes: true })
+      .filter(
+        (entry) =>
+          entry.isFile() && supportedFishBackgroundExtensions.has(extname(entry.name).toLowerCase()),
+      )
+      .map((entry) => withBase(`fish-backgrounds/${entry.name}`))
+      .sort()
+  : [];
 const availableSceneryImages = sceneryImages.length ? sceneryImages : fallbackImages;
+const availableFishBackgroundImages = configuredFishBackgroundImages.length
+  ? configuredFishBackgroundImages
+  : uploadedFishBackgroundImages;
+const hasFishBackgroundImages = availableFishBackgroundImages.length > 0;
 const initialLeftScenery = availableSceneryImages[0];
 const initialRightScenery = availableSceneryImages[1] ?? initialLeftScenery;
-const initialLeftFish = fishBackgroundImages[0] ?? null;
-const initialRightFish = fishBackgroundImages[1] ?? null;
+const initialLeftFish = availableFishBackgroundImages[0] ?? null;
+const initialRightFish = availableFishBackgroundImages[1] ?? initialLeftFish;
 ---
 
 <div
-  class="aquarium-backdrop"
+  class:list={{ "aquarium-backdrop": true, "has-fish-backgrounds": hasFishBackgroundImages }}
   aria-hidden="true"
   data-aquarium-backdrop
 >
@@ -83,7 +103,7 @@ const initialRightFish = fishBackgroundImages[1] ?? null;
   )}
 </div>
 
-<script is:inline define:vars={{ availableSceneryImages, fishBackgroundImages }}>
+<script is:inline define:vars={{ availableSceneryImages, availableFishBackgroundImages }}>
   (() => {
     const backdrop = document.querySelector("[data-aquarium-backdrop]");
     const leftBackdrop = document.querySelector("[data-aquarium-backdrop-left]");
@@ -105,27 +125,38 @@ const initialRightFish = fishBackgroundImages[1] ?? null;
       return [images[leftIndex], images[rightIndex]];
     };
 
+    const randomizeOrientation = (element) => {
+      element?.classList.toggle("is-mirrored", Math.random() < 0.5);
+    };
+
     const [leftScenery, rightScenery] = selectPair(availableSceneryImages);
     leftBackdrop.style.backgroundImage = `url("${leftScenery}")`;
     rightBackdrop.style.backgroundImage = `url("${rightScenery}")`;
+    randomizeOrientation(leftBackdrop);
+    randomizeOrientation(rightBackdrop);
 
-    if (leftFishBackdrop && fishBackgroundImages.length) {
-      const [leftFish, rightFish] = selectPair(fishBackgroundImages);
+    if (leftFishBackdrop && availableFishBackgroundImages.length) {
+      const [leftFish, rightFish] = selectPair(availableFishBackgroundImages);
       leftFishBackdrop.style.backgroundImage = `url("${leftFish}")`;
+      randomizeOrientation(leftFishBackdrop);
 
-      if (rightFishBackdrop && fishBackgroundImages.length > 1) {
+      if (rightFishBackdrop && availableFishBackgroundImages.length > 1) {
         rightFishBackdrop.style.backgroundImage = `url("${rightFish}")`;
+        randomizeOrientation(rightFishBackdrop);
       }
     }
 
     const updateArtworkSize = () => {
       const contentFrame = document.querySelector(".page-wrap");
+      const footer = document.querySelector(".site-footer");
       const sideSpace = Math.max(
         0,
         contentFrame?.getBoundingClientRect().left ?? window.innerWidth / 2,
       );
       const artworkWidth = Math.min(900, Math.max(460, Math.round(sideSpace)));
+      const footerClearance = Math.ceil(footer?.getBoundingClientRect().height ?? 0);
       backdrop.style.setProperty("--aquarium-art-width", `${artworkWidth}px`);
+      backdrop.style.setProperty("--aquarium-footer-clearance", `${footerClearance}px`);
     };
 
     window.addEventListener("resize", updateArtworkSize, { passive: true });
@@ -136,24 +167,5 @@ const initialRightFish = fishBackgroundImages[1] ?? null;
       updateArtworkSize();
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    let frame = 0;
-    const updateParallax = () => {
-      frame = 0;
-      const offset = Math.round((window.scrollY || 0) * -0.08);
-      backdrop.style.transform = `translate3d(0, ${offset}px, 0)`;
-    };
-
-    const requestParallaxUpdate = () => {
-      if (!frame) {
-        frame = window.requestAnimationFrame(updateParallax);
-      }
-    };
-
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    updateParallax();
   })();
 </script>

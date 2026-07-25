@@ -23,6 +23,9 @@ const backgroundImages = Array.isArray(siteContent.backgroundImages)
 const fishBackgroundImages = Array.isArray(siteContent.fishBackgroundImages)
   ? siteContent.fishBackgroundImages.map(trimText).filter(Boolean)
   : [];
+const sandBackgroundImages = Array.isArray(siteContent.sandBackgroundImages)
+  ? siteContent.sandBackgroundImages.map(trimText).filter(Boolean)
+  : [];
 const currentYear = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
 const homePath = withBase();
@@ -60,7 +63,11 @@ const navItems = [
     <link rel="icon" type="image/png" sizes="64x64" href={withBase("favicon-octopus.png")} />
   </head>
   <body>
-    <AquariumBackdrop images={backgroundImages} fishImages={fishBackgroundImages} />
+    <AquariumBackdrop
+      images={backgroundImages}
+      fishImages={fishBackgroundImages}
+      sandImages={sandBackgroundImages}
+    />
     <header class="site-header">
       <a class="site-brand" href={withBase()}>
         <span class="site-brand-mark" aria-hidden="true">

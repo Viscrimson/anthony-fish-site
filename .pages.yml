@@ -27,6 +27,13 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
+  - name: aquariumMiddleSandBackgrounds
+    label: Middle sand backgrounds
+    input: public/sand-backgrounds
+    output: /sand-backgrounds
+    rename: safe
+    categories: [image]
+    extensions: [svg, png, jpg, jpeg, webp]
 
 content:
   - name: site
@@ -88,6 +95,16 @@ content:
         options:
           media: aquariumFishBackgrounds
           path: public/fish-backgrounds
+          rename: safe
+          extensions: [svg, png, jpg, jpeg, webp]
+      - name: sandBackgroundImages
+        label: Middle sand backgrounds
+        type: image
+        list: true
+        description: Upload wide sand strips in Media > Middle sand backgrounds. The site randomly selects one; leave this list empty to use every uploaded sand strip.
+        options:
+          media: aquariumMiddleSandBackgrounds
+          path: public/sand-backgrounds
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: qrHelperHeading

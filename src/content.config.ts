@@ -14,6 +14,7 @@ const site = defineCollection({
     notesIntro: z.string().optional(),
     backgroundImages: z.array(z.string()).optional(),
     fishBackgroundImages: z.array(z.string()).optional(),
+    sandBackgroundImages: z.array(z.string()).optional(),
     qrHelperHeading: z.string().optional(),
     qrHelperText: z.string().optional(),
     aboutHeading: z.string().optional(),

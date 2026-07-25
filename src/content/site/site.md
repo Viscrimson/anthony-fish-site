@@ -40,6 +40,7 @@ backgroundImages:
   - /backgrounds/aquarium-22-tiger-lotus-garden.svg
   - /backgrounds/aquarium-23-seiryu-stone-ridge.svg
 fishBackgroundImages: []
+sandBackgroundImages: []
 qrHelperHeading: Quick start
 qrHelperText: Open the matching care sheet first to get the essential facts,
   then use the fuller resources when you want more context.

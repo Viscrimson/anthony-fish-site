@@ -58,16 +58,17 @@ body {
 }
 
 .aquarium-scenery-layer,
-.aquarium-fish-layer {
+.aquarium-fish-layer,
+.aquarium-middle-sand-layer {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
   background-repeat: no-repeat;
 }
 
 .aquarium-scenery-layer {
   z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 50%;
   background-size: var(--aquarium-art-width, 460px) auto;
   opacity: 0.13;
 }
@@ -84,8 +85,37 @@ body {
 
 .aquarium-fish-layer {
   z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 50%;
   background-size: min(520px, var(--aquarium-art-width, 460px)) auto;
   opacity: 0.09;
+}
+
+.aquarium-middle-sand-layer {
+  z-index: 0;
+  bottom: 0;
+  left: 50%;
+  width: clamp(720px, 55vw, 1150px);
+  height: clamp(220px, 32vh, 460px);
+  background-position: center bottom;
+  background-size: 100% auto;
+  opacity: 0.16;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
 }
 
 .aquarium-fish-left {
@@ -194,6 +224,12 @@ body {
 
   .aquarium-fish-layer {
     opacity: 0.11;
+  }
+
+  .aquarium-middle-sand-layer {
+    width: 720px;
+    height: min(360px, 48vw);
+    opacity: 0.15;
   }
 
   .aquarium-backdrop.has-fish-backgrounds {

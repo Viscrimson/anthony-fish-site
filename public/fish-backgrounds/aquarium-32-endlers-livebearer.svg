@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" viewBox="0 0 900 1600">
+  <title>Endler's livebearer and bubbles aquarium background</title>
+  <desc>A transparent vector aquarium layer showing one small male Endler's livebearer with a slender body, compact fan tail, bold orange, green, turquoise, and black markings, crisp dark outlines, and rising bubbles.</desc>
+  <defs>
+    <linearGradient id="body" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#dce5a5"/>
+      <stop offset=".33" stop-color="#77c7a2"/>
+      <stop offset=".68" stop-color="#3b9e9c"/>
+      <stop offset="1" stop-color="#376b80"/>
+    </linearGradient>
+    <linearGradient id="tail" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#efcf64"/>
+      <stop offset=".43" stop-color="#ef8a4e"/>
+      <stop offset=".76" stop-color="#cb5e58"/>
+      <stop offset="1" stop-color="#5f586b"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" x2="1">
+      <stop stop-color="#79c6a4"/>
+      <stop offset=".45" stop-color="#edc968"/>
+      <stop offset="1" stop-color="#e56f51"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#647b76"/>
+      <stop offset=".55" stop-color="#263e42"/>
+      <stop offset="1" stop-color="#13282e"/>
+    </radialGradient>
+    <radialGradient id="bubble" cx="35%" cy="28%" r="70%">
+      <stop stop-color="#fff" stop-opacity=".94"/>
+      <stop offset=".28" stop-color="#c7efeb" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#69aaa9" stop-opacity=".14"/>
+    </radialGradient>
+    <clipPath id="body-clip">
+      <path d="M194 737c33-58 110-86 207-72 82 12 149 47 199 101-47 54-116 84-206 86-93 2-167-23-207-69-13-15-11-31 7-46z"/>
+    </clipPath>
+    <clipPath id="tail-clip">
+      <path d="M578 696c73-55 143-67 210-36-25 48-24 98 2 149-64 39-134 31-211-23 24-29 24-60-1-90z"/>
+    </clipPath>
+    <g id="bubble-mark">
+      <circle cx="50" cy="50" r="38" fill="url(#bubble)" stroke="#6eaaa8" stroke-opacity=".72" stroke-width="6"/>
+      <path d="M29 43c3-10 10-17 20-20" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".82" stroke-width="7"/>
+    </g>
+  </defs>
+  <g aria-label="bubbles">
+    <use href="#bubble-mark" opacity=".86" transform="matrix(.4 0 0 .4 103 1160)"/>
+    <use href="#bubble-mark" opacity=".64" transform="matrix(.22 0 0 .22 157 1022)"/>
+    <use href="#bubble-mark" opacity=".79" transform="matrix(.32 0 0 .32 112 892)"/>
+    <use href="#bubble-mark" opacity=".59" transform="matrix(.17 0 0 .17 170 762)"/>
+    <use href="#bubble-mark" opacity=".73" transform="matrix(.26 0 0 .26 132 640)"/>
+    <use href="#bubble-mark" opacity=".84" transform="matrix(.36 0 0 .36 709 896)"/>
+    <use href="#bubble-mark" opacity=".64" transform="matrix(.21 0 0 .21 756 752)"/>
+    <use href="#bubble-mark" opacity=".77" transform="matrix(.3 0 0 .3 720 617)"/>
+    <use href="#bubble-mark" opacity=".58" transform="matrix(.17 0 0 .17 773 482)"/>
+    <use href="#bubble-mark" opacity=".7" transform="matrix(.25 0 0 .25 737 358)"/>
+  </g>
+  <g aria-label="male Endler's livebearer">
+    <path d="M578 696c73-55 143-67 210-36-25 48-24 98 2 149-64 39-134 31-211-23 24-29 24-60-1-90z" fill="url(#tail)" stroke="#4a5262" stroke-linejoin="round" stroke-width="10"/>
+    <g clip-path="url(#tail-clip)" fill="none" stroke-linecap="round">
+      <path d="M593 710c55-25 111-36 169-32m-176 72c63-13 125-10 187 10m-176 22c52 14 98 34 138 61" stroke="#f4d469" stroke-width="10"/>
+      <path d="M656 675c5 35 21 63 49 84 24 18 39 43 45 74" stroke="#243f4c" stroke-width="17"/>
+      <path d="M623 683c26 25 60 38 102 39m-119 58c38-5 72 3 101 24" stroke="#65c2a1" stroke-width="12"/>
+    </g>
+    <path d="M414 667c31-61 76-84 132-69-21 25-24 53-11 84-40-12-80-17-121-15z" fill="url(#fin)" stroke="#4a5262" stroke-linejoin="round" stroke-width="8"/>
+    <path d="M194 737c33-58 110-86 207-72 82 12 149 47 199 101-47 54-116 84-206 86-93 2-167-23-207-69-13-15-11-31 7-46z" fill="url(#body)" stroke="#315861" stroke-linejoin="round" stroke-width="9"/>
+    <g clip-path="url(#body-clip)">
+      <path d="M238 666c52 21 87 54 105 98 15 38 45 64 91 78l-10 38H231z" fill="#e9c74f"/>
+      <path d="M322 651c20 42 50 70 89 85 48 19 78 54 89 106" fill="none" stroke="#ef783f" stroke-linecap="round" stroke-width="35"/>
+      <path d="M444 666c-14 31-12 60 6 85 20 27 25 58 14 91" fill="none" stroke="#172f37" stroke-linecap="round" stroke-width="40"/>
+      <path d="M511 690c-3 23 8 40 33 52 18 9 29 24 32 45" fill="none" stroke="#d9e16f" stroke-linecap="round" stroke-width="22"/>
+      <path d="M207 739c59 13 116 5 171-24 55-29 112-28 171 4m-349 70c62 15 121 8 177-22 59-31 117-27 176 14" fill="none" stroke="#d9f0b5" stroke-linecap="round" stroke-width="8"/>
+      <g fill="#172e38" stroke="#f1cf58" stroke-width="4">
+        <circle cx="287" cy="715" r="11"/><circle cx="372" cy="792" r="13"/><circle cx="518" cy="721" r="10"/>
+      </g>
+    </g>
+    <path d="M270 739c27-28 60-29 96-3-15 43-48 65-91 55-14-15-16-33-5-52z" fill="#94d4a8" stroke="#315861" stroke-linejoin="round" stroke-width="7"/>
+    <path d="M310 735c-6 17-6 33 1 49" fill="none" stroke="#eff4b8" stroke-linecap="round" stroke-width="6"/>
+    <circle cx="229" cy="722" r="19" fill="#e5d58d" stroke="#315861" stroke-width="6"/>
+    <circle cx="230" cy="723" r="10.5" fill="url(#eye)"/>
+    <circle cx="226" cy="718" r="3.8" fill="#fff"/>
+    <path d="M184 764c12 6 24 6 36 0" fill="none" stroke="#315861" stroke-linecap="round" stroke-width="6"/>
+    <path d="M422 849c30 33 64 41 99 24-21-15-34-36-40-62-19 19-39 32-59 38z" fill="url(#fin)" stroke="#4a5262" stroke-linejoin="round" stroke-width="7"/>
+    <path d="M383 850c14 44 31 73 52 88" fill="none" stroke="#4a5262" stroke-linecap="round" stroke-width="7"/>
+  </g>
+</svg>

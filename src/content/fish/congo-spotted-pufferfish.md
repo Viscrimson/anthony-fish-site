@@ -13,6 +13,8 @@ invertebrateSafe: false
 juvenileAppearance: Larval, never observed past day five.
 adultMaleAppearance: Shorter then the female, less round and more elliptical in body plan.
 adultFemaleAppearance: Larger then the male, more round then elliptical in body plan.
+maleFemaleDifferences: The male is shorter and more elliptical in body shape,
+  while the female is larger and more round.
 husbandryNotes: >-
   Tetraodon Schoutedenti, or the Congo Spotted Pufferfish, is a peaceful
   pufferfish that is very colorful and has a relatively tolerant demeanor

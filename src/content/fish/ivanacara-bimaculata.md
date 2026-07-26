@@ -2,6 +2,7 @@
 commonName: Ivanacara bimaculata
 scientificName: Ivanacara bimaculata
 origin: Guyana, the Potaro river and the Essequibo river basins.
+temperatureRange: 74 - 78 F
 adultSize: Females 2.5 - 3 inches,  Males 3.5 - 4 inches
 tankSize: 30 gallons or larger
 foodRecommendation: Frozen adult brine shrimp, Aquarium Co op community floating

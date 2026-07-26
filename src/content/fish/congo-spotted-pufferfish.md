@@ -32,6 +32,9 @@ husbandryNotes: >-
        I mention this because potential pufferfish keepers need to be ready for this reality.  If you decide to take on this fish, you will need a large supply of live foods.  An adult Congo Spotted Pufferfish can go through 5 - 6 snails per day.   They create enormous amounts of waste as well in the tanks that they are in.  Most of my puffers would consume the whole snail.  The male however only ate the fleshy food and left the rest of the snail to rot away in the shell.  Each puffer required 5 - 6 snails per day.  I state this because any breeding project attempted would also require more snails to feed the babies as they grew.   This is something to think about if you wish to attempt breeding the Congo Spotted Pufferfish.  
        Finally I want to stress that should you decide to keep one of these very personable pufferfish, I would recommend strongly that you develop a plan to always keep them in water.  When you move them, they need to swim into a container.  You don't want to take them out of the water as that might induce the "puffing" reflex.  Once they puff up, they can't always release the air and this can be a death sentence for them.  So keep them under the water at all times.   You will also sometimes see them take in water.  Why they do this, I am not sure but don't immediately be alarmed if you see them start to jerk and grow bigger this is actually fairly normal if very infrequent behavior.  As they gulp in water, they don't rise to the top either.
 qrSummary: DO NOT take out of water!  This species should always be submerged.
+quickWarnings:
+  - Egg Scatterer, violent mating.
+  - Inadvertent threat to plants.
 mainImage: /fish-images/schodentipufferfishmating-2.jpg
 maleImage: /fish-images/schodentipufferfishmalefemale-2.jpg
 femaleImage: /fish-images/schodentipufferfishmalefemale-3.jpg

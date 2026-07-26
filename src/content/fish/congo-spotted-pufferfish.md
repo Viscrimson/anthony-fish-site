@@ -3,7 +3,7 @@ commonName: Congo Spotted Pufferfish
 scientificName: Tetrodon Schodenti
 origin: The Democratic Republic of the Congo, Congo River
 temperatureRange: 76 - 82 F
-adultSize: 3 inches (males), 4 inches (females)
+adultSize: 3 - 4 inches
 tankSize: 55 gallon or larger
 foodRecommendation: Live foods
 difficulty: Advanced

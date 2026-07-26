@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="240" viewBox="0 0 2400 240" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid meet">
+  <title id="title">Soft dune aquarium sand bar</title>
+  <desc id="desc">A long transparent aquarium substrate strip with broad golden sand dunes and scattered warm rounded pebbles.</desc>
+  <defs>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#eedca6"/>
+      <stop offset=".54" stop-color="#dbc589"/>
+      <stop offset="1" stop-color="#c8aa6e"/>
+    </linearGradient>
+    <linearGradient id="sandLight" x1="0" y1="0" x2="1" y2=".12">
+      <stop stop-color="#fff3c9" stop-opacity=".86"/>
+      <stop offset=".5" stop-color="#f4e2af" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#fff0c0" stop-opacity=".78"/>
+    </linearGradient>
+    <linearGradient id="amberStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ddc38c"/>
+      <stop offset="1" stop-color="#94754b"/>
+    </linearGradient>
+    <linearGradient id="sageStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#bac3ac"/>
+      <stop offset="1" stop-color="#708077"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M-20 78
+       C132 48 275 49 421 74
+       C566 99 716 96 866 68
+       C1015 40 1161 45 1305 73
+       C1452 101 1600 98 1745 70
+       C1890 43 2042 46 2188 72
+       C2260 85 2330 84 2420 67
+       L2420 260 L-20 260 Z"
+    fill="url(#sand)"
+    stroke="#876e47"
+    stroke-width="10"
+    stroke-linejoin="round"/>
+
+  <path
+    d="M18 91
+       C145 67 280 67 418 89
+       C568 113 718 110 868 82
+       C1018 55 1160 59 1304 86
+       C1450 114 1598 111 1747 84
+       C1893 57 2044 60 2184 85
+       C2253 97 2319 96 2382 84"
+    fill="none"
+    stroke="url(#sandLight)"
+    stroke-width="11"
+    stroke-linecap="round"/>
+
+  <g fill="none" stroke="#b99b62" stroke-width="5" stroke-linecap="round" opacity=".56">
+    <path d="M118 172c48-14 95-12 139 4"/>
+    <path d="M490 129c44-12 87-11 127 3"/>
+    <path d="M795 190c52-14 103-13 151 3"/>
+    <path d="M1156 132c46-12 91-10 133 4"/>
+    <path d="M1512 189c50-14 99-13 145 3"/>
+    <path d="M1849 130c45-12 88-11 129 3"/>
+    <path d="M2173 183c48-13 94-12 138 3"/>
+  </g>
+
+  <g stroke="#6f6248" stroke-width="5">
+    <ellipse cx="91" cy="120" rx="26" ry="13" fill="url(#amberStone)" transform="rotate(-8 91 120)"/>
+    <ellipse cx="247" cy="188" rx="21" ry="11" fill="#a58a5f" transform="rotate(10 247 188)"/>
+    <ellipse cx="390" cy="113" rx="31" ry="14" fill="#d3b879" transform="rotate(6 390 113)"/>
+    <ellipse cx="572" cy="171" rx="25" ry="12" fill="#97836a" transform="rotate(-9 572 171)"/>
+    <ellipse cx="731" cy="115" rx="22" ry="11" fill="url(#sageStone)" transform="rotate(11 731 115)"/>
+    <ellipse cx="915" cy="151" rx="34" ry="15" fill="url(#amberStone)" transform="rotate(-5 915 151)"/>
+    <ellipse cx="1087" cy="198" rx="22" ry="11" fill="#b09567" transform="rotate(8 1087 198)"/>
+    <ellipse cx="1262" cy="119" rx="29" ry="13" fill="#cfb37a" transform="rotate(-7 1262 119)"/>
+    <ellipse cx="1435" cy="168" rx="25" ry="12" fill="url(#sageStone)" transform="rotate(9 1435 168)"/>
+    <ellipse cx="1622" cy="116" rx="32" ry="14" fill="#947e61" transform="rotate(-6 1622 116)"/>
+    <ellipse cx="1784" cy="198" rx="23" ry="11" fill="#d1b77e" transform="rotate(12 1784 198)"/>
+    <ellipse cx="1963" cy="151" rx="30" ry="13" fill="url(#amberStone)" transform="rotate(-8 1963 151)"/>
+    <ellipse cx="2129" cy="116" rx="22" ry="11" fill="#8e8270" transform="rotate(8 2129 116)"/>
+    <ellipse cx="2291" cy="177" rx="28" ry="13" fill="#c3a36d" transform="rotate(-7 2291 177)"/>
+  </g>
+
+  <g fill="#f2dfb4" opacity=".48">
+    <circle cx="171" cy="135" r="5"/>
+    <circle cx="462" cy="207" r="4"/>
+    <circle cx="661" cy="143" r="6"/>
+    <circle cx="1004" cy="121" r="4"/>
+    <circle cx="1360" cy="211" r="5"/>
+    <circle cx="1706" cy="153" r="6"/>
+    <circle cx="2052" cy="209" r="4"/>
+    <circle cx="2358" cy="121" r="5"/>
+  </g>
+</svg>

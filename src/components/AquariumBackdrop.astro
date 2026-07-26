@@ -1,7 +1,6 @@
 ---
 import { existsSync, readdirSync } from "node:fs";
-import { extname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { extname, resolve } from "node:path";
 import { withBase } from "../lib/paths.js";
 
 const fallbackImageNames = [
@@ -52,12 +51,10 @@ const configuredFishBackgroundImages = fishCmsImages
 const configuredSandBackgroundImages = sandCmsImages
   .map((value) => normalizeBackgroundImage(value, "sand-backgrounds"))
   .filter(Boolean);
-const fishBackgroundDirectory = fileURLToPath(
-  new URL("../../public/fish-backgrounds/", import.meta.url),
-);
-const sandBackgroundDirectory = fileURLToPath(
-  new URL("../../public/sand-backgrounds/", import.meta.url),
-);
+// Use the project root rather than this compiled Astro module's location. That
+// keeps CMS uploads discoverable in both local development and GitHub Pages builds.
+const fishBackgroundDirectory = resolve(process.cwd(), "public", "fish-backgrounds");
+const sandBackgroundDirectory = resolve(process.cwd(), "public", "sand-backgrounds");
 const supportedBackgroundExtensions = new Set([".avif", ".jpg", ".jpeg", ".png", ".svg", ".webp"]);
 const uploadedFishBackgroundImages = existsSync(fishBackgroundDirectory)
   ? readdirSync(fishBackgroundDirectory, { withFileTypes: true })

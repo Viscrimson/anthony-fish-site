@@ -161,31 +161,32 @@ content:
         order: asc
     fields:
       - name: commonName
-        label: Common name
+        label: Common name *
         type: string
+        description: Fields marked * are required before this care sheet appears in the Care Sheet Library.
       - name: scientificName
-        label: Scientific name
+        label: Scientific name *
         type: string
       - name: origin
-        label: Origin / native range
+        label: Origin / native range *
         type: text
       - name: temperatureRange
-        label: Temperature range
+        label: Temperature range *
         type: string
       - name: adultSize
-        label: Adult size
+        label: Adult size *
         type: string
       - name: tankSize
-        label: Tank size
+        label: Tank size *
         type: string
       - name: foodRecommendation
-        label: Food recommendation
+        label: Food recommendation *
         type: string
       - name: difficulty
-        label: Difficulty
+        label: Difficulty *
         type: string
       - name: temperament
-        label: Temperament / social note
+        label: Temperament / social note *
         type: text
       - name: plantSafe
         label: Plant safe
@@ -225,7 +226,7 @@ content:
         list: true
         description: Use note slugs such as first-24-hours-with-a-new-fish. A slug is the file name without .md.
       - name: mainImage
-        label: Main photo / illustration
+        label: Main photo / illustration *
         type: image
         description: The primary image used on the fish detail page and card.
         options:
@@ -234,7 +235,7 @@ content:
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: juvenileImage
-        label: Juvenile photo / illustration
+        label: Juvenile photo / illustration *
         type: image
         description: Optional image for the juvenile appearance section.
         options:
@@ -243,7 +244,7 @@ content:
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: maleImage
-        label: Adult male photo / illustration
+        label: Adult male photo / illustration *
         type: image
         description: Optional image for the adult male appearance section.
         options:
@@ -252,7 +253,7 @@ content:
           rename: safe
           extensions: [svg, png, jpg, jpeg, webp]
       - name: femaleImage
-        label: Adult female photo / illustration
+        label: Adult female photo / illustration *
         type: image
         description: Optional image for the adult female appearance section.
         options:

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="240" viewBox="0 0 2400 240" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid meet">
+  <title id="title">River pebble aquarium sand bar</title>
+  <desc id="desc">A long transparent aquarium substrate strip with a calm golden sand surface and a varied scatter of natural river pebbles.</desc>
+  <defs>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ead79d"/>
+      <stop offset=".5" stop-color="#d6bd7e"/>
+      <stop offset="1" stop-color="#c4a568"/>
+    </linearGradient>
+    <linearGradient id="sandLight" x1="0" y1="0" x2="1" y2=".1">
+      <stop stop-color="#ffefbf" stop-opacity=".8"/>
+      <stop offset=".45" stop-color="#f2ddaa" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#fceab9" stop-opacity=".76"/>
+    </linearGradient>
+    <linearGradient id="grayStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c1c9bd"/>
+      <stop offset="1" stop-color="#697a73"/>
+    </linearGradient>
+    <linearGradient id="tanStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d9bd82"/>
+      <stop offset="1" stop-color="#92724c"/>
+    </linearGradient>
+    <linearGradient id="slateStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#a6aea8"/>
+      <stop offset="1" stop-color="#596a68"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M-20 71
+       C128 61 252 67 382 80
+       C522 94 650 91 789 72
+       C928 53 1061 58 1196 76
+       C1337 95 1473 92 1605 73
+       C1736 54 1870 58 2007 78
+       C2140 97 2271 90 2420 66
+       L2420 260 L-20 260 Z"
+    fill="url(#sand)"
+    stroke="#876e47"
+    stroke-width="10"
+    stroke-linejoin="round"/>
+
+  <path
+    d="M17 84
+       C139 75 257 80 383 93
+       C522 107 653 104 791 85
+       C929 66 1060 71 1197 89
+       C1336 108 1474 105 1606 86
+       C1737 67 1872 71 2005 91
+       C2140 111 2266 104 2384 85"
+    fill="none"
+    stroke="url(#sandLight)"
+    stroke-width="11"
+    stroke-linecap="round"/>
+
+  <g fill="none" stroke="#b3955d" stroke-width="5" stroke-linecap="round" opacity=".58">
+    <path d="M77 193c39-11 77-10 113 2"/>
+    <path d="M340 142c42-11 83-10 121 3"/>
+    <path d="M666 190c45-12 89-11 131 3"/>
+    <path d="M1010 135c41-11 81-10 119 3"/>
+    <path d="M1297 191c47-13 93-12 137 3"/>
+    <path d="M1654 137c42-11 82-10 121 3"/>
+    <path d="M1934 190c47-13 93-12 136 3"/>
+    <path d="M2216 138c43-12 86-11 126 3"/>
+  </g>
+
+  <g stroke="#675f4c" stroke-width="5">
+    <ellipse cx="61" cy="119" rx="20" ry="10" fill="#a98a5c" transform="rotate(8 61 119)"/>
+    <ellipse cx="151" cy="161" rx="33" ry="15" fill="url(#grayStone)" transform="rotate(-7 151 161)"/>
+    <ellipse cx="286" cy="111" rx="24" ry="12" fill="url(#tanStone)" transform="rotate(10 286 111)"/>
+    <ellipse cx="431" cy="188" rx="28" ry="13" fill="#8d816b" transform="rotate(-9 431 188)"/>
+    <ellipse cx="551" cy="126" rx="19" ry="10" fill="#c9ab70" transform="rotate(7 551 126)"/>
+    <ellipse cx="686" cy="105" rx="31" ry="14" fill="url(#slateStone)" transform="rotate(-6 686 105)"/>
+    <ellipse cx="826" cy="166" rx="23" ry="11" fill="#b69462" transform="rotate(11 826 166)"/>
+    <ellipse cx="957" cy="201" rx="35" ry="15" fill="url(#tanStone)" transform="rotate(-5 957 201)"/>
+    <ellipse cx="1094" cy="119" rx="21" ry="11" fill="#788b83" transform="rotate(9 1094 119)"/>
+    <ellipse cx="1225" cy="165" rx="29" ry="13" fill="#d0b77e" transform="rotate(-8 1225 165)"/>
+    <ellipse cx="1368" cy="113" rx="25" ry="12" fill="url(#grayStone)" transform="rotate(6 1368 113)"/>
+    <ellipse cx="1498" cy="199" rx="21" ry="11" fill="#9c805a" transform="rotate(-10 1498 199)"/>
+    <ellipse cx="1628" cy="165" rx="33" ry="14" fill="url(#slateStone)" transform="rotate(8 1628 165)"/>
+    <ellipse cx="1762" cy="109" rx="20" ry="10" fill="#c9a970" transform="rotate(-7 1762 109)"/>
+    <ellipse cx="1878" cy="201" rx="27" ry="13" fill="#8d7b62" transform="rotate(10 1878 201)"/>
+    <ellipse cx="2016" cy="126" rx="31" ry="14" fill="url(#tanStone)" transform="rotate(-6 2016 126)"/>
+    <ellipse cx="2152" cy="171" rx="22" ry="11" fill="#768982" transform="rotate(8 2152 171)"/>
+    <ellipse cx="2280" cy="111" rx="28" ry="13" fill="#d2b67a" transform="rotate(-8 2280 111)"/>
+    <ellipse cx="2361" cy="194" rx="19" ry="10" fill="url(#grayStone)" transform="rotate(7 2361 194)"/>
+  </g>
+
+  <g fill="#f0dcac" opacity=".47">
+    <circle cx="222" cy="208" r="5"/>
+    <circle cx="497" cy="104" r="4"/>
+    <circle cx="758" cy="214" r="6"/>
+    <circle cx="899" cy="121" r="4"/>
+    <circle cx="1156" cy="211" r="5"/>
+    <circle cx="1435" cy="141" r="4"/>
+    <circle cx="1710" cy="212" r="6"/>
+    <circle cx="2085" cy="215" r="5"/>
+    <circle cx="2334" cy="145" r="4"/>
+  </g>
+</svg>

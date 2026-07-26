@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="240" viewBox="0 0 2400 240" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid meet">
+  <title id="title">Ivory aquarium sand bar</title>
+  <desc id="desc">A long transparent aquarium substrate strip with pale ivory sand and softly colored natural pebbles.</desc>
+  <defs>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f5efd9"/>
+      <stop offset=".52" stop-color="#e8ddbf"/>
+      <stop offset="1" stop-color="#d5c49f"/>
+    </linearGradient>
+    <linearGradient id="sandLight" x1="0" y1="0" x2="1" y2=".13">
+      <stop stop-color="#fffdf2" stop-opacity=".92"/>
+      <stop offset=".5" stop-color="#f8f0d8" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#fff9e9" stop-opacity=".84"/>
+    </linearGradient>
+    <linearGradient id="pearlStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e8e5d8"/>
+      <stop offset="1" stop-color="#a9aaa0"/>
+    </linearGradient>
+    <linearGradient id="sageStone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c5d0c2"/>
+      <stop offset="1" stop-color="#788a82"/>
+    </linearGradient>
+  </defs>
+  <path d="M-20 72 C130 48 266 55 402 77 C544 100 683 96 820 70 C961 43 1100 49 1243 76 C1383 102 1522 97 1661 71 C1800 46 1940 50 2080 75 C2200 97 2308 92 2420 66 L2420 260 L-20 260 Z"
+    fill="url(#sand)" stroke="#8b8068" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M18 85 C141 65 269 70 401 91 C544 114 683 109 822 84 C961 57 1102 63 1242 89 C1383 116 1522 110 1662 85 C1801 59 1940 64 2080 89 C2197 110 2304 106 2382 87"
+    fill="none" stroke="url(#sandLight)" stroke-width="11" stroke-linecap="round"/>
+  <g fill="none" stroke="#c5b894" stroke-width="5" stroke-linecap="round" opacity=".58">
+    <path d="M116 168c47-13 92-12 135 3"/><path d="M472 127c43-12 84-10 123 3"/>
+    <path d="M782 191c49-14 97-12 142 4"/><path d="M1135 133c46-13 91-11 133 3"/>
+    <path d="M1485 190c50-14 99-12 145 4"/><path d="M1837 129c45-12 89-10 130 3"/>
+    <path d="M2174 187c47-13 94-12 137 3"/>
+  </g>
+  <g stroke="#746f63" stroke-width="5">
+    <ellipse cx="82" cy="116" rx="25" ry="12" fill="url(#pearlStone)" transform="rotate(-8 82 116)"/>
+    <ellipse cx="243" cy="186" rx="21" ry="11" fill="#b9a88e" transform="rotate(11 243 186)"/>
+    <ellipse cx="389" cy="111" rx="31" ry="14" fill="#d6c7a8" transform="rotate(7 389 111)"/>
+    <ellipse cx="566" cy="169" rx="24" ry="12" fill="url(#sageStone)" transform="rotate(-9 566 169)"/>
+    <ellipse cx="732" cy="111" rx="22" ry="11" fill="#bba98c" transform="rotate(10 732 111)"/>
+    <ellipse cx="913" cy="153" rx="33" ry="15" fill="url(#pearlStone)" transform="rotate(-6 913 153)"/>
+    <ellipse cx="1087" cy="199" rx="22" ry="11" fill="#c9b893" transform="rotate(9 1087 199)"/>
+    <ellipse cx="1261" cy="116" rx="28" ry="13" fill="url(#sageStone)" transform="rotate(-7 1261 116)"/>
+    <ellipse cx="1433" cy="169" rx="25" ry="12" fill="#a99d8c" transform="rotate(9 1433 169)"/>
+    <ellipse cx="1617" cy="113" rx="31" ry="14" fill="#ded2b8" transform="rotate(-6 1617 113)"/>
+    <ellipse cx="1782" cy="198" rx="23" ry="11" fill="url(#pearlStone)" transform="rotate(12 1782 198)"/>
+    <ellipse cx="1959" cy="151" rx="30" ry="13" fill="#bba68b" transform="rotate(-8 1959 151)"/>
+    <ellipse cx="2126" cy="115" rx="22" ry="11" fill="url(#sageStone)" transform="rotate(8 2126 115)"/>
+    <ellipse cx="2291" cy="176" rx="28" ry="13" fill="#d4c3a2" transform="rotate(-7 2291 176)"/>
+  </g>
+  <g fill="#fff9e7" opacity=".55">
+    <circle cx="166" cy="137" r="5"/><circle cx="460" cy="207" r="4"/><circle cx="660" cy="141" r="6"/>
+    <circle cx="1002" cy="120" r="4"/><circle cx="1357" cy="211" r="5"/><circle cx="1704" cy="151" r="6"/>
+    <circle cx="2051" cy="208" r="4"/><circle cx="2357" cy="119" r="5"/>
+  </g>
+</svg>

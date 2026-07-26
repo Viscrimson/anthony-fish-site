@@ -10,6 +10,7 @@ difficulty: Advanced
 temperament: Mostly Peaceful.
 plantSafe: false
 invertebrateSafe: false
+juvenileAppearance: Larval, never observed past day five.
 adultMaleAppearance: Shorter then the female, less round and more elliptical in body plan.
 adultFemaleAppearance: Larger then the male, more round then elliptical in body plan.
 husbandryNotes: >-

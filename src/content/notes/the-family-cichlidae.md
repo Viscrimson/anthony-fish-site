@@ -9,6 +9,9 @@ date: 2026-07-20
 lastUpdated: 2026-07-20
 lastReviewed: 2026-07-20
 showVisualNote: false
+galleryImages:
+  - /note-images/angelfishexample.jpg
+  - /note-images/discusexample.jpg
 ---
 The family cichlidae consists of more than 1,760 scientifically described species of fishes found in both North and South America, Africa and Asia.  They are the third most numerous family of fishes found on earth behind only the Cyprinidae and the Gobiidae.  Recent scientific evidence through genetic studies indicate that the closest marine relative to the cichlidae is the convict blenny (Pholidichthys leucotaenia).  The family is characterized by having a single nostril on each side of the head (as opposed to two in other fishes), a pharyngial jaw (a second set of jaws in the throat), complex parental care, a discontinuous lateral line, high intelligence, and a high degree of variance in both body plan and size.  
 

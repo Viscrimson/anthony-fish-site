@@ -1,6 +1,7 @@
 ---
 commonName: Green Swordtail
 scientificName: Xiphophorus Helleri "Rio atoyac"
+origin: Mexico, The Rio Atoyac River
 temperatureRange: 76 - 82 F
 adultSize: 4 - 5 inches
 tankSize: 30 gallons or larger

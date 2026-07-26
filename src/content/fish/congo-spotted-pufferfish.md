@@ -7,7 +7,7 @@ adultSize: 3 inches (males), 4 inches (females)
 tankSize: 55 gallon or larger
 foodRecommendation: Live foods
 difficulty: Advanced
-temperament: Mostly Peaceful.
+temperament: Peaceful
 plantSafe: false
 invertebrateSafe: false
 juvenileAppearance: Larval, never observed past day five.

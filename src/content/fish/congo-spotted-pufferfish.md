@@ -36,6 +36,7 @@ quickWarnings:
   - Egg Scatterer, violent mating.
   - Inadvertent threat to plants.
 mainImage: /fish-images/schodentipufferfishmating-2.jpg
+juvenileImage: /fish-images/notapplicable.jpg
 maleImage: /fish-images/schodentipufferfishmalefemale-2.jpg
 femaleImage: /fish-images/schodentipufferfishmalefemale-3.jpg
 galleryImages:

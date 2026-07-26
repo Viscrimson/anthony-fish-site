@@ -53,9 +53,10 @@ anthonyNotes: >-
 
   F1:   Is short hand in the hobby for first filial.  This means it is one
   generation from the wild.  
-mainImage: /fish-images/fish-placeholder.svg
+mainImage: /fish-images/greenswordtail.jpg
 juvenileImage: /fish-images/fish-placeholder.svg
-maleImage: /fish-images/fish-placeholder.svg
+maleImage: /fish-images/greenswordtailmale.jpg
+femaleImage: /fish-images/greenswordtailfemale.jpg
 showAdditionalPhotos: true
 draft: false
 ---

@@ -34,5 +34,5 @@ femaleImage: /fish-images/schodentipufferfishmalefemale-3.jpg
 galleryImages:
   - /fish-images/schodentipufferfishmating-1.jpg
 showAdditionalPhotos: false
-draft: true
+draft: false
 ---

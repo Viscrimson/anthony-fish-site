@@ -10,9 +10,17 @@ difficulty: Beginner to intermediate
 temperament: Peaceful, males will spar during mating.
 plantSafe: true
 invertebrateSafe: false
+juvenileAppearance: The juveniles strongly resemble adult females with the
+  exception of not having a gravid spot.
+adultMaleAppearance: Adult males will have a sword that will be much larger than
+  their bodies.  An adult male will have a sword that is commonly 2 to 2.5 times
+  it body size.  Adult males are generally smaller then they adult females in
+  body size.
+adultFemaleAppearance: Females are larger with a dark spot at their ventral
+  section.  This spot is usually an indicator that they are carrying babies.
 husbandryNotes: >-
-  Xiphophorus Montezumae is also called the king of all swordtails.  It is a
-  wild type of swordtail that was never mixed with a platy thus its color
+  Xiphophorus Montezumae is also known as the king of swordtail species.  It is
+  a wild type of swordtail that is not mixed with a platy thus its color
   variations are fewer but it possesses by far the largest sword of the
   swordtails.  While the male in body plan has a maximum size of about 3.5
   inches, the sword on a Xiphoporus montezumae male from the Tamasopo collection

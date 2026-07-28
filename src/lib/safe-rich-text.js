@@ -4,7 +4,6 @@ const allowedTags = new Set([
   "a",
   "blockquote",
   "br",
-  "code",
   "del",
   "em",
   "h3",
@@ -13,7 +12,6 @@ const allowedTags = new Set([
   "li",
   "ol",
   "p",
-  "pre",
   "strong",
   "table",
   "tbody",
@@ -62,6 +60,12 @@ const renderNode = (node) => {
   if (node.type !== "element") return "";
 
   const content = renderNodes(node.children ?? []);
+
+  // These care-note fields are prose, not code documentation. Older entries
+  // contain indented paragraphs, which Markdown interprets as code blocks.
+  // Render them as ordinary paragraphs instead of inheriting code styling.
+  if (node.tagName === "pre") return `<p>${content}</p>`;
+  if (node.tagName === "code") return content;
 
   if (!allowedTags.has(node.tagName)) return content;
   if (node.tagName === "br" || node.tagName === "hr") return `<${node.tagName}>`;

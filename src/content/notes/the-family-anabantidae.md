@@ -2,7 +2,7 @@
 title: "The Family: Anabantidae"
 category: Fish Profiles
 showRelatedFish: false
-draft: true
+draft: false
 summary: What are the characteristics of the family Anabantidae?
 quickAnswer: "The defining characteristics of the Anabantidae is the labyrinth
   organ, strong spiny gill covers, and teeth on the parasphenoid bone. "

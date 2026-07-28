@@ -21,9 +21,11 @@ adultMaleAppearance: "What adult males look like"
 adultFemaleAppearance: "What adult females look like"
 maleFemaleDifferences: "How to tell males and females apart"
 husbandryNotes: |
-  Use this for care notes, water parameters, behavior, and setup tips.
+  Use this for care notes, water parameters, behavior, and setup tips. Add a
+  [helpful setup guide](https://example.com) when it will help a new keeper.
 anthonyNotes: |
-  Use this for Anthony's personal observations about this fish.
+  Use this for Anthony's personal observations about this fish. Add links to
+  related care resources when useful.
 mainImage: fish-placeholder.svg
 juvenileImage: fish-placeholder.svg
 maleImage: fish-placeholder.svg

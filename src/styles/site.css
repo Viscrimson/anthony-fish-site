@@ -1256,13 +1256,35 @@ h3 {
   background: var(--surface);
 }
 
-.fish-note-section p:last-child {
+.fish-note-content > :first-child {
+  margin-top: 0;
+}
+
+.fish-note-content > :last-child {
   margin-bottom: 0;
 }
 
-.fish-note-section p {
+.fish-note-content p,
+.fish-note-content li,
+.fish-note-content blockquote {
   color: var(--muted);
   line-height: 1.65;
+}
+
+.fish-note-content a {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.fish-note-content a:hover {
+  color: var(--accent);
+}
+
+.fish-note-content ul,
+.fish-note-content ol {
+  padding-left: 1.3rem;
 }
 
 .appearance-grid {

@@ -8,6 +8,7 @@ import {
   trimText,
 } from "../lib/content-display.js";
 import { fishImage, withBase } from "../lib/paths.js";
+import { renderSafeRichText } from "../lib/safe-rich-text.js";
 
 const { fish, previousFish = null, nextFish = null, relatedNotes = [] } = Astro.props;
 const quickSummary = trimText(fish.qrSummary);
@@ -53,6 +54,7 @@ const appearanceCards = [
 const galleryImages = compactStrings(fish.galleryImages).filter(hasRenderableImage);
 const quickWarnings = compactStrings(fish.quickWarnings);
 const husbandryNotes = trimText(fish.husbandryNotes);
+const anthonyNotes = trimText(fish.anthonyNotes);
 const pageUrl = fish.url;
 ---
 
@@ -195,7 +197,18 @@ const pageUrl = fish.url;
           <div>
             <h2 id="husbandry-notes">Husbandry notes</h2>
           </div>
-          <p>{husbandryNotes}</p>
+          <div class="fish-note-content" set:html={renderSafeRichText(husbandryNotes)} />
+        </section>
+      ) : null
+    }
+
+    {
+      anthonyNotes ? (
+        <section class="fish-note-section" aria-labelledby="anthony-notes">
+          <div>
+            <h2 id="anthony-notes">Anthony's notes</h2>
+          </div>
+          <div class="fish-note-content" set:html={renderSafeRichText(anthonyNotes)} />
         </section>
       ) : null
     }

@@ -208,10 +208,20 @@ content:
         type: text
       - name: husbandryNotes
         label: Husbandry notes
-        type: text
+        type: rich-text
+        description: Add care details, setup guidance, and links to helpful resources.
+        options:
+          format: markdown
+          media: false
+          switcher: false
       - name: anthonyNotes
         label: Anthony notes
-        type: text
+        type: rich-text
+        description: Add personal observations and links to related care resources.
+        options:
+          format: markdown
+          media: false
+          switcher: false
       - name: qrSummary
         label: Quick care handoff summary
         type: text

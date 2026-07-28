@@ -69,6 +69,10 @@ The fish care sheet index and individual fish pages update automatically from
 Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or
 components to add a new fish.
 
+Husbandry notes and Anthony notes use a formatted editor in Pages CMS. Use its
+link control for setup guides and other resources; manual edits can use standard
+Markdown links such as `[link text](https://example.com)`.
+
 If a fish does not have a photo yet, use:
 
 ```yaml

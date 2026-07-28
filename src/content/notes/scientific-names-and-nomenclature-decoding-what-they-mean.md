@@ -1,5 +1,5 @@
 ---
-title: Scientific Names & Nomenclature (decoding what they mean)
+title: Scientific Names & Nomenclature (Part 5 Suffixes)
 category: Knowledge Base
 showRelatedFish: false
 draft: false

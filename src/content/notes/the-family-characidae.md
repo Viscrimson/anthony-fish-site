@@ -10,6 +10,9 @@ date: 2026-07-21
 lastUpdated: 2026-07-21
 lastReviewed: 2026-07-21
 showVisualNote: false
+galleryImages:
+  - /note-images/adiposefinpenguintetra.jpg
+  - /note-images/adiposefinrummynose.jpg
 ---
 The family Characidae also known as the Characins is a diverse family of fishes with 1,150 officially described by science. They are found native to North America, South America and Africa.  The closest known marine relative of the family Characidae is the milkfish, scientific name is Chanos chanos.  The family is characterized by having an adipose fin and teeth on their jaws.  Other common traits found in most characins are the traditional "tetra" body shape and distinct cycloid shaped scales (scales that are smooth and overlapping).  
 

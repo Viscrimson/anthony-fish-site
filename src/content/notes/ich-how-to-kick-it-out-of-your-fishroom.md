@@ -2,7 +2,7 @@
 title: "Ich:  How to Kick it Out of Your Fishroom."
 category: Fish Health
 showRelatedFish: false
-draft: true
+draft: false
 summary: So your fish are sick with little white dots spaced out all over their
   body, don't panic.  Here is what you need to do.
 quickAnswer: To kick Ich out of your fishroom, know how to use medication, water

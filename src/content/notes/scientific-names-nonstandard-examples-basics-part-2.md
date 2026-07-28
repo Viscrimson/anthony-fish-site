@@ -3,6 +3,10 @@ title: "Scientific Names: Nonstandard Examples (Basics Part 2)"
 category: Knowledge Base
 showRelatedFish: false
 draft: false
+summary: Explanations as to what deviations from binomial nomenclature exists
+  and is commonly found in the hobby (cf., sp, L, and CW.
+quickAnswer: "The four most commonly encountered deviations from traditional
+  binomial nomenclature in the aquarium hobby is cf,, sp, L, and CW. "
 date: 2026-07-27
 lastUpdated: 2026-07-27
 lastReviewed: 2026-07-27

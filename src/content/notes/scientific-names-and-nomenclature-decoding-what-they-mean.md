@@ -4,7 +4,7 @@ category: Knowledge Base
 showRelatedFish: false
 draft: false
 summary: The suffixes  "ensis", "ae", and "i" are not random, they have meaning
-  in species names.
+  in binomial nomenclature.
 quickAnswer: An explanation of the strange word and recurring conventions
   commonly found in scientific names for organisms in the hobby.
 date: 2026-07-27

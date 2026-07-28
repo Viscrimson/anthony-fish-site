@@ -13,24 +13,10 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
-  - name: aquariumSceneryBackgrounds
-    label: Aquarium scenery backgrounds
+  - name: aquariumBackgrounds
+    label: Aquarium backgrounds
     input: public/backgrounds
     output: /backgrounds
-    rename: safe
-    categories: [image]
-    extensions: [svg, png, jpg, jpeg, webp]
-  - name: aquariumFishBackgrounds
-    label: Aquarium fish backgrounds
-    input: public/backgrounds/fish
-    output: /backgrounds/fish
-    rename: safe
-    categories: [image]
-    extensions: [svg, png, jpg, jpeg, webp]
-  - name: aquariumBubbleBackgrounds
-    label: Aquarium bubbles
-    input: public/backgrounds/bubbles
-    output: /backgrounds/bubbles
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]

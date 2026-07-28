@@ -3,6 +3,9 @@ title: "Scientific Names:  Additional Symbols (Part 4)"
 category: Knowledge Base
 showRelatedFish: false
 draft: false
+summary: What symbols are commonly used in binomial nomenclature as written
+  before or after the scientific name.
+quickAnswer: An explanation as to what the "†" means when written before or after the name.
 date: 2026-07-27
 lastUpdated: 2026-07-27
 lastReviewed: 2026-07-27

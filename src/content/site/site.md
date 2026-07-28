@@ -17,9 +17,9 @@ notesIntro: Turn everyday aquarium care into a simple routine. These guides
   explain how to prepare the water, welcome new fish, feed without overfeeding,
   choose compatible tankmates, and respond when something does not look right.
 bubbleBackgroundEnabled: true
-bubbleBackgroundDensity: medium
-bubbleBackgroundMaximumOpacity: 0.6
-bubbleBackgroundSpeed: slow
+bubbleBackgroundDensity: high
+bubbleBackgroundMaximumOpacity: "0.6"
+bubbleBackgroundSpeed: normal
 qrHelperHeading: Quick start
 qrHelperText: Open the matching care sheet first to get the essential facts,
   then use the fuller resources when you want more context.

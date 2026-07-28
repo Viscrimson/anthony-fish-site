@@ -3,6 +3,9 @@ title: "Scientific Names: Varient Nomenclature in the Hobby (Part 3)"
 category: Knowledge Base
 showRelatedFish: false
 draft: false
+summary: Explanations as to what F1, F2, Wild, and "Collection Name" means that
+  are commonly written with scientific names on bags in the hobby.
+quickAnswer: Explanations as to what F1, F2, Wild and how collection locations are written.
 date: 2026-07-27
 lastUpdated: 2026-07-27
 lastReviewed: 2026-07-27

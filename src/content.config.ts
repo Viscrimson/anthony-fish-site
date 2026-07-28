@@ -14,7 +14,7 @@ const site = defineCollection({
     notesIntro: z.string().optional(),
     bubbleBackgroundEnabled: z.boolean().optional(),
     bubbleBackgroundDensity: z.enum(["low", "medium", "high"]).optional(),
-    bubbleBackgroundMaximumOpacity: z.number().optional(),
+    bubbleBackgroundMaximumOpacity: z.coerce.number().optional(),
     bubbleBackgroundSpeed: z.enum(["slow", "normal"]).optional(),
     qrHelperHeading: z.string().optional(),
     qrHelperText: z.string().optional(),

@@ -76,12 +76,31 @@ content:
           values: [low, medium, high]
       - name: bubbleBackgroundMaximumOpacity
         label: Bubble maximum opacity
-        type: number
-        default: 0.6
-        description: Use a value from 0.15 to 0.60 to keep content readable.
+        type: select
+        default: "0.6"
+        description: Choose the maximum bubble visibility. Higher values are more noticeable.
         options:
-          min: 0.15
-          max: 0.60
+          values:
+            - name: "0.15"
+              label: "0.15"
+            - name: "0.2"
+              label: "0.20"
+            - name: "0.25"
+              label: "0.25"
+            - name: "0.3"
+              label: "0.30"
+            - name: "0.35"
+              label: "0.35"
+            - name: "0.4"
+              label: "0.40"
+            - name: "0.45"
+              label: "0.45"
+            - name: "0.5"
+              label: "0.50"
+            - name: "0.55"
+              label: "0.55"
+            - name: "0.6"
+              label: "0.60"
       - name: bubbleBackgroundSpeed
         label: Bubble animation speed
         type: select

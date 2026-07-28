@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 320" role="img" aria-label="Irregular aquarium bubble cluster">
+  <defs>
+    <radialGradient id="fill" cx="32%" cy="24%" r="78%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".28"/>
+      <stop offset=".60" stop-color="#d0fcfd" stop-opacity=".055"/>
+      <stop offset=".88" stop-color="#65d0dc" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".60"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="12%" y1="8%" x2="90%" y2="95%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset=".50" stop-color="#9cebf1" stop-opacity=".40"/>
+      <stop offset="1" stop-color="#36acbc" stop-opacity=".27"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <circle cx="138" cy="221" r="58" fill="url(#fill)" stroke="url(#rim)" stroke-width="4"/>
+    <path d="M102 204c8-15 20-24 37-28" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="218" cy="150" r="39" fill="url(#fill)" stroke="url(#rim)" stroke-width="3.3"/>
+    <path d="M197 140c5-10 13-16 23-18" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="88" cy="126" r="29" fill="url(#fill)" stroke="url(#rim)" stroke-width="3"/>
+    <path d="M73 118c4-7 9-11 16-13" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="169" cy="77" r="22" fill="url(#fill)" stroke="url(#rim)" stroke-width="2.6"/>
+    <path d="M159 71c3-5 6-7 11-8" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="248" cy="57" r="13" fill="url(#fill)" stroke="url(#rim)" stroke-width="2"/>
+    <path d="M243 53c1-3 3-4 6-5" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="56" cy="248" r="17" fill="url(#fill)" stroke="url(#rim)" stroke-width="2.2"/>
+    <path d="M49 243c2-4 5-6 8-7" fill="none" stroke="#ffffff" stroke-opacity=".80" stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+</svg>

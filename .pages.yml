@@ -22,15 +22,15 @@ media:
     extensions: [svg, png, jpg, jpeg, webp]
   - name: aquariumFishBackgrounds
     label: Aquarium fish backgrounds
-    input: public/fish-backgrounds
-    output: /fish-backgrounds
+    input: public/backgrounds/fish
+    output: /backgrounds/fish
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
-  - name: aquariumMiddleSandBackgrounds
-    label: Middle sand backgrounds
-    input: public/sand-backgrounds
-    output: /sand-backgrounds
+  - name: aquariumBubbleBackgrounds
+    label: Aquarium bubbles
+    input: public/backgrounds/bubbles
+    output: /backgrounds/bubbles
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
@@ -77,36 +77,31 @@ content:
       - name: notesIntro
         label: Notes intro
         type: text
-      - name: backgroundImages
-        label: Aquarium scenery backgrounds
-        type: image
-        list: true
-        description: Upload, remove, or reorder the faded bottom aquarium scenes used randomly across the site.
+      - name: bubbleBackgroundEnabled
+        label: Show animated aquarium bubbles
+        type: boolean
+        default: true
+        description: Decorative bubbles are shown behind site content when the supplied bubble artwork is available.
+      - name: bubbleBackgroundDensity
+        label: Bubble density
+        type: select
+        default: medium
         options:
-          media: aquariumSceneryBackgrounds
-          path: public/backgrounds
-          rename: safe
-          extensions: [svg, png, jpg, jpeg, webp]
-      - name: fishBackgroundImages
-        label: Aquarium fish backgrounds
-        type: image
-        list: true
-        description: Upload, remove, or reorder the faded fish and fish-school artwork layered above the scenery.
+          values: [low, medium, high]
+      - name: bubbleBackgroundMaximumOpacity
+        label: Bubble maximum opacity
+        type: number
+        default: 0.6
+        description: Use a value from 0.15 to 0.60 to keep content readable.
         options:
-          media: aquariumFishBackgrounds
-          path: public/fish-backgrounds
-          rename: safe
-          extensions: [svg, png, jpg, jpeg, webp]
-      - name: sandBackgroundImages
-        label: Middle sand backgrounds
-        type: image
-        list: true
-        description: Upload wide sand strips in Media > Middle sand backgrounds. The site randomly selects one; leave this list empty to use every uploaded sand strip.
+          min: 0.15
+          max: 0.60
+      - name: bubbleBackgroundSpeed
+        label: Bubble animation speed
+        type: select
+        default: slow
         options:
-          media: aquariumMiddleSandBackgrounds
-          path: public/sand-backgrounds
-          rename: safe
-          extensions: [svg, png, jpg, jpeg, webp]
+          values: [slow, normal]
       - name: qrHelperHeading
         label: QR helper heading
         type: string

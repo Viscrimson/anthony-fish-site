@@ -3,117 +3,51 @@ import { existsSync, readdirSync } from "node:fs";
 import { extname, resolve } from "node:path";
 import { withBase } from "../lib/paths.js";
 
-const fallbackImageNames = [
-  "aquarium-01-planted-driftwood.svg",
-  "aquarium-02-sunken-treasure.svg",
-  "aquarium-04-slate-cave.svg",
-  "aquarium-05-shipwreck.svg",
-  "aquarium-06-stone-lantern.svg",
-  "aquarium-07-terracotta-nursery.svg",
-  "aquarium-08-classical-ruins.svg",
-  "aquarium-09-hollow-log.svg",
-  "aquarium-10-diving-helmet.svg",
-  "aquarium-11-bubbler-submarine.svg",
-  "aquarium-12-planted-bridge.svg",
-  "aquarium-13-rooted-riverbank.svg",
-  "aquarium-14-vallisneria-meadow.svg",
-  "aquarium-15-red-stem-garden.svg",
-  "aquarium-16-branching-spiderwood.svg",
-  "aquarium-17-rounded-riverbed.svg",
-  "aquarium-18-amazon-sword-grove.svg",
-  "aquarium-19-mossy-driftwood-bank.svg",
-  "aquarium-20-blackwater-roots.svg",
-  "aquarium-21-cryptocoryne-thicket.svg",
-  "aquarium-22-tiger-lotus-garden.svg",
-  "aquarium-23-seiryu-stone-ridge.svg",
-];
-const fallbackImages = fallbackImageNames.map((filename) => withBase(`backgrounds/${filename}`));
-const sceneryCmsImages = Array.isArray(Astro.props.images) ? Astro.props.images : [];
-const fishCmsImages = Array.isArray(Astro.props.fishImages) ? Astro.props.fishImages : [];
-const sandCmsImages = Array.isArray(Astro.props.sandImages) ? Astro.props.sandImages : [];
-const normalizeBackgroundImage = (value, directory) => {
-  const normalized = String(value ?? "")
-    .trim()
-    .replace(/^\/+/, "")
-    .replace(/^public\//i, "");
-  const path = normalized.startsWith(`${directory}/`)
-    ? normalized
-    : `${directory}/${normalized}`;
-
-  return withBase(path);
-};
-const sceneryImages = sceneryCmsImages
-  .map((value) => normalizeBackgroundImage(value, "backgrounds"))
-  .filter(Boolean);
-const configuredFishBackgroundImages = fishCmsImages
-  .map((value) => normalizeBackgroundImage(value, "fish-backgrounds"))
-  .filter(Boolean);
-const configuredSandBackgroundImages = sandCmsImages
-  .map((value) => normalizeBackgroundImage(value, "sand-backgrounds"))
-  .filter(Boolean);
-// Use the project root rather than this compiled Astro module's location. That
-// keeps CMS uploads discoverable in both local development and GitHub Pages builds.
-const fishBackgroundDirectory = resolve(process.cwd(), "public", "fish-backgrounds");
-const sandBackgroundDirectory = resolve(process.cwd(), "public", "sand-backgrounds");
+// These directories are the single source of truth for aquarium artwork. The
+// CMS manages their files through Media, without duplicating them in Site Settings.
+const sceneryBackgroundDirectory = resolve(process.cwd(), "public", "backgrounds");
+const fishBackgroundDirectory = resolve(process.cwd(), "public", "backgrounds", "fish");
 const supportedBackgroundExtensions = new Set([".avif", ".jpg", ".jpeg", ".png", ".svg", ".webp"]);
-const uploadedFishBackgroundImages = existsSync(fishBackgroundDirectory)
-  ? readdirSync(fishBackgroundDirectory, { withFileTypes: true })
-      .filter(
-        (entry) =>
-          entry.isFile() && supportedBackgroundExtensions.has(extname(entry.name).toLowerCase()),
-      )
-      .map((entry) => withBase(`fish-backgrounds/${entry.name}`))
-      .sort()
-  : [];
-const uploadedSandBackgroundImages = existsSync(sandBackgroundDirectory)
-  ? readdirSync(sandBackgroundDirectory, { withFileTypes: true })
-      .filter(
-        (entry) =>
-          entry.isFile() && supportedBackgroundExtensions.has(extname(entry.name).toLowerCase()),
-      )
-      .map((entry) => withBase(`sand-backgrounds/${entry.name}`))
-      .sort()
-  : [];
-const availableSceneryImages = sceneryImages.length ? sceneryImages : fallbackImages;
-const availableFishBackgroundImages = configuredFishBackgroundImages.length
-  ? configuredFishBackgroundImages
-  : uploadedFishBackgroundImages;
-const availableSandBackgroundImages = configuredSandBackgroundImages.length
-  ? configuredSandBackgroundImages
-  : uploadedSandBackgroundImages;
+const publicBackgroundUrls = (directory, publicPath) =>
+  existsSync(directory)
+    ? readdirSync(directory, { withFileTypes: true })
+        .filter(
+          (entry) =>
+            entry.isFile() && supportedBackgroundExtensions.has(extname(entry.name).toLowerCase()),
+        )
+        .map((entry) => withBase(`${publicPath}/${entry.name}`))
+        .sort()
+    : [];
+
+const availableSceneryImages = publicBackgroundUrls(sceneryBackgroundDirectory, "backgrounds");
+const availableFishBackgroundImages = publicBackgroundUrls(fishBackgroundDirectory, "backgrounds/fish");
 const hasFishBackgroundImages = availableFishBackgroundImages.length > 0;
-const hasSandBackgroundImages = availableSandBackgroundImages.length > 0;
-const initialLeftScenery = availableSceneryImages[0];
+const initialLeftScenery = availableSceneryImages[0] ?? null;
 const initialRightScenery = availableSceneryImages[1] ?? initialLeftScenery;
 const initialLeftFish = availableFishBackgroundImages[0] ?? null;
 const initialRightFish = availableFishBackgroundImages[1] ?? initialLeftFish;
-const initialSandBackground = availableSandBackgroundImages[0] ?? null;
 ---
 
 <div
   class:list={{
     "aquarium-backdrop": true,
     "has-fish-backgrounds": hasFishBackgroundImages,
-    "has-sand-backgrounds": hasSandBackgroundImages,
   }}
   aria-hidden="true"
   data-aquarium-backdrop
 >
-  <div
-    class="aquarium-scenery-layer aquarium-backdrop-left"
-    data-aquarium-backdrop-left
-    style={`background-image: url("${initialLeftScenery}")`}
-  ></div>
-  <div
-    class="aquarium-scenery-layer aquarium-backdrop-right"
-    data-aquarium-backdrop-right
-    style={`background-image: url("${initialRightScenery}")`}
-  ></div>
-  {initialSandBackground && (
+  {initialLeftScenery && (
     <div
-      class="aquarium-middle-sand-layer"
-      data-aquarium-middle-sand
-      style={`background-image: url("${initialSandBackground}")`}
+      class="aquarium-scenery-layer aquarium-backdrop-left"
+      data-aquarium-backdrop-left
+      style={`background-image: url("${initialLeftScenery}")`}
+    ></div>
+  )}
+  {initialRightScenery && (
+    <div
+      class="aquarium-scenery-layer aquarium-backdrop-right"
+      data-aquarium-backdrop-right
+      style={`background-image: url("${initialRightScenery}")`}
     ></div>
   )}
   {initialLeftFish && (
@@ -135,7 +69,6 @@ const initialSandBackground = availableSandBackgroundImages[0] ?? null;
 <script is:inline define:vars={{
   availableSceneryImages,
   availableFishBackgroundImages,
-  availableSandBackgroundImages,
 }}>
   (() => {
     const backdrop = document.querySelector("[data-aquarium-backdrop]");
@@ -143,9 +76,8 @@ const initialSandBackground = availableSandBackgroundImages[0] ?? null;
     const rightBackdrop = document.querySelector("[data-aquarium-backdrop-right]");
     const leftFishBackdrop = document.querySelector("[data-aquarium-fish-left]");
     const rightFishBackdrop = document.querySelector("[data-aquarium-fish-right]");
-    const middleSandBackdrop = document.querySelector("[data-aquarium-middle-sand]");
 
-    if (!backdrop || !leftBackdrop || !rightBackdrop) {
+    if (!backdrop) {
       return;
     }
 
@@ -163,11 +95,13 @@ const initialSandBackground = availableSandBackgroundImages[0] ?? null;
       element?.classList.toggle("is-mirrored", Math.random() < 0.5);
     };
 
-    const [leftScenery, rightScenery] = selectPair(availableSceneryImages);
-    leftBackdrop.style.backgroundImage = `url("${leftScenery}")`;
-    rightBackdrop.style.backgroundImage = `url("${rightScenery}")`;
-    randomizeOrientation(leftBackdrop);
-    randomizeOrientation(rightBackdrop);
+    if (leftBackdrop && rightBackdrop && availableSceneryImages.length) {
+      const [leftScenery, rightScenery] = selectPair(availableSceneryImages);
+      leftBackdrop.style.backgroundImage = `url("${leftScenery}")`;
+      rightBackdrop.style.backgroundImage = `url("${rightScenery}")`;
+      randomizeOrientation(leftBackdrop);
+      randomizeOrientation(rightBackdrop);
+    }
 
     if (leftFishBackdrop && availableFishBackgroundImages.length) {
       const [leftFish, rightFish] = selectPair(availableFishBackgroundImages);
@@ -178,11 +112,6 @@ const initialSandBackground = availableSandBackgroundImages[0] ?? null;
         rightFishBackdrop.style.backgroundImage = `url("${rightFish}")`;
         randomizeOrientation(rightFishBackdrop);
       }
-    }
-
-    if (middleSandBackdrop && availableSandBackgroundImages.length) {
-      const sandIndex = Math.floor(Math.random() * availableSandBackgroundImages.length);
-      middleSandBackdrop.style.backgroundImage = `url("${availableSandBackgroundImages[sandIndex]}")`;
     }
 
     const updateArtworkSize = () => {

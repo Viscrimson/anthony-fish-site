@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Medium detailed aquarium bubble">
+  <defs>
+    <radialGradient id="fill" cx="31%" cy="24%" r="76%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".30"/>
+      <stop offset=".42" stop-color="#d8ffff" stop-opacity=".08"/>
+      <stop offset=".72" stop-color="#85e4ec" stop-opacity=".10"/>
+      <stop offset=".93" stop-color="#5bc9d7" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".70"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="18%" y1="8%" x2="85%" y2="92%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset=".35" stop-color="#baf8fa" stop-opacity=".48"/>
+      <stop offset=".72" stop-color="#55c3d2" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".48"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+  </defs>
+  <circle cx="90" cy="90" r="70" fill="url(#fill)" stroke="url(#rim)" stroke-width="4"/>
+  <path d="M48 67c9-18 24-29 44-33" fill="none" stroke="#ffffff" stroke-opacity=".86" stroke-width="8" stroke-linecap="round"/>
+  <path d="M127 111c-5 13-14 22-27 28" fill="none" stroke="#ddffff" stroke-opacity=".31" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="62" cy="48" rx="10" ry="5" transform="rotate(-28 62 48)" fill="#ffffff" fill-opacity=".38" filter="url(#soft)"/>
+  <circle cx="126" cy="64" r="5" fill="#d9ffff" fill-opacity=".22"/>
+</svg>

@@ -1,0 +1,98 @@
+---
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+import { withBase } from "../lib/paths.js";
+
+const bubbleArtwork = {
+  tiny: "bubble-tiny-round.svg",
+  small: "bubble-small-oval.svg",
+  medium: "bubble-medium-detailed.svg",
+  large: "bubble-large-soft.svg",
+  pair: "bubble-pair.svg",
+  cluster: "bubble-cluster.svg",
+};
+
+const bubbleInstances = [
+  { asset: "tiny", depth: "main", movement: "straight", left: "6%", bottom: "8%", size: "12px", opacity: 0.72, duration: 33, delay: -21, drift: "12px", sway: "8px", swayDuration: 9, travel: "128vh", rotation: "-4deg", blur: "0px" },
+  { asset: "small", depth: "rear", movement: "left", left: "15%", bottom: "34%", size: "24px", opacity: 0.62, duration: 49, delay: -37, drift: "-38px", sway: "12px", swayDuration: 13, travel: "150vh", rotation: "4deg", blur: "1px" },
+  { asset: "tiny", depth: "main", movement: "right", left: "24%", bottom: "17%", size: "10px", opacity: 0.86, duration: 28, delay: -9, drift: "30px", sway: "10px", swayDuration: 8, travel: "120vh", rotation: "3deg", blur: "0px" },
+  { asset: "medium", depth: "main", movement: "wander", left: "31%", bottom: "59%", size: "42px", opacity: 0.55, duration: 44, delay: -33, drift: "24px", sway: "18px", swayDuration: 14, travel: "135vh", rotation: "-6deg", blur: "0.4px" },
+  { asset: "pair", depth: "main", movement: "left", left: "39%", bottom: "9%", size: "52px", opacity: 0.48, duration: 51, delay: -44, drift: "-48px", sway: "15px", swayDuration: 16, travel: "150vh", rotation: "5deg", blur: "0.2px" },
+  { asset: "tiny", depth: "rear", movement: "right", left: "47%", bottom: "46%", size: "14px", opacity: 0.5, duration: 54, delay: -18, drift: "44px", sway: "14px", swayDuration: 17, travel: "158vh", rotation: "-3deg", blur: "1.5px" },
+  { asset: "small", depth: "main", movement: "straight", left: "54%", bottom: "23%", size: "28px", opacity: 0.68, duration: 35, delay: -26, drift: "10px", sway: "9px", swayDuration: 10, travel: "132vh", rotation: "-5deg", blur: "0px" },
+  { asset: "cluster", depth: "rear", movement: "wander", left: "62%", bottom: "72%", size: "76px", opacity: 0.34, duration: 55, delay: -48, drift: "36px", sway: "22px", swayDuration: 19, travel: "162vh", rotation: "4deg", blur: "1.8px" },
+  { asset: "tiny", depth: "main", movement: "left", left: "69%", bottom: "13%", size: "9px", opacity: 0.9, duration: 26, delay: -17, drift: "-28px", sway: "8px", swayDuration: 8, travel: "118vh", rotation: "6deg", blur: "0px" },
+  { asset: "medium", depth: "rear", movement: "right", left: "76%", bottom: "41%", size: "48px", opacity: 0.5, duration: 48, delay: -41, drift: "46px", sway: "16px", swayDuration: 15, travel: "154vh", rotation: "-4deg", blur: "1.1px" },
+  { asset: "small", depth: "main", movement: "wander", left: "85%", bottom: "5%", size: "22px", opacity: 0.7, duration: 39, delay: -29, drift: "-18px", sway: "13px", swayDuration: 12, travel: "138vh", rotation: "3deg", blur: "0px" },
+  { asset: "tiny", depth: "main", movement: "right", left: "92%", bottom: "56%", size: "11px", opacity: 0.75, duration: 31, delay: -14, drift: "22px", sway: "7px", swayDuration: 9, travel: "126vh", rotation: "-5deg", blur: "0px" },
+  { asset: "large", depth: "rear", movement: "left", left: "8%", bottom: "78%", size: "104px", opacity: 0.22, duration: 55, delay: -35, drift: "-54px", sway: "24px", swayDuration: 20, travel: "164vh", rotation: "-7deg", blur: "2px" },
+  { asset: "tiny", depth: "main", movement: "straight", left: "19%", bottom: "66%", size: "13px", opacity: 0.68, duration: 36, delay: -8, drift: "8px", sway: "8px", swayDuration: 11, travel: "132vh", rotation: "4deg", blur: "0px" },
+  { asset: "pair", depth: "main", movement: "right", left: "43%", bottom: "87%", size: "44px", opacity: 0.4, duration: 52, delay: -46, drift: "40px", sway: "15px", swayDuration: 18, travel: "156vh", rotation: "-3deg", blur: "0.4px" },
+  { asset: "small", depth: "rear", movement: "wander", left: "58%", bottom: "31%", size: "32px", opacity: 0.45, duration: 47, delay: -31, drift: "-20px", sway: "17px", swayDuration: 16, travel: "148vh", rotation: "5deg", blur: "1.2px" },
+  { asset: "medium", depth: "main", movement: "left", left: "72%", bottom: "91%", size: "38px", opacity: 0.54, duration: 43, delay: -39, drift: "-34px", sway: "14px", swayDuration: 13, travel: "142vh", rotation: "-5deg", blur: "0.2px" },
+  { asset: "tiny", depth: "main", movement: "right", left: "96%", bottom: "27%", size: "15px", opacity: 0.63, duration: 34, delay: -24, drift: "36px", sway: "9px", swayDuration: 10, travel: "130vh", rotation: "4deg", blur: "0px" },
+  { asset: "small", depth: "main", movement: "straight", left: "36%", bottom: "74%", size: "26px", opacity: 0.58, duration: 40, delay: -19, drift: "10px", sway: "11px", swayDuration: 12, travel: "136vh", rotation: "-4deg", blur: "0px" },
+  { asset: "tiny", depth: "rear", movement: "left", left: "51%", bottom: "96%", size: "8px", opacity: 0.6, duration: 50, delay: -42, drift: "-26px", sway: "7px", swayDuration: 15, travel: "158vh", rotation: "3deg", blur: "1px" },
+  { asset: "medium", depth: "main", movement: "wander", left: "82%", bottom: "64%", size: "56px", opacity: 0.42, duration: 46, delay: -22, drift: "30px", sway: "20px", swayDuration: 15, travel: "146vh", rotation: "-6deg", blur: "0.3px" },
+  { asset: "cluster", depth: "rear", movement: "right", left: "3%", bottom: "49%", size: "68px", opacity: 0.28, duration: 54, delay: -50, drift: "52px", sway: "21px", swayDuration: 19, travel: "160vh", rotation: "5deg", blur: "1.7px" },
+];
+
+const densityLimits = { low: 12, medium: 18, high: bubbleInstances.length };
+const normalizeChoice = (value, choices, fallback) =>
+  choices.includes(value) ? value : fallback;
+const clamp = (value, minimum, maximum, fallback) => {
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue)
+    ? Math.min(maximum, Math.max(minimum, numericValue))
+    : fallback;
+};
+const enabled = Astro.props.enabled !== false;
+const density = normalizeChoice(Astro.props.density, ["low", "medium", "high"], "medium");
+const maximumOpacity = clamp(Astro.props.maximumOpacity, 0.15, 0.6, 0.6);
+const speed = normalizeChoice(Astro.props.speed, ["slow", "normal"], "slow");
+const durationMultiplier = speed === "slow" ? 1.2 : 1;
+const bubbleDirectory = resolve(process.cwd(), "public", "backgrounds", "bubbles");
+const availableBubbleArtwork = new Set(
+  Object.entries(bubbleArtwork)
+    .filter(([, filename]) => existsSync(resolve(bubbleDirectory, filename)))
+    .map(([name]) => name),
+);
+const renderedBubbles = bubbleInstances
+  .slice(0, densityLimits[density])
+  .filter((bubble) => availableBubbleArtwork.has(bubble.asset));
+const bubbleSource = (asset) => withBase(`backgrounds/bubbles/${bubbleArtwork[asset]}`);
+const bubbleStyle = (bubble) => {
+  const bubbleOpacity = Math.min(1, bubble.opacity * 1.4) * maximumOpacity;
+
+  return [
+  `--bubble-left: ${bubble.left}`,
+  `--bubble-bottom: ${bubble.bottom}`,
+  `--bubble-size: ${bubble.size}`,
+  `--bubble-alpha: ${bubbleOpacity}`,
+  `--bubble-still-alpha: ${bubbleOpacity * 0.35}`,
+  `--bubble-duration: ${bubble.duration * durationMultiplier}s`,
+  `--bubble-delay: ${bubble.delay}s`,
+  `--bubble-drift: ${bubble.drift}`,
+  `--bubble-sway: ${bubble.sway}`,
+  `--bubble-sway-duration: ${bubble.swayDuration}s`,
+  `--bubble-travel: ${bubble.travel}`,
+  `--bubble-rotation: ${bubble.rotation}`,
+  `--bubble-blur: ${bubble.blur}`,
+].join("; ");
+};
+---
+
+{enabled && renderedBubbles.length > 0 && (
+  <div class={`aquarium-bubbles aquarium-bubbles--${density}`} aria-hidden="true">
+    {renderedBubbles.map((bubble) => (
+      <div
+        class={`aquarium-bubble aquarium-bubble--${bubble.asset} aquarium-bubble--${bubble.depth} aquarium-bubble--${bubble.movement}`}
+        style={bubbleStyle(bubble)}
+      >
+        <span class="aquarium-bubble-motion">
+          <img src={bubbleSource(bubble.asset)} alt="" width="110" height="110" decoding="async" />
+        </span>
+      </div>
+    ))}
+  </div>
+)}

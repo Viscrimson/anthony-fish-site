@@ -10,6 +10,8 @@ date: 2026-07-21
 lastUpdated: 2026-07-21
 lastReviewed: 2026-07-21
 showVisualNote: false
+galleryImages:
+  - /note-images/cyprinidaeexampleweberianapparatus.png
 ---
 The family cyprinidae is the largest known family of fish with 3000 species officially scientifically described.  They are found native to North America, Europe, Africa and Asia.  Recent scientific evidence through genetic studies indicate that the closest marine relative to the cyprinidae is actually the Ariidae (catfish).  The family is characterized by having toothless jaws, pharyngeal teeth and the Weberian apparatus.   Additional characteristics commonly found in members of this species is the lack of an adipose fin and the presence of a soft-rayed dorsal fin.  Additionally many members exhibit smooth overlapping scale pattern and have sensory barbels that allow them to search for food in low visibility on the bottom.
 

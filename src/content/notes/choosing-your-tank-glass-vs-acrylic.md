@@ -1,5 +1,5 @@
 ---
-title: "Choosing Your Tank:  Glass Vs. Acrylic"
+title: "Choosing Your Tank:  Glass Vs. Acrylic (Part 1)"
 category: Knowledge Base
 showRelatedFish: false
 draft: false

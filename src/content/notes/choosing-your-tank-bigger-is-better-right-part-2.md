@@ -1,5 +1,6 @@
 ---
 title: "Choosing Your Tank:  Bigger is Better.. Right? (Part 2)"
+category: Knowledge Base
 showRelatedFish: false
 draft: false
 summary: Bigger is always better right?  We examine this question here with a

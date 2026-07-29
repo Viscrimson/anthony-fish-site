@@ -54,7 +54,7 @@ const appearanceCards = [
 const galleryImages = compactStrings(fish.galleryImages).filter(hasRenderableImage);
 const quickWarnings = compactStrings(fish.quickWarnings);
 const husbandryNotes = trimText(fish.husbandryNotes);
-const anthonyNotes = trimText(fish.anthonyNotes);
+const miscellaneousNotes = trimText(fish.miscellaneousNotes);
 const pageUrl = fish.url;
 ---
 
@@ -203,12 +203,12 @@ const pageUrl = fish.url;
     }
 
     {
-      anthonyNotes ? (
-        <section class="fish-note-section" aria-labelledby="anthony-notes">
+      miscellaneousNotes ? (
+        <section class="fish-note-section" aria-labelledby="miscellaneous-notes">
           <div>
-            <h2 id="anthony-notes">Anthony's notes</h2>
+            <h2 id="miscellaneous-notes">Miscellaneous Notes</h2>
           </div>
-          <div class="fish-note-content" set:html={renderSafeRichText(anthonyNotes)} />
+          <div class="fish-note-content" set:html={renderSafeRichText(miscellaneousNotes)} />
         </section>
       ) : null
     }

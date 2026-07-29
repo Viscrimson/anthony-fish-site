@@ -7,7 +7,7 @@ import { hasText, trimText } from "../lib/content-display.js";
 const fallbackSite = {
   siteName: "Aquatic Treasures of Fort Myers",
   tagline: "Aquarium Hobby Fish keeping",
-  homepageEyebrow: "Aquatic Treasure of Fort Myers",
+  homepageEyebrow: "Aquatic Treasures of Fort Myers",
   homepageTitle: "By a Hobbyist for Hobbyists.",
   homepageIntro:
     "Find your fish’s care sheet, articles on fishkeeping, and advice for a successful start. I don't want to sell you anything, come here to learn practical advice for the best overall start. Covering what you need to know as a beginning fishkeeper to advanced topics and advice from a breeder of both rare and common tropical fish.",
@@ -25,7 +25,7 @@ const fallbackSite = {
     "Freshwater care sheets, aquarium setup guidance, water-quality fundamentals, feeding advice, and practical observations that help fish settle in and stay healthy.",
   contactHeading: "Contact",
   contactText:
-    "Contact details can be added later if Anthony wants them public.",
+    "Contact details can be added later.",
   showContact: false,
   showCredentials: false,
   showGroups: false,
@@ -142,9 +142,9 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 
     {
       aboutVisible ? (
-        <section class="content-section home-about-section" id="about" aria-labelledby="about-anthony">
+        <section class="content-section home-about-section" id="about" aria-labelledby="about-site">
           <div>
-            <h2 id="about-anthony">{aboutHeading}</h2>
+            <h2 id="about-site">{aboutHeading}</h2>
           </div>
           <div>
             {hasText(aboutSummary) ? <p class="lede">{aboutSummary}</p> : null}
@@ -163,10 +163,10 @@ const aboutVisible = hasText(aboutSummary) || aboutFields.length > 0;
 
     {
       contactVisible && hasText(contactText) ? (
-        <section class="content-section" id="contact" aria-labelledby="contact-anthony">
+        <section class="content-section" id="contact" aria-labelledby="contact-site">
           <div>
             <p class="eyebrow">Contact</p>
-            <h2 id="contact-anthony">{contactHeading}</h2>
+          <h2 id="contact-site">{contactHeading}</h2>
           </div>
           <div class="site-helper">
             <p>{contactText}</p>

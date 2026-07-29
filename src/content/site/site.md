@@ -43,7 +43,7 @@ focusText: Freshwater care sheets, aquarium setup guidance, water-quality
   future years.  I will use these funds to expand resources articles, to further
   fund the site into the future, and to do unbiased product reviews.
 contactHeading: Contact
-contactText: Contact details can be added later if Anthony wants them public.
+contactText: Contact details can be added later.
 showContact: false
 showCredentials: false
 showGroups: false

@@ -7,13 +7,13 @@ import AquariumBubbles from "../components/AquariumBubbles.astro";
 import ImageLightbox from "../components/ImageLightbox.astro";
 import "../styles/site.css";
 
-const siteName = "Anthony Fish Care";
+const siteName = "Aquatic Treasures of Fort Myers";
 const siteEntry = (await getCollection("site"))[0] ?? null;
 const siteContent = siteEntry?.data ?? {};
 
 const {
   title = siteName,
-  description = "Fish care sheets and resources from Anthony Fish Care.",
+  description = "Freshwater fish care sheets and aquarium resources from Aquatic Treasures of Fort Myers.",
 } = Astro.props;
 
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;

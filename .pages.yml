@@ -214,8 +214,8 @@ content:
           format: markdown
           media: false
           switcher: false
-      - name: anthonyNotes
-        label: Anthony notes
+      - name: miscellaneousNotes
+        label: Miscellaneous Notes
         type: rich-text
         description: Add personal observations and links to related care resources.
         options:

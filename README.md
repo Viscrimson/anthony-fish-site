@@ -1,4 +1,4 @@
-# Anthony Fish Care
+# Aquatic Treasures of Fort Myers
 
 Static Astro site for hobby fish-care information, fish care sheets, and short
 fishkeeping notes.
@@ -15,7 +15,7 @@ This repo uses Pages CMS as the browser editor for content.
 6. Keep a fish entry in draft until every required field is filled in.
 7. Save the entry to create a Git commit, then wait for GitHub Pages to rebuild.
 
-Anthony does not need to edit layouts or components to manage content.
+Content editors do not need to edit layouts or components to manage content.
 The CMS handles the forms and uploads; the site still controls the final image
 framing in the browser. If a fish field is left blank, the matching section
 simply stays hidden on the public page.
@@ -66,10 +66,10 @@ Manual fallback:
    empty sections.
 
 The fish care sheet index and individual fish pages update automatically from
-Markdown files in `src/content/fish/`. Anthony does not need to edit layouts or
-components to add a new fish.
+Markdown files in `src/content/fish/`. Content editors do not need to edit
+layouts or components to add a new fish.
 
-Husbandry notes and Anthony notes use a formatted editor in Pages CMS. Use its
+Husbandry notes and Miscellaneous Notes use a formatted editor in Pages CMS. Use its
 link control for setup guides and other resources; manual edits can use standard
 Markdown links such as `[link text](https://example.com)`.
 
@@ -86,7 +86,7 @@ femaleImage: fish-placeholder.svg
 
 - Use lowercase file names
 - Use dashes instead of spaces
-- Avoid personal names in filenames unless Anthony wants them public
+- Avoid personal names in filenames unless they are intended to be public
 
 The site accepts bare file names, `fish-images/...` paths, and `/fish-images/...`
 paths. It adds the site-root path automatically.
@@ -113,7 +113,7 @@ Manual fallback:
 
 The notes index and article pages update automatically from Markdown files in
 `src/content/notes/`. This content structure is suitable for a future
-Git-based editor because Anthony can add entries by editing files only.
+Git-based editor because entries can be added by editing files only.
 Note images stay separate from the fish sheet images, and the note page crops
 them into a consistent 4:3 frame.
 

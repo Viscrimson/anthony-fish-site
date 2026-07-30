@@ -1,5 +1,5 @@
 ---
-title: "Typical Tank Dimensions (Part 5) "
+title: "Typical Tank Dimensions (Part 4) "
 category: Knowledge Base
 showRelatedFish: false
 draft: false

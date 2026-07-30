@@ -8,7 +8,8 @@ summary: When considering what tank to get you will definitely need to know how
   various sizes.
 quickAnswer: This article will have sizes of typical tanks up to 180
   gallons.  Each will be posted according to long size, tall size, and the
-  typical low boy size.
+  typical low boy size.  Additionally the most common types of breeder tanks
+  will be marked.
 date: 2026-07-29
 lastUpdated: 2026-07-29
 lastReviewed: 2026-07-29
@@ -30,7 +31,7 @@ All numbers are in inches.
 - 30 gallon:   36 L x 12 W x 16 H
 - 40 gallon:  48 L x 12 W x 16 H
 - 55 gallon:  48 L x 13 W x 21 H
-- 60 gallon (Breeder):   48.5 L x 18.5 W x 16 H
+- 60 gallon (**Breeder**):   48.5 L x 18.5 W x 16 H
 - 75 gallon:  48 L x 18 W x 21 H
 - 90 gallon:  48 L x 18 W x 24 H
 - 125 gallon: 72 L x 18 W x 23 H
@@ -38,11 +39,11 @@ All numbers are in inches.
 
 2.)  High Tanks:
 
-- 20 gallon (tall):  24.25 L x 12.5 W x 16.75 H
-- 29 gallon (tall):  30.25 L x 12.5 W x 18.75 H
-- 38 gallon (tall):  36 L x 12 W x 20 H
-- 40 gallon (Breeder):   36 L x 18 W x 16 H
-- 60 gallon (tall):   48.5 L x 12.75 W x 24.75 H
+- 20 gallon:  24.25 L x 12.5 W x 16.75 H
+- 29 gallon:  30.25 L x 12.5 W x 18.75 H
+- 38 gallon:  36 L x 12 W x 20 H
+- 40 gallon (**Breeder**):   36 L x 18 W x 16 H
+- 60 gallon:   48.5 L x 12.75 W x 24.75 H
 
 3.)  Low boy tanks:
 

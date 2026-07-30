@@ -20,7 +20,7 @@ Notation:
 
 1.)   Rectangular (long tanks)
 
--  5 gallon :   16 L x 8 W x 10 H
+- 5 gallon :   16 L x 8 W x 10 H
 - 10 gallon:    20 L x 10 W x 12 H
 - 20 gallon:   30.25 L x 12.5 x 12.75 H
 - 30 gallon:   36 L x 12 W x 16 H
@@ -42,7 +42,6 @@ Notation:
 
 3.)  Low boy tanks:
 
-- 10 gallon: 23.6 L x 14.17 W x 7.09 H
 - 28 gallon:  36 L x 18 W x 10 H
 - 50 gallon:  48 L x 24 W x 10 H
 

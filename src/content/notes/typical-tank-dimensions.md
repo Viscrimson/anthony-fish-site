@@ -6,7 +6,9 @@ draft: true
 summary: When considering what tank to get you will definitely need to know how
   big your tank typically is.  Here is a listing of common tanks and their
   various sizes.
-quickAnswer: This article will have sizes of typical tanks up to 180 gallons.
+quickAnswer: This article will have sizes of typical tanks up to 180
+  gallons.  Each will be posted according to long size, tall size, and the
+  typical low boy size.
 date: 2026-07-29
 lastUpdated: 2026-07-29
 lastReviewed: 2026-07-29

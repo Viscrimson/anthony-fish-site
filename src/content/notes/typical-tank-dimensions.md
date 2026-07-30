@@ -1,8 +1,8 @@
 ---
-title: "Typical Tank Dimensions.  "
+title: "Typical Tank Dimensions (Part 5) "
 category: Knowledge Base
 showRelatedFish: false
-draft: true
+draft: false
 summary: When considering what tank to get you will definitely need to know how
   big your tank typically is.  Here is a listing of common tanks and their
   various sizes.

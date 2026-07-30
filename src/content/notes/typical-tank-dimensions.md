@@ -14,6 +14,8 @@ showVisualNote: false
 ---
 Notation:
 
+All numbers are in inches.
+
 - L = Length
 - W = Width
 - H = Height

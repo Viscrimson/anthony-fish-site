@@ -4,7 +4,7 @@ category: Water Quality
 showRelatedFish: false
 draft: false
 summary: "What should be in your daily maintenance routine and the importance of
-  awareness upon your aquarium's overall health. "
+  observational awareness upon your aquarium's overall health. "
 quickAnswer: "The importance of routine can't be overstated.  Fish require more
   then anything else stability.  This is what drives the amount of work that you
   will need to do on a daily, weekly, and by weekly basis.  Yet the most

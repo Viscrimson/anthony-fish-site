@@ -7,7 +7,7 @@ summary: "What should be in your daily maintenance routine and the importance of
   observational awareness upon your aquarium's overall health. "
 quickAnswer: "The importance of routine can't be overstated.  Fish require more
   then anything else stability.  This is what drives the amount of work that you
-  will need to do on a daily, weekly, and by weekly basis.  Yet the most
+  will need to do on a daily, weekly, and biweekly basis.  Yet the most
   important commitment that you make to a daily routine is not in the output you
   do, it is in the observations you make on a daily basis that has the greatest
   overall impact on fish health.  "

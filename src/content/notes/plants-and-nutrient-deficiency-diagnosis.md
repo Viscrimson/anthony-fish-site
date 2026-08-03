@@ -2,7 +2,7 @@
 title: Plants & Nutrient Deficiency Diagnosis
 category: Plant Health
 showRelatedFish: false
-draft: true
+draft: false
 summary: "Aquarium plants have a lot to tell us about the flow of nutrients in
   our aquarium ecosystems.  Careful observation of these plants can tell us
   about he metabolic rate of absorption of these plants, what nutrients are
@@ -14,7 +14,7 @@ quickAnswer: Plants can tell us  a lot about the availability of nutrients in
 date: 2026-08-02
 lastUpdated: 2026-08-02
 lastReviewed: 2026-08-02
-showVisualNote: true
+showVisualNote: false
 galleryImages:
   - /note-images/greenwater.jpg
   - /note-images/cyanobacteria.jpg

@@ -9,6 +9,7 @@ tags:
   - Fertilizer
   - Carbon dioxide
   - Beginner
+showRelatedFish: false
 relatedNoteSlugs:
   - choose-tank-mates-carefully
 draft: false
@@ -24,7 +25,19 @@ sources:
 date: 2026-07-19
 lastUpdated: 2026-07-19
 lastReviewed: 2026-07-19
+showVisualNote: false
 visualNote: A top-down layout sketch helps show where open space and cover should go.
+galleryImages:
+  - /note-images/anacharis.jpg
+  - /note-images/anubis.jpg
+  - /note-images/bacopa.jpg
+  - /note-images/cryptocorne.jpg
+  - /note-images/frogbit.jpg
+  - /note-images/hornwort.jpg
+  - /note-images/najas.jpg
+  - /note-images/pogostamonoctopus.jpg
+  - /note-images/redtigerlilly.jpg
+  - /note-images/taiwanlilly.jpg
 ---
 This is a beginning topic on plants, this compilation is what one hobbyist has discovered through the years of keeping plants in the aquarium hobby.  It should be used to understand what it is that plants need, why you want plants in your tank, are plants the right way to go in all tanks, generally speaking what types of plant cover are there, and finally if plants are an option for you as you begin your journey in the aquarium hobby.   
 
@@ -44,7 +57,7 @@ This is a beginning topic on plants, this compilation is what one hobbyist has d
 
 4.)     Are all plants the same?
 
-- Plants are not all the same.  In general plants come in two forms.  The first are plants that commonly float in either the surface or the water column.  An example of a floating plant is the infamous and often thought of as a nuisance in duck weed and the very useful salvinia minima, red root floaters, and frogbit.  These plants are incredibly useful in a dwarf cichlid and a labyrinth fish tank as they provide surface cover which makes the fish that normally have an instinctual fear of predation by birds from above their head feel reasonably sure that they are secure and will come out and display their colors for mates instead of fearing for their lives.   Plants such as hornword and naja  are two examples of plants that are commonly found floating just beneath the surface line.   These plants grow incredibly fast and can form a near inpenetrable defensive structure to larger fish while at the same time not only providing a means of escape for fry but also the surface area required for aufwuchs and infusoria with surface area to colonize and provide fish fry with live food.  Finally the second type, plants like water lilly, cryptocornes, anubis, anacharis,  bacopa, ludwigia, and pogostamon provide cover throughout the water column and anchor into the ground absorbing nutrients from rotting debris and ground cover through a system of roots, they can grow quickly and thick and can provide cover, line of sight breaks, additional oxygen, and can lock up nutrients thereby cleaning the water.
+- Plants are not all the same.  In general plants come in two forms.  The first are plants that commonly float in either the surface or the water column.  An example of a floating plant is the infamous and often thought of as a nuisance in duck weed and the very useful salvinia minima, red root floaters, and frogbit.  These plants are incredibly useful in a dwarf cichlid and a labyrinth fish tank as they provide surface cover which makes the fish that normally have an instinctual fear of predation by birds from above their head feel reasonably sure that they are secure and will come out and display their colors for mates instead of fearing for their lives.   Plants such as hornword and naja are two examples of plants that are commonly found floating just beneath the surface line.   These plants grow incredibly fast and can form a near impenetrable defensive structure to larger fish while at the same time not only providing a means of escape for fry but also the surface area required for aufwuchs and infusoria with surface area to colonize and provide fish fry with live food.  Finally the second type, plants like water lilly, cryptocornes, anubis, anacharis,  bacopa, ludwigia, and pogostamon provide cover throughout the water column and anchor into the ground absorbing nutrients from rotting debris and ground cover through a system of roots, they can grow quickly and thick and can provide cover, line of sight breaks, additional oxygen, and can lock up nutrients thereby cleaning the water.
 
 5.)     What are great plants for beginners to use?
 

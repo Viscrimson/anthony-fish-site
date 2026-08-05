@@ -5,7 +5,7 @@ origin: "Colombia:  Rio Sinu"
 temperatureRange: 76-82 F
 adultSize: 5 - 7 inches
 tankSize: 75 Gallons Recommended
-foodRecommendation: Pellets and Frozen
+foodRecommendation: Pellets, Frozen Brine Shrimp
 difficulty: Beginner
 temperament: Peaceful as long as they are not in breeding form.  Intraspecies
   aggression can and will occur if more then one pair is housed inside a 75
@@ -56,5 +56,6 @@ mainImage: /fish-images/geophagus-alto-sinu.jpg
 juvenileImage: /fish-images/altosinujuvenile.jpg
 maleImage: /fish-images/altosinuadults.jpg
 femaleImage: /fish-images/altosinuadults-1.jpg
+showAdditionalPhotos: true
 draft: false
 ---

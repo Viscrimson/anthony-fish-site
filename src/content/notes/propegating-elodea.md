@@ -7,7 +7,7 @@ tags:
   - Water Quality
   - Beginner
 showRelatedFish: false
-draft: false
+draft: true
 summary: This article covers how you can propagate Elodea (Anacharis).  Once you
   purchase a few stems of this wonderful plant, you can very quickly spread it
   to new tanks.

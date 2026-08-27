@@ -1,5 +1,5 @@
 ---
-title: Propagating Pogostemon "Octopus"
+title: Propagating Pogostemon sp.  "Octopus"
 category: Plant Health
 tags:
   - Plant Propegation
@@ -11,6 +11,9 @@ draft: true
 summary: This article covers how you can propagate Elodea (Anacharis).  Once you
   purchase a few stems of this wonderful plant, you can very quickly spread it
   to new tanks.
+quickAnswer: This article covers how Pogostemon sp. "Octopus" can be propagated
+  in the home aquarium saving money and allowing the aquarist to improve water
+  quality.
 practicalSteps:
   - Trim an adult plant back.
   - Select the desired length for the daughter plant and cut beneath the leaves

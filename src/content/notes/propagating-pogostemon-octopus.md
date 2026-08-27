@@ -5,8 +5,12 @@ tags:
   - Plant Propegation
   - Plants
   - Water Quality
+  - Intermediate
 showRelatedFish: false
 draft: true
+summary: This article covers how you can propagate Elodea (Anacharis).  Once you
+  purchase a few stems of this wonderful plant, you can very quickly spread it
+  to new tanks.
 practicalSteps:
   - Trim an adult plant back.
   - Select the desired length for the daughter plant and cut beneath the leaves

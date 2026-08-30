@@ -46,7 +46,7 @@ export const BANNER_LAYOUT = {
   },
   presenter: {
     x: 930,
-    y: 125,
+    y: 155,
     width: 1008,
     height: 972,
   },

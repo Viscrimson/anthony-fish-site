@@ -14,6 +14,7 @@ const siteContent = siteEntry?.data ?? {};
 const {
   title = siteName,
   description = "Freshwater fish care sheets and aquarium resources from Aquatic Treasures of Fort Myers.",
+  noIndex = false,
 } = Astro.props;
 
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
@@ -51,6 +52,7 @@ const navItems = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="google-site-verification" content="Dty26rHGTcdvTMSIKZot6QqYz_D-mByo-XhJog2CNU8" />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/png" sizes="64x64" href={withBase("favicon-octopus.png")} />

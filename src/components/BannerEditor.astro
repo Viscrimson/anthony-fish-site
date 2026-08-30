@@ -1,0 +1,768 @@
+---
+import {
+  BANNER_FONT_OPTIONS,
+  BANNER_LIMITS,
+  BANNER_STORAGE_KEY,
+  DEFAULT_BANNER_RECORD,
+  displayBackgroundName,
+} from "../lib/banner-template.js";
+
+const backgrounds = Astro.props.backgrounds ?? [];
+const presenterSrc = Astro.props.presenterSrc ?? "";
+const config = JSON.stringify({
+  availableBackgrounds: backgrounds,
+  defaultRecord: {
+    ...DEFAULT_BANNER_RECORD,
+    backgroundSrc: backgrounds[0] ?? "",
+  },
+  presenterSrc,
+  storageKey: BANNER_STORAGE_KEY,
+}).replace(/</g, "\\u003c");
+---
+
+<section class="banner-editor" data-banner-editor>
+  <div class="banner-editor-main">
+    <div class="banner-preview-panel">
+      <div class="banner-preview-heading">
+        <div>
+          <p class="eyebrow">Live preview</p>
+          <h2>Locked banner composition</h2>
+        </div>
+        <p class="banner-preview-size">16:9 · export 1920×1080</p>
+      </div>
+
+      <div
+        class="banner-preview"
+        data-banner-preview
+        tabindex="0"
+        role="img"
+        aria-label="Presentation banner preview. Drag the background to change its crop."
+      >
+        <div class="banner-layer banner-background-layer" data-banner-background-layer>
+          <img
+            class="banner-background-image"
+            data-banner-background-image
+            alt=""
+            draggable="false"
+          />
+        </div>
+        <div class="banner-layer banner-overlay-layer" aria-hidden="true"></div>
+        <div class="banner-layer banner-presenter-layer" data-banner-presenter-layer aria-hidden="true">
+          {presenterSrc ? (
+            <img class="banner-presenter-image" data-banner-presenter-image src={presenterSrc} alt="" draggable="false" />
+          ) : (
+            <div class="banner-presenter-missing">
+              <strong>Approved presenter image required</strong>
+               <span>Place it at <code>public/banner/presenter-cutout-restored.png</code>.</span>
+            </div>
+          )}
+        </div>
+        <div class="banner-layer banner-text-layer" aria-hidden="true">
+          <div class="banner-text-safe-area">
+            <h3 data-banner-headline></h3>
+            <p class="banner-subtitle" data-banner-subtitle></p>
+            <p class="banner-meta" data-banner-meta>
+              <span data-banner-date></span>
+              <span data-banner-time></span>
+            </p>
+          </div>
+        </div>
+        <div class="banner-layer banner-decorative-layer" aria-hidden="true">
+          <span class="banner-decorative-line banner-decorative-line--top"></span>
+          <span class="banner-decorative-line banner-decorative-line--bottom"></span>
+        </div>
+        <div class="banner-crop-hint" data-banner-crop-hint>Drag background to crop</div>
+      </div>
+
+      <p class="banner-preview-help">
+        The presenter, text safe area, gradient, and accent lines are locked. Only the dedicated banner
+        background, its crop, and the wording fields below can change.
+      </p>
+    </div>
+
+    <form class="banner-controls" data-banner-form>
+      <details class="banner-control-group" name="banner-control-sections" open>
+        <summary>Wording &amp; event details</summary>
+        <div class="banner-control-content">
+
+        <label class="banner-field">
+          <span>Headline</span>
+          <input
+            name="headline"
+            type="text"
+            maxlength={BANNER_LIMITS.headlineMaxLength}
+            autocomplete="off"
+            required
+          />
+          <span class="banner-field-hint"><span data-banner-count="headline">0</span> / {BANNER_LIMITS.headlineMaxLength}</span>
+        </label>
+
+        <label class="banner-field">
+          <span>Subtitle or supporting wording</span>
+          <textarea
+            name="subtitle"
+            rows="4"
+            maxlength={BANNER_LIMITS.subtitleMaxLength}
+            autocomplete="off"
+          ></textarea>
+          <span class="banner-field-hint"><span data-banner-count="subtitle">0</span> / {BANNER_LIMITS.subtitleMaxLength}</span>
+        </label>
+
+        <div class="banner-field-grid">
+          <label class="banner-field">
+            <span>Date</span>
+            <input name="date" type="date" />
+          </label>
+          <label class="banner-field">
+            <span>Time</span>
+            <input name="time" type="time" />
+          </label>
+        </div>
+        </div>
+      </details>
+
+      <details class="banner-control-group" name="banner-control-sections">
+        <summary>Font &amp; colors</summary>
+        <div class="banner-control-content">
+
+        <label class="banner-field">
+          <span>Banner font</span>
+          <select name="fontFamily">
+            {BANNER_FONT_OPTIONS.map((option) => <option value={option.value}>{option.label}</option>)}
+          </select>
+        </label>
+
+        <div class="banner-color-grid">
+          <label class="banner-color-field">
+            <span>Headline</span>
+            <input name="headlineColor" type="color" aria-label="Headline color" />
+          </label>
+          <label class="banner-color-field">
+            <span>Accent</span>
+            <input name="accentColor" type="color" aria-label="Accent color" />
+          </label>
+          <label class="banner-color-field">
+            <span>Supporting text</span>
+            <input name="subtitleColor" type="color" aria-label="Supporting text color" />
+          </label>
+          <label class="banner-color-field">
+            <span>Date/time</span>
+            <input name="metaColor" type="color" aria-label="Date and time color" />
+          </label>
+        </div>
+
+        <p class="banner-control-help">
+          These controls change the text treatment only. The presenter, text positions, overlay, and decoration stay locked.
+        </p>
+        </div>
+      </details>
+
+      <details class="banner-control-group" name="banner-control-sections">
+        <summary>Background &amp; crop</summary>
+        <div class="banner-control-content">
+
+        <label class="banner-field">
+          <span>Background image</span>
+          <select name="backgroundSrc" data-banner-background-select>
+            {backgrounds.map((source) => <option value={source}>{displayBackgroundName(source)}</option>)}
+          </select>
+        </label>
+
+        <label class="banner-field">
+          <span>Preview your own background</span>
+          <input
+            name="backgroundUpload"
+            type="file"
+            accept="image/avif,image/jpeg,image/png,image/webp"
+          />
+        </label>
+
+        <p class="banner-control-help">
+          The uploaded file is saved locally with this banner so you can see and crop it here. To make it
+          available in Pages CMS and on other devices, upload it under Media → Banners, then reload
+          this page after the CMS change is committed.
+        </p>
+
+        <label class="banner-field banner-range-field">
+          <span class="banner-range-label">
+            <span>Zoom</span>
+            <output data-banner-zoom-output>100%</output>
+          </span>
+          <input name="zoom" type="range" min="1" max="2.4" step="0.01" value="1" data-banner-zoom />
+        </label>
+
+        <div class="banner-control-actions">
+          <button class="banner-secondary-button" type="button" data-banner-reset>Reset crop</button>
+        </div>
+
+        <p class="banner-control-help">
+          Drag directly on the preview. Crop values are saved as normalized focal points, so they remain
+          stable at different display sizes.
+        </p>
+        </div>
+      </details>
+
+      <div class="banner-actions">
+        <button class="banner-primary-button" type="submit">Save on this device</button>
+        <button class="banner-secondary-button" type="button" data-banner-export>Export PNG</button>
+      </div>
+
+      <p class="banner-status" data-banner-status role="status" aria-live="polite">Not saved yet.</p>
+      <div class="banner-validation" data-banner-validation aria-live="polite"></div>
+
+      <aside class="banner-locked-note">
+        <p class="eyebrow">Template rules</p>
+        <ul>
+          <li>Presenter image and position are fixed.</li>
+          <li>Text stays inside a fixed safe area.</li>
+          <li>Long wording produces a warning before export.</li>
+          <li>Saved data is local to this browser and device.</li>
+        </ul>
+      </aside>
+    </form>
+  </div>
+
+  <script type="application/json" data-banner-config set:html={config}></script>
+</section>
+
+<script>
+  import {
+    BANNER_LAYOUT,
+    getBannerFontFamily,
+    BANNER_LIMITS,
+    DESIGN_HEIGHT,
+    DESIGN_WIDTH,
+    clamp,
+    fitText,
+    formatDate,
+    formatTime,
+    normalizeBannerRecord,
+    slugForFilename,
+  } from "../lib/banner-template.js";
+
+  const editor = document.querySelector("[data-banner-editor]");
+
+  if (editor) {
+    const configElement = editor.querySelector("[data-banner-config]");
+    const config = JSON.parse(configElement?.textContent || "{}");
+    const availableBackgrounds = config.availableBackgrounds || [];
+    const storageKey = config.storageKey;
+    const preview = editor.querySelector("[data-banner-preview]");
+    const backgroundLayer = editor.querySelector("[data-banner-background-layer]");
+    const backgroundImage = editor.querySelector("[data-banner-background-image]");
+    const form = editor.querySelector("[data-banner-form]");
+    const status = editor.querySelector("[data-banner-status]");
+    const validation = editor.querySelector("[data-banner-validation]");
+    const zoomInput = editor.querySelector("[data-banner-zoom]");
+    const zoomOutput = editor.querySelector("[data-banner-zoom-output]");
+    const cropHint = editor.querySelector("[data-banner-crop-hint]");
+    const backgroundSelect = editor.querySelector("[data-banner-background-select]");
+    const headlineInput = form?.elements.namedItem("headline");
+    const subtitleInput = form?.elements.namedItem("subtitle");
+    const dateInput = form?.elements.namedItem("date");
+    const timeInput = form?.elements.namedItem("time");
+    const fontFamilyInput = form?.elements.namedItem("fontFamily");
+    const headlineColorInput = form?.elements.namedItem("headlineColor");
+    const accentColorInput = form?.elements.namedItem("accentColor");
+    const subtitleColorInput = form?.elements.namedItem("subtitleColor");
+    const metaColorInput = form?.elements.namedItem("metaColor");
+    const backgroundUploadInput = form?.elements.namedItem("backgroundUpload");
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    let record = normalizeBannerRecord(config.defaultRecord, availableBackgrounds);
+    let renderRequest = 0;
+    let dragState = null;
+    let loadedBackgroundSrc = "";
+
+    const setStatus = (message, tone = "") => {
+      if (!status) return;
+      status.textContent = message;
+      status.dataset.tone = tone;
+    };
+
+    const getRecordFromForm = () => normalizeBannerRecord({
+      ...record,
+      headline: headlineInput?.value ?? "",
+      subtitle: subtitleInput?.value ?? "",
+      date: dateInput?.value ?? "",
+      time: timeInput?.value ?? "",
+      backgroundSrc: backgroundSelect?.value ?? record.backgroundSrc,
+      backgroundName: record.backgroundName,
+      zoom: zoomInput?.value ?? record.zoom,
+      fontFamily: fontFamilyInput?.value ?? record.fontFamily,
+      headlineColor: headlineColorInput?.value ?? record.headlineColor,
+      accentColor: accentColorInput?.value ?? record.accentColor,
+      subtitleColor: subtitleColorInput?.value ?? record.subtitleColor,
+      metaColor: metaColorInput?.value ?? record.metaColor,
+    }, availableBackgrounds);
+
+    const updateCounts = () => {
+      for (const field of ["headline", "subtitle"]) {
+        const input = form?.elements.namedItem(field);
+        const output = editor.querySelector(`[data-banner-count="${field}"]`);
+        if (input && output) output.textContent = String(input.value.length);
+      }
+    };
+
+    const syncLocalBackgroundOption = () => {
+      if (!backgroundSelect) return;
+      const existingOption = backgroundSelect.querySelector("option[data-banner-local-upload]");
+      const isLocalUpload = /^data:image\/(?:avif|jpeg|jpg|png|webp);base64,/i.test(record.backgroundSrc);
+
+      if (isLocalUpload) {
+        const option = existingOption || document.createElement("option");
+        option.dataset.bannerLocalUpload = "true";
+        option.value = record.backgroundSrc;
+        option.textContent = `Local upload: ${record.backgroundName || "Uploaded background"}`;
+        if (!existingOption) backgroundSelect.append(option);
+      } else if (existingOption) {
+        existingOption.remove();
+      }
+    };
+
+    const applyRecordToForm = () => {
+      if (!form) return;
+      syncLocalBackgroundOption();
+      headlineInput.value = record.headline;
+      subtitleInput.value = record.subtitle;
+      dateInput.value = record.date;
+      timeInput.value = record.time;
+      backgroundSelect.value = record.backgroundSrc;
+      zoomInput.value = String(record.zoom);
+      fontFamilyInput.value = record.fontFamily;
+      headlineColorInput.value = record.headlineColor;
+      accentColorInput.value = record.accentColor;
+      subtitleColorInput.value = record.subtitleColor;
+      metaColorInput.value = record.metaColor;
+      if (zoomOutput) zoomOutput.textContent = `${Math.round(record.zoom * 100)}%`;
+      updateCounts();
+    };
+
+    const setBackgroundImage = () => {
+      if (!backgroundImage) return;
+      loadedBackgroundSrc = record.backgroundSrc;
+      backgroundImage.src = record.backgroundSrc;
+      backgroundImage.alt = "";
+      backgroundImage.onload = () => updateBackgroundGeometry();
+      updateBackgroundGeometry();
+    };
+
+    const updateBackgroundGeometry = () => {
+      if (!preview || !backgroundImage?.naturalWidth || !backgroundImage.naturalHeight) return;
+      const previewWidth = preview.clientWidth;
+      const previewHeight = preview.clientHeight;
+      const baseScale = Math.max(
+        previewWidth / backgroundImage.naturalWidth,
+        previewHeight / backgroundImage.naturalHeight,
+      );
+      const imageWidth = backgroundImage.naturalWidth * baseScale * record.zoom;
+      const imageHeight = backgroundImage.naturalHeight * baseScale * record.zoom;
+      const overflowX = Math.max(0, imageWidth - previewWidth);
+      const overflowY = Math.max(0, imageHeight - previewHeight);
+      backgroundImage.style.width = `${imageWidth}px`;
+      backgroundImage.style.height = `${imageHeight}px`;
+      backgroundImage.style.left = `${-overflowX * record.focalX}px`;
+      backgroundImage.style.top = `${-overflowY * record.focalY}px`;
+    };
+
+    const layoutText = () => {
+      if (!context || !preview) return null;
+      const textLayout = BANNER_LAYOUT.text;
+      const headline = fitText(context, record.headline.toUpperCase(), {
+        family: getBannerFontFamily(record.fontFamily),
+        weight: 900,
+        maximumWidth: textLayout.width,
+        maximumHeight: textLayout.headlineMaxHeight,
+        maximumFontSize: textLayout.headlineMaxFontSize,
+        minimumFontSize: BANNER_LIMITS.minHeadlineFontSize,
+        lineHeight: textLayout.headlineLineHeight,
+        maximumLines: textLayout.headlineMaxLines,
+      });
+      const subtitle = fitText(context, record.subtitle.toUpperCase(), {
+        family: getBannerFontFamily(record.fontFamily),
+        weight: 700,
+        maximumWidth: textLayout.width,
+        maximumHeight: textLayout.subtitleMaxHeight,
+        maximumFontSize: textLayout.subtitleMaxFontSize,
+        minimumFontSize: BANNER_LIMITS.minSubtitleFontSize,
+        lineHeight: textLayout.subtitleLineHeight,
+        maximumLines: textLayout.subtitleMaxLines,
+      });
+      return { headline, subtitle };
+    };
+
+    const setTextElement = (selector, lines, fontSize, lineHeight, placeholder = "", accentAfterFirst = false) => {
+      const element = editor.querySelector(selector);
+      if (!element) return;
+      const hasText = lines.length > 0;
+      const renderedLines = hasText ? lines : [placeholder];
+      element.replaceChildren(...renderedLines.map((line, index) => {
+        const span = document.createElement("span");
+        span.className = "banner-text-line";
+        if (accentAfterFirst && index > 0) span.classList.add("banner-text-line--accent");
+        span.textContent = line;
+        return span;
+      }));
+      element.dataset.empty = hasText ? "false" : "true";
+      element.style.fontSize = `${fontSize * (preview.clientWidth / DESIGN_WIDTH)}px`;
+      element.style.lineHeight = String(lineHeight);
+    };
+
+    const updatePreviewStyles = () => {
+      if (!preview) return;
+      preview.style.setProperty("--banner-font-family", getBannerFontFamily(record.fontFamily));
+      preview.style.setProperty("--banner-headline-color", record.headlineColor);
+      preview.style.setProperty("--banner-accent-color", record.accentColor);
+      preview.style.setProperty("--banner-subtitle-color", record.subtitleColor);
+      preview.style.setProperty("--banner-meta-color", record.metaColor);
+    };
+
+    const updatePreviewText = () => {
+      const layout = layoutText();
+      if (!layout || !preview) return;
+      setTextElement(
+        "[data-banner-headline]",
+        layout.headline.lines,
+        layout.headline.fontSize,
+        layout.headline.lineHeight,
+        "AQUATIC ECOSYSTEMS",
+        true,
+      );
+      setTextElement(
+        "[data-banner-subtitle]",
+        layout.subtitle.lines,
+        layout.subtitle.fontSize,
+        layout.subtitle.lineHeight,
+        "Space Coast Aquarium Society",
+      );
+      const dateElement = editor.querySelector("[data-banner-date]");
+      const timeElement = editor.querySelector("[data-banner-time]");
+      if (dateElement) dateElement.textContent = formatDate(record.date);
+      if (timeElement) timeElement.textContent = formatTime(record.time);
+      const meta = editor.querySelector("[data-banner-meta]");
+      if (meta) meta.hidden = !record.date && !record.time;
+      return layout;
+    };
+
+    const render = () => {
+      record = getRecordFromForm();
+      syncLocalBackgroundOption();
+      updatePreviewStyles();
+      const layout = updatePreviewText();
+      updateBackgroundGeometry();
+      if (zoomOutput) zoomOutput.textContent = `${Math.round(record.zoom * 100)}%`;
+      updateCounts();
+      updateValidation(layout);
+    };
+
+    const updateValidation = (layout = layoutText()) => {
+      if (!validation) return;
+      const messages = [];
+      const headline = record.headline.trim();
+      const subtitle = record.subtitle.trim();
+
+      if (!headline) {
+        messages.push({ tone: "error", text: "Add a headline before exporting." });
+      } else if (headline.length > BANNER_LIMITS.headlineWarningLength) {
+        messages.push({ tone: "warning", text: "The headline is long and may become smaller to stay inside the safe area." });
+      }
+      if (subtitle.length > BANNER_LIMITS.subtitleWarningLength) {
+        messages.push({ tone: "warning", text: "The supporting wording is long and may become smaller to stay inside the safe area." });
+      }
+      if (layout?.headline.overflow) {
+        messages.push({ tone: "error", text: "The headline is too long for the fixed safe area. Shorten it before exporting." });
+      }
+      if (layout?.subtitle.overflow) {
+        messages.push({ tone: "error", text: "The supporting wording is too long for the fixed safe area. Shorten it before exporting." });
+      }
+      if (!config.presenterSrc) {
+        messages.push({ tone: "error", text: "The approved presenter image is not installed, so PNG export is unavailable." });
+      }
+
+      validation.replaceChildren(...messages.map(({ tone, text }) => {
+        const item = document.createElement("p");
+        item.className = `banner-validation-message banner-validation-message--${tone}`;
+        item.textContent = text;
+        return item;
+      }));
+    };
+
+    const save = () => {
+      record = getRecordFromForm();
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        setStatus("Saved on this device.", "success");
+        updateValidation();
+      } catch {
+        setStatus("This local upload is too large for browser storage. Add it through Pages CMS instead.", "error");
+      }
+    };
+
+    const loadSavedRecord = () => {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          record = normalizeBannerRecord(JSON.parse(saved), availableBackgrounds);
+          setStatus("Loaded saved banner from this device.");
+        }
+      } catch {
+        setStatus("Saved data could not be read; using the default banner.", "warning");
+      }
+    };
+
+    const resetCrop = () => {
+      record.focalX = 0.5;
+      record.focalY = 0.5;
+      record.zoom = 1;
+      applyRecordToForm();
+      render();
+      setStatus("Crop reset. Save when you are happy with it.");
+    };
+
+    const onPointerDown = (event) => {
+      if (!backgroundLayer) return;
+      dragState = {
+        pointerId: event.pointerId,
+        clientX: event.clientX,
+        clientY: event.clientY,
+      };
+      backgroundLayer.setPointerCapture(event.pointerId);
+      backgroundLayer.classList.add("is-dragging");
+      if (cropHint) cropHint.hidden = true;
+      event.preventDefault();
+    };
+
+    const onPointerMove = (event) => {
+      if (!dragState || dragState.pointerId !== event.pointerId || !preview || !backgroundImage?.naturalWidth) return;
+      const previewWidth = preview.clientWidth;
+      const previewHeight = preview.clientHeight;
+      const baseScale = Math.max(
+        previewWidth / backgroundImage.naturalWidth,
+        previewHeight / backgroundImage.naturalHeight,
+      );
+      const imageWidth = backgroundImage.naturalWidth * baseScale * record.zoom;
+      const imageHeight = backgroundImage.naturalHeight * baseScale * record.zoom;
+      const overflowX = Math.max(1, imageWidth - previewWidth);
+      const overflowY = Math.max(1, imageHeight - previewHeight);
+      record.focalX = clamp(record.focalX - (event.clientX - dragState.clientX) / overflowX, 0, 1, record.focalX);
+      record.focalY = clamp(record.focalY - (event.clientY - dragState.clientY) / overflowY, 0, 1, record.focalY);
+      dragState.clientX = event.clientX;
+      dragState.clientY = event.clientY;
+      updateBackgroundGeometry();
+      setStatus("Crop changed. Save when you are happy with it.");
+      event.preventDefault();
+    };
+
+    const onPointerUp = (event) => {
+      if (!dragState || dragState.pointerId !== event.pointerId) return;
+      if (backgroundLayer?.hasPointerCapture(event.pointerId)) backgroundLayer.releasePointerCapture(event.pointerId);
+      backgroundLayer?.classList.remove("is-dragging");
+      dragState = null;
+    };
+
+    const loadImage = (source) => new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = source;
+    });
+
+    const loadLocalBackground = () => {
+      const file = backgroundUploadInput?.files?.[0];
+      if (!file) return;
+      if (!/^image\/(?:avif|jpeg|png|webp)$/i.test(file.type)) {
+        setStatus("Choose an AVIF, JPEG, PNG, or WebP image.", "error");
+        return;
+      }
+      if (file.size > 4 * 1024 * 1024) {
+        setStatus("This local preview is limited to 4 MB. Add larger backgrounds through Pages CMS.", "error");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const source = typeof reader.result === "string" ? reader.result : "";
+        if (!source) {
+          setStatus("The background could not be read.", "error");
+          return;
+        }
+        record = normalizeBannerRecord({ ...record, backgroundSrc: source, backgroundName: file.name }, availableBackgrounds);
+        applyRecordToForm();
+        setBackgroundImage();
+        render();
+        setStatus("Local background loaded. Save when you are happy with it.");
+      };
+      reader.onerror = () => setStatus("The background could not be read.", "error");
+      reader.readAsDataURL(file);
+    };
+
+    const drawCoverInRect = (targetContext, image, rectangle, focalX = 0.5, focalY = 0.5, zoom = 1) => {
+      const scale = Math.max(rectangle.width / image.naturalWidth, rectangle.height / image.naturalHeight) * zoom;
+      const width = image.naturalWidth * scale;
+      const height = image.naturalHeight * scale;
+      targetContext.drawImage(
+        image,
+        rectangle.x + (rectangle.width - width) * focalX,
+        rectangle.y + (rectangle.height - height) * focalY,
+        width,
+        height,
+      );
+    };
+
+    const drawCover = (targetContext, image, focalX, focalY, zoom) => {
+      drawCoverInRect(targetContext, image, { x: 0, y: 0, width: DESIGN_WIDTH, height: DESIGN_HEIGHT }, focalX, focalY, zoom);
+    };
+
+    const drawWrappedText = (
+      targetContext,
+      lines,
+      x,
+      y,
+      fontSize,
+      lineHeight,
+      family,
+      weight = 800,
+      primaryColor = "#fffdf9",
+      accentColor = primaryColor,
+      accentAfterFirst = false,
+    ) => {
+      targetContext.font = `${weight} ${fontSize}px ${family}`;
+      targetContext.textBaseline = "top";
+      lines.forEach((line, index) => {
+        targetContext.fillStyle = accentAfterFirst && index > 0 ? accentColor : primaryColor;
+        targetContext.fillText(line, x, y + index * fontSize * lineHeight);
+      });
+    };
+
+    const exportPng = async () => {
+      record = getRecordFromForm();
+      const layout = updatePreviewText();
+      updateValidation(layout);
+      if (!config.presenterSrc || !record.headline.trim() || layout?.headline.overflow || layout?.subtitle.overflow) {
+        setStatus("Resolve the validation warnings before exporting.", "error");
+        return;
+      }
+
+      setStatus("Preparing 1920×1080 PNG…");
+      try {
+        const [background, presenter] = await Promise.all([
+          loadImage(record.backgroundSrc),
+          loadImage(config.presenterSrc),
+        ]);
+        canvas.width = DESIGN_WIDTH;
+        canvas.height = DESIGN_HEIGHT;
+        drawCover(context, background, record.focalX, record.focalY, record.zoom);
+
+        const gradient = context.createLinearGradient(0, 0, DESIGN_WIDTH, 0);
+        gradient.addColorStop(0, "rgba(2, 9, 15, 0.56)");
+        gradient.addColorStop(0.42, "rgba(3, 16, 26, 0.34)");
+        gradient.addColorStop(0.7, "rgba(3, 16, 26, 0.12)");
+        gradient.addColorStop(1, "rgba(2, 7, 11, 0.08)");
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, DESIGN_WIDTH, DESIGN_HEIGHT);
+
+        const presenterRectangle = BANNER_LAYOUT.presenter;
+        context.save();
+        context.translate(
+          presenterRectangle.x + presenterRectangle.width / 2,
+          presenterRectangle.y + presenterRectangle.height / 2,
+        );
+        context.rotate((1.3 * Math.PI) / 180);
+        context.translate(
+          -(presenterRectangle.x + presenterRectangle.width / 2),
+          -(presenterRectangle.y + presenterRectangle.height / 2),
+        );
+        drawCoverInRect(context, presenter, presenterRectangle);
+        context.restore();
+
+        context.fillStyle = record.accentColor;
+        context.fillRect(92, 565, 1018, 6);
+        context.fillRect(92, 750, 1018, 6);
+
+        if (record.date || record.time) {
+          const meta = [formatDate(record.date), formatTime(record.time)].filter(Boolean).join("  ·  ");
+          context.font = `800 ${BANNER_LAYOUT.text.metaFontSize}px ${getBannerFontFamily(record.fontFamily)}`;
+          context.fillStyle = record.metaColor;
+          context.textBaseline = "top";
+          context.fillText(meta, BANNER_LAYOUT.text.x, 690);
+        }
+        drawWrappedText(
+          context,
+          layout.headline.lines,
+          BANNER_LAYOUT.text.x,
+          BANNER_LAYOUT.text.y,
+          layout.headline.fontSize,
+          layout.headline.lineHeight,
+          getBannerFontFamily(record.fontFamily),
+          900,
+          record.headlineColor,
+          record.accentColor,
+          true,
+        );
+        const headlineHeight = layout.headline.lines.length * layout.headline.fontSize * layout.headline.lineHeight;
+        drawWrappedText(
+          context,
+          layout.subtitle.lines,
+          BANNER_LAYOUT.text.x,
+          Math.max(580, BANNER_LAYOUT.text.y + headlineHeight + 36),
+          layout.subtitle.fontSize,
+          layout.subtitle.lineHeight,
+          getBannerFontFamily(record.fontFamily),
+          700,
+          record.subtitleColor,
+        );
+
+        const filenameDate = record.date ? slugForFilename(record.date) : "draft";
+        canvas.toBlob((blob) => {
+          if (!blob) throw new Error("PNG export returned no data");
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `anthony-banner-${filenameDate}.png`;
+          link.click();
+          URL.revokeObjectURL(url);
+          setStatus("PNG exported at 1920×1080.", "success");
+        }, "image/png");
+      } catch {
+        setStatus("PNG export failed because one of the banner images could not be loaded.", "error");
+      }
+    };
+
+    loadSavedRecord();
+    applyRecordToForm();
+    setBackgroundImage();
+    render();
+
+    form?.addEventListener("input", render);
+    backgroundUploadInput?.addEventListener("change", loadLocalBackground);
+    form?.addEventListener("change", () => {
+      render();
+      if (loadedBackgroundSrc !== record.backgroundSrc) setBackgroundImage();
+    });
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      save();
+    });
+    editor.querySelector("[data-banner-reset]")?.addEventListener("click", resetCrop);
+    editor.querySelector("[data-banner-export]")?.addEventListener("click", exportPng);
+    backgroundLayer?.addEventListener("pointerdown", onPointerDown);
+    backgroundLayer?.addEventListener("pointermove", onPointerMove);
+    backgroundLayer?.addEventListener("pointerup", onPointerUp);
+    backgroundLayer?.addEventListener("pointercancel", onPointerUp);
+    zoomInput?.addEventListener("input", render);
+    window.addEventListener("resize", () => {
+      window.cancelAnimationFrame(renderRequest);
+      renderRequest = window.requestAnimationFrame(() => {
+        updateBackgroundGeometry();
+        updatePreviewText();
+      });
+    }, { passive: true });
+    if (typeof ResizeObserver !== "undefined" && preview) {
+      const observer = new ResizeObserver(() => {
+        updateBackgroundGeometry();
+        updatePreviewText();
+      });
+      observer.observe(preview);
+    }
+  }
+</script>

@@ -1,0 +1,46 @@
+---
+import { existsSync, readdirSync } from "node:fs";
+import { extname, resolve } from "node:path";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BannerEditor from "../../components/BannerEditor.astro";
+import { withBase } from "../../lib/paths.js";
+
+const backgroundsDirectory = resolve(process.cwd(), "public", "banner", "backgrounds");
+const supportedExtensions = new Set([".avif", ".jpg", ".jpeg", ".png", ".svg", ".webp"]);
+
+const listImages = (directory, publicDirectory) =>
+  existsSync(directory)
+    ? readdirSync(directory, { withFileTypes: true })
+        .filter((entry) => entry.isFile() && supportedExtensions.has(extname(entry.name).toLowerCase()))
+        .map((entry) => withBase(`${publicDirectory}/${entry.name}`))
+        .sort()
+    : [];
+
+const backgrounds = listImages(backgroundsDirectory, "banner/backgrounds");
+const presenterFilename = "presenter-cutout-restored.png";
+const presenterFile = resolve(process.cwd(), "public", "banner", presenterFilename);
+const presenterSrc = existsSync(presenterFile) ? withBase(`banner/${presenterFilename}`) : "";
+---
+
+<BaseLayout
+  title="Banner maker"
+  description="Local presentation banner maker for Aquatic Treasures of Fort Myers."
+  noIndex={true}
+>
+  <main class="page-wrap banner-admin-page">
+    <section class="hero banner-admin-hero">
+      <p class="eyebrow">Local banner maker</p>
+      <h1>Create a presentation banner</h1>
+      <p class="lede">
+        Update the wording and aquarium background while keeping the approved presenter and composition
+        locked. This tool saves only to this browser and is intentionally not linked from the public site.
+      </p>
+      <p class="banner-admin-note">
+        Permanent backgrounds belong in Pages CMS under Media → Banners. A file uploaded in this
+        editor is a local preview for this browser until the same image is added to that CMS media category.
+      </p>
+    </section>
+
+    <BannerEditor backgrounds={backgrounds} presenterSrc={presenterSrc} />
+  </main>
+</BaseLayout>

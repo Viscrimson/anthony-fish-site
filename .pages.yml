@@ -20,6 +20,13 @@ media:
     rename: safe
     categories: [image]
     extensions: [svg, png, jpg, jpeg, webp]
+  - name: banners
+    label: Banners
+    input: public/banner/backgrounds
+    output: /banner/backgrounds
+    rename: safe
+    categories: [image]
+    extensions: [png, jpg, jpeg, webp]
 
 content:
   - name: site

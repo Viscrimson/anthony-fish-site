@@ -25,10 +25,10 @@ const config = JSON.stringify({
     <div class="banner-preview-panel">
       <div class="banner-preview-heading">
         <div>
-          <p class="eyebrow">Live preview</p>
-          <h2>Locked banner composition</h2>
+          <p class="eyebrow">Preview</p>
+          <h2>Your banner</h2>
         </div>
-        <p class="banner-preview-size">16:9 · export 1920×1080</p>
+        <p class="banner-preview-size">16:9 · PNG 1920×1080</p>
       </div>
 
       <div
@@ -36,7 +36,7 @@ const config = JSON.stringify({
         data-banner-preview
         tabindex="0"
         role="img"
-        aria-label="Presentation banner preview. Drag the background to change its crop."
+        aria-label="Banner preview. Drag the background to position it."
       >
         <div class="banner-layer banner-background-layer" data-banner-background-layer>
           <img
@@ -52,8 +52,8 @@ const config = JSON.stringify({
             <img class="banner-presenter-image" data-banner-presenter-image src={presenterSrc} alt="" draggable="false" />
           ) : (
             <div class="banner-presenter-missing">
-              <strong>Approved presenter image required</strong>
-               <span>Place it at <code>public/banner/presenter-cutout-restored.png</code>.</span>
+              <strong>Presenter image unavailable</strong>
+              <span>Please reload the page or contact Anthony.</span>
             </div>
           )}
         </div>
@@ -71,18 +71,17 @@ const config = JSON.stringify({
           <span class="banner-decorative-line banner-decorative-line--top"></span>
           <span class="banner-decorative-line banner-decorative-line--bottom"></span>
         </div>
-        <div class="banner-crop-hint" data-banner-crop-hint>Drag background to crop</div>
+        <div class="banner-crop-hint" data-banner-crop-hint>Drag to position</div>
       </div>
 
       <p class="banner-preview-help">
-        The presenter, text safe area, gradient, and accent lines are locked. Only the dedicated banner
-        background, its crop, and the wording fields below can change.
+        Change the wording, colors, font, background, and crop below. The presenter stays in place.
       </p>
     </div>
 
     <form class="banner-controls" data-banner-form>
       <details class="banner-control-group" name="banner-control-sections" open>
-        <summary>Wording &amp; event details</summary>
+        <summary>Event details</summary>
         <div class="banner-control-content">
 
         <label class="banner-field">
@@ -98,7 +97,7 @@ const config = JSON.stringify({
         </label>
 
         <label class="banner-field">
-          <span>Subtitle or supporting wording</span>
+          <span>Subtitle</span>
           <textarea
             name="subtitle"
             rows="4"
@@ -126,7 +125,7 @@ const config = JSON.stringify({
         <div class="banner-control-content">
 
         <label class="banner-field">
-          <span>Banner font</span>
+          <span>Font</span>
           <select name="fontFamily">
             {BANNER_FONT_OPTIONS.map((option) => <option value={option.value}>{option.label}</option>)}
           </select>
@@ -152,7 +151,7 @@ const config = JSON.stringify({
         </div>
 
         <p class="banner-control-help">
-          These controls change the text treatment only. The presenter, text positions, overlay, and decoration stay locked.
+          Choose the font and colors for your text.
         </p>
         </div>
       </details>
@@ -169,7 +168,7 @@ const config = JSON.stringify({
         </label>
 
         <label class="banner-field">
-          <span>Preview your own background</span>
+          <span>Try your own background</span>
           <input
             name="backgroundUpload"
             type="file"
@@ -178,9 +177,7 @@ const config = JSON.stringify({
         </label>
 
         <p class="banner-control-help">
-          The uploaded file is saved locally with this banner so you can see and crop it here. To make it
-          available in Pages CMS and on other devices, upload it under Media → Banners, then reload
-          this page after the CMS change is committed.
+          For permanent use, add it in Pages CMS under Media → Banners.
         </p>
 
         <label class="banner-field banner-range-field">
@@ -196,27 +193,25 @@ const config = JSON.stringify({
         </div>
 
         <p class="banner-control-help">
-          Drag directly on the preview. Crop values are saved as normalized focal points, so they remain
-          stable at different display sizes.
+          Drag the background in the preview to position it.
         </p>
         </div>
       </details>
 
       <div class="banner-actions">
-        <button class="banner-primary-button" type="submit">Save on this device</button>
+        <button class="banner-primary-button" type="submit">Save</button>
         <button class="banner-secondary-button" type="button" data-banner-export>Export PNG</button>
       </div>
 
-      <p class="banner-status" data-banner-status role="status" aria-live="polite">Not saved yet.</p>
+      <p class="banner-status" data-banner-status role="status" aria-live="polite">Ready.</p>
       <div class="banner-validation" data-banner-validation aria-live="polite"></div>
 
       <aside class="banner-locked-note">
-        <p class="eyebrow">Template rules</p>
+        <p class="eyebrow">Quick tips</p>
         <ul>
-          <li>Presenter image and position are fixed.</li>
-          <li>Text stays inside a fixed safe area.</li>
-          <li>Long wording produces a warning before export.</li>
-          <li>Saved data is local to this browser and device.</li>
+          <li>The presenter stays in place.</li>
+          <li>Keep wording short for the best fit.</li>
+          <li>Save before exporting.</li>
         </ul>
       </aside>
     </form>
@@ -313,7 +308,7 @@ const config = JSON.stringify({
         const option = existingOption || document.createElement("option");
         option.dataset.bannerLocalUpload = "true";
         option.value = record.backgroundSrc;
-        option.textContent = `Local upload: ${record.backgroundName || "Uploaded background"}`;
+        option.textContent = `Uploaded: ${record.backgroundName || "Background"}`;
         if (!existingOption) backgroundSelect.append(option);
       } else if (existingOption) {
         existingOption.remove();
@@ -464,19 +459,19 @@ const config = JSON.stringify({
       if (!headline) {
         messages.push({ tone: "error", text: "Add a headline before exporting." });
       } else if (headline.length > BANNER_LIMITS.headlineWarningLength) {
-        messages.push({ tone: "warning", text: "The headline is long and may become smaller to stay inside the safe area." });
+        messages.push({ tone: "warning", text: "The headline is long and may appear smaller." });
       }
       if (subtitle.length > BANNER_LIMITS.subtitleWarningLength) {
-        messages.push({ tone: "warning", text: "The supporting wording is long and may become smaller to stay inside the safe area." });
+        messages.push({ tone: "warning", text: "The subtitle is long and may appear smaller." });
       }
       if (layout?.headline.overflow) {
-        messages.push({ tone: "error", text: "The headline is too long for the fixed safe area. Shorten it before exporting." });
+        messages.push({ tone: "error", text: "The headline is too long. Shorten it before exporting." });
       }
       if (layout?.subtitle.overflow) {
-        messages.push({ tone: "error", text: "The supporting wording is too long for the fixed safe area. Shorten it before exporting." });
+        messages.push({ tone: "error", text: "The subtitle is too long. Shorten it before exporting." });
       }
       if (!config.presenterSrc) {
-        messages.push({ tone: "error", text: "The approved presenter image is not installed, so PNG export is unavailable." });
+        messages.push({ tone: "error", text: "The presenter image is unavailable, so PNG export is not ready." });
       }
 
       validation.replaceChildren(...messages.map(({ tone, text }) => {
@@ -491,10 +486,10 @@ const config = JSON.stringify({
       record = getRecordFromForm();
       try {
         localStorage.setItem(storageKey, JSON.stringify(record));
-        setStatus("Saved on this device.", "success");
+        setStatus("Saved.", "success");
         updateValidation();
       } catch {
-        setStatus("This local upload is too large for browser storage. Add it through Pages CMS instead.", "error");
+        setStatus("This image is over 4 MB. Add it through Pages CMS.", "error");
       }
     };
 
@@ -503,10 +498,10 @@ const config = JSON.stringify({
         const saved = localStorage.getItem(storageKey);
         if (saved) {
           record = normalizeBannerRecord(JSON.parse(saved), availableBackgrounds);
-          setStatus("Loaded saved banner from this device.");
+          setStatus("Saved banner loaded.");
         }
       } catch {
-        setStatus("Saved data could not be read; using the default banner.", "warning");
+        setStatus("Could not load the saved banner. Using the default.", "warning");
       }
     };
 
@@ -516,7 +511,7 @@ const config = JSON.stringify({
       record.zoom = 1;
       applyRecordToForm();
       render();
-      setStatus("Crop reset. Save when you are happy with it.");
+      setStatus("Crop reset. Save when ready.");
     };
 
     const onPointerDown = (event) => {
@@ -549,7 +544,7 @@ const config = JSON.stringify({
       dragState.clientX = event.clientX;
       dragState.clientY = event.clientY;
       updateBackgroundGeometry();
-      setStatus("Crop changed. Save when you are happy with it.");
+      setStatus("Crop changed. Save when ready.");
       event.preventDefault();
     };
 
@@ -575,7 +570,7 @@ const config = JSON.stringify({
         return;
       }
       if (file.size > 4 * 1024 * 1024) {
-        setStatus("This local preview is limited to 4 MB. Add larger backgrounds through Pages CMS.", "error");
+        setStatus("This image is over 4 MB. Add it through Pages CMS.", "error");
         return;
       }
 
@@ -590,7 +585,7 @@ const config = JSON.stringify({
         applyRecordToForm();
         setBackgroundImage();
         render();
-        setStatus("Local background loaded. Save when you are happy with it.");
+        setStatus("Background loaded. Adjust it, then save.");
       };
       reader.onerror = () => setStatus("The background could not be read.", "error");
       reader.readAsDataURL(file);
@@ -639,7 +634,7 @@ const config = JSON.stringify({
       const layout = updatePreviewText();
       updateValidation(layout);
       if (!config.presenterSrc || !record.headline.trim() || layout?.headline.overflow || layout?.subtitle.overflow) {
-        setStatus("Resolve the validation warnings before exporting.", "error");
+        setStatus("Fix the warnings before exporting.", "error");
         return;
       }
 

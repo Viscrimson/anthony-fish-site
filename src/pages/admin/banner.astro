@@ -17,7 +17,7 @@ const listImages = (directory, publicDirectory) =>
     : [];
 
 const backgrounds = listImages(backgroundsDirectory, "banner/backgrounds");
-const presenterFilename = "presenter-cutout-restored.png";
+const presenterFilename = "presenter-cutout.png";
 const presenterFile = resolve(process.cwd(), "public", "banner", presenterFilename);
 const presenterSrc = existsSync(presenterFile) ? withBase(`banner/${presenterFilename}`) : "";
 ---
